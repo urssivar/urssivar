@@ -8,28 +8,28 @@ useSeoMeta({
 <template>
     <div>
         <p>
-            Рус <a href="/">Eng</a> //
-            <a href="https://t.me/urssivar">Телеграм</a> ∙
-            <a href="https://youtube.com/@urssivar">YouTube</a> ∙
-            <a href="https://github.com/urssivar">GitHub</a>
+            Рус <NuxtLink to="/">Eng</NuxtLink> //
+            <NuxtLink to="https://t.me/urssivar">Телеграм</NuxtLink> ∙
+            <NuxtLink to="https://youtube.com/@urssivar">YouTube</NuxtLink> ∙
+            <NuxtLink to="https://github.com/urssivar">GitHub</NuxtLink>
         </p>
         <h1>Urssivar: Кайтагские Исследования</h1>
         <p>Наллара дел да. Ьам ра бел.</p>
         <h2>Проекты</h2>
         <ul>
             <li>
-                <a href="https://codex.urssivar.com/ru">
+                <NuxtLink to="https://codex.urssivar.com/ru">
                     <h3>
                         Кайтагский язык
                     </h3>
-                </a>
+                </NuxtLink>
             </li>
             <li>
-                <a href="https://www.familytreedna.com/groups/kaitag/about">
+                <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">
                     <h3>
                         Кайтагская ДНК
                     </h3>
-                </a>
+                </NuxtLink>
             </li>
         </ul>
     </div>
