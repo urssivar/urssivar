@@ -3,10 +3,16 @@ useSeoMeta({
     title: 'Urssivar: Кайтагские Исследования',
     description: 'Ресурсы & технологии для сохранения и развития кайтагского языка, культуры, истории, и народа.',
 });
+
+useHead({
+    htmlAttrs: {
+        lang: 'ru'
+    }
+});
 </script>
 
 <template>
-    <div>
+    <main>
         <p>
             Рус <NuxtLink to="/">Eng</NuxtLink> //
             <NuxtLink to="https://t.me/urssivar">Телеграм</NuxtLink> ∙
@@ -74,5 +80,5 @@ useSeoMeta({
             Это позволяет восстанавливать разветвления внутри рода, изучать миграции и связи между сёлами.
         </p>
 
-    </div>
+    </main>
 </template>

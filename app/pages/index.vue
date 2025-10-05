@@ -6,7 +6,7 @@ useSeoMeta({
 </script>
 
 <template>
-    <div>
+    <main>
         <p>
             <NuxtLink to="/ru">Рус</NuxtLink> Eng //
             <NuxtLink to="https://t.me/urssivar">Telegram</NuxtLink> ∙
@@ -65,5 +65,5 @@ useSeoMeta({
             using Y-chromosomal analysis (paternal line) and autosomal testing (general ancestry).
             This allows reconstructing branches within clans, studying migrations and connections between villages.
         </p>
-    </div>
+    </main>
 </template>
