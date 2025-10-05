@@ -55,7 +55,7 @@ useSeoMeta({
         </p>
 
         <h3>
-            <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">Genealogy</NuxtLink>
+            <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</NuxtLink>
         </h3>
         <p>
             We compile Kaitag family trees — names, lifespans, villages of origin, and migration patterns.
