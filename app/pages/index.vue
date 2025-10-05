@@ -7,12 +7,12 @@ useSeoMeta({
 
 <template>
     <main>
-        <p>
+        <nav>
             <NuxtLink to="/ru">Рус</NuxtLink> Eng //
-            <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink> ∙
-            <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink> ∙
+            <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink> ·
+            <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink> ·
             <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
-        </p>
+        </nav>
         <h1>Urssivar: Kaitag Studies</h1>
         <p><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
 
