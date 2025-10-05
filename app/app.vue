@@ -15,7 +15,7 @@
 main {
   max-width: 65ch;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 1rem;
   line-height: 1.6;
 }
 
