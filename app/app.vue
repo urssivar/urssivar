@@ -42,4 +42,40 @@ h3 {
 p {
   margin-bottom: 1em;
 }
+
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+a {
+  color: #0066cc;
+}
+
+a:visited {
+  color: #551a8b;
+}
+
+a:hover {
+  color: #003d7a;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+  }
+
+  a {
+    color: #7eb3ff;
+  }
+
+  a:visited {
+    color: #b799ff;
+  }
+
+  a:hover {
+    color: #a8cfff;
+  }
+}
 </style>
