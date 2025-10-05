@@ -1,5 +1,5 @@
 {
-    "name": "Nuxt Development",
+    "name": "Urssivar",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "nuxt-app",
     "workspaceFolder": "/workspace",
@@ -10,7 +10,11 @@
         "vscode": {
             "extensions": [
                 "Vue.volar",
-                "ms-vscode.vscode-typescript-next"
+                "ms-vscode.vscode-typescript-next",
+                "dbaeumer.vscode-eslint",
+                "ms-azuretools.vscode-containers",
+                "yzhang.markdown-all-in-one",
+                "bradlc.vscode-tailwindcss"
             ]
         }
     }
