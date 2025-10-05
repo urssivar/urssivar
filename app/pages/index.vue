@@ -9,9 +9,9 @@ useSeoMeta({
     <main>
         <p>
             <NuxtLink to="/ru">Рус</NuxtLink> Eng //
-            <NuxtLink to="https://t.me/urssivar">Telegram</NuxtLink> ∙
-            <NuxtLink to="https://youtube.com/@urssivar">YouTube</NuxtLink> ∙
-            <NuxtLink to="https://github.com/urssivar">GitHub</NuxtLink>
+            <NuxtLink to="https://t.me/urssivar" target="_blank" rel="noopener noreferrer">Telegram</NuxtLink> ∙
+            <NuxtLink to="https://youtube.com/@urssivar" target="_blank" rel="noopener noreferrer">YouTube</NuxtLink> ∙
+            <NuxtLink to="https://github.com/urssivar" target="_blank" rel="noopener noreferrer">GitHub</NuxtLink>
         </p>
         <h1>Urssivar: Kaitag Studies</h1>
         <p>Nallara del da. Ham ra bel.</p>

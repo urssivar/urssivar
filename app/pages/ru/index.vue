@@ -15,9 +15,9 @@ useHead({
     <main>
         <p>
             Рус <NuxtLink to="/">Eng</NuxtLink> //
-            <NuxtLink to="https://t.me/urssivar">Телеграм</NuxtLink> ∙
-            <NuxtLink to="https://youtube.com/@urssivar">YouTube</NuxtLink> ∙
-            <NuxtLink to="https://github.com/urssivar">GitHub</NuxtLink>
+            <NuxtLink to="https://t.me/urssivar" target="_blank" rel="noopener noreferrer">Телеграм</NuxtLink> ∙
+            <NuxtLink to="https://youtube.com/@urssivar" target="_blank" rel="noopener noreferrer">YouTube</NuxtLink> ∙
+            <NuxtLink to="https://github.com/urssivar" target="_blank" rel="noopener noreferrer">GitHub</NuxtLink>
         </p>
         <h1>Urssivar: Кайтагские Исследования</h1>
         <p>Наллара дел да. Ьам ра бел.</p>
