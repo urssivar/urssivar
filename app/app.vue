@@ -43,6 +43,12 @@ p {
   margin-bottom: 1em;
 }
 
+nav {
+  display: flex;
+  gap: 0.75em;
+  flex-wrap: wrap;
+}
+
 body {
   background-color: #ffffff;
   color: #1a1a1a;

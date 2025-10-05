@@ -14,9 +14,11 @@ useHead({
 <template>
     <main>
         <nav>
-            Рус <NuxtLink to="/">Eng</NuxtLink> //
-            <NuxtLink to="https://t.me/urssivar" target="_blank">Телеграм</NuxtLink> ·
-            <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink> ·
+            Рус
+            <NuxtLink to="/">Eng</NuxtLink>
+            <span>/</span>
+            <NuxtLink to="https://t.me/urssivar" target="_blank">Телеграм</NuxtLink>
+            <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
             <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
         </nav>
         <h1>Urssivar: Кайтагские Исследования</h1>

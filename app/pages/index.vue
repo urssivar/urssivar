@@ -8,9 +8,11 @@ useSeoMeta({
 <template>
     <main>
         <nav>
-            <NuxtLink to="/ru">Рус</NuxtLink> Eng //
-            <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink> ·
-            <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink> ·
+            <NuxtLink to="/ru">Рус</NuxtLink>
+            Eng
+            <span>/</span>
+            <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink>
+            <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
             <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
         </nav>
         <h1>Urssivar: Kaitag Studies</h1>
