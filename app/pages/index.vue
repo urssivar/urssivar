@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 useSeoMeta({
     title: 'Urssivar: Kaitag Studies',
-    description: 'Resources & technologies for preserving and developing Kaitag language, culture, history, and people.',
+    description: 'Resources & technologies for preserving and studying Kaitag language, culture, history, and people.',
 });
 </script>
 
