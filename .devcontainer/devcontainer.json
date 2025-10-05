@@ -1,0 +1,17 @@
+{
+    "name": "Nuxt Development",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "nuxt-app",
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [
+        3000
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "Vue.volar",
+                "ms-vscode.vscode-typescript-next"
+            ]
+        }
+    }
+}
