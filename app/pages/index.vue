@@ -30,11 +30,9 @@ useSeoMeta({
             and reconstruct the ancient history of our people. All of this depends <strong>on us.</strong>
         </p>
 
-        <h2>Our Work</h2>
-
-        <h3>
+        <h2>
             <NuxtLink to="https://codex.urssivar.com">Kaitag Language</NuxtLink>
-        </h3>
+        </h2>
         <p>
             We're recording living Kaitag speech and building an archive of original texts: tales, stories, songs,
             proverbs —
@@ -54,9 +52,9 @@ useSeoMeta({
             culture.
         </p>
 
-        <h3>
+        <h2>
             <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</NuxtLink>
-        </h3>
+        </h2>
         <p>
             We compile Kaitag family trees — names, lifespans, villages of origin, and migration patterns.
             We also use DNA testing to establish ancient origins and kinship connections.
