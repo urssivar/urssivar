@@ -1,9 +1,9 @@
 services:
   nuxt-app:
-    image: node:24
+    build: .
     volumes:
       - .:/workspace:cached
-    command: sh -c "npm ci && (npm run dev &) && sleep infinity"
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0"
     ports:
       - "3000:3000"
     working_dir: /workspace

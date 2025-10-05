@@ -10,9 +10,7 @@
         "vscode": {
             "extensions": [
                 "Vue.volar",
-                "ms-vscode.vscode-typescript-next",
                 "dbaeumer.vscode-eslint",
-                "ms-azuretools.vscode-containers",
                 "yzhang.markdown-all-in-one",
                 "bradlc.vscode-tailwindcss"
             ]
