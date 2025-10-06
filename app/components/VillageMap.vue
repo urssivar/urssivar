@@ -90,11 +90,12 @@ function handleMouseLeave() {
 
 <template>
   <div class="village-map">
-    <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`" preserveAspectRatio="xMidYMid meet">
+    <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`"
+      preserveAspectRatio="xMidYMid meet">
       <g v-for="village in normalizedVillages" :key="village.name" @mouseenter="(e) => handleMouseEnter(e, village)"
         @mouseleave="handleMouseLeave">
-        <circle :cx="village.x" :cy="village.y" r="1.6" class="village-hitbox" />
-        <circle :cx="village.x" :cy="village.y" r="0.8" class="village-point" />
+        <circle :cx="village.x" :cy="village.y" r="1.5" class="village-hitbox" />
+        <circle :cx="village.x" :cy="village.y" r="0.4" class="village-point" />
       </g>
     </svg>
 
@@ -125,20 +126,18 @@ svg {
 
 .village-point {
   fill: currentColor;
-  opacity: 0.3;
   pointer-events: none;
-  transition: 0.2s;
+  transition: r 0.2s;
 }
 
 g:hover .village-point {
-  opacity: 1;
-  r: 1.2
+  r: 1.2;
 }
 
 .village-tooltip {
   position: fixed;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.75);
+  background: black;
   color: #fff;
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
