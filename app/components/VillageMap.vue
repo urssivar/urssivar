@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
+import villages from '~/data/villages.json';
 
 interface Village {
   name: string;
@@ -7,31 +8,15 @@ interface Village {
   lng: number;
 }
 
-type NormalizedVillage = Village & { x: number; y: number };
+type VillageMarker = Village & { x: number; y: number };
 
-const { data: csvText } = await useFetch('/villages.csv', {
-  transform: (data) => data as string
-});
-
-const villages = computed<Village[]>(() => {
-  if (!csvText.value) return [];
-  const lines = csvText.value.trim().split('\n').slice(1);
-  return lines
-    .map(line => {
-      const [name, lat, lng] = line.split(',');
-      if (!name || !lat || !lng) return null;
-      return { name: name.trim(), lat: parseFloat(lat), lng: parseFloat(lng) };
-    })
-    .filter((v): v is Village => v !== null);
-});
-
-const activeVillage = ref<NormalizedVillage | null>(null);
+const activeVillage = ref<VillageMarker | null>(null);
 const isManualHover = ref(false);
 const tooltipPos = ref({ x: 0, y: 0 });
 
 const mapDimensions = computed(() => {
-  const lats = villages.value.map(v => v.lat);
-  const lngs = villages.value.map(v => v.lng);
+  const lats = villages.map(v => v.lat);
+  const lngs = villages.map(v => v.lng);
   const minLat = Math.min(...lats);
   const maxLat = Math.max(...lats);
   const minLng = Math.min(...lngs);
@@ -50,9 +35,9 @@ const mapDimensions = computed(() => {
   };
 });
 
-const villageMarkers = computed<NormalizedVillage[]>(() => {
+const villageMarkers = computed<VillageMarker[]>(() => {
   const { maxLat, minLng, scale } = mapDimensions.value;
-  return villages.value.map(village => ({
+  return villages.map(village => ({
     ...village,
     x: ((village.lng - minLng) / scale) * 100,
     y: ((maxLat - village.lat) / scale) * 100
@@ -107,7 +92,7 @@ onMounted(() => {
   startAutoHover();
 });
 
-function handleMouseEnter(village: NormalizedVillage) {
+function handleMouseEnter(village: VillageMarker) {
   isManualHover.value = true;
   activeVillage.value = village;
   updateTooltipPosition(village.x, village.y);
