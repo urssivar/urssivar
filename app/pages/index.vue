@@ -16,9 +16,8 @@ useSeoMeta({
             <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
         </nav>
 
-        <Stamp />
-
         <h1>Urssivar: Kaitag Studies</h1>
+
         <p><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
 
         <p>
@@ -26,6 +25,7 @@ useSeoMeta({
             <strong>Time is running out</strong> — this is the last chance to preserve what remains.
             Every forgotten word, every lost lineage is a fragment of heritage that will disappear forever.
         </p>
+        <Stamp />
         <p>
             We're building a foundation for future research on Kaitag.
             With enough data, linguists will be able to classify dialects and understand how the language developed,

@@ -7,8 +7,8 @@
 <style scoped>
 .stamp-wrapper {
   float: right;
-  margin: 2rem 0 1rem 2rem;
-  width: calc(65ch / 3);
+  margin-left: 1rem;
+  width: 25%;
   transition: 0.2s;
   cursor: pointer;
   opacity: 0.3;
