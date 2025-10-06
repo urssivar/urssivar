@@ -84,7 +84,7 @@ useHead({
                 Это позволяет восстанавливать разветвления рода, изучать миграции и связи между сёлами.
             </p>
         </div>
-        <div class="content-wide">
+        <div class="content-narrow">
             <Stamp />
         </div>
     </main>

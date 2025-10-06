@@ -91,7 +91,7 @@ useSeoMeta({
                 villages.
             </p>
         </div>
-        <div class="content-wide">
+        <div class="content-narrow">
             <Stamp />
         </div>
     </main>
