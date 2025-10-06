@@ -8,7 +8,7 @@
 .content-narrow {
   max-width: 65ch;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .content-wide {
@@ -51,13 +51,14 @@ nav {
   display: flex;
   gap: 0.75em;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 body {
   background-color: #ffffff;
   color: #333333;
   margin: 0;
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 
 a:not(:active) {
@@ -66,7 +67,8 @@ a:not(:active) {
 
 .map-section {
   background: #f0f4f9;
-  margin: 1rem 0;
+  margin: 3rem 0;
+  padding: 2rem 0;
 }
 
 @media (prefers-color-scheme: dark) {
