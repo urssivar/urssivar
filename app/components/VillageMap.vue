@@ -9,7 +9,22 @@ interface Village {
 
 type NormalizedVillage = Village & { x: number; y: number };
 
-const villages = ref<Village[]>([]);
+const { data: csvText } = await useFetch('/villages.csv', {
+  transform: (data) => data as string
+});
+
+const villages = computed<Village[]>(() => {
+  if (!csvText.value) return [];
+  const lines = csvText.value.trim().split('\n').slice(1);
+  return lines
+    .map(line => {
+      const [name, lat, lng] = line.split(',');
+      if (!name || !lat || !lng) return null;
+      return { name: name.trim(), lat: parseFloat(lat), lng: parseFloat(lng) };
+    })
+    .filter((v): v is Village => v !== null);
+});
+
 const activeVillage = ref<NormalizedVillage | null>(null);
 const isManualHover = ref(false);
 const tooltipPos = ref({ x: 0, y: 0 });
@@ -35,7 +50,7 @@ const mapDimensions = computed(() => {
   };
 });
 
-const normalizedVillages = computed<NormalizedVillage[]>(() => {
+const villageMarkers = computed<NormalizedVillage[]>(() => {
   const { maxLat, minLng, scale } = mapDimensions.value;
   return villages.value.map(village => ({
     ...village,
@@ -69,10 +84,10 @@ function startAutoHover() {
   const AUTO_HOVER_INTERVAL = 2500;
 
   const autoHover = () => {
-    if (isManualHover.value || normalizedVillages.value.length === 0) return;
+    if (isManualHover.value || villageMarkers.value.length === 0) return;
 
-    const randomIndex = Math.floor(Math.random() * normalizedVillages.value.length);
-    const village = normalizedVillages.value[randomIndex];
+    const randomIndex = Math.floor(Math.random() * villageMarkers.value.length);
+    const village = villageMarkers.value[randomIndex];
     if (!village) return;
 
     activeVillage.value = village;
@@ -88,19 +103,7 @@ function startAutoHover() {
   setInterval(autoHover, AUTO_HOVER_INTERVAL);
 }
 
-onMounted(async () => {
-  const response = await fetch('/villages.csv');
-  const text = await response.text();
-  const lines = text.trim().split('\n').slice(1);
-
-  villages.value = lines
-    .map(line => {
-      const [name, lat, lng] = line.split(',');
-      if (!name || !lat || !lng) return null;
-      return { name: name.trim(), lat: parseFloat(lat), lng: parseFloat(lng) };
-    })
-    .filter((v): v is Village => v !== null);
-
+onMounted(() => {
   startAutoHover();
 });
 
@@ -120,7 +123,7 @@ function handleMouseLeave() {
   <div class="village-map">
     <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`"
       preserveAspectRatio="xMidYMid meet">
-      <g v-for="village in normalizedVillages" :key="village.name" @mouseenter="handleMouseEnter(village)"
+      <g v-for="village in villageMarkers" :key="village.name" @mouseenter="handleMouseEnter(village)"
         @mouseleave="handleMouseLeave">
         <circle :cx="village.x" :cy="village.y" class="village-hitbox" />
         <circle :cx="village.x" :cy="village.y" class="village-point"
