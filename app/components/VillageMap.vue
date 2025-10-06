@@ -13,7 +13,7 @@ const villages = ref<Village[]>([]);
 const hoveredVillage = ref<NormalizedVillage | null>(null);
 const tooltipPos = ref({ x: 0, y: 0 });
 const autoHoveredVillage = ref<NormalizedVillage | null>(null);
-const isMouseInside = ref(false);
+const userHasInteracted = ref(false);
 
 const mapDimensions = computed(() => {
   if (villages.value.length === 0) {
@@ -67,37 +67,48 @@ onMounted(async () => {
 
     // Auto-hover animation
     const autoHover = () => {
-      if (!isMouseInside.value && normalizedVillages.value.length > 0) {
+      if (!userHasInteracted.value && normalizedVillages.value.length > 0) {
         const randomIndex = Math.floor(Math.random() * normalizedVillages.value.length);
         const village = normalizedVillages.value[randomIndex]!;
         autoHoveredVillage.value = village!;
 
         // Calculate tooltip position for auto-hovered village
-        const svg = document.querySelector('.village-map svg');
-        if (svg) {
+        const mapEl = document.querySelector('.village-map') as HTMLElement;
+        const svg = mapEl?.querySelector('svg');
+        if (svg && mapEl) {
+          const rect = mapEl.getBoundingClientRect();
           const point = (svg as SVGSVGElement).createSVGPoint();
           point.x = village.x;
           point.y = village.y - 1.2;
           const ctm = (svg as SVGSVGElement).getScreenCTM();
           if (ctm) {
             const screenPoint = point.matrixTransform(ctm);
-            tooltipPos.value = { x: screenPoint.x, y: screenPoint.y };
+            tooltipPos.value = {
+              x: screenPoint.x - rect.left,
+              y: screenPoint.y - rect.top
+            };
           }
         }
 
         setTimeout(() => {
           autoHoveredVillage.value = null;
-        }, 800);
+        }, 1800);
       }
     };
 
-    setInterval(autoHover, 2000);
+    setInterval(autoHover, 2500);
   } catch (error) {
     console.error('Failed to load villages:', error);
   }
 });
 
 function handleMouseEnter(event: MouseEvent, village: NormalizedVillage) {
+  userHasInteracted.value = true;
+  autoHoveredVillage.value = null;
+  hoveredVillage.value = village;
+
+  const mapEl = (event.currentTarget as SVGGElement).closest('.village-map') as HTMLElement;
+  const rect = mapEl.getBoundingClientRect();
   const group = event.currentTarget as SVGGElement;
   const svg = group.ownerSVGElement;
   const ctm = svg?.getScreenCTM();
@@ -109,26 +120,19 @@ function handleMouseEnter(event: MouseEvent, village: NormalizedVillage) {
   point.y = bbox.y;
 
   const screenPoint = point.matrixTransform(ctm);
-  tooltipPos.value = { x: screenPoint.x, y: screenPoint.y };
-  hoveredVillage.value = village;
+  tooltipPos.value = {
+    x: screenPoint.x - rect.left,
+    y: screenPoint.y - rect.top
+  };
 }
 
 function handleMouseLeave() {
   hoveredVillage.value = null;
 }
-
-function handleMapMouseEnter() {
-  isMouseInside.value = true;
-  autoHoveredVillage.value = null;
-}
-
-function handleMapMouseLeave() {
-  isMouseInside.value = false;
-}
 </script>
 
 <template>
-  <div class="village-map" @mouseenter="handleMapMouseEnter" @mouseleave="handleMapMouseLeave">
+  <div class="village-map">
     <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`"
       preserveAspectRatio="xMidYMid meet">
       <g v-for="village in normalizedVillages" :key="village.name" @mouseenter="(e) => handleMouseEnter(e, village)"
@@ -176,7 +180,7 @@ g:hover .village-point,
 }
 
 .village-tooltip {
-  position: fixed;
+  position: absolute;
   pointer-events: none;
   background: black;
   color: #fff;
