@@ -13,7 +13,6 @@ const villages = ref<Village[]>([]);
 const hoveredVillage = ref<NormalizedVillage | null>(null);
 const tooltipPos = ref({ x: 0, y: 0 });
 const autoHoveredVillage = ref<NormalizedVillage | null>(null);
-const userHasInteracted = ref(false);
 
 const mapDimensions = computed(() => {
   if (villages.value.length === 0) {
@@ -67,33 +66,33 @@ onMounted(async () => {
 
     // Auto-hover animation
     const autoHover = () => {
-      if (!userHasInteracted.value && normalizedVillages.value.length > 0) {
-        const randomIndex = Math.floor(Math.random() * normalizedVillages.value.length);
-        const village = normalizedVillages.value[randomIndex]!;
-        autoHoveredVillage.value = village!;
+      if (hoveredVillage.value || normalizedVillages.value.length === 0) return;
 
-        // Calculate tooltip position for auto-hovered village
-        const mapEl = document.querySelector('.village-map') as HTMLElement;
-        const svg = mapEl?.querySelector('svg');
-        if (svg && mapEl) {
-          const rect = mapEl.getBoundingClientRect();
-          const point = (svg as SVGSVGElement).createSVGPoint();
-          point.x = village.x;
-          point.y = village.y - 1.2;
-          const ctm = (svg as SVGSVGElement).getScreenCTM();
-          if (ctm) {
-            const screenPoint = point.matrixTransform(ctm);
-            tooltipPos.value = {
-              x: screenPoint.x - rect.left,
-              y: screenPoint.y - rect.top
-            };
-          }
+      const randomIndex = Math.floor(Math.random() * normalizedVillages.value.length);
+      const village = normalizedVillages.value[randomIndex]!;
+      autoHoveredVillage.value = village!;
+
+      // Calculate tooltip position for auto-hovered village
+      const mapEl = document.querySelector('.village-map') as HTMLElement;
+      const svg = mapEl?.querySelector('svg');
+      if (svg && mapEl) {
+        const rect = mapEl.getBoundingClientRect();
+        const point = (svg as SVGSVGElement).createSVGPoint();
+        point.x = village.x;
+        point.y = village.y - 1.2;
+        const ctm = (svg as SVGSVGElement).getScreenCTM();
+        if (ctm) {
+          const screenPoint = point.matrixTransform(ctm);
+          tooltipPos.value = {
+            x: screenPoint.x - rect.left,
+            y: screenPoint.y - rect.top
+          };
         }
-
-        setTimeout(() => {
-          autoHoveredVillage.value = null;
-        }, 1800);
       }
+
+      setTimeout(() => {
+        autoHoveredVillage.value = null;
+      }, 1800);
     };
 
     setInterval(autoHover, 2500);
@@ -103,7 +102,6 @@ onMounted(async () => {
 });
 
 function handleMouseEnter(event: MouseEvent, village: NormalizedVillage) {
-  userHasInteracted.value = true;
   autoHoveredVillage.value = null;
   hoveredVillage.value = village;
 
