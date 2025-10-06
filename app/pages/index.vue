@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 useSeoMeta({
     title: 'Urssivar: Kaitag Studies',
     description: 'Resources & technologies for preserving and studying Kaitag language, culture, history, and people.',
@@ -15,7 +15,9 @@ useSeoMeta({
             <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
             <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
         </nav>
+
         <img src="/stamp.png" alt="" class="stamp" aria-hidden="true">
+
         <h1>Urssivar: Kaitag Studies</h1>
         <p><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
 
@@ -70,5 +72,7 @@ useSeoMeta({
             This allows us to reconstruct branches within clans, study migrations, and trace connections between
             villages.
         </p>
+
+        <VillageMap />
     </main>
 </template>
