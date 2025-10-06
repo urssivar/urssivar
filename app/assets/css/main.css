@@ -2,6 +2,7 @@
 
 * {
   font-family: "IBM Plex Mono", monospace;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .content-narrow {
