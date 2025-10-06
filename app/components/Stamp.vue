@@ -22,14 +22,14 @@
 .stamp {
   display: block;
   width: 100%;
-  filter: invert(1);
+  filter: invert(1) brightness(0.8);
   user-select: none;
   pointer-events: none;
 }
 
 @media (prefers-color-scheme: dark) {
   .stamp {
-    filter: invert(0);
+    filter: invert(0) brightness(0.8);
   }
 }
 </style>

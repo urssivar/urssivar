@@ -185,6 +185,8 @@ g:hover .village-point,
   color: #fff;
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
+  font-weight: bold;
+  font-style: italic;
   white-space: nowrap;
   transform: translate(-50%, -100%) translateY(-4px);
   z-index: 1000;
