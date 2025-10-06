@@ -8,8 +8,8 @@ useSeoMeta({
 <template>
     <main>
         <nav>
-            <NuxtLink to="/ru">Рус</NuxtLink>
             Eng
+            <NuxtLink to="/ru">Рус</NuxtLink>
             <span>/</span>
             <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink>
             <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>

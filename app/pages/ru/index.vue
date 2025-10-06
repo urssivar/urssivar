@@ -14,8 +14,8 @@ useHead({
 <template>
     <main>
         <nav>
-            Рус
             <NuxtLink to="/">Eng</NuxtLink>
+            Рус
             <span>/</span>
             <NuxtLink to="https://t.me/urssivar" target="_blank">Телеграм</NuxtLink>
             <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
