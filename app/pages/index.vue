@@ -15,6 +15,7 @@ useSeoMeta({
             <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
             <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
         </nav>
+        <img src="/stamp.png" alt="" class="stamp" aria-hidden="true">
         <h1>Urssivar: Kaitag Studies</h1>
         <p><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
 

@@ -11,6 +11,18 @@ main {
   line-height: 1.6;
 }
 
+.stamp {
+  display: block;
+  float: right;
+  margin: 2rem 0 1rem 2rem;
+  width: calc(65ch / 3);
+  opacity: 0.3;
+  filter: invert(1);
+  transform: rotate(15deg);
+  user-select: none;
+  pointer-events: none;
+}
+
 h1,
 h2,
 h3 {
@@ -58,5 +70,9 @@ a:not(:active) {
 
   a:not(:active) {
     color: #7eb3ff;
+  }
+
+  .stamp {
+    filter: invert(0);
   }
 }
