@@ -179,8 +179,8 @@ g:hover .village-point,
 .village-tooltip {
   position: absolute;
   pointer-events: none;
-  background: black;
-  color: #fff;
+  background: #333333;
+  color: #ffffff;
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   font-weight: bold;
@@ -188,6 +188,13 @@ g:hover .village-point,
   white-space: nowrap;
   transform: translate(-50%, -100%) translateY(-4px);
   z-index: 1000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .village-tooltip {
+    background: #cccccc;
+    color: #1a1a1a;
+  }
 }
 
 .fade-enter-active,
