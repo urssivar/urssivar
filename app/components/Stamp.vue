@@ -1,7 +1,7 @@
 <template>
   <div class="stamp-wrapper">
-    <img src="/stamp-text.png" alt="" class="stamp-text" aria-hidden="true" draggable="false">
-    <img src="/stamp-logo.png" alt="" class="stamp-logo" aria-hidden="true" draggable="false">
+    <img src="/stamp-text.svg" alt="" class="stamp-text" aria-hidden="true" draggable="false">
+    <img src="/stamp-logo.svg" alt="" class="stamp-logo" aria-hidden="true" draggable="false">
   </div>
 </template>
 
