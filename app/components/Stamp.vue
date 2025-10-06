@@ -6,9 +6,8 @@
 
 <style scoped>
 .stamp-wrapper {
-  float: right;
-  margin-left: 1rem;
-  width: 25%;
+  margin: auto;
+  width: 10%;
   transition: 0.2s;
   cursor: pointer;
   opacity: 0.3;

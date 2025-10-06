@@ -155,7 +155,6 @@ function handleMouseLeave() {
 <style scoped>
 .village-map {
   position: relative;
-  margin-top: 7rem;
 }
 
 svg {
