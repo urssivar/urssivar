@@ -20,36 +20,34 @@ useSeoMeta({
         <p><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
 
         <p>
-            We collect words, record stories, build family trees, and take DNA tests.
-            <strong>Time is running out</strong> — this is our last chance to preserve what remains.
-            Every forgotten word, every abandoned village, every lost lineage is one less fragment of our heritage.
+            We collect words, record stories, restore family trees, and conduct DNA testing.
+            <strong>Time is running out</strong> — this is the last chance to preserve what remains.
+            Every forgotten word, every lost lineage is a fragment of heritage that will disappear forever.
         </p>
         <p>
-            We're not just preserving memory. We're preparing materials for future Kaitag research.
-            With enough data, linguists will be able to classify dialects and understand how our language
-            sounded in the past, while geneticists will show where legends about village origins align with DNA evidence
-            and reconstruct the ancient history of our people. All of this depends <strong>on us.</strong>
+            We're building a foundation for future research on Kaitag.
+            With enough data, linguists will be able to classify dialects and understand how the language developed,
+            while geneticists can verify legends about village origins and reconstruct the ancient history of the
+            people.
+            All of this depends <strong>on us.</strong>
         </p>
 
         <h2>
             <NuxtLink to="https://codex.urssivar.com">Kaitag Language</NuxtLink>
         </h2>
         <p>
-            We're recording living Kaitag speech and building an archive of original texts: tales, stories, songs,
+            We're recording living Kaitag speech and creating an archive of original texts: tales, stories, songs,
             proverbs —
-            everything that will be lost forever if we don't capture it now, while the last generation of speakers is
+            everything that will disappear forever without documentation now, while the last generation of speakers is
             still alive.
         </p>
         <p>
-            <strong>Dictionary:</strong> The most complete lexical database of the Kaitag language by villages and
-            micro-regions.
-            A base corpus of 5,000 words has been collected; the dictionary now expands through contributions from
-            native speakers.
+            <strong>Dictionary:</strong> A lexical database of the Kaitag language by villages and micro-regions.
+            Base corpus of 5,000 words, expanding through contributions from native speakers.
         </p>
         <p>
-            <strong>Oral texts:</strong> Natural Kaitag speech — stories, memories, descriptions of daily life and
-            traditions,
-            dialogues and prayers. This preserves not only vocabulary, but also patterns of thought, speech style, and
+            <strong>Oral texts:</strong> Natural speech — stories, memories, descriptions of daily life and traditions,
+            dialogues, prayers. We document not only vocabulary, but also patterns of thought, speech style, and
             culture.
         </p>
 
@@ -57,18 +55,20 @@ useSeoMeta({
             <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</NuxtLink>
         </h2>
         <p>
-            We compile Kaitag family trees — names, lifespans, villages of origin, and migration patterns.
-            We also use DNA testing to establish ancient origins and kinship connections.
+            We compile family trees — names, lifespans, villages, migrations.
+            We use DNA testing to establish origins and kinship connections.
         </p>
         <p>
-            <strong>Family trees:</strong> We trace lineages backward through generations, as far as memory allows,
-            documenting years of life, native villages, and migrations.
+            <strong>Family trees:</strong> We trace lineages backward through generations, documenting years of life,
+            villages, and migrations.
         </p>
         <p>
-            <strong>DNA tests:</strong> Genetics provides precise answers — confirming or refuting genealogies and
-            showing the degree of kinship between families. We work with FamilyTreeDNA laboratory (USA),
-            using Y-chromosomal analysis (paternal line) and autosomal testing (general ancestry)
-            to reconstruct branches within clans and study migrations and connections between villages.
+            <strong>DNA tests:</strong> Genetics confirms or refutes genealogies and shows the degree of kinship between
+            families.
+            We work with FamilyTreeDNA laboratory (USA), using Y-chromosomal analysis (paternal line) and autosomal
+            testing (general ancestry).
+            This allows us to reconstruct branches within clans, study migrations, and trace connections between
+            villages.
         </p>
     </main>
 </template>
