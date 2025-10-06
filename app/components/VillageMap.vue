@@ -10,15 +10,11 @@ interface Village {
 type NormalizedVillage = Village & { x: number; y: number };
 
 const villages = ref<Village[]>([]);
-const hoveredVillage = ref<NormalizedVillage | null>(null);
+const activeVillage = ref<NormalizedVillage | null>(null);
+const isManualHover = ref(false);
 const tooltipPos = ref({ x: 0, y: 0 });
-const autoHoveredVillage = ref<NormalizedVillage | null>(null);
 
 const mapDimensions = computed(() => {
-  if (villages.value.length === 0) {
-    return { width: 100, height: 100, minLat: 0, maxLat: 0, minLng: 0, scale: 1 };
-  }
-
   const lats = villages.value.map(v => v.lat);
   const lngs = villages.value.map(v => v.lng);
   const minLat = Math.min(...lats);
@@ -27,7 +23,7 @@ const mapDimensions = computed(() => {
   const maxLng = Math.max(...lngs);
   const latRange = maxLat - minLat;
   const lngRange = maxLng - minLng;
-  const scale = Math.max(latRange, lngRange);
+  const scale = Math.max(latRange, lngRange) || 1;
 
   return {
     width: (lngRange / scale) * 100,
@@ -40,9 +36,7 @@ const mapDimensions = computed(() => {
 });
 
 const normalizedVillages = computed<NormalizedVillage[]>(() => {
-  if (villages.value.length === 0) return [];
   const { maxLat, minLng, scale } = mapDimensions.value;
-
   return villages.value.map(village => ({
     ...village,
     x: ((village.lng - minLng) / scale) * 100,
@@ -50,72 +44,18 @@ const normalizedVillages = computed<NormalizedVillage[]>(() => {
   }));
 });
 
-onMounted(async () => {
-  try {
-    const response = await fetch('/villages.csv');
-    const text = await response.text();
-    const lines = text.trim().split('\n').slice(1);
+function updateTooltipPosition(svgX: number, svgY: number) {
+  const mapEl = document.querySelector('.village-map') as HTMLElement;
+  const svg = mapEl?.querySelector('svg') as SVGSVGElement;
+  if (!svg || !mapEl) return;
 
-    villages.value = lines
-      .map(line => {
-        const [name, lat, lng] = line.split(',');
-        if (!name || !lat || !lng) return null;
-        return { name: name.trim(), lat: parseFloat(lat), lng: parseFloat(lng) };
-      })
-      .filter((v): v is Village => v !== null);
-
-    // Auto-hover animation
-    const autoHover = () => {
-      if (hoveredVillage.value || normalizedVillages.value.length === 0) return;
-
-      const randomIndex = Math.floor(Math.random() * normalizedVillages.value.length);
-      const village = normalizedVillages.value[randomIndex]!;
-      autoHoveredVillage.value = village!;
-
-      // Calculate tooltip position for auto-hovered village
-      const mapEl = document.querySelector('.village-map') as HTMLElement;
-      const svg = mapEl?.querySelector('svg');
-      if (svg && mapEl) {
-        const rect = mapEl.getBoundingClientRect();
-        const point = (svg as SVGSVGElement).createSVGPoint();
-        point.x = village.x;
-        point.y = village.y - 1.2;
-        const ctm = (svg as SVGSVGElement).getScreenCTM();
-        if (ctm) {
-          const screenPoint = point.matrixTransform(ctm);
-          tooltipPos.value = {
-            x: screenPoint.x - rect.left,
-            y: screenPoint.y - rect.top
-          };
-        }
-      }
-
-      setTimeout(() => {
-        autoHoveredVillage.value = null;
-      }, 1800);
-    };
-
-    setInterval(autoHover, 2500);
-  } catch (error) {
-    console.error('Failed to load villages:', error);
-  }
-});
-
-function handleMouseEnter(event: MouseEvent, village: NormalizedVillage) {
-  autoHoveredVillage.value = null;
-  hoveredVillage.value = village;
-
-  const mapEl = (event.currentTarget as SVGGElement).closest('.village-map') as HTMLElement;
   const rect = mapEl.getBoundingClientRect();
-  const group = event.currentTarget as SVGGElement;
-  const svg = group.ownerSVGElement;
-  const ctm = svg?.getScreenCTM();
-  if (!svg || !ctm) return;
-
   const point = svg.createSVGPoint();
-  const bbox = group.getBBox();
-  point.x = bbox.x + bbox.width / 2;
-  point.y = bbox.y;
+  point.x = svgX;
+  point.y = svgY;
+
+  const ctm = svg.getScreenCTM();
+  if (!ctm) return;
 
   const screenPoint = point.matrixTransform(ctm);
   tooltipPos.value = {
@@ -124,8 +64,55 @@ function handleMouseEnter(event: MouseEvent, village: NormalizedVillage) {
   };
 }
 
+function startAutoHover() {
+  const AUTO_HOVER_DURATION = 1800;
+  const AUTO_HOVER_INTERVAL = 2500;
+
+  const autoHover = () => {
+    if (isManualHover.value || normalizedVillages.value.length === 0) return;
+
+    const randomIndex = Math.floor(Math.random() * normalizedVillages.value.length);
+    const village = normalizedVillages.value[randomIndex];
+    if (!village) return;
+
+    activeVillage.value = village;
+    updateTooltipPosition(village.x, village.y);
+
+    setTimeout(() => {
+      if (!isManualHover.value) {
+        activeVillage.value = null;
+      }
+    }, AUTO_HOVER_DURATION);
+  };
+
+  setInterval(autoHover, AUTO_HOVER_INTERVAL);
+}
+
+onMounted(async () => {
+  const response = await fetch('/villages.csv');
+  const text = await response.text();
+  const lines = text.trim().split('\n').slice(1);
+
+  villages.value = lines
+    .map(line => {
+      const [name, lat, lng] = line.split(',');
+      if (!name || !lat || !lng) return null;
+      return { name: name.trim(), lat: parseFloat(lat), lng: parseFloat(lng) };
+    })
+    .filter((v): v is Village => v !== null);
+
+  startAutoHover();
+});
+
+function handleMouseEnter(village: NormalizedVillage) {
+  isManualHover.value = true;
+  activeVillage.value = village;
+  updateTooltipPosition(village.x, village.y);
+}
+
 function handleMouseLeave() {
-  hoveredVillage.value = null;
+  isManualHover.value = false;
+  activeVillage.value = null;
 }
 </script>
 
@@ -133,18 +120,18 @@ function handleMouseLeave() {
   <div class="village-map">
     <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`"
       preserveAspectRatio="xMidYMid meet">
-      <g v-for="village in normalizedVillages" :key="village.name" @mouseenter="(e) => handleMouseEnter(e, village)"
+      <g v-for="village in normalizedVillages" :key="village.name" @mouseenter="handleMouseEnter(village)"
         @mouseleave="handleMouseLeave">
-        <circle :cx="village.x" :cy="village.y" r="1.5" class="village-hitbox" />
-        <circle :cx="village.x" :cy="village.y" r="0.4" class="village-point"
-          :class="{ 'auto-hovered': autoHoveredVillage?.name === village.name }" />
+        <circle :cx="village.x" :cy="village.y" class="village-hitbox" />
+        <circle :cx="village.x" :cy="village.y" class="village-point"
+          :class="{ hovered: activeVillage?.name === village.name }" />
       </g>
     </svg>
 
     <Transition name="fade">
-      <div v-if="hoveredVillage || autoHoveredVillage" class="village-tooltip"
+      <div v-if="activeVillage" class="village-tooltip"
         :style="{ left: `${tooltipPos.x}px`, top: `${tooltipPos.y}px` }">
-        {{ hoveredVillage?.name || autoHoveredVillage?.name }}
+        {{ activeVillage.name }}
       </div>
     </Transition>
   </div>
@@ -161,18 +148,20 @@ svg {
 }
 
 .village-hitbox {
+  r: 1.5;
   fill: transparent;
   cursor: pointer;
 }
 
 .village-point {
+  r: 0.4;
   fill: currentColor;
   pointer-events: none;
   transition: r 0.2s;
 }
 
 g:hover .village-point,
-.village-point.auto-hovered {
+.village-point.hovered {
   r: 1.2;
 }
 
@@ -184,9 +173,8 @@ g:hover .village-point,
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
   font-weight: bold;
-  font-style: italic;
   white-space: nowrap;
-  transform: translate(-50%, -100%) translateY(-4px);
+  transform: translate(-50%, -100%) translateY(-12px);
   z-index: 1000;
 }
 
