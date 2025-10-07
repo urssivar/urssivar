@@ -108,7 +108,7 @@ function handleMouseLeave() {
   <div class="village-map">
     <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`" preserveAspectRatio="xMidYMid meet"
       class="map-backdrop">
-      <image href="/map.svg" x="-53.15" y="-9.91" width="206.01" height="71.47" preserveAspectRatio="none" />
+      <image href="/map.svg" x="-100.18" y="-26.04" width="300.3" height="103.9" preserveAspectRatio="none" />
     </svg>
 
     <div class="markers-container">
