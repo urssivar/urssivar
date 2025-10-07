@@ -1,13 +1,53 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "@nuxt/ui";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Serif:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@theme {
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-serif: "IBM Plex Serif", serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
 
 @layer base {
   * {
-    font-family: "IBM Plex Mono", monospace;
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-300 m-0 py-8;
+    @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-300 m-0 py-8 font-sans;
+  }
+
+  main {
+    @apply leading-relaxed;
+  }
+
+  h1 {
+    @apply text-2xl font-bold mt-0 mb-2 leading-snug font-serif;
+  }
+
+  h2 {
+    @apply text-xl font-bold mt-6 mb-2 leading-snug font-serif;
+  }
+
+  h3 {
+    @apply text-lg font-bold mt-4 mb-2 leading-snug font-serif;
+  }
+
+  p {
+    @apply mb-4;
+  }
+
+  a {
+    @apply text-blue-600 dark:text-blue-300 hover:underline;
+  }
+
+  [lang="xdq"] {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[65ch] mx-auto px-4;
   }
 }
