@@ -147,6 +147,13 @@ function handleMouseLeave() {
   height: 100%;
   top: 0;
   z-index: 0;
+  filter: invert(0);
+}
+
+@media (prefers-color-scheme: dark) {
+  .map-backdrop {
+    filter: invert(1);
+  }
 }
 
 .markers-container {
@@ -169,10 +176,20 @@ function handleMouseLeave() {
 }
 
 .village-point {
-  r: 0.4;
-  fill: currentColor;
+  r: 0.5;
+  fill: #0066cc;
+  stroke: #ffffff;
+  stroke-width: 0.75;
+  paint-order: stroke;
   pointer-events: none;
-  transition: r 0.2s;
+  transition: r 0.2s, stroke-width 0.2s;
+}
+
+@media (prefers-color-scheme: dark) {
+  .village-point {
+    fill: #7eb3ff;
+    stroke: #1a1a1a;
+  }
 }
 
 g:hover .village-point,
