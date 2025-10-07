@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import { LMap, LImageOverlay, LMarker } from '@vue-leaflet/vue-leaflet';
+import { computed } from 'vue';
+import { LMap, LImageOverlay, LMarker, LTooltip } from '@vue-leaflet/vue-leaflet';
+import { divIcon } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import villages from '~/data/villages.json';
 import type { LatLngBoundsExpression } from 'leaflet';
@@ -15,12 +16,6 @@ const MAP_EXPORT_BOUNDS = {
   maxLng: 48.2753,
   minLat: 41.8747,
   maxLat: 42.2207,
-} as const;
-
-/** Auto-hover animation timing (milliseconds) */
-const AUTO_HOVER = {
-  DURATION: 1800,
-  INTERVAL: 2500,
 } as const;
 
 // ============================================================================
@@ -58,61 +53,14 @@ const mapOptions = {
 };
 
 // ============================================================================
-// HOVER & AUTO-HOVER STATE
+// CUSTOM MARKER ICON
 // ============================================================================
 
-const activeVillageIndex = ref<number | null>(null);
-const isManualHover = ref(false);
-const tooltipOpenStates = ref<boolean[]>(new Array(villages.length).fill(false));
-
-let autoHoverInterval: ReturnType<typeof setInterval> | null = null;
-let autoHoverTimeout: ReturnType<typeof setTimeout> | null = null;
-
-function handleMouseOver(index: number) {
-  isManualHover.value = true;
-  activeVillageIndex.value = index;
-}
-
-function handleMouseOut() {
-  isManualHover.value = false;
-  activeVillageIndex.value = null;
-}
-
-function isMarkerActive(index: number) {
-  return activeVillageIndex.value === index;
-}
-
-// ============================================================================
-// AUTO-HOVER ANIMATION
-// ============================================================================
-
-function startAutoHover() {
-  const autoHover = () => {
-    if (isManualHover.value) return;
-
-    const randomIndex = Math.floor(Math.random() * villages.length);
-
-    activeVillageIndex.value = randomIndex;
-    tooltipOpenStates.value[randomIndex] = true;
-
-    autoHoverTimeout = setTimeout(() => {
-      if (!isManualHover.value) {
-        activeVillageIndex.value = null;
-        tooltipOpenStates.value[randomIndex] = false;
-      }
-    }, AUTO_HOVER.DURATION);
-  };
-
-  autoHoverInterval = setInterval(autoHover, AUTO_HOVER.INTERVAL);
-}
-
-onMounted(() => {
-  startAutoHover();
-});
-
-onBeforeUnmount(() => {
-  if (autoHoverInterval) clearInterval(autoHoverInterval);
-  if (autoHoverTimeout) clearTimeout(autoHoverTimeout);
+const markerIcon = divIcon({
+  html: '<div class="village-dot w-3 h-3 rounded-full border-2 border-white dark:border-gray-800 bg-red-600"></div>',
+  className: 'custom-village-marker',
+  iconSize: [12, 12],
+  iconAnchor: [6, 6],
 });
 </script>
 
@@ -123,14 +71,10 @@ onBeforeUnmount(() => {
       @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds, { padding: [50, 50] })">
       <LImageOverlay url="/map.png" :bounds="imageBounds" :opacity="1" class-name="map-backdrop-image" />
 
-      <LMarker v-for="(village, index) in villages" :key="village.name" :lat-lng="[village.lat, village.lng]">
-        <UTooltip v-model:open="tooltipOpenStates[index]" :text="village.name"
-          :content="{ side: 'top', sideOffset: 8 }">
-          <div :class="[
-            'w-3 h-3 rounded-full border-2 border-white dark:border-gray-800 bg-red-600 cursor-pointer transition-all duration-200',
-            isMarkerActive(index) ? 'scale-150' : 'scale-100'
-          ]" @mouseover="handleMouseOver(index)" @mouseout="handleMouseOut" />
-        </UTooltip>
+      <LMarker v-for="village in villages" :key="village.name" :lat-lng="[village.lat, village.lng]" :icon="markerIcon">
+        <LTooltip :options="{ direction: 'top', offset: [0, -8], className: 'village-tooltip' }">
+          <span lang="xdq">{{ village.name }}</span>
+        </LTooltip>
       </LMarker>
     </LMap>
   </div>
@@ -150,6 +94,51 @@ onBeforeUnmount(() => {
 @media (prefers-color-scheme: dark) {
   :deep(.map-backdrop-image) {
     filter: invert(1) brightness(0.8);
+  }
+}
+
+/* Custom marker styles */
+:deep(.custom-village-marker) {
+  background: transparent;
+  border: none;
+}
+
+:deep(.village-dot) {
+  transition: transform 200ms ease-out;
+  cursor: pointer;
+}
+
+:deep(.leaflet-marker-icon:hover .village-dot) {
+  transform: scale(1.5);
+}
+
+/* Custom tooltip styles */
+:deep(.village-tooltip) {
+  background: #f9fafb !important;
+  color: #1f2937 !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 0 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  padding: 4px 8px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  transition: opacity 150ms ease-out !important;
+}
+
+:deep(.village-tooltip::before) {
+  border-top-color: #e5e7eb !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :deep(.village-tooltip) {
+    background: #111827 !important;
+    color: #f9fafb !important;
+    border-color: #1f2937 !important;
+  }
+
+  :deep(.village-tooltip::before) {
+    border-top-color: #1f2937 !important;
   }
 }
 </style>
