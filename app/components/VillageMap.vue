@@ -154,14 +154,15 @@ function startAutoHover() {
 .village-map {
   margin: 3rem 0;
   position: relative;
-  width: 100vw;
   height: 600px;
-  left: 50%;
-  transform: translateX(-50%);
+  overflow-x: clip;
 }
 
 .map-container {
-  width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 100%;
   filter: brightness(0.8);
 }
