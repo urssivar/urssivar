@@ -154,12 +154,10 @@ function startAutoHover() {
 .village-map {
   margin: 3rem 0;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 600px;
-  max-width: 65ch;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .map-container {
@@ -190,10 +188,10 @@ function startAutoHover() {
   cursor: pointer;
 }
 
+/* Double-invert markers in dark mode to preserve original colors */
 @media (prefers-color-scheme: dark) {
   :deep(.village-marker) {
-    fill: #fca5a5 !important;
-    stroke: #1a1a1a !important;
+    filter: invert(1);
   }
 }
 
@@ -202,25 +200,23 @@ function startAutoHover() {
   background: #333333 !important;
   color: #ffffff !important;
   border: none !important;
+  border-radius: 0 !important;
   padding: 0.25rem 0.5rem !important;
   font-size: 0.875rem !important;
   font-weight: bold !important;
   white-space: nowrap !important;
   box-shadow: none !important;
+  opacity: 1 !important;
 }
 
 :deep(.village-tooltip::before) {
   border-top-color: #333333 !important;
 }
 
+/* Double-invert tooltip in dark mode to preserve original colors */
 @media (prefers-color-scheme: dark) {
   :deep(.village-tooltip) {
-    background: #cccccc !important;
-    color: #1a1a1a !important;
-  }
-
-  :deep(.village-tooltip::before) {
-    border-top-color: #cccccc !important;
+    filter: invert(1);
   }
 }
 </style>
