@@ -9,7 +9,7 @@ useSeoMeta({
     <main>
         <div class="content-container">
             <nav class="flex gap-4 flex-wrap mb-12 text-sm items-center">
-                <span class="text-gray-900 dark:text-gray-100">Eng</span>
+                <span>Eng</span>
                 <NuxtLink to="/ru">Рус</NuxtLink>
                 <USeparator orientation="vertical" class="h-4" />
                 <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink>

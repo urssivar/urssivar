@@ -16,7 +16,7 @@ useHead({
         <div class="content-container">
             <nav class="flex gap-4 flex-wrap mb-12 text-sm items-center">
                 <NuxtLink to="/">Eng</NuxtLink>
-                <span class="text-gray-900 dark:text-gray-100">Рус</span>
+                <span>Рус</span>
                 <USeparator orientation="vertical" class="h-4" />
                 <NuxtLink to="https://t.me/urssivar" target="_blank">Телеграм</NuxtLink>
                 <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
