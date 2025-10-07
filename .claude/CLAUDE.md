@@ -15,45 +15,54 @@ The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag vill
 - Manual hover: Mouse interaction with tooltips
 - Responsive: Map bleeds full-width, villages stay centered
 
-### Map Backdrop Alignment
+### Code Structure
 
-To update the QGIS map backdrop:
+The component is organized into clearly-sectioned blocks:
 
-**Export settings:**
+1. **TYPES**: TypeScript interfaces (`Village`, `VillageMarker`, `MapDimensions`)
+2. **CONSTANTS**: Configuration values that may need adjustment:
+   - `MAP_EXPORT_BOUNDS`: QGIS export bounds (update when changing map)
+   - `AUTO_HOVER`: Animation timing (DURATION, INTERVAL)
+   - `VIEWBOX_PADDING`: SVG coordinate space padding
+3. **COORDINATE SYSTEM**: Computed properties for coordinate transformations:
+   - `mapDimensions`: Village bounds and scale calculation
+   - `backdropPosition`: Calculates map image positioning (replaces hardcoded values)
+   - `villageMarkers`: Converts lat/lng to SVG coordinates
+4. **HOVER & TOOLTIP STATE**: Reactive state and positioning logic
+5. **AUTO-HOVER ANIMATION**: Interval-based random village highlighting
+6. **INTERACTION HANDLERS**: Mouse event handlers
+
+### Updating the Map Backdrop
+
+When exporting a new map from QGIS:
+
+**1. Export settings:**
 - CRS: EPSG:4326 (WGS 84)
 - Format: PNG (recommended) with antialiasing enabled
 - Bounds: 47.2754° to 48.2753° lng, 41.8747° to 42.2207° lat
 - Export at 2-3x resolution for retina displays (e.g., 3000-3500px width)
 
-**Current configuration:**
-- File: `/public/map2.png`
-- Backdrop params: `x="-100.18" y="-26.04" width="300.3" height="103.9"`
+**2. Update the component:**
+- Save new map image to `/public/map.png` (or change href in template)
+- Update `MAP_EXPORT_BOUNDS` constant with the exact bounds used in QGIS export
+- The backdrop will automatically position itself via `backdropPosition` computed property
 
-**Formula for calculating backdrop positioning:**
+**3. How backdrop positioning works:**
 
-Given:
-- Village bounds: `minLng, maxLng, minLat, maxLat` (from villages.json)
-- Map export bounds: `mapMinLng, mapMaxLng, mapMinLat, mapMaxLat` (from QGIS)
-- Component coordinate system: larger dimension (lng or lat range) = 100 units
-
-Calculate:
+The component automatically calculates backdrop position using this formula:
 ```javascript
-const villageMinLng = 47.60871727;
-const villageMaxLng = 47.94193536;
-const villageMinLat = 41.96142179;
-const villageMaxLat = 42.13407166;
+// From MAP_EXPORT_BOUNDS constant
+const { minLng: mapMinLng, maxLng: mapMaxLng,
+        minLat: mapMinLat, maxLat: mapMaxLat } = MAP_EXPORT_BOUNDS;
 
-const lngRange = villageMaxLng - villageMinLng; // 0.333°
-const latRange = villageMaxLat - villageMinLat; // 0.173°
-const scale = Math.max(lngRange, latRange); // 0.333°
+// From village data (calculated dynamically)
+const { minLng, maxLat, scale } = mapDimensions.value;
 
-// Map dimensions in SVG units
-const width = (mapMaxLng - mapMinLng) / scale * 100;
-const height = (mapMaxLat - mapMinLat) / scale * 100;
-
-// Position offsets
-const x = -((villageMinLng - mapMinLng) / scale * 100);
-const y = -((mapMaxLat - villageMaxLat) / scale * 100);
+// SVG dimensions and position
+const width = ((mapMaxLng - mapMinLng) / scale) * 100;
+const height = ((mapMaxLat - mapMinLat) / scale) * 100;
+const x = -((minLng - mapMinLng) / scale) * 100;
+const y = -((mapMaxLat - maxLat) / scale) * 100;
 ```
 
 **Why PNG over SVG:**
@@ -62,9 +71,36 @@ const y = -((mapMaxLat - villageMaxLat) / scale * 100);
 - Better browser performance
 - Consistent appearance across browsers
 
-### Styling Notes
+### Styling Configuration
 
 - Village dots: Link colors (#0066cc light, #7eb3ff dark) with white/dark stroke
 - Map backdrop: Inverted for dark mode with `brightness(0.8)` for softer appearance
 - Tooltip: Positioned above village on hover
-- Auto-hover animation: 1.8s display, 2.5s interval
+- Auto-hover animation: 1.8s display, 2.5s interval (configurable via `AUTO_HOVER` constant)
+
+### Troubleshooting
+
+**Map alignment issues:**
+- Verify `MAP_EXPORT_BOUNDS` exactly matches QGIS export bounds
+- Check that villages.json coordinates are within map bounds
+- Inspect `backdropPosition` computed value in Vue DevTools
+
+**Villages not appearing:**
+- Verify villages.json is valid JSON with `name`, `lat`, `lng` fields
+- Check browser console for errors
+- Ensure coordinate ranges aren't zero (handled by fallback in `mapDimensions`)
+
+**Tooltip positioning issues:**
+- Ensure template refs (`markersContainer`, `markersSvg`) are properly bound
+- Check that SVG has valid CTM (coordinate transformation matrix)
+- Verify container has non-zero dimensions
+
+### Refactoring Guidelines
+
+When modifying the component:
+
+1. **Keep sections clearly separated** - Use the comment dividers for organization
+2. **Extract magic numbers** - Add new configuration to CONSTANTS section
+3. **Maintain coordinate calculation clarity** - Keep formulas in COORDINATE SYSTEM section with JSDoc
+4. **Preserve two-layer architecture** - Backdrop and markers must remain separate for responsive design
+5. **Test with edge cases** - Empty villages.json, single village, extreme coordinate ranges

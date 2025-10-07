@@ -2,25 +2,74 @@
 import { ref, onMounted, computed } from 'vue';
 import villages from '~/data/villages.json';
 
+// ============================================================================
+// TYPES
+// ============================================================================
+
 interface Village {
   name: string;
   lat: number;
   lng: number;
 }
 
-type VillageMarker = Village & { x: number; y: number };
+interface VillageMarker extends Village {
+  x: number;
+  y: number;
+}
 
-const activeVillage = ref<VillageMarker | null>(null);
-const isManualHover = ref(false);
-const tooltipPos = ref({ x: 0, y: 0 });
+interface MapDimensions {
+  width: number;
+  height: number;
+  minLat: number;
+  maxLat: number;
+  minLng: number;
+  maxLng: number;
+  scale: number;
+}
 
-const mapDimensions = computed(() => {
+// ============================================================================
+// CONSTANTS
+// ============================================================================
+
+/** QGIS map export bounds (EPSG:4326 / WGS 84) */
+const MAP_EXPORT_BOUNDS = {
+  minLng: 47.2754,
+  maxLng: 48.2753,
+  minLat: 41.8747,
+  maxLat: 42.2207,
+} as const;
+
+/** Auto-hover animation timing (milliseconds) */
+const AUTO_HOVER = {
+  DURATION: 1800,
+  INTERVAL: 2500,
+} as const;
+
+/** SVG coordinate space padding */
+const VIEWBOX_PADDING = 5;
+
+// ============================================================================
+// COORDINATE SYSTEM
+// ============================================================================
+
+/**
+ * Calculate village bounds and coordinate system scale
+ *
+ * The coordinate system is normalized so that the larger dimension
+ * (longitude or latitude range) equals 100 units in SVG space.
+ */
+const mapDimensions = computed<MapDimensions>(() => {
+  if (villages.length === 0) {
+    return { width: 100, height: 100, minLat: 0, maxLat: 0, minLng: 0, maxLng: 0, scale: 1 };
+  }
+
   const lats = villages.map(v => v.lat);
   const lngs = villages.map(v => v.lng);
   const minLat = Math.min(...lats);
   const maxLat = Math.max(...lats);
   const minLng = Math.min(...lngs);
   const maxLng = Math.max(...lngs);
+
   const latRange = maxLat - minLat;
   const lngRange = maxLng - minLng;
   const scale = Math.max(latRange, lngRange) || 1;
@@ -31,43 +80,78 @@ const mapDimensions = computed(() => {
     minLat,
     maxLat,
     minLng,
-    scale
+    maxLng,
+    scale,
   };
 });
 
+/**
+ * Calculate backdrop positioning based on map export bounds
+ *
+ * Aligns the QGIS exported map image with the village coordinate system.
+ */
+const backdropPosition = computed(() => {
+  const { minLng, maxLat, scale } = mapDimensions.value;
+  const { minLng: mapMinLng, maxLng: mapMaxLng, minLat: mapMinLat, maxLat: mapMaxLat } = MAP_EXPORT_BOUNDS;
+
+  const width = ((mapMaxLng - mapMinLng) / scale) * 100;
+  const height = ((mapMaxLat - mapMinLat) / scale) * 100;
+  const x = -((minLng - mapMinLng) / scale) * 100;
+  const y = -((mapMaxLat - maxLat) / scale) * 100;
+
+  return { x, y, width, height };
+});
+
+/**
+ * Convert village lat/lng coordinates to SVG coordinate space
+ */
 const villageMarkers = computed<VillageMarker[]>(() => {
   const { maxLat, minLng, scale } = mapDimensions.value;
+
   return villages.map(village => ({
     ...village,
     x: ((village.lng - minLng) / scale) * 100,
-    y: ((maxLat - village.lat) / scale) * 100
+    y: ((maxLat - village.lat) / scale) * 100,
   }));
 });
 
-function updateTooltipPosition(svgX: number, svgY: number) {
-  const container = document.querySelector('.markers-container') as HTMLElement;
-  const svg = container?.querySelector('.village-markers') as SVGSVGElement;
-  if (!svg || !container) return;
+// ============================================================================
+// HOVER & TOOLTIP STATE
+// ============================================================================
 
-  const rect = container.getBoundingClientRect();
-  const point = svg.createSVGPoint();
+const activeVillage = ref<VillageMarker | null>(null);
+const isManualHover = ref(false);
+const tooltipPos = ref({ x: 0, y: 0 });
+
+const markersContainer = ref<HTMLElement | null>(null);
+const markersSvg = ref<SVGSVGElement | null>(null);
+
+/**
+ * Update tooltip position based on SVG coordinates
+ */
+function updateTooltipPosition(svgX: number, svgY: number) {
+  if (!markersSvg.value || !markersContainer.value) return;
+
+  const rect = markersContainer.value.getBoundingClientRect();
+  const point = markersSvg.value.createSVGPoint();
   point.x = svgX;
   point.y = svgY;
 
-  const ctm = svg.getScreenCTM();
+  const ctm = markersSvg.value.getScreenCTM();
   if (!ctm) return;
 
   const screenPoint = point.matrixTransform(ctm);
   tooltipPos.value = {
     x: screenPoint.x - rect.left,
-    y: screenPoint.y - rect.top
+    y: screenPoint.y - rect.top,
   };
 }
 
-function startAutoHover() {
-  const AUTO_HOVER_DURATION = 1800;
-  const AUTO_HOVER_INTERVAL = 2500;
+// ============================================================================
+// AUTO-HOVER ANIMATION
+// ============================================================================
 
+function startAutoHover() {
   const autoHover = () => {
     if (isManualHover.value || villageMarkers.value.length === 0) return;
 
@@ -82,15 +166,19 @@ function startAutoHover() {
       if (!isManualHover.value) {
         activeVillage.value = null;
       }
-    }, AUTO_HOVER_DURATION);
+    }, AUTO_HOVER.DURATION);
   };
 
-  setInterval(autoHover, AUTO_HOVER_INTERVAL);
+  setInterval(autoHover, AUTO_HOVER.INTERVAL);
 }
 
 onMounted(() => {
   startAutoHover();
 });
+
+// ============================================================================
+// INTERACTION HANDLERS
+// ============================================================================
 
 function handleMouseEnter(village: VillageMarker) {
   isManualHover.value = true;
@@ -106,13 +194,18 @@ function handleMouseLeave() {
 
 <template>
   <div class="village-map">
-    <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`" preserveAspectRatio="xMidYMid meet"
-      class="map-backdrop">
-      <image href="/map2.png" x="-100.18" y="-26.04" width="300.3" height="103.9" preserveAspectRatio="none" />
+    <!-- Backdrop layer: Full-width QGIS map -->
+    <svg
+      :viewBox="`${-VIEWBOX_PADDING} ${-VIEWBOX_PADDING} ${mapDimensions.width + VIEWBOX_PADDING * 2} ${mapDimensions.height + VIEWBOX_PADDING * 2}`"
+      preserveAspectRatio="xMidYMid meet" class="map-backdrop">
+      <image href="/map.png" :x="backdropPosition.x" :y="backdropPosition.y" :width="backdropPosition.width"
+        :height="backdropPosition.height" preserveAspectRatio="none" />
     </svg>
 
-    <div class="markers-container">
-      <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`"
+    <!-- Markers layer: Village dots constrained to reading column -->
+    <div ref="markersContainer" class="markers-container">
+      <svg ref="markersSvg"
+        :viewBox="`${-VIEWBOX_PADDING} ${-VIEWBOX_PADDING} ${mapDimensions.width + VIEWBOX_PADDING * 2} ${mapDimensions.height + VIEWBOX_PADDING * 2}`"
         preserveAspectRatio="xMidYMid meet" class="village-markers">
         <g v-for="village in villageMarkers" :key="village.name" @mouseenter="handleMouseEnter(village)"
           @mouseleave="handleMouseLeave">
@@ -139,6 +232,7 @@ function handleMouseLeave() {
   overflow-x: clip;
 }
 
+/* Backdrop layer: Full-width map bleeding edge-to-edge */
 .map-backdrop {
   position: absolute;
   left: 50%;
@@ -146,7 +240,6 @@ function handleMouseLeave() {
   width: 100vw;
   height: 100%;
   top: 0;
-  padding: 2rem 0;
   box-sizing: border-box;
   z-index: 0;
   filter: invert(0) brightness(0.8);
@@ -158,10 +251,10 @@ function handleMouseLeave() {
   }
 }
 
+/* Markers layer: Constrained to reading column */
 .markers-container {
   max-width: 65ch;
   margin: 0 auto;
-  padding: 2rem 1rem;
   position: relative;
   z-index: 1;
 }
@@ -171,6 +264,7 @@ function handleMouseLeave() {
   height: auto;
 }
 
+/* Village marker styles */
 .village-hitbox {
   r: 1.5;
   fill: transparent;
@@ -199,6 +293,7 @@ g:hover .village-point,
   r: 1.2;
 }
 
+/* Tooltip */
 .village-tooltip {
   position: absolute;
   pointer-events: none;
