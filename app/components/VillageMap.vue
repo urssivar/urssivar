@@ -108,6 +108,7 @@ function handleMouseLeave() {
   <div class="village-map">
     <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`"
       preserveAspectRatio="xMidYMid meet">
+      <image href="/map.svg" x="-53.15" y="-9.91" width="206.01" height="71.47" preserveAspectRatio="none" />
       <g v-for="village in villageMarkers" :key="village.name" @mouseenter="handleMouseEnter(village)"
         @mouseleave="handleMouseLeave">
         <circle :cx="village.x" :cy="village.y" class="village-hitbox" />
