@@ -29,7 +29,9 @@ useSeoMeta({
         </div>
 
         <div class="content-wide">
-            <VillageMap />
+            <ClientOnly>
+                <VillageMap />
+            </ClientOnly>
         </div>
 
         <div class="content-narrow">
