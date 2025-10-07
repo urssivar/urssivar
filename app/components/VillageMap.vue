@@ -45,8 +45,8 @@ const AUTO_HOVER = {
   INTERVAL: 2500,
 } as const;
 
-/** SVG coordinate space padding */
-const VIEWBOX_PADDING = 5;
+/** SVG coordinate space padding (adds breathing space inside the map) */
+const VIEWBOX_PADDING = 15;
 
 // ============================================================================
 // COORDINATE SYSTEM
@@ -255,6 +255,7 @@ function handleMouseLeave() {
 .markers-container {
   max-width: 65ch;
   margin: 0 auto;
+  padding: 0 1rem;
   position: relative;
   z-index: 1;
 }
