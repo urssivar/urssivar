@@ -274,7 +274,7 @@ function handleMouseLeave() {
 
 .village-point {
   r: 0.5;
-  fill: #0066cc;
+  fill: #dc2626;
   stroke: #ffffff;
   stroke-width: 0.75;
   paint-order: stroke;
@@ -284,7 +284,7 @@ function handleMouseLeave() {
 
 @media (prefers-color-scheme: dark) {
   .village-point {
-    fill: #7eb3ff;
+    fill: #fca5a5;
     stroke: #1a1a1a;
   }
 }
