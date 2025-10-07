@@ -170,13 +170,6 @@ function startAutoHover() {
   transform: translateX(-50%);
   width: 100vw;
   height: 100%;
-  filter: brightness(0.8);
-}
-
-@media (prefers-color-scheme: dark) {
-  .map-container {
-    filter: invert(1) brightness(0.8);
-  }
 }
 
 /* Override Leaflet default styles */
@@ -185,21 +178,20 @@ function startAutoHover() {
 }
 
 :deep(.map-backdrop-image) {
-  /* Ensure the backdrop is behind markers */
   z-index: 1;
+  filter: brightness(0.8);
+}
+
+@media (prefers-color-scheme: dark) {
+  :deep(.map-backdrop-image) {
+    filter: invert(1) brightness(0.8);
+  }
 }
 
 :deep(.village-marker) {
   z-index: 1000;
   transition: all 0.2s;
   cursor: pointer;
-}
-
-/* Double-invert markers in dark mode to preserve original colors */
-@media (prefers-color-scheme: dark) {
-  :deep(.village-marker) {
-    filter: invert(1);
-  }
 }
 
 /* Tooltip styling to match original design */
@@ -220,10 +212,14 @@ function startAutoHover() {
   border-top-color: #333333 !important;
 }
 
-/* Double-invert tooltip in dark mode to preserve original colors */
 @media (prefers-color-scheme: dark) {
   :deep(.village-tooltip) {
-    filter: invert(1);
+    background: #cccccc !important;
+    color: #1a1a1a !important;
+  }
+
+  :deep(.village-tooltip::before) {
+    border-top-color: #cccccc !important;
   }
 }
 </style>
