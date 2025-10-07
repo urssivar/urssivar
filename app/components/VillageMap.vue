@@ -108,12 +108,12 @@ function handleMouseLeave() {
   <div class="village-map">
     <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`" preserveAspectRatio="xMidYMid meet"
       class="map-backdrop">
-      <image href="/map.svg" x="-100.18" y="-26.04" width="300.3" height="103.9" preserveAspectRatio="none" />
+      <image href="/map2.png" x="-100.18" y="-26.04" width="300.3" height="103.9" preserveAspectRatio="none" />
     </svg>
 
     <div class="markers-container">
-      <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`" preserveAspectRatio="xMidYMid meet"
-        class="village-markers">
+      <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`"
+        preserveAspectRatio="xMidYMid meet" class="village-markers">
         <g v-for="village in villageMarkers" :key="village.name" @mouseenter="handleMouseEnter(village)"
           @mouseleave="handleMouseLeave">
           <circle :cx="village.x" :cy="village.y" class="village-hitbox" />
@@ -146,20 +146,22 @@ function handleMouseLeave() {
   width: 100vw;
   height: 100%;
   top: 0;
+  padding: 2rem 0;
+  box-sizing: border-box;
   z-index: 0;
-  filter: invert(0);
+  filter: invert(0) brightness(0.8);
 }
 
 @media (prefers-color-scheme: dark) {
   .map-backdrop {
-    filter: invert(1);
+    filter: invert(1) brightness(0.8);
   }
 }
 
 .markers-container {
   max-width: 65ch;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
   position: relative;
   z-index: 1;
 }
