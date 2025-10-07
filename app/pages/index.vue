@@ -6,36 +6,39 @@ useSeoMeta({
 </script>
 
 <template>
-    <main>
-        <div class="content-narrow">
-            <nav>
+    <main class="leading-relaxed">
+        <div class="max-w-[65ch] mx-auto px-4">
+            <nav class="flex gap-3 flex-wrap mb-8">
                 Eng
-                <NuxtLink to="/ru">Рус</NuxtLink>
+                <NuxtLink to="/ru" class="text-blue-600 dark:text-blue-300 hover:underline">Рус</NuxtLink>
                 <span>/</span>
-                <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink>
-                <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
-                <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
+                <NuxtLink to="https://t.me/urssivar" target="_blank"
+                    class="text-blue-600 dark:text-blue-300 hover:underline">Telegram</NuxtLink>
+                <NuxtLink to="https://youtube.com/@urssivar" target="_blank"
+                    class="text-blue-600 dark:text-blue-300 hover:underline">YouTube</NuxtLink>
+                <NuxtLink to="https://github.com/urssivar" target="_blank"
+                    class="text-blue-600 dark:text-blue-300 hover:underline">GitHub</NuxtLink>
             </nav>
 
-            <h1>Urssivar: Kaitag Studies</h1>
+            <h1 class="text-2xl font-bold mt-0 mb-2 leading-snug">Urssivar: Kaitag Studies</h1>
 
-            <p><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
+            <p class="mb-4"><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
 
-            <p>
+            <p class="mb-4">
                 We collect words, record stories, restore family trees, and conduct DNA testing.
                 <strong>Time is running out</strong> — this is the last chance to preserve what remains.
                 Every forgotten word, every lost lineage is a fragment of heritage that will disappear forever.
             </p>
         </div>
 
-        <div class="content-wide">
+        <div class="w-full">
             <ClientOnly>
                 <VillageMap />
             </ClientOnly>
         </div>
 
-        <div class="content-narrow">
-            <p>
+        <div class="max-w-[65ch] mx-auto px-4">
+            <p class="mb-4">
                 We're building a foundation for future research on Kaitag.
                 With enough data, linguists will be able to classify dialects and understand how the language
                 developed,
@@ -44,10 +47,11 @@ useSeoMeta({
                 people.
                 All of this depends <strong>on us.</strong>
             </p>
-            <h2>
-                <NuxtLink to="https://codex.urssivar.com">Kaitag Language</NuxtLink>
+            <h2 class="text-xl font-bold mt-6 mb-2 leading-snug">
+                <NuxtLink to="https://codex.urssivar.com" class="text-blue-600 dark:text-blue-300 hover:underline">
+                    Kaitag Language</NuxtLink>
             </h2>
-            <p>
+            <p class="mb-4">
                 We're recording living Kaitag speech and creating an archive of original texts: tales, stories,
                 songs,
                 proverbs —
@@ -56,31 +60,32 @@ useSeoMeta({
                 is
                 still alive.
             </p>
-            <p>
+            <p class="mb-4">
                 <strong>Dictionary:</strong> A lexical database of the Kaitag language by villages and
                 micro-regions.
                 Base corpus of 5,000 words, expanding through contributions from native speakers.
             </p>
-            <p>
+            <p class="mb-4">
                 <strong>Oral texts:</strong> Natural speech — stories, memories, descriptions of daily life and
                 traditions,
                 dialogues, prayers. We document not only vocabulary, but also patterns of thought, speech style, and
                 culture.
             </p>
 
-            <h2>
-                <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</NuxtLink>
+            <h2 class="text-xl font-bold mt-6 mb-2 leading-snug">
+                <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about"
+                    class="text-blue-600 dark:text-blue-300 hover:underline">Kaitag Genealogy</NuxtLink>
             </h2>
-            <p>
+            <p class="mb-4">
                 We compile family trees — names, lifespans, villages, migrations.
                 We use DNA testing to establish origins and kinship connections.
             </p>
-            <p>
+            <p class="mb-4">
                 <strong>Family trees:</strong> We trace lineages backward through generations, documenting years of
                 life,
                 villages, and migrations.
             </p>
-            <p>
+            <p class="mb-4">
                 <strong>DNA tests:</strong> Genetics confirms or refutes genealogies and shows the degree of kinship
                 between
                 families.
@@ -92,7 +97,7 @@ useSeoMeta({
             </p>
         </div>
 
-        <div class="content-narrow">
+        <div class="max-w-[65ch] mx-auto px-4">
             <Stamp />
         </div>
     </main>
