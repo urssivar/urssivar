@@ -45,11 +45,11 @@ const villageMarkers = computed<VillageMarker[]>(() => {
 });
 
 function updateTooltipPosition(svgX: number, svgY: number) {
-  const mapEl = document.querySelector('.village-map') as HTMLElement;
-  const svg = mapEl?.querySelector('svg') as SVGSVGElement;
-  if (!svg || !mapEl) return;
+  const container = document.querySelector('.markers-container') as HTMLElement;
+  const svg = container?.querySelector('.village-markers') as SVGSVGElement;
+  if (!svg || !container) return;
 
-  const rect = mapEl.getBoundingClientRect();
+  const rect = container.getBoundingClientRect();
   const point = svg.createSVGPoint();
   point.x = svgX;
   point.y = svgY;
@@ -111,22 +111,24 @@ function handleMouseLeave() {
       <image href="/map.svg" x="-53.15" y="-9.91" width="206.01" height="71.47" preserveAspectRatio="none" />
     </svg>
 
-    <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`" preserveAspectRatio="xMidYMid meet"
-      class="village-markers">
-      <g v-for="village in villageMarkers" :key="village.name" @mouseenter="handleMouseEnter(village)"
-        @mouseleave="handleMouseLeave">
-        <circle :cx="village.x" :cy="village.y" class="village-hitbox" />
-        <circle :cx="village.x" :cy="village.y" class="village-point"
-          :class="{ hovered: activeVillage?.name === village.name }" />
-      </g>
-    </svg>
+    <div class="markers-container">
+      <svg :viewBox="`-5 -5 ${mapDimensions.width + 10} ${mapDimensions.height + 10}`" preserveAspectRatio="xMidYMid meet"
+        class="village-markers">
+        <g v-for="village in villageMarkers" :key="village.name" @mouseenter="handleMouseEnter(village)"
+          @mouseleave="handleMouseLeave">
+          <circle :cx="village.x" :cy="village.y" class="village-hitbox" />
+          <circle :cx="village.x" :cy="village.y" class="village-point"
+            :class="{ hovered: activeVillage?.name === village.name }" />
+        </g>
+      </svg>
 
-    <Transition name="fade">
-      <div v-if="activeVillage" class="village-tooltip"
-        :style="{ left: `${tooltipPos.x}px`, top: `${tooltipPos.y}px` }">
-        {{ activeVillage.name }}
-      </div>
-    </Transition>
+      <Transition name="fade">
+        <div v-if="activeVillage" class="village-tooltip"
+          :style="{ left: `${tooltipPos.x}px`, top: `${tooltipPos.y}px` }">
+          {{ activeVillage.name }}
+        </div>
+      </Transition>
+    </div>
   </div>
 </template>
 
@@ -134,6 +136,7 @@ function handleMouseLeave() {
 .village-map {
   margin: 3rem 0;
   position: relative;
+  overflow-x: clip;
 }
 
 .map-backdrop {
@@ -146,9 +149,15 @@ function handleMouseLeave() {
   z-index: 0;
 }
 
-.village-markers {
+.markers-container {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 0 1rem;
   position: relative;
   z-index: 1;
+}
+
+.village-markers {
   width: 100%;
   height: auto;
 }
