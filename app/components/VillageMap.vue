@@ -273,7 +273,7 @@ function handleMouseLeave() {
 }
 
 .village-point {
-  r: 0.5;
+  r: 0.75;
   fill: #dc2626;
   stroke: #ffffff;
   stroke-width: 0.75;
