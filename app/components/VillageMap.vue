@@ -1,18 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import L from 'leaflet';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { LMap, LImageOverlay, LCircleMarker, LTooltip } from '@vue-leaflet/vue-leaflet';
 import 'leaflet/dist/leaflet.css';
 import villages from '~/data/villages.json';
-
-// ============================================================================
-// TYPES
-// ============================================================================
-
-interface Village {
-  name: string;
-  lat: number;
-  lng: number;
-}
+import type { LatLngBoundsExpression } from 'leaflet';
 
 // ============================================================================
 // CONSTANTS
@@ -33,89 +24,78 @@ const AUTO_HOVER = {
 } as const;
 
 // ============================================================================
-// LEAFLET MAP SETUP
+// MAP CONFIGURATION
 // ============================================================================
 
-const mapContainer = ref<HTMLElement | null>(null);
-let map: L.Map | null = null;
-let markers: L.CircleMarker[] = [];
+const villageBounds = computed<LatLngBoundsExpression>(() => {
+  const lats = villages.map(v => v.lat);
+  const lngs = villages.map(v => v.lng);
+  return [
+    [Math.min(...lats), Math.min(...lngs)],
+    [Math.max(...lats), Math.max(...lngs)],
+  ];
+});
+
+const imageBounds = computed<LatLngBoundsExpression>(() => [
+  [MAP_EXPORT_BOUNDS.minLat, MAP_EXPORT_BOUNDS.minLng],
+  [MAP_EXPORT_BOUNDS.maxLat, MAP_EXPORT_BOUNDS.maxLng],
+]);
+
+const mapCenter = computed(() => [
+  (MAP_EXPORT_BOUNDS.minLat + MAP_EXPORT_BOUNDS.maxLat) / 2,
+  (MAP_EXPORT_BOUNDS.minLng + MAP_EXPORT_BOUNDS.maxLng) / 2,
+]);
+
+const mapOptions = {
+  zoomControl: false,
+  dragging: false,
+  touchZoom: false,
+  scrollWheelZoom: false,
+  doubleClickZoom: false,
+  boxZoom: false,
+  keyboard: false,
+  attributionControl: false,
+};
+
+const markerOptions = {
+  fillColor: '#dc2626',
+  color: '#ffffff',
+  weight: 2,
+  fillOpacity: 1,
+  className: 'village-marker',
+};
+
+const tooltipOptions = {
+  permanent: false,
+  direction: 'top' as const,
+  offset: [0, -10] as [number, number],
+  className: 'village-tooltip',
+};
+
+// ============================================================================
+// HOVER & AUTO-HOVER STATE
+// ============================================================================
+
+const activeVillageIndex = ref<number | null>(null);
+const isManualHover = ref(false);
+const markerRefs = ref<any[]>([]);
+
 let autoHoverInterval: ReturnType<typeof setInterval> | null = null;
 let autoHoverTimeout: ReturnType<typeof setTimeout> | null = null;
-let isManualHover = false;
 
-onMounted(() => {
-  if (!mapContainer.value) return;
+function handleMouseOver(index: number) {
+  isManualHover.value = true;
+  activeVillageIndex.value = index;
+}
 
-  // Calculate bounds from villages
-  const bounds = L.latLngBounds(
-    villages.map(v => [v.lat, v.lng] as [number, number])
-  );
+function handleMouseOut() {
+  isManualHover.value = false;
+  activeVillageIndex.value = null;
+}
 
-  // Initialize map with no interactivity
-  map = L.map(mapContainer.value, {
-    zoomControl: false,
-    dragging: false,
-    touchZoom: false,
-    scrollWheelZoom: false,
-    doubleClickZoom: false,
-    boxZoom: false,
-    keyboard: false,
-    attributionControl: false,
-  });
-
-  // Fit to village bounds with padding
-  map.fitBounds(bounds);
-
-  // Add backdrop image overlay
-  L.imageOverlay('/map.png', [
-    [MAP_EXPORT_BOUNDS.minLat, MAP_EXPORT_BOUNDS.minLng],
-    [MAP_EXPORT_BOUNDS.maxLat, MAP_EXPORT_BOUNDS.maxLng],
-  ], {
-    opacity: 1,
-    className: 'map-backdrop-image',
-  }).addTo(map);
-
-  // Add village markers
-  villages.forEach((village: Village) => {
-    const marker = L.circleMarker([village.lat, village.lng], {
-      radius: 6,
-      fillColor: '#dc2626',
-      color: '#ffffff',
-      weight: 2,
-      fillOpacity: 1,
-      className: 'village-marker',
-    });
-
-    marker.bindTooltip(village.name, {
-      permanent: false,
-      direction: 'top',
-      offset: [0, -10],
-      className: 'village-tooltip',
-    });
-
-    marker.on('mouseover', () => {
-      isManualHover = true;
-      marker.setStyle({ radius: 9 });
-    });
-
-    marker.on('mouseout', () => {
-      isManualHover = false;
-      marker.setStyle({ radius: 6 });
-    });
-
-    marker.addTo(map!);
-    markers.push(marker);
-  });
-
-  // Start auto-hover animation
-  startAutoHover();
-});
-
-onBeforeUnmount(() => {
-  if (autoHoverInterval) clearInterval(autoHoverInterval);
-  if (autoHoverTimeout) clearTimeout(autoHoverTimeout);
-  if (map) map.remove();
-});
+function getMarkerRadius(index: number) {
+  return activeVillageIndex.value === index ? 9 : 6;
+}
 
 // ============================================================================
 // AUTO-HOVER ANIMATION
@@ -123,30 +103,71 @@ onBeforeUnmount(() => {
 
 function startAutoHover() {
   const autoHover = () => {
-    if (isManualHover || markers.length === 0) return;
+    if (isManualHover.value || markerRefs.value.length === 0) return;
 
-    const randomIndex = Math.floor(Math.random() * markers.length);
-    const marker = markers[randomIndex];
-    if (!marker) return;
+    const randomIndex = Math.floor(Math.random() * markerRefs.value.length);
+    const markerRef = markerRefs.value[randomIndex];
+    if (!markerRef?.leafletObject) return;
 
-    marker.openTooltip();
-    marker.setStyle({ radius: 9 });
+    activeVillageIndex.value = randomIndex;
+    markerRef.leafletObject.openTooltip();
 
     autoHoverTimeout = setTimeout(() => {
-      if (!isManualHover) {
-        marker.closeTooltip();
-        marker.setStyle({ radius: 6 });
+      if (!isManualHover.value) {
+        activeVillageIndex.value = null;
+        markerRef.leafletObject.closeTooltip();
       }
     }, AUTO_HOVER.DURATION);
   };
 
   autoHoverInterval = setInterval(autoHover, AUTO_HOVER.INTERVAL);
 }
+
+onMounted(() => {
+  startAutoHover();
+});
+
+onBeforeUnmount(() => {
+  if (autoHoverInterval) clearInterval(autoHoverInterval);
+  if (autoHoverTimeout) clearTimeout(autoHoverTimeout);
+});
 </script>
 
 <template>
   <div class="village-map">
-    <div ref="mapContainer" class="map-container"></div>
+    <LMap
+      :zoom="8"
+      :center="mapCenter"
+      :options="mapOptions"
+      :use-global-leaflet="false"
+      class="map-container"
+      @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds, { padding: [50, 50] })"
+    >
+      <LImageOverlay
+        url="/map.png"
+        :bounds="imageBounds"
+        :opacity="1"
+        class-name="map-backdrop-image"
+      />
+
+      <LCircleMarker
+        v-for="(village, index) in villages"
+        :key="village.name"
+        :ref="(el: any) => markerRefs[index] = el"
+        :lat-lng="[village.lat, village.lng]"
+        :radius="getMarkerRadius(index)"
+        :fill-color="markerOptions.fillColor"
+        :color="markerOptions.color"
+        :weight="markerOptions.weight"
+        :fill-opacity="markerOptions.fillOpacity"
+        @mouseover="handleMouseOver(index)"
+        @mouseout="handleMouseOut"
+      >
+        <LTooltip :options="tooltipOptions">
+          {{ village.name }}
+        </LTooltip>
+      </LCircleMarker>
+    </LMap>
   </div>
 </template>
 
@@ -154,7 +175,7 @@ function startAutoHover() {
 .village-map {
   margin: 3rem 0;
   position: relative;
-  height: 250px;
+  height: 350px;
   overflow-x: clip;
 }
 
