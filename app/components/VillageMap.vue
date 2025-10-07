@@ -191,6 +191,7 @@ onBeforeUnmount(() => {
   font-size: 14px !important;
   font-weight: 700 !important;
   white-space: nowrap !important;
+  transition: opacity 150ms;
 }
 
 :deep(.village-tooltip::before) {
