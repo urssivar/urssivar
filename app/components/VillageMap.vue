@@ -64,7 +64,7 @@ onMounted(() => {
   });
 
   // Fit to village bounds with padding
-  map.fitBounds(bounds, { padding: [50, 50] });
+  map.fitBounds(bounds);
 
   // Add backdrop image overlay
   L.imageOverlay('/map.png', [
@@ -154,8 +154,14 @@ function startAutoHover() {
 .village-map {
   margin: 3rem 0;
   position: relative;
-  height: 600px;
+  height: 250px;
   overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  .village-map {
+    height: 475px;
+  }
 }
 
 .map-container {
