@@ -7,6 +7,24 @@
   --font-sans: "IBM Plex Sans", sans-serif;
   --font-serif: "IBM Plex Serif", serif;
   --font-mono: "IBM Plex Mono", monospace;
+
+  /* Semantic color tokens for light mode */
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-text-tertiary: #6b7280;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-border-hover: #d1d5db;
+  --color-link: #2563eb;
+  --color-link-hover: #1d4ed8;
+  --color-accent: #dc2626;
+
+  /* Spacing scale for consistent vertical rhythm */
+  --space-section: 3rem;
+  --space-content: 1.5rem;
+  --space-element: 1rem;
+  --space-compact: 0.5rem;
 }
 
 @layer base {
@@ -15,7 +33,7 @@
   }
 
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-300 m-0 py-8 font-sans;
+    @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 m-0 py-8 font-sans;
   }
 
   main {
@@ -23,27 +41,27 @@
   }
 
   h1 {
-    @apply text-2xl font-bold mt-0 mb-2 leading-snug font-serif;
+    @apply text-3xl font-bold mt-0 mb-6 leading-tight font-serif text-gray-950 dark:text-gray-50;
   }
 
   h2 {
-    @apply text-xl font-bold mt-6 mb-2 leading-snug font-serif;
+    @apply text-2xl font-bold mt-12 mb-4 leading-tight font-serif text-gray-950 dark:text-gray-50;
   }
 
   h3 {
-    @apply text-lg font-bold mt-4 mb-2 leading-snug font-serif;
+    @apply text-xl font-bold mt-8 mb-3 leading-tight font-serif text-gray-950 dark:text-gray-50;
   }
 
   p {
-    @apply mb-4;
+    @apply mb-6 text-gray-700 dark:text-gray-300;
+  }
+
+  strong {
+    @apply font-bold text-gray-900 dark:text-gray-100;
   }
 
   a {
-    @apply text-blue-600 dark:text-blue-300 hover:underline;
-  }
-
-  [lang="xdq"] {
-    @apply font-mono;
+    @apply text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 underline decoration-1 underline-offset-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 dark:focus-visible:outline-blue-400 rounded-sm;
   }
 }
 

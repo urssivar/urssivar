@@ -8,10 +8,10 @@ useSeoMeta({
 <template>
     <main>
         <div class="content-container">
-            <nav class="flex gap-3 flex-wrap mb-8">
-                Eng
+            <nav class="flex gap-4 flex-wrap mb-12 text-sm items-center">
+                <span class="text-gray-900 dark:text-gray-100">Eng</span>
                 <NuxtLink to="/ru">Рус</NuxtLink>
-                <span>/</span>
+                <USeparator orientation="vertical" class="h-4" />
                 <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink>
                 <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
                 <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
@@ -19,7 +19,7 @@ useSeoMeta({
 
             <h1>Urssivar: Kaitag Studies</h1>
 
-            <p><i lang="xdq">Nallara del da. Ham ra bel.</i></p>
+            <p class="italic"><span lang="xdq">Nallara del da. Ham ra bel.</span></p>
 
             <p>
                 We collect words, record stories, restore family trees, and conduct DNA testing.

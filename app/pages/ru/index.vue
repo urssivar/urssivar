@@ -14,10 +14,10 @@ useHead({
 <template>
     <main>
         <div class="content-container">
-            <nav class="flex gap-3 flex-wrap mb-8">
+            <nav class="flex gap-4 flex-wrap mb-12 text-sm items-center">
                 <NuxtLink to="/">Eng</NuxtLink>
-                Рус
-                <span>/</span>
+                <span class="text-gray-900 dark:text-gray-100">Рус</span>
+                <USeparator orientation="vertical" class="h-4" />
                 <NuxtLink to="https://t.me/urssivar" target="_blank">Телеграм</NuxtLink>
                 <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
                 <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
@@ -25,7 +25,7 @@ useHead({
 
             <h1>Urssivar: Кайтагские Исследования</h1>
 
-            <p><i lang="xdq">Наллара дел да. Ьам ра бел.</i></p>
+            <p class="italic"><span lang="xdq">Наллара дел да. Ьам ра бел.</span></p>
 
             <p>
                 Мы собираем слова, записываем предания, восстанавливаем родословные, проводим ДНК-тестирование.
