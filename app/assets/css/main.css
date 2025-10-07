@@ -65,12 +65,6 @@ a:not(:active) {
   color: #0066cc;
 }
 
-.map-section {
-  background: #f0f4f9;
-  margin: 3rem 0;
-  padding: 2rem 0;
-}
-
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #1a1a1a;
@@ -79,9 +73,5 @@ a:not(:active) {
 
   a:not(:active) {
     color: #7eb3ff;
-  }
-
-  .map-section {
-    background: #222428;
   }
 }

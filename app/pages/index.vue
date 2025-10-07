@@ -28,10 +28,8 @@ useSeoMeta({
             </p>
         </div>
 
-        <div class="content-wide map-section">
-            <div class="content-narrow">
-                <VillageMap />
-            </div>
+        <div class="content-wide">
+            <VillageMap />
         </div>
 
         <div class="content-narrow">
