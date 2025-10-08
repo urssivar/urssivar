@@ -107,22 +107,27 @@ onBeforeUnmount(() => {
     side: 'top',
   }" class="font-bold text-sm" />
   <div class="my-16 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
-    <LMap :options="mapOptions" :use-global-leaflet="false"
-      class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
-      @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)">
-      <LImageOverlay url="/map.png" :bounds="imageBounds" :opacity="1" class-name="map-backdrop-image" />
-      <LMarker v-for="(village, i) in villages" :key="village.name" :lat-lng="[village.lat, village.lng]"
-        @ready="(marker: any) => markerRefs[i] = marker._icon"
-        @mouseover="() => { pauseAutoHover(); selectVillage(i); }"
-        @mouseout="() => { deselectVillage(); scheduleAutoHover(); }">
-        <LIcon>
-          <div class="w-full h-full flex items-center justify-center">
-            <div
-              class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition-all ease-out border-white dark:border-gray-950 bg-blue-600 dark:bg-blue-400 hover:scale-150" />
-          </div>
-        </LIcon>
-      </LMarker>
-    </LMap>
+    <ClientOnly>
+      <LMap :options="mapOptions" :use-global-leaflet="false"
+        class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
+        @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)">
+        <LImageOverlay url="/map.png" :bounds="imageBounds" :opacity="1" class-name="map-backdrop-image" />
+        <LMarker v-for="(village, i) in villages" :key="village.name" :lat-lng="[village.lat, village.lng]"
+          @ready="(marker: any) => markerRefs[i] = marker._icon"
+          @mouseover="() => { pauseAutoHover(); selectVillage(i); }"
+          @mouseout="() => { deselectVillage(); scheduleAutoHover(); }">
+          <LIcon>
+            <div class="w-full h-full flex items-center justify-center">
+              <div
+                class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition-all ease-out border-white dark:border-gray-950 bg-blue-600 dark:bg-blue-400 hover:scale-150" />
+            </div>
+          </LIcon>
+        </LMarker>
+      </LMap>
+      <template #fallback>
+        <USkeleton class="w-full h-full rounded-none" />
+      </template>
+    </ClientOnly>
   </div>
 </template>
 
