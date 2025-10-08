@@ -112,7 +112,7 @@ onBeforeUnmount(() => {
       @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)">
       <LImageOverlay url="/map.png" :bounds="imageBounds" :opacity="1" class-name="map-backdrop-image" />
       <LMarker v-for="(village, i) in villages" :key="village.name" :lat-lng="[village.lat, village.lng]"
-        @ready="(marker: any) => { markerRefs[i] = marker._icon; console.log(marker); }"
+        @ready="(marker: any) => markerRefs[i] = marker._icon"
         @mouseover="() => { pauseAutoHover(); selectVillage(i); }"
         @mouseout="() => { deselectVillage(); scheduleAutoHover(); }">
         <LIcon>

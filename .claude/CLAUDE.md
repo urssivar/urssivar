@@ -25,30 +25,34 @@ The component is organized into clearly-sectioned blocks:
    - `villageBounds`: Min/max lat/lng from village data
    - `MAP_EXPORT_BOUNDS`: QGIS export bounds (inline in `imageBounds`)
    - `imageBounds`: Map image bounds computed from export bounds
-   - `mapCenter`: Center point calculated from export bounds
    - `mapOptions`: Disables all user interactions (zoom, pan, etc.)
 
 2. **TOOLTIP STATE**: Centralized selection functions:
    - `tooltipOpen`, `selectedVillage`, `markerElement` refs
-   - `selectVillage(name, element)`: Handles all selection logic (refs, scaling, tooltip open)
+   - `markerRefs`: Array of marker container elements, populated via LMarker `@ready` event
+   - `selectVillage(index)`: Handles selection by village index (refs, scaling, tooltip open)
    - `deselectVillage()`: Closes tooltip and removes scaling
 
 3. **AUTO-HOVER STATE**: Manages automatic tooltip display:
-   - `AUTO_HOVER` constants (inline in `resetAutoHover` function)
-   - Direct Leaflet API access via `mapRef.value.leafletObject._layers`
-   - Uses `selectVillage()` and `deselectVillage()` for consistency
-   - Resets on manual hover interaction
+   - `AUTO_HOVER_DURATION` and `AUTO_HOVER_INTERVAL` constants (inline in `scheduleAutoHover`)
+   - Single recursive `setTimeout` chain (not interval + timeout)
+   - `scheduleAutoHover()`: Selects random village, then schedules deselection and next cycle
+   - `pauseAutoHover()`: Clears timer on manual hover
+   - Resumes with full interval delay after manual interaction ends
 
 ### Tooltip Implementation
 
 **Why Nuxt UI tooltips work inside Leaflet:**
 - Leaflet blocks pointer events on markers (`disableClickPropagation`)
 - Solution: Use Leaflet's `@mouseover`/`@mouseout` events to manually control UTooltip via `v-model:open`
-- Position reference: `e.target._icon.children[0]` (the wrapper div inside LIcon)
+- Position reference: Marker container element stored in `markerRefs` via LMarker `@ready` event
 - Portal: Default `body` portal works when reference element is properly set
 
-**Key insight:**
+**Key insights:**
 - Manual DOM class manipulation (via `classList.add/remove`) for scaling prevents Vue reactivity from recreating elements and breaking tooltip positioning
+- LMarker `@ready` event fires before Vue renders LIcon content, so `marker._icon.firstChild` is null at that point
+- Store the container (`marker._icon`) in `@ready`, then navigate to children (`.firstChild.firstChild`) when selecting
+- Template refs cause Vue to recreate elements, breaking tooltip positioning - use event-based capture instead
 
 ### Updating the Map Backdrop
 
@@ -95,27 +99,27 @@ When exporting a new map from QGIS:
 The component uses centralized functions to manage village selection:
 
 ```ts
-selectVillage(name: string, element: HTMLElement)
+selectVillage(index: number)
 ```
-- Removes scale from previous village (via `markerElement.value`)
+- Gets marker container from `markerRefs[index]`
+- Calls `deselectVillage()` first to remove previous selection
 - Sets `selectedVillage`, `markerElement`, `tooltipOpen`
-- Adds scale class to current village dot
-- Called from both manual hover and auto-hover
+- Adds scale class to village dot via `.firstChild.firstChild.classList.add('scale-150')`
+- Returns boolean (false if marker not found)
 
 ```ts
 deselectVillage()
 ```
 - Sets `tooltipOpen = false`
-- Removes scale from current village
-- Note: Does NOT clear `selectedVillage` text (prevents timing issues with auto-hover)
+- Removes scale from current village via `.firstChild.firstChild.classList.remove('scale-150')`
 
 **Manual hover flow:**
-1. `@mouseover` → `selectVillage()` → `resetAutoHover()`
-2. `@mouseout` → `deselectVillage()`
+1. `@mouseover` → `pauseAutoHover()` → `selectVillage(i)`
+2. `@mouseout` → `deselectVillage()` → `scheduleAutoHover()`
 
 **Auto-hover flow:**
-1. Interval picks random village → `selectVillage(name, element)`
-2. Timeout after duration → `deselectVillage()`
+1. Timer selects random index → `selectVillage(i)`
+2. Nested timer after duration → `deselectVillage()` → `scheduleAutoHover()`
 
 ### Troubleshooting
 
@@ -130,21 +134,25 @@ deselectVillage()
 - Inspect browser console for Leaflet errors
 
 **Tooltips not positioning correctly:**
-- Ensure `markerElement` is set to `e.target._icon.children[0]` (the wrapper div)
+- Ensure `markerRefs` is populated via LMarker `@ready` event storing `marker._icon`
 - Check that element reference isn't being invalidated by Vue reactivity
 - Verify Nuxt UI's floating-ui can access the reference element
+- Never use template `:ref` on elements inside v-for - causes Vue to recreate DOM
 
 **Scaling animation broken:**
 - Must use manual `classList.add/remove` instead of reactive `:class` binding
 - Reactive bindings cause Vue to recreate DOM elements, breaking `markerElement` reference
-- Check that `markerElement.value?.querySelector('.village-dot')` finds the dot element
+- Access dot element via `.firstChild.firstChild` from container element
+- Ensure container reference is stable (stored once in `@ready`, not recreated)
 
 ### Refactoring Guidelines
 
 When modifying the component:
 
-1. **Keep sections clearly separated** - Use the comment dividers for organization
-2. **Inline constants where used once** - `MAP_EXPORT_BOUNDS` in `imageBounds`, `AUTO_HOVER` in `resetAutoHover`
+1. **Keep sections clearly separated** - Use comment dividers for organization
+2. **Inline constants where used once** - `MAP_EXPORT_BOUNDS` in `imageBounds`, `AUTO_HOVER_*` in `scheduleAutoHover`
 3. **Use manual DOM manipulation for class changes** - Prevents Vue reactivity from breaking element references
-4. **Centralize selection logic** - Use `selectVillage()` and `deselectVillage()` for consistency
-5. **Test auto-hover edge cases** - Hovering during auto-hover, rapid hovers, page navigation
+4. **Centralize selection logic** - Use `selectVillage(index)` and `deselectVillage()` for consistency
+5. **Capture elements via events, not template refs** - LMarker `@ready` for stable references, never `:ref` in v-for
+6. **Single timer pattern** - Use recursive `setTimeout`, not `setInterval` + `setTimeout` combination
+7. **Test auto-hover edge cases** - Hovering during auto-hover, rapid hovers, page navigation
