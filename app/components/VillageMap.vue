@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onBeforeUnmount } from 'vue';
 import { LMap, LImageOverlay, LMarker, LIcon } from '@vue-leaflet/vue-leaflet';
 import 'leaflet/dist/leaflet.css';
 import villages from '~/data/villages.json';
@@ -134,7 +134,7 @@ onBeforeUnmount(() => {
 
 /* Fade transition */
 .fade-enter-active {
-  transition: opacity 0.3s ease-out;
+  transition: opacity 1s ease-out;
 }
 
 .fade-enter-from {
