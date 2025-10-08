@@ -68,8 +68,8 @@ function deselectVillage() {
 let autoHoverTimer: ReturnType<typeof setTimeout> | null = null;
 
 function scheduleAutoHover() {
-  const AUTO_HOVER_DURATION = 1800;
-  const AUTO_HOVER_INTERVAL = 2500;
+  const AUTO_HOVER_DURATION = 3000;
+  const AUTO_HOVER_INTERVAL = 2000;
 
   autoHoverTimer = setTimeout(() => {
     const i = Math.floor(Math.random() * villages.length);
@@ -118,7 +118,7 @@ onBeforeUnmount(() => {
         <LIcon>
           <div class="w-full h-full flex items-center justify-center">
             <div
-              class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition-all ease-out border-white dark:border-gray-950 bg-rose-600 dark:bg-rose-500 hover:scale-150" />
+              class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition-all ease-out border-white dark:border-gray-950 bg-blue-600 dark:bg-blue-400 hover:scale-150" />
           </div>
         </LIcon>
       </LMarker>
