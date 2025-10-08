@@ -108,7 +108,7 @@ onBeforeUnmount(() => {
   }" class="font-bold text-sm" />
   <div class="my-16 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
     <LMap :options="mapOptions" :use-global-leaflet="false"
-      class="absolute left-1/2 -translate-x-1/2 w-screen h-full border-y border-gray-200 dark:border-gray-800"
+      class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
       @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)">
       <LImageOverlay url="/map.png" :bounds="imageBounds" :opacity="1" class-name="map-backdrop-image" />
       <LMarker v-for="(village, i) in villages" :key="village.name" :lat-lng="[village.lat, village.lng]"
