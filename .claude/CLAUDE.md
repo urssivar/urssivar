@@ -7,8 +7,9 @@ The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag vill
 **Technology stack:**
 - **@vue-leaflet/vue-leaflet**: Vue 3 wrapper for Leaflet maps
 - **Leaflet**: Interactive map rendering
-- **Template-based LIcon markers**: Red dots with hover scaling via Tailwind classes
+- **Template-based LIcon markers**: Blue dots with hover scaling via Tailwind classes
 - **Nuxt UI tooltips**: Consistent tooltips with IBM Plex Mono font (via `lang="xdq"`)
+- **ClientOnly + Transition**: SSR-safe loading with smooth fade-in animation
 
 **Key features:**
 - Village data: `/app/data/villages.json` (lat/lng coordinates in EPSG:4326)
@@ -21,10 +22,9 @@ The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag vill
 
 The component is organized into clearly-sectioned blocks:
 
-1. **MAP CONFIGURATION**: Core setup and computed properties:
-   - `villageBounds`: Min/max lat/lng from village data
-   - `MAP_EXPORT_BOUNDS`: QGIS export bounds (inline in `imageBounds`)
-   - `imageBounds`: Map image bounds computed from export bounds
+1. **MAP CONFIGURATION**: Core setup and constants:
+   - `villageBounds`: Computed min/max lat/lng from village data
+   - `imageBounds`: Constant array `[[minLat, minLng], [maxLat, maxLng]]` for QGIS export bounds
    - `mapOptions`: Disables all user interactions (zoom, pan, etc.)
 
 2. **TOOLTIP STATE**: Centralized selection functions:
@@ -39,6 +39,7 @@ The component is organized into clearly-sectioned blocks:
    - `scheduleAutoHover()`: Selects random village, then schedules deselection and next cycle
    - `pauseAutoHover()`: Clears timer on manual hover
    - Resumes with full interval delay after manual interaction ends
+   - Starts automatically when map is ready (via LMap `@ready` event)
 
 ### Tooltip Implementation
 
@@ -58,27 +59,31 @@ The component is organized into clearly-sectioned blocks:
 
 When exporting a new map from QGIS:
 
-**1. Export settings:**
+**1. Export from QGIS:**
 - CRS: EPSG:4326 (WGS 84)
-- Format: PNG (recommended) with antialiasing enabled
+- Format: PNG with antialiasing enabled
 - Bounds: 47.2754° to 48.2753° lng, 41.8747° to 42.2207° lat
-- Export at 2-3x resolution for retina displays (e.g., 3000-3500px width)
+- Resolution: 3000-3500px width (DPI setting doesn't matter for web)
 
-**2. Update the component:**
-- Save new map image to `/public/map.png`
-- Update `MAP_EXPORT_BOUNDS` inline object in `imageBounds` computed with exact bounds from QGIS export
+**2. Optimize the image:**
+- Convert to WebP: `convert map.png -quality 85 -resize 2500x map.webp`
+- Target: <500KB for good performance
+- Save to `/public/map.webp`
+
+**3. Update the component:**
+- Update `imageBounds` constant with exact bounds: `[[minLat, minLng], [maxLat, maxLng]]`
+- Update preload link in `app.vue` if filename changed
 - Leaflet will handle positioning automatically
 
-**Why PNG over SVG:**
-- No rendering artifacts
-- Smaller file size for complex contour maps
-- Better browser performance
-- Consistent appearance across browsers
+**Why WebP:**
+- 60-70% smaller than PNG at same quality
+- Better compression for photos/gradients
+- Wide browser support (fallback not needed in 2024+)
 
 ### Styling Configuration
 
 **Markers:**
-- Red dots (`bg-rose-600`) with white/dark borders (Tailwind classes)
+- Blue dots (`bg-blue-600`/`dark:bg-blue-400`) with white/dark borders (Tailwind classes)
 - 12px size (w-3 h-3), centered in parent via flexbox
 - Scale to 1.5x on hover with `transition-all ease-out` (200ms)
 - Scaling applied via `classList.add('scale-150')` for both manual and auto-hover
@@ -93,6 +98,13 @@ When exporting a new map from QGIS:
 - `brightness-[0.8]` for dimming in light mode
 - `dark:invert` for color inversion in dark mode (also inherits brightness)
 - Transparent background on Leaflet container (via `@apply` in `:deep()`)
+- Preloaded via `app.vue` for instant display
+- Fades in with 300ms transition on mount
+
+**SSR & Loading:**
+- `<ClientOnly>` wraps Leaflet components (SSR-incompatible)
+- `<Transition name="fade">` provides smooth appearance
+- Auto-hover starts when LMap fires `@ready` event
 
 ### Selection Logic
 
@@ -124,13 +136,14 @@ deselectVillage()
 ### Troubleshooting
 
 **Map not displaying:**
-- Verify `MAP_EXPORT_BOUNDS` in `imageBounds` computed matches QGIS export bounds exactly
-- Check `/public/map.png` exists
+- Verify `imageBounds` constant matches QGIS export bounds exactly: `[[minLat, minLng], [maxLat, maxLng]]`
+- Check `/public/map.webp` exists and is optimized (<500KB)
 - Ensure Leaflet CSS is imported
+- Verify preload link in `app.vue` points to correct image path
 
 **Villages not appearing:**
 - Verify villages.json is valid JSON with `name`, `lat`, `lng` fields
-- Check coordinates are within `MAP_EXPORT_BOUNDS`
+- Check coordinates are within `imageBounds`
 - Inspect browser console for Leaflet errors
 
 **Tooltips not positioning correctly:**
@@ -150,9 +163,10 @@ deselectVillage()
 When modifying the component:
 
 1. **Keep sections clearly separated** - Use comment dividers for organization
-2. **Inline constants where used once** - `MAP_EXPORT_BOUNDS` in `imageBounds`, `AUTO_HOVER_*` in `scheduleAutoHover`
+2. **Use constants for simple data** - `imageBounds` is a direct array constant, `AUTO_HOVER_*` inline in `scheduleAutoHover`
 3. **Use manual DOM manipulation for class changes** - Prevents Vue reactivity from breaking element references
 4. **Centralize selection logic** - Use `selectVillage(index)` and `deselectVillage()` for consistency
 5. **Capture elements via events, not template refs** - LMarker `@ready` for stable references, never `:ref` in v-for
 6. **Single timer pattern** - Use recursive `setTimeout`, not `setInterval` + `setTimeout` combination
-7. **Test auto-hover edge cases** - Hovering during auto-hover, rapid hovers, page navigation
+7. **Start auto-hover on map ready** - Use LMap `@ready` event, not `onMounted` (SSR compatibility)
+8. **Test auto-hover edge cases** - Hovering during auto-hover, rapid hovers, page navigation

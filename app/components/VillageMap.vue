@@ -14,19 +14,11 @@ const villageBounds = computed<LatLngBoundsExpression>(() => {
   ];
 });
 
-const imageBounds = computed<LatLngBoundsExpression>(() => {
-  const MAP_EXPORT_BOUNDS = {
-    minLng: 47.2754,
-    maxLng: 48.2753,
-    minLat: 41.8747,
-    maxLat: 42.2207,
-  } as const;
-
-  return [
-    [MAP_EXPORT_BOUNDS.minLat, MAP_EXPORT_BOUNDS.minLng],
-    [MAP_EXPORT_BOUNDS.maxLat, MAP_EXPORT_BOUNDS.maxLng],
-  ];
-});
+// [[minLat, minLng], [maxLat, maxLng]]
+const imageBounds: LatLngBoundsExpression = [
+  [41.8747, 47.2754],
+  [42.2207, 48.2753],
+];
 
 const mapOptions = {
   zoomControl: false,
