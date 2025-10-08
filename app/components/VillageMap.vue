@@ -42,10 +42,6 @@ const mapOptions = {
   attributionControl: false,
 };
 
-// ============================================================================
-// TOOLTIP STATE
-// ============================================================================
-
 const tooltipOpen = ref(false);
 const selectedVillage = ref<string | null>(null);
 const markerElement = ref<HTMLElement>();
@@ -66,10 +62,6 @@ function deselectVillage() {
   tooltipOpen.value = false;
   markerElement.value?.querySelector('.village-dot')?.classList.remove('scale-150');
 }
-
-// ============================================================================
-// AUTO-HOVER STATE
-// ============================================================================
 
 const mapRef = ref<any>(null);
 let autoHoverInterval: ReturnType<typeof setInterval> | null = null;
