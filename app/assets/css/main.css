@@ -67,6 +67,6 @@
 
 @layer components {
   .content-container {
-    @apply max-w-[65ch] mx-auto px-4;
+    @apply max-w-prose mx-auto px-4;
   }
 }

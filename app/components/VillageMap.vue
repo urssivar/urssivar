@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
   <UTooltip :open="tooltipOpen" :text="selectedVillage ?? ''" arrow :reference="markerElement" :content="{
     side: 'top',
   }" class="font-bold text-sm" />
-  <div class="my-16 relative h-[350px] md:h-[475px] overflow-x-clip">
+  <div class="my-16 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
     <LMap :options="mapOptions" :use-global-leaflet="false"
       class="absolute left-1/2 -translate-x-1/2 w-screen h-full border-y border-gray-200 dark:border-gray-800"
       @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)">
