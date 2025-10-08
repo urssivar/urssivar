@@ -7,36 +7,48 @@ The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag vill
 **Technology stack:**
 - **@vue-leaflet/vue-leaflet**: Vue 3 wrapper for Leaflet maps
 - **Leaflet**: Interactive map rendering
-- **Custom divIcon markers**: Red dots with hover scaling
-- **Custom tooltips**: IBM Plex Mono styled tooltips with village names
+- **Template-based LIcon markers**: Red dots with hover scaling via Tailwind classes
+- **Nuxt UI tooltips**: Consistent tooltips with IBM Plex Mono font (via `lang="xdq"`)
 
 **Key features:**
 - Village data: `/app/data/villages.json` (lat/lng coordinates in EPSG:4326)
 - Auto-hover: Random village tooltip opens every 2.5s for 1.8s
 - Manual hover: Tooltips show on mouse hover, resets auto-hover timer
-- Marker animation: Dots scale to 1.5x on hover with 200ms transition
+- Marker animation: Dots scale to 1.5x on hover with CSS transitions
 - Responsive: Map bleeds full-width, auto-fits to village bounds
 
 ### Code Structure
 
 The component is organized into clearly-sectioned blocks:
 
-1. **CONSTANTS**: Configuration values that may need adjustment:
-   - `MAP_EXPORT_BOUNDS`: QGIS export bounds (update when changing map)
-   - `AUTO_HOVER`: Animation timing (DURATION: 1800ms, INTERVAL: 2500ms)
-
-2. **MAP CONFIGURATION**: Computed properties for Leaflet setup:
+1. **MAP CONFIGURATION**: Core setup and computed properties:
    - `villageBounds`: Min/max lat/lng from village data
-   - `imageBounds`: Map image bounds from `MAP_EXPORT_BOUNDS`
-   - `mapCenter`: Center point for initial map view
+   - `MAP_EXPORT_BOUNDS`: QGIS export bounds (inline in `imageBounds`)
+   - `imageBounds`: Map image bounds computed from export bounds
+   - `mapCenter`: Center point calculated from export bounds
    - `mapOptions`: Disables all user interactions (zoom, pan, etc.)
 
-3. **CUSTOM MARKER ICON**: Leaflet `divIcon` with Tailwind-styled red dot HTML
+2. **TOOLTIP STATE**: Centralized selection functions:
+   - `tooltipOpen`, `selectedVillage`, `markerElement` refs
+   - `selectVillage(name, element)`: Handles all selection logic (refs, scaling, tooltip open)
+   - `deselectVillage()`: Closes tooltip and removes scaling
 
-4. **AUTO-HOVER STATE**: Manages automatic tooltip display:
+3. **AUTO-HOVER STATE**: Manages automatic tooltip display:
+   - `AUTO_HOVER` constants (inline in `resetAutoHover` function)
    - Direct Leaflet API access via `mapRef.value.leafletObject._layers`
-   - Tracks currently open tooltip to close it when resetting
-   - Resets timer on manual hover interaction
+   - Uses `selectVillage()` and `deselectVillage()` for consistency
+   - Resets on manual hover interaction
+
+### Tooltip Implementation
+
+**Why Nuxt UI tooltips work inside Leaflet:**
+- Leaflet blocks pointer events on markers (`disableClickPropagation`)
+- Solution: Use Leaflet's `@mouseover`/`@mouseout` events to manually control UTooltip via `v-model:open`
+- Position reference: `e.target._icon.children[0]` (the wrapper div inside LIcon)
+- Portal: Default `body` portal works when reference element is properly set
+
+**Key insight:**
+- Manual DOM class manipulation (via `classList.add/remove`) for scaling prevents Vue reactivity from recreating elements and breaking tooltip positioning
 
 ### Updating the Map Backdrop
 
@@ -50,7 +62,7 @@ When exporting a new map from QGIS:
 
 **2. Update the component:**
 - Save new map image to `/public/map.png`
-- Update `MAP_EXPORT_BOUNDS` constant with exact bounds from QGIS export
+- Update `MAP_EXPORT_BOUNDS` inline object in `imageBounds` computed with exact bounds from QGIS export
 - Leaflet will handle positioning automatically
 
 **Why PNG over SVG:**
@@ -62,37 +74,53 @@ When exporting a new map from QGIS:
 ### Styling Configuration
 
 **Markers:**
-- Red dots (`bg-red-600`) with white/dark borders
-- 12px icon size, centered anchor point
-- Scale to 1.5x on hover with 200ms ease-out transition
+- Red dots (`bg-rose-600`) with white/dark borders (Tailwind classes)
+- 12px size (w-3 h-3), centered in parent via flexbox
+- Scale to 1.5x on hover with `transition-all ease-out` (200ms)
+- Scaling applied via `classList.add('scale-150')` for both manual and auto-hover
 
 **Tooltips:**
-- Font: IBM Plex Mono bold (via `lang="xdq"` attribute)
-- Colors: Gray-50/gray-900 backgrounds, gray-200/gray-800 borders
-- No rounded corners (`border-radius: 0`)
-- Positioned above marker with 8px offset
-- Opacity transition (150ms) on show/hide
+- Font: IBM Plex Mono bold (via `lang="xdq"` attribute on content)
+- Styling: Native Nuxt UI theme (gray-50/gray-900 backgrounds)
+- Arrow enabled
+- Positioned above marker (`side: 'top'`)
 
 **Map backdrop:**
-- Inverted for dark mode with `brightness(0.8)` for softer appearance
-- Transparent background on Leaflet container
+- `brightness-[0.8]` for dimming in light mode
+- `dark:invert` for color inversion in dark mode (also inherits brightness)
+- Transparent background on Leaflet container (via `@apply` in `:deep()`)
 
-### Auto-Hover Implementation
+### Selection Logic
 
-The auto-hover system works by:
+The component uses centralized functions to manage village selection:
 
-1. Accessing Leaflet's internal layer registry via `mapRef.value.leafletObject._layers`
-2. Iterating through layers to find markers (check for `layer.getTooltip`)
-3. Calling `layer.openTooltip()` and `layer.closeTooltip()` directly
-4. Tracking the current auto-hovered layer to force close on reset
-5. Resetting the entire cycle when user manually hovers a marker
+```ts
+selectVillage(name: string, element: HTMLElement)
+```
+- Removes scale from previous village (via `markerElement.value`)
+- Sets `selectedVillage`, `markerElement`, `tooltipOpen`
+- Adds scale class to current village dot
+- Called from both manual hover and auto-hover
 
-This approach bypasses Vue reactivity for tooltip state, using Leaflet's native API instead.
+```ts
+deselectVillage()
+```
+- Sets `tooltipOpen = false`
+- Removes scale from current village
+- Note: Does NOT clear `selectedVillage` text (prevents timing issues with auto-hover)
+
+**Manual hover flow:**
+1. `@mouseover` → `selectVillage()` → `resetAutoHover()`
+2. `@mouseout` → `deselectVillage()`
+
+**Auto-hover flow:**
+1. Interval picks random village → `selectVillage(name, element)`
+2. Timeout after duration → `deselectVillage()`
 
 ### Troubleshooting
 
 **Map not displaying:**
-- Verify `MAP_EXPORT_BOUNDS` matches QGIS export bounds exactly
+- Verify `MAP_EXPORT_BOUNDS` in `imageBounds` computed matches QGIS export bounds exactly
 - Check `/public/map.png` exists
 - Ensure Leaflet CSS is imported
 
@@ -101,22 +129,22 @@ This approach bypasses Vue reactivity for tooltip state, using Leaflet's native 
 - Check coordinates are within `MAP_EXPORT_BOUNDS`
 - Inspect browser console for Leaflet errors
 
-**Auto-hover not working:**
-- Check `mapRef` is properly bound to `LMap` component
-- Verify `mapRef.value?.leafletObject` is available after mount
-- Ensure markers have tooltips attached
+**Tooltips not positioning correctly:**
+- Ensure `markerElement` is set to `e.target._icon.children[0]` (the wrapper div)
+- Check that element reference isn't being invalidated by Vue reactivity
+- Verify Nuxt UI's floating-ui can access the reference element
 
-**Tooltips frozen/not closing:**
-- Auto-hover tracks `currentAutoHoverLayer` - verify it's being reset
-- Manual hover should call `resetAutoHover()` to clear timers
-- Check `closeCurrentAutoHoverTooltip()` is called on cleanup
+**Scaling animation broken:**
+- Must use manual `classList.add/remove` instead of reactive `:class` binding
+- Reactive bindings cause Vue to recreate DOM elements, breaking `markerElement` reference
+- Check that `markerElement.value?.querySelector('.village-dot')` finds the dot element
 
 ### Refactoring Guidelines
 
 When modifying the component:
 
 1. **Keep sections clearly separated** - Use the comment dividers for organization
-2. **Extract magic numbers** - Add new configuration to CONSTANTS section
-3. **Don't rely on Vue reactivity for tooltips** - Use Leaflet API directly (`openTooltip`/`closeTooltip`)
-4. **Clean up timers** - Always clear intervals/timeouts in `onBeforeUnmount`
+2. **Inline constants where used once** - `MAP_EXPORT_BOUNDS` in `imageBounds`, `AUTO_HOVER` in `resetAutoHover`
+3. **Use manual DOM manipulation for class changes** - Prevents Vue reactivity from breaking element references
+4. **Centralize selection logic** - Use `selectVillage()` and `deselectVillage()` for consistency
 5. **Test auto-hover edge cases** - Hovering during auto-hover, rapid hovers, page navigation
