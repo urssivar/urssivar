@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
 }
 
 :deep(.map-backdrop-image) {
-  @apply invert-[35%] dark:invert-[65%];
+  @apply invert-[11%] dark:invert-[88%];
 }
 
 :deep(.leaflet-marker-icon) {
