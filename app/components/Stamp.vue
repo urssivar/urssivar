@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mt-16 mb-8 mx-auto w-[152px] cursor-pointer opacity-50 hover:opacity-100 active:opacity-100 focus-within:opacity-100 relative transition-opacity duration-300 group">
+    class="mt-16 mb-8 mx-auto w-[152px] cursor-pointer opacity-55 hover:opacity-80 active:opacity-80 focus-within:opacity-80 relative transition-opacity duration-300 group">
     <img src="/stamp-text.svg" alt=""
       class="block w-full invert dark:invert-0 select-none pointer-events-none animate-[spin_20s_linear_infinite]"
       aria-hidden="true" draggable="false">

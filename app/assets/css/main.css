@@ -41,23 +41,23 @@
   }
 
   h1 {
-    @apply text-3xl font-bold mt-0 mb-6 leading-tight font-serif text-gray-950 dark:text-gray-50;
+    @apply text-3xl font-bold mt-0 mb-6 leading-tight font-serif text-gray-950 dark:text-gray-100;
   }
 
   h2 {
-    @apply text-2xl font-bold mt-12 mb-4 leading-tight font-serif text-gray-950 dark:text-gray-50;
+    @apply text-2xl font-bold mt-12 mb-4 leading-tight font-serif text-gray-950 dark:text-gray-100;
   }
 
   h3 {
-    @apply text-xl font-bold mt-8 mb-3 leading-tight font-serif text-gray-950 dark:text-gray-50;
+    @apply text-xl font-bold mt-8 mb-3 leading-tight font-serif text-gray-950 dark:text-gray-100;
   }
 
   p {
-    @apply mb-6 text-gray-700 dark:text-gray-300;
+    @apply mb-6 text-gray-800 dark:text-gray-300;
   }
 
   strong {
-    @apply font-bold text-gray-900 dark:text-gray-100;
+    @apply font-bold text-gray-900 dark:text-gray-200;
   }
 
   a {
