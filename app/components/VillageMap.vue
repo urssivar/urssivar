@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import { LMap, LImageOverlay, LMarker, LTooltip } from '@vue-leaflet/vue-leaflet';
-import { divIcon } from 'leaflet';
+import { LMap, LImageOverlay, LMarker, LIcon } from '@vue-leaflet/vue-leaflet';
 import 'leaflet/dist/leaflet.css';
 import villages from '~/data/villages.json';
 import type { LatLngBoundsExpression } from 'leaflet';
@@ -59,15 +58,18 @@ const mapOptions = {
 };
 
 // ============================================================================
-// CUSTOM MARKER ICON
+// TOOLTIP STATE
 // ============================================================================
 
-const markerIcon = divIcon({
-  html: '<div class="village-dot w-3 h-3 rounded-full border-2 border-white dark:border-gray-950 bg-rose-600 dark:bg-rose-500"></div>',
-  className: 'custom-village-marker',
-  iconSize: [12, 12],
-  iconAnchor: [6, 6],
-});
+const tooltipOpen = ref(false);
+const selectedVillage = ref<string | null>(null);
+const markerElement = ref<HTMLElement>();
+
+function handleMarkerHover(villageName: string, event: any) {
+  selectedVillage.value = villageName;
+  markerElement.value = event.target._icon.children[0];
+  tooltipOpen.value = true;
+}
 
 // ============================================================================
 // AUTO-HOVER STATE
@@ -76,37 +78,33 @@ const markerIcon = divIcon({
 const mapRef = ref<any>(null);
 let autoHoverInterval: ReturnType<typeof setInterval> | null = null;
 let autoHoverTimeout: ReturnType<typeof setTimeout> | null = null;
-let currentAutoHoverLayer: any = null;
-
-function closeCurrentAutoHoverTooltip() {
-  if (currentAutoHoverLayer?.getTooltip) {
-    currentAutoHoverLayer.closeTooltip();
-    currentAutoHoverLayer = null;
-  }
-}
 
 function resetAutoHover() {
   if (autoHoverInterval) clearInterval(autoHoverInterval);
   if (autoHoverTimeout) clearTimeout(autoHoverTimeout);
-  closeCurrentAutoHoverTooltip();
 
   autoHoverInterval = setInterval(() => {
     if (!mapRef.value?.leafletObject) return;
 
     const randomIndex = Math.floor(Math.random() * villages.length);
+    const randomVillage = villages[randomIndex];
     const markers = mapRef.value.leafletObject._layers;
 
-    // Find the marker at randomIndex
+    // Find the marker element for the random village
     let currentIndex = 0;
     for (const layerId in markers) {
       const layer = markers[layerId];
-      if (layer.getTooltip) {
+      if (layer._icon) {
         if (currentIndex === randomIndex) {
-          layer.openTooltip();
-          currentAutoHoverLayer = layer;
+          markerElement.value = layer._icon.children[0];
+          selectedVillage.value = randomVillage.name;
+          tooltipOpen.value = true;
 
           autoHoverTimeout = setTimeout(() => {
-            closeCurrentAutoHoverTooltip();
+            tooltipOpen.value = false;
+            setTimeout(() => {
+              selectedVillage.value = null;
+            }, 100); // Small delay for fade animation
           }, AUTO_HOVER.DURATION);
           break;
         }
@@ -116,10 +114,6 @@ function resetAutoHover() {
   }, AUTO_HOVER.INTERVAL);
 }
 
-function handleMarkerMouseOver() {
-  resetAutoHover();
-}
-
 onMounted(() => {
   resetAutoHover();
 });
@@ -127,21 +121,29 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (autoHoverInterval) clearInterval(autoHoverInterval);
   if (autoHoverTimeout) clearTimeout(autoHoverTimeout);
-  closeCurrentAutoHoverTooltip();
+  tooltipOpen.value = false;
+  selectedVillage.value = null;
 });
+
 </script>
 
 <template>
+  <UTooltip :open="tooltipOpen" :text="selectedVillage ?? ''" arrow :reference="markerElement" :content="{
+    side: 'top',
+  }" class="font-bold text-sm" />
   <div class="my-16 relative h-[350px] md:h-[475px] overflow-x-clip">
     <LMap ref="mapRef" :zoom="8" :center="mapCenter" :options="mapOptions" :use-global-leaflet="false"
       class="absolute left-1/2 -translate-x-1/2 w-screen h-full border-y border-gray-200 dark:border-gray-800"
       @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)">
       <LImageOverlay url="/map.png" :bounds="imageBounds" :opacity="1" class-name="map-backdrop-image" />
-      <LMarker v-for="village in villages" :key="village.name" :lat-lng="[village.lat, village.lng]" :icon="markerIcon"
-        @mouseover="handleMarkerMouseOver">
-        <LTooltip :options="{ direction: 'top', offset: [0, -8], className: 'village-tooltip' }">
-          <span lang="xdq">{{ village.name }}</span>
-        </LTooltip>
+      <LMarker v-for="village in villages" :key="village.name" :lat-lng="[village.lat, village.lng]"
+        @mouseover="(e) => { handleMarkerHover(village.name, e); resetAutoHover(); }" @mouseout="tooltipOpen = false">
+        <LIcon>
+          <div class="w-full h-full flex items-center justify-center">
+            <div
+              class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition-all ease-out border-white dark:border-gray-950 bg-rose-600 dark:bg-rose-500 hover:scale-150" />
+          </div>
+        </LIcon>
       </LMarker>
     </LMap>
   </div>
@@ -150,63 +152,14 @@ onBeforeUnmount(() => {
 <style scoped>
 /* Override Leaflet default styles */
 :deep(.leaflet-container) {
-  background: transparent;
+  @apply bg-transparent;
 }
 
 :deep(.map-backdrop-image) {
-  z-index: 1;
-  filter: brightness(0.8);
+  @apply brightness-[0.8] dark:invert;
 }
 
-@media (prefers-color-scheme: dark) {
-  :deep(.map-backdrop-image) {
-    filter: invert(1) brightness(0.8);
-  }
-}
-
-/* Custom marker styles */
-:deep(.custom-village-marker) {
-  background: transparent;
-  border: none;
-}
-
-:deep(.village-dot) {
-  transition: transform 200ms ease-out;
-  cursor: pointer;
-}
-
-:deep(.leaflet-marker-icon:hover .village-dot) {
-  transform: scale(1.5);
-}
-
-/* Custom tooltip styles */
-:deep(.village-tooltip) {
-  background: rgb(249 250 251) !important;
-  color: rgb(17 24 39) !important;
-  border: 1px solid rgb(229 231 235) !important;
-  border-radius: 0 !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
-  padding: 4px 8px !important;
-  font-family: "IBM Plex Sans", sans-serif !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  white-space: nowrap !important;
-  transition: opacity 150ms;
-}
-
-:deep(.village-tooltip::before) {
-  border-top-color: rgb(249 250 251) !important;
-}
-
-@media (prefers-color-scheme: dark) {
-  :deep(.village-tooltip) {
-    background: rgb(3 7 18) !important;
-    color: rgb(249 250 251) !important;
-    border-color: rgb(31 41 55) !important;
-  }
-
-  :deep(.village-tooltip::before) {
-    border-top-color: rgb(3 7 18) !important;
-  }
+:deep(.leaflet-marker-icon) {
+  @apply bg-transparent border-0;
 }
 </style>
