@@ -104,7 +104,8 @@ onBeforeUnmount(() => {
           <LMarker v-for="(village, i) in villages" :key="village.name" :lat-lng="[village.lat, village.lng]"
             @ready="(marker: any) => markerRefs[i] = marker._icon"
             @mouseover="() => { pauseAutoHover(); selectVillage(i); }"
-            @mouseout="() => { deselectVillage(); scheduleAutoHover(); }">
+            @mouseout="() => { deselectVillage(); scheduleAutoHover(); }"
+            :z-index-offset="selectedVillage === village.name ? 1000 : 0">
             <LIcon>
               <div class="w-full h-full flex items-center justify-center">
                 <div
@@ -125,7 +126,7 @@ onBeforeUnmount(() => {
 }
 
 :deep(.map-backdrop-image) {
-  @apply invert-[11%] dark:invert-[88%];
+  @apply invert-[11%] dark:invert-[88%] select-none;
 }
 
 :deep(.leaflet-marker-icon) {

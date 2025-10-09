@@ -7,7 +7,7 @@ const fixed = ref(false);
     <img src="/stamp-text.svg" alt="Urssivar: Kaitag Studies"
       class="block w-full invert-[88%] dark:invert-[12%] pointer-events-none animate-[spin_20s_linear_infinite]">
     <img src="/stamp-logo.svg" alt="Urssivar logo"
-      class="absolute top-0 left-0 block w-full invert-[88%] dark:invert-[12%] pointer-events-none rotate-12 transition ease-out"
+      class="absolute top-0 left-0 block w-full invert-[88%] dark:invert-[12%] pointer-events-none rotate-12 transition ease-in"
       :class="{ 'rotate-none': fixed }">
   </div>
 </template>
