@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
 <template>
   <UTooltip :open="tooltipOpen" :text="selectedVillage ?? ''" arrow :reference="markerElement" :content="{
     side: 'top',
-  }" class="font-bold text-sm" />
+  }" class="font-bold text-sm px-3 py-1.5" />
   <div class="my-12 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
     <ClientOnly>
       <Transition name="fade" appear>
