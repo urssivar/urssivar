@@ -8,15 +8,6 @@ useSeoMeta({
 <template>
     <main>
         <div class="content-container">
-            <nav class="flex gap-3 flex-wrap my-8 text-sm leading-none items-center">
-                <span>Eng</span>
-                <NuxtLink to="/ru">Рус</NuxtLink>
-                <USeparator orientation="vertical" class="h-[1.2em]" />
-                <NuxtLink to="https://t.me/urssivar" target="_blank">Telegram</NuxtLink>
-                <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
-                <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
-            </nav>
-
             <h1>Urssivar: Kaitag Studies</h1>
 
             <p class="italic leading-snug mb-6"><span lang="xdq">Nallara del da. Ham ra bel.</span></p>

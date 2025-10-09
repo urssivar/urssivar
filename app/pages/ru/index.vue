@@ -14,15 +14,6 @@ useHead({
 <template>
     <main>
         <div class="content-container">
-            <nav class="flex gap-3 flex-wrap my-8 text-sm leading-none items-center">
-                <NuxtLink to="/">Eng</NuxtLink>
-                <span>Рус</span>
-                <USeparator orientation="vertical" class="h-[1.2em]" />
-                <NuxtLink to="https://t.me/urssivar" target="_blank">Телеграм</NuxtLink>
-                <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
-                <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
-            </nav>
-
             <h1>Urssivar: Кайтагские Исследования</h1>
 
             <p class="italic leading-snug mb-6"><span lang="xdq">Наллара дел да. Ьам ра бел.</span></p>
