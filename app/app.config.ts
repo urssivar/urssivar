@@ -13,7 +13,7 @@ export default defineAppConfig({
             base: 'focus-visible:outline-primary',
             variants: {
                 active: {
-                    false: 'text-primary',
+                    false: 'text-primary underline decoration-transparent hover:decoration-inherit',
                     true: 'text-muted'
                 },
             },
