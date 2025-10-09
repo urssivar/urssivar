@@ -14,7 +14,7 @@ useHead({
 <template>
     <main>
         <div class="content-container">
-            <nav class="flex gap-3 flex-wrap my-8 text-sm items-center">
+            <nav class="flex gap-3 flex-wrap my-8 text-sm leading-none items-center">
                 <NuxtLink to="/">Eng</NuxtLink>
                 <span>Рус</span>
                 <USeparator orientation="vertical" class="h-[1.2em]" />
@@ -25,7 +25,7 @@ useHead({
 
             <h1>Urssivar: Кайтагские Исследования</h1>
 
-            <p class="italic"><span lang="xdq">Наллара дел да. Ьам ра бел.</span></p>
+            <p class="italic leading-snug mb-6"><span lang="xdq">Наллара дел да. Ьам ра бел.</span></p>
 
             <p>
                 Мы собираем слова, записываем предания, восстанавливаем родословные, проводим ДНК-тестирование.

@@ -8,7 +8,7 @@ useSeoMeta({
 <template>
     <main>
         <div class="content-container">
-            <nav class="flex gap-3 flex-wrap my-8 text-sm items-center">
+            <nav class="flex gap-3 flex-wrap my-8 text-sm leading-none items-center">
                 <span>Eng</span>
                 <NuxtLink to="/ru">Рус</NuxtLink>
                 <USeparator orientation="vertical" class="h-[1.2em]" />
@@ -19,7 +19,7 @@ useSeoMeta({
 
             <h1>Urssivar: Kaitag Studies</h1>
 
-            <p class="italic"><span lang="xdq">Nallara del da. Ham ra bel.</span></p>
+            <p class="italic leading-snug mb-6"><span lang="xdq">Nallara del da. Ham ra bel.</span></p>
 
             <p>
                 We collect words, record stories, restore family trees, and conduct DNA testing.

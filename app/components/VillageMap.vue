@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
             <LIcon>
               <div class="w-full h-full flex items-center justify-center">
                 <div
-                  class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition ease-out border-white dark:border-gray-950 bg-blue-600 dark:bg-blue-400 hover:scale-150" />
+                  class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition-all duration-200 ease-out border-white dark:border-gray-950 bg-blue-600 dark:bg-blue-400 hover:scale-150" />
               </div>
             </LIcon>
           </LMarker>
