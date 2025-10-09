@@ -10,7 +10,7 @@ useSeoMeta({
         <div class="content-container">
             <h1>Urssivar: Kaitag Studies</h1>
 
-            <p class="italic leading-snug mb-6"><span lang="xdq">Nallara del da. Ham ra bel.</span></p>
+            <p class="italic">Nallara del da. Ham ra bel.</p>
 
             <p>
                 We collect words, record stories, restore family trees, and conduct DNA testing.
@@ -32,7 +32,7 @@ useSeoMeta({
                 All of this depends <strong>on us.</strong>
             </p>
             <h2>
-                <NuxtLink to="https://codex.urssivar.com">Kaitag Language</NuxtLink>
+                <ULink to="https://codex.urssivar.com">Kaitag Language</ULink>
             </h2>
             <p>
                 We're recording living Kaitag speech and creating an archive of original texts: tales, stories,
@@ -56,7 +56,7 @@ useSeoMeta({
             </p>
 
             <h2>
-                <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</NuxtLink>
+                <ULink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</ULink>
             </h2>
             <p>
                 We compile family trees — names, lifespans, villages, migrations.

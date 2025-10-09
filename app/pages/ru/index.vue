@@ -16,7 +16,7 @@ useHead({
         <div class="content-container">
             <h1>Urssivar: Кайтагские Исследования</h1>
 
-            <p class="italic leading-snug mb-6"><span lang="xdq">Наллара дел да. Ьам ра бел.</span></p>
+            <p class="italic">Наллара дел да. Ьам ра бел.</p>
 
             <p>
                 Мы собираем слова, записываем предания, восстанавливаем родословные, проводим ДНК-тестирование.
@@ -36,7 +36,7 @@ useHead({
             </p>
 
             <h2>
-                <NuxtLink to="https://codex.urssivar.com/ru">Кайтагский язык</NuxtLink>
+                <ULink to="https://codex.urssivar.com/ru">Кайтагский язык</ULink>
             </h2>
             <p>
                 Мы записываем живую кайтагскую речь и создаём архив оригинальных текстов: сказок, рассказов, песен,
@@ -54,7 +54,7 @@ useHead({
             </p>
 
             <h2>
-                <NuxtLink to="https://www.familytreedna.com/groups/kaitag/about">Кайтагская генеалогия</NuxtLink>
+                <ULink to="https://www.familytreedna.com/groups/kaitag/about">Кайтагская генеалогия</ULink>
             </h2>
             <p>
                 Мы составляем фамильные древа — имена, годы жизни, сёла, миграции.
