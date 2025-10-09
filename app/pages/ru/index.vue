@@ -14,10 +14,10 @@ useHead({
 <template>
     <main>
         <div class="content-container">
-            <nav class="flex gap-4 flex-wrap mb-12 text-sm items-center">
+            <nav class="flex gap-3 flex-wrap my-8 text-sm items-center">
                 <NuxtLink to="/">Eng</NuxtLink>
                 <span>Рус</span>
-                <USeparator orientation="vertical" class="h-4" />
+                <USeparator orientation="vertical" class="h-[1.2em]" />
                 <NuxtLink to="https://t.me/urssivar" target="_blank">Телеграм</NuxtLink>
                 <NuxtLink to="https://youtube.com/@urssivar" target="_blank">YouTube</NuxtLink>
                 <NuxtLink to="https://github.com/urssivar" target="_blank">GitHub</NuxtLink>
@@ -34,9 +34,7 @@ useHead({
             </p>
         </div>
 
-        <div class="w-full">
-            <VillageMap />
-        </div>
+        <VillageMap />
 
         <div class="content-container">
             <p>
@@ -85,8 +83,6 @@ useHead({
             </p>
         </div>
 
-        <div class="content-container">
-            <Stamp />
-        </div>
+        <Stamp />
     </main>
 </template>

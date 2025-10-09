@@ -93,7 +93,7 @@ onBeforeUnmount(() => {
   <UTooltip :open="tooltipOpen" :text="selectedVillage ?? ''" arrow :reference="markerElement" :content="{
     side: 'top',
   }" class="font-bold text-sm" />
-  <div class="my-16 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
+  <div class="my-12 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
     <ClientOnly>
       <Transition name="fade" appear>
         <LMap :options="mapOptions" :use-global-leaflet="false"
@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
             <LIcon>
               <div class="w-full h-full flex items-center justify-center">
                 <div
-                  class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition-all ease-out border-white dark:border-gray-950 bg-blue-600 dark:bg-blue-400 hover:scale-150" />
+                  class="village-dot w-3 h-3 rounded-full border-2 cursor-pointer transition ease-out border-white dark:border-gray-950 bg-blue-600 dark:bg-blue-400 hover:scale-150" />
               </div>
             </LIcon>
           </LMarker>
@@ -135,7 +135,7 @@ onBeforeUnmount(() => {
 
 /* Fade transition */
 .fade-enter-active {
-  transition: opacity 1s ease-out;
+  transition: opacity 500ms ease-out;
 }
 
 .fade-enter-from {
