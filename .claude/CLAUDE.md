@@ -1,3 +1,59 @@
+## Color System & Theming
+
+The site uses Nuxt UI's semantic color system for consistent theming across light and dark modes.
+
+### Configuration (`app.config.ts`)
+
+**Color palette:**
+- `primary: 'blue'` - Brand color for links, buttons, interactive elements
+- `neutral: 'gray'` - Text, borders, backgrounds (uses Tailwind gray palette)
+
+**Color mode:**
+- `colorMode: { preference: 'system' }` - Automatically detects light/dark mode from OS
+
+**Usage:**
+- Use semantic tokens: `primary-600`, `neutral-900`, etc.
+- Avoid hard-coded colors like `blue-600` or `gray-900`
+- Change brand color in one place: modify `primary` in `app.config.ts`
+
+### Typography & Fonts
+
+**Font loading:**
+- Fonts loaded via `@nuxt/fonts` module
+- Auto-detects fonts from CSS `@theme` variables (`--font-sans`, `--font-serif`, `--font-mono`)
+- IBM Plex Sans (body), IBM Plex Serif (headings), IBM Plex Mono (code)
+- Automatically optimizes and loads required weights/styles from Google Fonts
+
+**Text colors:**
+- Handled by Nuxt UI's `text-default` on body
+- Automatically switches between light/dark: `gray-900` / `gray-100`
+
+### Image Color Handling
+
+**Stamp component (`/app/components/Stamp.vue`):**
+- Original SVG: white (`#fff`)
+- Light mode: `invert-[88%]` → ~12% brightness (dark gray, matches text)
+- Dark mode: `invert-[12%]` → ~88% brightness (light gray, matches text)
+- Invert values calibrated to match body text contrast (`gray-900`/`gray-100`)
+
+**Map backdrop (`/app/components/VillageMap.vue`):**
+- Original WebP: dark/black topographic map
+- Light mode: `invert-[12%]` → ~88% brightness (light gray)
+- Dark mode: `invert-[88%]` → ~12% brightness (dark gray)
+- Opposite invert percentages from stamp (stamp starts white, map starts black)
+
+### CSS Organization (`app/assets/css/main.css`)
+
+**Base layer contains only:**
+- Font families (applied to body, headings)
+- Custom spacing (heading/paragraph margins)
+- Custom line-heights (`leading-relaxed` on main, `leading-tight` on headings)
+
+**No color declarations:**
+- All colors handled by Nuxt UI theme system
+- Body background/text via Nuxt UI defaults
+- Links styled via `<ULink>` component with custom config in `app.config.ts`
+
 ## Village Map Component
 
 The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag villages as interactive markers over a topographic map backdrop using Leaflet.
@@ -7,7 +63,7 @@ The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag vill
 **Technology stack:**
 - **@vue-leaflet/vue-leaflet**: Vue 3 wrapper for Leaflet maps
 - **Leaflet**: Interactive map rendering
-- **Template-based LIcon markers**: Blue dots with hover scaling via Tailwind classes
+- **Template-based LIcon markers**: Primary color dots with hover scaling via Tailwind classes
 - **Nuxt UI tooltips**: Consistent tooltips with controlled open state and animations
 - **ClientOnly + Transition**: SSR-safe loading with smooth fade-in animation
 
@@ -83,24 +139,23 @@ When exporting a new map from QGIS:
 ### Styling Configuration
 
 **Markers:**
-- Blue dots (`bg-blue-600`/`dark:bg-blue-400`) with white/dark borders (Tailwind classes)
+- Primary color dots (`bg-primary-600`/`dark:bg-primary-400`) with neutral borders (`border-neutral-50`/`dark:border-neutral-900`)
 - 12px size (w-3 h-3), centered in parent via flexbox
 - Scale to 1.5x on hover with `transition-all ease-out` (200ms)
 - Scaling applied via `classList.add('scale-150')` for both manual and auto-hover
 
 **Tooltips:**
-- Font: Default sans-serif (IBM Plex Sans) with bold weight and small size (`font-bold text-sm`)
-- Styling: Native Nuxt UI theme (gray-50/gray-900 backgrounds)
+- Custom styling for map-specific use: `font-bold text-sm px-3 py-1.5` (inline classes)
+- Not using global tooltip config - this is intentionally larger/more prominent for map
 - Arrow enabled
 - Positioned above marker (`side: 'top'`)
 - Animation: Scale-in/scale-out for both instant-open and delayed-open states (configured in `app.config.ts`)
 
 **Map backdrop:**
-- `brightness-[0.8]` for dimming in light mode
-- `dark:invert` for color inversion in dark mode (also inherits brightness)
+- `invert-[12%] dark:invert-[88%]` for consistent grayscale appearance across light/dark modes
 - Transparent background on Leaflet container (via `@apply` in `:deep()`)
 - Preloaded via `app.vue` for instant display
-- Fades in with 300ms transition on mount
+- Fades in with 500ms transition on mount
 
 **SSR & Loading:**
 - `<ClientOnly>` wraps Leaflet components (SSR-incompatible)
