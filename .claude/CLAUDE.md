@@ -8,7 +8,7 @@ The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag vill
 - **@vue-leaflet/vue-leaflet**: Vue 3 wrapper for Leaflet maps
 - **Leaflet**: Interactive map rendering
 - **Template-based LIcon markers**: Blue dots with hover scaling via Tailwind classes
-- **Nuxt UI tooltips**: Consistent tooltips with IBM Plex Mono font (via `lang="xdq"`)
+- **Nuxt UI tooltips**: Consistent tooltips with controlled open state and animations
 - **ClientOnly + Transition**: SSR-safe loading with smooth fade-in animation
 
 **Key features:**
@@ -89,10 +89,11 @@ When exporting a new map from QGIS:
 - Scaling applied via `classList.add('scale-150')` for both manual and auto-hover
 
 **Tooltips:**
-- Font: IBM Plex Mono bold (via `lang="xdq"` attribute on content)
+- Font: Default sans-serif (IBM Plex Sans) with bold weight and small size (`font-bold text-sm`)
 - Styling: Native Nuxt UI theme (gray-50/gray-900 backgrounds)
 - Arrow enabled
 - Positioned above marker (`side: 'top'`)
+- Animation: Scale-in/scale-out for both instant-open and delayed-open states (configured in `app.config.ts`)
 
 **Map backdrop:**
 - `brightness-[0.8]` for dimming in light mode
