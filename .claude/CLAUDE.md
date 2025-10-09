@@ -69,7 +69,7 @@ The VillageMap component (`/app/components/VillageMap.vue`) displays Kaitag vill
 
 **Key features:**
 - Village data: `/app/data/villages.json` (lat/lng coordinates in EPSG:4326)
-- Auto-hover: Random village tooltip opens every 2.5s for 1.8s
+- Auto-hover: Random village tooltip opens every 3s for 2s
 - Manual hover: Tooltips show on mouse hover, resets auto-hover timer
 - Marker animation: Dots scale to 1.5x on hover with CSS transitions
 - Responsive: Map bleeds full-width, auto-fits to village bounds

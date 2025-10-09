@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref, computed, onBeforeUnmount } from 'vue';
 import { LMap, LImageOverlay, LMarker, LIcon } from '@vue-leaflet/vue-leaflet';
 import 'leaflet/dist/leaflet.css';
 import villages from '~/data/villages.json';
