@@ -44,7 +44,7 @@
   }
 
   [lang="xdq"] {
-    @apply font-kaitag font-medium text-[1.1em] leading-normal align-baseline;
+    @apply font-kaitag font-medium text-lg/normal align-baseline;
   }
 }
 
