@@ -3,7 +3,7 @@ const fixed = ref(false);
 </script>
 
 <template>
-  <div @click="fixed = true" class="my-16 mx-auto w-36 cursor-pointer relative select-none">
+  <div @mousedown="fixed = true" class="my-16 mx-auto w-36 cursor-pointer relative select-none">
     <img src="/stamp-text.svg" alt="Urssivar: Kaitag Studies"
       class="block w-full invert-[88%] dark:invert-[12%] pointer-events-none animate-[spin_20s_linear_infinite]">
     <img src="/stamp-logo.svg" alt="Urssivar logo"
