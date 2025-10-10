@@ -10,7 +10,7 @@ useSeoMeta({
         <div class="content-container">
             <h1>Urssivar: Kaitag Studies</h1>
 
-            <p class="italic">Nallara del da. Ham ra bel.</p>
+            <p class="italic" lang="xdq">Наллара дел да. Ьам ра бел.</p>
 
             <p>
                 We collect words, record stories, restore family trees, and conduct DNA testing.

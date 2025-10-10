@@ -5,6 +5,7 @@
   --font-sans: "IBM Plex Sans", sans-serif;
   --font-serif: "IBM Plex Serif", serif;
   --font-mono: "IBM Plex Mono", monospace;
+  --font-kaitag: "EB Garamond", serif;
 }
 
 @layer base {
@@ -23,7 +24,7 @@
   h1,
   h2,
   h3 {
-    @apply font-bold leading-tight font-serif;
+    @apply font-semibold leading-tight font-serif;
   }
 
   h1 {
@@ -40,6 +41,10 @@
 
   p {
     @apply mb-4;
+  }
+
+  [lang="xdq"] {
+    @apply font-kaitag font-medium text-[1.1em] leading-[0.91] align-baseline;
   }
 }
 
