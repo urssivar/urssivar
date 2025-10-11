@@ -2,9 +2,8 @@
 @import "@nuxt/ui";
 
 @theme {
-  --font-sans: "IBM Plex Sans", sans-serif;
-  --font-serif: "IBM Plex Serif", serif;
-  --font-kaitag: "EB Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "EB Garamond", serif;
 }
 
 @layer base {
@@ -23,27 +22,27 @@
   h1,
   h2,
   h3 {
-    @apply font-semibold leading-tight font-serif;
+    @apply font-semibold leading-tight;
   }
 
   h1 {
-    @apply text-3xl mb-6;
+    @apply text-3xl;
   }
 
   h2 {
-    @apply text-2xl mt-12 mb-6;
+    @apply text-2xl mt-12;
   }
 
   h3 {
-    @apply text-xl mt-6 mb-4;
+    @apply text-xl mt-6;
   }
 
   p {
-    @apply mb-4;
+    @apply my-4;
   }
 
   [lang="xdq"] {
-    @apply font-kaitag font-medium text-lg/normal align-baseline;
+    @apply font-serif font-medium text-lg/normal align-baseline;
   }
 }
 
