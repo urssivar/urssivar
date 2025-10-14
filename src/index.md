@@ -5,7 +5,7 @@ description: 'Resources & technologies for preserving and studying Kaitag langua
 
 # Urssivar: Kaitag Studies
 
-<p lang="xdq"> *Наллара дел да. Ьам ра бел.* </p>
+*Наллара дел да. Ьам ра бел.* {lang=xdq .bg-red-500}
 
 We collect words, record stories, restore family trees, and conduct DNA testing.
 **Time is running out** — this is the last chance to preserve what remains.
@@ -21,7 +21,7 @@ the
 people.
 All of this depends **on us.**
 
-## <ULink to="https://codex.urssivar.com">Kaitag Language</ULink>
+<!-- ## <ULink to="https://codex.urssivar.com">Kaitag Language</ULink> -->
 
 We're recording living Kaitag speech and creating an archive of original texts: tales, stories,
 songs,
@@ -40,7 +40,7 @@ traditions,
 dialogues, prayers. We document not only vocabulary, but also patterns of thought, speech style, and
 culture.
 
-## <ULink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</ULink>
+<!-- ## <ULink to="https://www.familytreedna.com/groups/kaitag/about">Kaitag Genealogy</ULink> -->
 
 We compile family trees — names, lifespans, villages, migrations.
 We use DNA testing to establish origins and kinship connections.

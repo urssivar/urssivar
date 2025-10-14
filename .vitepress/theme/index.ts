@@ -16,7 +16,7 @@ import VillageMap from '../components/VillageMap.vue'
 export default {
   Layout,
   enhanceApp({ app, router, siteData }) {
-    // Set up Nuxt UI
+    // Set up Nuxt UI with VitePress router
     app.use(ui)
 
     // Set up unhead
