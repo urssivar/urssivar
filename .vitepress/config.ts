@@ -10,6 +10,9 @@ export default defineConfig({
   lang: 'en',
 
   cleanUrls: true,
+  rewrites: {
+    'ru/index.md': 'ru.md',
+  },
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
 
