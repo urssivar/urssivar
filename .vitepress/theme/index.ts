@@ -8,6 +8,8 @@ import ui from '@nuxt/ui/vue-plugin';
 export default {
   Layout,
   enhanceApp({ app }) {
-    app.use(ui);
+    if (!import.meta.env.SSR) {
+      app.use(ui);
+    }
   }
 } satisfies Theme
