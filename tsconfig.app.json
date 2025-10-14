@@ -3,7 +3,7 @@
         "src/**/*.ts",
         "src/**/*.tsx",
         "src/**/*.vue",
-        "src/auto-imports.d.ts",
-        "src/components.d.ts"
+        ".vitepress/auto-imports.d.ts",
+        ".vitepress/components.d.ts"
     ]
 }

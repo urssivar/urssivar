@@ -21,7 +21,9 @@
     "src/**/*.vue",
     "src/**/*.md",
     ".vitepress/**/*.ts",
-    ".vitepress/**/*.vue"
+    ".vitepress/**/*.vue",
+    ".vitepress/auto-imports.d.ts",
+    ".vitepress/components.d.ts"
   ],
   "vueCompilerOptions": {
     "vitePressExtensions": [

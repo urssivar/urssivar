@@ -47,6 +47,12 @@ export default defineConfig({
     plugins: [
       // @ts-expect-error - VitePress bundles its own Vite version causing type conflicts
       ui({
+        autoImport: {
+          dts: path.resolve(__dirname, 'auto-imports.d.ts')
+        },
+        components: {
+          dts: path.resolve(__dirname, 'components.d.ts')
+        },
         ui: {
           colors: {
             primary: 'blue',

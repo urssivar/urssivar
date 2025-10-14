@@ -1,6 +1,6 @@
-# Nuxt
-src/auto-imports.d.ts
-src/components.d.ts
+# Auto-generated type declarations
+.vitepress/auto-imports.d.ts
+.vitepress/components.d.ts
 
 # VitePress
 .vitepress/cache
