@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { LMap, LImageOverlay, LMarker, LIcon } from '@vue-leaflet/vue-leaflet';
 import 'leaflet/dist/leaflet.css';
-import villages from '../data/villages.json';
+import villages from '@/data/villages.json';
 import type { LatLngBoundsExpression } from 'leaflet';
 import { computed, onBeforeUnmount, ref } from 'vue';
 

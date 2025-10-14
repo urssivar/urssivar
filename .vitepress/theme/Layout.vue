@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Content, useData } from 'vitepress';
-import Link from '~/components/Link.vue';
+import Link from '@/components/Link.vue';
 
 const { frontmatter } = useData();
 </script>

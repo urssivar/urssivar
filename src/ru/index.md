@@ -6,8 +6,8 @@ layout: full
 ---
 
 <script setup lang="ts">
-import Stamp from "~/components/Stamp.vue";
-import VillageMap from "~/components/VillageMap.vue";
+import Stamp from "@/components/Stamp.vue";
+import VillageMap from "@/components/VillageMap.vue";
 </script>
 
 <div class="content-container">
