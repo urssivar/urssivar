@@ -3,24 +3,22 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "dependencies": {
-    "@nuxt/eslint": "^1.8.0",
-    "@nuxt/fonts": "^0.11.4",
     "@nuxt/ui": "^4.0.1",
     "@tailwindcss/vite": "^4.1.14",
     "@types/leaflet": "^1.9.20",
+    "@unhead/vue": "^1.11.16",
     "@vue-leaflet/vue-leaflet": "^0.10.1",
-    "eslint": "^9.33.0",
     "leaflet": "^1.9.4",
-    "nuxt": "^4.0.3",
     "tailwindcss": "^4.1.14",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4"
   }
 }

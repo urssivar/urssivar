@@ -1,7 +1,7 @@
 {
     "name": "Urssivar",
     "dockerComposeFile": "../docker-compose.yml",
-    "service": "nuxt-app",
+    "service": "vitepress-app",
     "workspaceFolder": "/workspace",
     "forwardPorts": [
         3000

@@ -12,5 +12,5 @@ RUN npm ci
 # Copy rest of the files
 COPY . .
 
-EXPOSE 3000
+EXPOSE 5173
 CMD ["npm", "run", "dev"]
