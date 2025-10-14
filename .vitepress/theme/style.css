@@ -40,6 +40,10 @@
     @apply my-4;
   }
 
+  a {
+    @apply transition text-primary hover:text-default underline;
+  }
+
   [lang="xdq"] {
     @apply font-serif font-medium text-lg/normal align-baseline;
   }

@@ -1,7 +1,6 @@
-import { defineConfig } from 'vitepress'
-import ui from '@nuxt/ui/vite'
-import tailwindcss from '@tailwindcss/vite'
-// import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vitepress';
+import path from "path";
+import ui from '@nuxt/ui/vite';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -40,8 +39,12 @@ export default defineConfig({
       host: '0.0.0.0',
       port: 5173
     },
+    resolve: {
+      alias: {
+        "~": path.resolve(__dirname, "./"),
+      },
+    },
     plugins: [
-      tailwindcss(),
       ui({
         ui: {
           colors: {
