@@ -3,22 +3,9 @@ title: 'Urssivar: Kaitag Studies'
 description: 'Resources & technologies for preserving and studying Kaitag language, culture, history, and people.'
 ---
 
-<script setup>
-import { useHead } from '@unhead/vue'
-
-useHead({
-  link: [{
-    rel: 'preload',
-    as: 'image',
-    href: '/map.webp',
-    type: 'image/webp',
-  }],
-})
-</script>
-
 # Urssivar: Kaitag Studies
 
-<p class="italic" lang="xdq">Наллара дел да. Ьам ра бел.</p>
+<p lang="xdq"> *Наллара дел да. Ьам ра бел.* </p>
 
 We collect words, record stories, restore family trees, and conduct DNA testing.
 **Time is running out** — this is the last chance to preserve what remains.

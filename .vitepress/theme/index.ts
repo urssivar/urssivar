@@ -28,4 +28,3 @@ export default {
     app.component('VillageMap', VillageMap)
   }
 } satisfies Theme
-

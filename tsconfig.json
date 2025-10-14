@@ -1,8 +1,8 @@
 {
   "include": [
-    "docs/**/*.ts",
-    "docs/**/*.vue",
-    "docs/**/*.md",
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "src/**/*.md",
   ],
   "vueCompilerOptions": {
     "vitePressExtensions": [
