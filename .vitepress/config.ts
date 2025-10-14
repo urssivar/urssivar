@@ -45,6 +45,7 @@ export default defineConfig({
       },
     },
     plugins: [
+      // @ts-expect-error - VitePress bundles its own Vite version causing type conflicts
       ui({
         ui: {
           colors: {
@@ -56,18 +57,6 @@ export default defineConfig({
               content: 'data-[state=instant-open]:animate-[scale-in_100ms_ease-out]'
             }
           },
-          link: {
-            base: 'focus-visible:outline-primary',
-            variants: {
-              active: {
-                false: 'text-primary underline decoration-inherit',
-                true: 'text-muted'
-              },
-            },
-          }
-        },
-        colorMode: {
-          preference: 'system'
         }
       })
     ]
