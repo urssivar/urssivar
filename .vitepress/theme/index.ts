@@ -10,8 +10,8 @@ import ui from '@nuxt/ui/vue-plugin'
 import { createHead } from '@unhead/vue'
 
 // Import components
-import Stamp from './components/Stamp.vue'
-import VillageMap from './components/VillageMap.vue'
+import Stamp from '../components/Stamp.vue'
+import VillageMap from '../components/VillageMap.vue'
 
 export default {
   Layout,
