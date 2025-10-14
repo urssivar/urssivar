@@ -6,22 +6,24 @@ import './style.css'
 // Nuxt UI
 import ui from '@nuxt/ui/vue-plugin'
 
-// unhead for meta management
-import { createHead } from '@unhead/vue'
-
 // Import components
 import Stamp from '../components/Stamp.vue'
 import VillageMap from '../components/VillageMap.vue'
 
+import { createRouter, createWebHistory } from 'vue-router'
+
 export default {
   Layout,
-  enhanceApp({ app, router, siteData }) {
-    // Set up Nuxt UI with VitePress router
+  enhanceApp({ app }) {
+    // Set up Nuxt UI
     app.use(ui)
 
-    // Set up unhead
-    const head = createHead()
-    app.use(head)
+    // Set up router
+    const router = createRouter({
+      routes: [],
+      history: createWebHistory()
+    })
+    app.use(router);
 
     // Register global components
     app.component('Stamp', Stamp)

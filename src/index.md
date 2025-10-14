@@ -1,11 +1,11 @@
 ---
-title: 'Urssivar: Kaitag Studies'
-description: 'Resources & technologies for preserving and studying Kaitag language, culture, history, and people.'
+title: "Urssivar: Kaitag Studies"
+description: "Resources & technologies for preserving and studying Kaitag language, culture, history, and people."
 ---
 
 # Urssivar: Kaitag Studies
 
-*Наллара дел да. Ьам ра бел.* {lang=xdq .bg-red-500}
+_Наллара дел да. Ьам ра бел._ {lang=xdq}
 
 We collect words, record stories, restore family trees, and conduct DNA testing.
 **Time is running out** — this is the last chance to preserve what remains.

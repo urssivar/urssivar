@@ -21,7 +21,7 @@ export default defineConfig({
 
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap' }]
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet' }]
   ],
 
   locales: {
@@ -41,8 +41,32 @@ export default defineConfig({
       port: 5173
     },
     plugins: [
-      ui(),
-      tailwindcss()
+      tailwindcss(),
+      ui({
+        ui: {
+          colors: {
+            primary: 'blue',
+            neutral: 'gray',
+          },
+          tooltip: {
+            slots: {
+              content: 'data-[state=instant-open]:animate-[scale-in_100ms_ease-out]'
+            }
+          },
+          link: {
+            base: 'focus-visible:outline-primary',
+            variants: {
+              active: {
+                false: 'text-primary underline decoration-inherit',
+                true: 'text-muted'
+              },
+            },
+          }
+        },
+        colorMode: {
+          preference: 'system'
+        }
+      })
     ]
   }
 })

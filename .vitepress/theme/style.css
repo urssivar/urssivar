@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@source "../**/*.vue";
+@source "../../src/**/*.md";
+@source "../config.ts";
 @import "@nuxt/ui";
 
 @theme {
@@ -12,11 +15,7 @@
   }
 
   body {
-    @apply font-sans;
-  }
-
-  main {
-    @apply leading-relaxed;
+    @apply font-sans leading-relaxed;
   }
 
   h1,
