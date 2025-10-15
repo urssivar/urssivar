@@ -1,22 +1,89 @@
 <script setup lang="ts">
-import { Content, useData } from 'vitepress';
+import { Content, useRouter } from 'vitepress';
 import Link from '@/components/Link.vue';
+import { computed, registerRuntimeCompiler } from 'vue';
 
-const { frontmatter } = useData();
+const router = useRouter();
+const path = computed(() => {
+  return router.route.path;
+});
+
+const RU = '/ru';
+const EN = '/';
+const isRu = computed(() => {
+  return path.value === RU || path.value.startsWith(RU + '/');
+});
+const langBase = computed(() => {
+  return isRu.value ? RU + '/' : EN;
+});
+const isHome = computed(() => {
+  return path.value === EN || path.value === RU;
+});
+
+const homeLink = computed(() => {
+  return isRu.value ? RU : EN;
+});
+const langLink = computed(() => {
+  return isHome.value
+    ? isRu.value ? EN : RU
+    : isRu.value ? path.value.replace(RU, '') : RU + path.value;
+});
 </script>
 
 <template>
   <UApp>
-    <div class="content-container">
-      <nav class="flex gap-3 flex-wrap text-sm items-center my-8 ">
-        <Link to="/">Eng</Link>
-        <Link to="/ru">Рус</Link>
-        <USeparator orientation="vertical" class="h-[1.2em]" />
+    <div class="content-container my-3">
+      <nav content-container my-2 class="flex gap-3 text-sm items-center">
+        <Link :to="homeLink" class="flex items-center gap-1.5 text-default decoration-transparent">
+        <img src="/favicon-dark.svg" alt="Urssivar logo"
+          class="size-6 invert-[88%] dark:invert-[12%] select-none pointer-events-none">
+        <span v-if="!isHome" class="font-bold text-lg">
+          Urssivar
+        </span>
+        </Link>
+        <div class="flex-1" />
+        <UButton icon="i-lucide-search" />
+        <Link :to="langLink">
+        <UButton icon="i-lucide-globe" />
+        </Link>
+      </nav>
+    </div>
+    <USeparator />
+
+    <template v-if="path.includes('/language')">
+      <div class="content-container my-3">
+        <nav class="flex gap-3 text-sm items-center font-semibold overflow-x-auto">
+          <Link :to="langBase + 'language'">
+          Язык
+          </Link>
+          <span class="select-none text-dimmed">/</span>
+          <Link :to="langBase + 'language/grammar'">
+          Грамматика
+          </Link>
+          <Link :to="langBase + 'language/dictionary'">
+          Словарь
+          </Link>
+          <Link :to="langBase + 'language/phrasebook'">
+          Разговорник
+          </Link>
+          <Link :to="langBase + 'language/texts'">
+          Тексты
+          </Link>
+        </nav>
+      </div>
+      <USeparator />
+    </template>
+
+    <Content class="mt-8" :class="{ 'content-container': !isHome }" />
+    <USeparator class="my-4" :class="{ 'mt-8': !isHome }" />
+    <div class="content-container my-8">
+      <nav class="flex gap-3 flex-wrap text-xs items-center">
+        <span>Лицензия CC BY 4.0</span>
+        <div class="flex-1" />
         <Link to="https://t.me/urssivar">Telegram</Link>
         <Link to="https://youtube.com/@urssivar">YouTube</Link>
         <Link to="https://github.com/urssivar">GitHub</Link>
       </nav>
     </div>
-    <Content :class="{ 'content-container': frontmatter.layout !== 'full' }" />
   </UApp>
 </template>

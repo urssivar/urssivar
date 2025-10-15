@@ -11,7 +11,7 @@ export default defineConfig({
 
   cleanUrls: true,
   rewrites: {
-    'ru/index.md': 'ru.md',
+    ':path(.*)/index.md': ':path.md',
   },
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
@@ -60,6 +60,15 @@ export default defineConfig({
           colors: {
             primary: 'blue',
             neutral: 'gray',
+          },
+          button: {
+            slots: {
+              base: "cursor-pointer",
+            },
+            defaultVariants: {
+              color: 'neutral',
+              variant: 'ghost',
+            }
           },
           tooltip: {
             slots: {
