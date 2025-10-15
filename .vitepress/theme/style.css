@@ -14,10 +14,6 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  #app {
-    @apply isolate;
-  }
-
   body {
     @apply font-sans leading-relaxed;
   }
@@ -48,13 +44,43 @@
     @apply transition text-primary hover:text-default underline;
   }
 
-  [lang="xdq"] {
-    @apply font-serif font-medium text-lg/normal align-baseline;
+  table {
+    @apply w-full border-collapse text-sm rounded-md bg-muted;
+  }
+
+  tbody {
+    tr {
+      @apply border-b border-muted/75;
+
+      &:last-child {
+        @apply border-b-0;
+      }
+    }
+    td {
+      @apply px-3 py-1.5 align-text-top;
+    }
   }
 }
 
 @layer components {
   .content-container {
     @apply max-w-prose mx-auto px-6 sm:px-8;
+  }
+
+  [lang="xdq"] {
+    @apply font-serif font-medium align-baseline;
+  }
+
+  .gloss {
+    @apply text-muted;
+  }
+
+  .highlight {
+    @apply underline underline-offset-[-0.25em] decoration-[0.5em] decoration-(--ui-bg-accented);
+    text-decoration-skip-ink: none;
+  }
+
+  #app {
+    @apply isolate;
   }
 }

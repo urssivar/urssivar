@@ -56,11 +56,11 @@ const langLink = computed(() => {
       <div class="content-container my-3">
         <nav class="flex gap-3 text-sm items-center font-semibold overflow-x-auto">
           <UButton icon="i-material-symbols:menu-rounded" size="xs" />
-          <span class="select-none text-dimmed">/</span>
+          <span class="select-none text-dimmed text-xs">/</span>
           <Link :to="langBase + 'language'">
           Язык
           </Link>
-          <span class="select-none text-dimmed">/</span>
+          <span class="select-none text-dimmed text-xs">/</span>
           <Link :to="langBase + 'language/grammar'">
           Грамматика
           </Link>
@@ -89,13 +89,13 @@ const langLink = computed(() => {
         <span>Лицензия CC BY 4.0</span>
         <div class="flex-1" />
         <Link to="https://t.me/urssivar">
-        <UButton icon="i-simple-icons:telegram" size="sm" />
+        <UButton icon="i-ix:telegram-logo" />
         </Link>
         <Link to="https://youtube.com/@urssivar">
-        <UButton icon="i-simple-icons:youtube" size="sm" />
+        <UButton icon="i-ix:youtube-filled" />
         </Link>
         <Link to="https://github.com/urssivar">
-        <UButton icon="i-simple-icons:github" size="sm" />
+        <UButton icon="i-ix:github-logo" />
         </Link>
       </nav>
     </div>

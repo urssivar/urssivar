@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 import path from "path";
 import ui from '@nuxt/ui/vite';
+import configMd from "./md";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -35,6 +36,10 @@ export default defineConfig({
       label: 'Русский',
       lang: 'ru'
     }
+  },
+
+  markdown: {
+    config: configMd,
   },
 
   vite: {
