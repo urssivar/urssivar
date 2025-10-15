@@ -78,9 +78,9 @@ const langLink = computed(() => {
       <USeparator />
     </template>
 
-    <Content class="mt-8" :class="{
+    <Content class="mt-12" :class="{
       'content-container': !(isHome || frontmatter.wide),
-      'mb-16': !isHome
+      'mb-24': !isHome
     }" />
 
     <USeparator />
