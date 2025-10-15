@@ -49,6 +49,29 @@
     @apply text-xl mt-6;
   }
 
+  h2[id] {
+    position: relative; /* establish a positioning context */
+  }
+
+  h2[id]::before {
+    content: "#";
+    font-size: 0.75em;
+    position: absolute;
+    left: -1.75em; /* offset to the left of heading */
+    top: 0;
+    opacity: 0;
+    color: var(--ui-text-muted);
+    background-color: var(--background-color-muted);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: opacity 0.2s;
+  }
+
+  h2[id]:hover::before {
+    opacity: 1;
+    cursor: pointer;
+  }
+
   p {
     @apply my-4;
   }
@@ -58,12 +81,12 @@
   }
 
   table {
-    @apply w-full border-collapse rounded-md bg-elevated/75 text-[0.875rem];
+    @apply w-full border-collapse rounded-md bg-elevated/50 text-[0.875rem];
   }
 
   tbody {
     tr {
-      @apply border-b border-muted/75;
+      @apply border-b border-default/50;
 
       &:last-child {
         @apply border-b-0;
