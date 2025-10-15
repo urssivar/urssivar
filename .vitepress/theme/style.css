@@ -15,7 +15,20 @@
   }
 
   body {
-    @apply font-sans leading-relaxed;
+    @apply font-sans leading-relaxed text-highlighted;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ol,
+  ul {
+    @apply list-outside pl-5 my-4;
   }
 
   h1,
@@ -41,11 +54,11 @@
   }
 
   a {
-    @apply transition text-primary hover:text-default underline;
+    @apply transition-all underline underline-offset-[0.2em] hover:decoration-(--ui-text-dimmed);
   }
 
   table {
-    @apply w-full border-collapse text-sm rounded-md bg-muted;
+    @apply w-full border-collapse text-sm rounded-md bg-elevated/75;
   }
 
   tbody {
@@ -68,15 +81,15 @@
   }
 
   [lang="xdq"] {
-    @apply font-serif font-medium align-baseline;
+    @apply font-serif font-medium text-xl/[1.3] align-baseline;
   }
 
   .gloss {
-    @apply text-muted;
+    @apply text-toned text-sm;
   }
 
   .highlight {
-    @apply underline underline-offset-[-0.25em] decoration-[0.5em] decoration-(--ui-bg-accented);
+    @apply underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented);
     text-decoration-skip-ink: none;
   }
 
