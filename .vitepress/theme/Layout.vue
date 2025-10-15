@@ -33,7 +33,7 @@ const langLink = computed(() => {
 <template>
   <UApp>
     <div class="content-container my-3">
-      <nav content-container my-2 class="flex gap-3 text-sm items-center">
+      <nav class="flex gap-1.5 text-sm items-center">
         <Link :to="homeLink" class="flex items-center gap-1.5 text-default decoration-transparent">
         <img src="/favicon-dark.svg" alt="Urssivar logo"
           class="size-6 invert-[88%] dark:invert-[12%] select-none pointer-events-none">
@@ -42,9 +42,9 @@ const langLink = computed(() => {
         </span>
         </Link>
         <div class="flex-1" />
-        <UButton icon="i-lucide-search" />
+        <UButton icon="i-material-symbols:search-rounded" />
         <Link :to="langLink">
-        <UButton icon="i-lucide-globe" />
+        <UButton icon="i-material-symbols:translate-rounded" />
         </Link>
       </nav>
     </div>
@@ -74,15 +74,25 @@ const langLink = computed(() => {
       <USeparator />
     </template>
 
-    <Content class="mt-8" :class="{ 'content-container': !isHome }" />
-    <USeparator class="my-4" :class="{ 'mt-8': !isHome }" />
-    <div class="content-container my-8">
-      <nav class="flex gap-3 flex-wrap text-xs items-center">
+    <Content class="mt-8" :class="{
+      'content-container': !isHome,
+      'mb-16': !isHome
+    }" />
+
+    <USeparator />
+    <div class="content-container my-3">
+      <nav class="flex gap-1.5 text-xs items-center">
         <span>Лицензия CC BY 4.0</span>
         <div class="flex-1" />
-        <Link to="https://t.me/urssivar">Telegram</Link>
-        <Link to="https://youtube.com/@urssivar">YouTube</Link>
-        <Link to="https://github.com/urssivar">GitHub</Link>
+        <Link to="https://t.me/urssivar">
+        <UButton icon="i-simple-icons:telegram" size="sm" />
+        </Link>
+        <Link to="https://youtube.com/@urssivar">
+        <UButton icon="i-simple-icons:youtube" size="sm" />
+        </Link>
+        <Link to="https://github.com/urssivar">
+        <UButton icon="i-simple-icons:github" size="sm" />
+        </Link>
       </nav>
     </div>
   </UApp>
