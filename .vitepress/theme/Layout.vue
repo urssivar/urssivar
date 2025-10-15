@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { Content, useRouter } from 'vitepress';
+import { Content, useRouter, useData } from 'vitepress';
 import Link from '@/components/Link.vue';
-import { computed, registerRuntimeCompiler } from 'vue';
+import { computed } from 'vue';
+
+const { frontmatter } = useData()
 
 const router = useRouter();
 const path = computed(() => {
@@ -53,6 +55,8 @@ const langLink = computed(() => {
     <template v-if="path.includes('/language')">
       <div class="content-container my-3">
         <nav class="flex gap-3 text-sm items-center font-semibold overflow-x-auto">
+          <UButton icon="i-material-symbols:menu-rounded" size="xs" />
+          <span class="select-none text-dimmed">/</span>
           <Link :to="langBase + 'language'">
           Язык
           </Link>
@@ -75,7 +79,7 @@ const langLink = computed(() => {
     </template>
 
     <Content class="mt-8" :class="{
-      'content-container': !isHome,
+      'content-container': !(isHome || frontmatter.wide),
       'mb-16': !isHome
     }" />
 
