@@ -76,7 +76,7 @@
     @apply cursor-pointer;
 
     &::before {
-      @apply absolute left-[-0.125em] text-dimmed py-1 px-2 text-[0.75em] opacity-0 transition-opacity duration-200 content-['#'];
+      @apply absolute -translate-x-full pr-[0.375em] text-dimmed opacity-0 transition-opacity duration-200 content-['#'];
     }
 
     &:hover::before {
