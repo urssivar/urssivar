@@ -1,91 +1,56 @@
-// md-span-syntax.ts
 import MarkdownIt from 'markdown-it';
-import MdMTables from "markdown-it-multimd-table";
-import Token from 'markdown-it/lib/token.mjs';
+import MdTable from "markdown-it-multimd-table";
+import MdMark from "markdown-it-mark";
 
-type spanRule = {
-    markerChar: string;
+interface SpanRule {
+    delimiter: string;
     name: string;
     attrs: string;
-};
-
-export default function (md: MarkdownIt) {
-    md.use(MdMTables, {
-        rowspan: true,
-    });
-
-    const spans: spanRule[] = [
-        {
-            markerChar: '+',
-            name: 'kaitag',
-            attrs: 'lang="xdq"',
-        },
-        {
-            markerChar: '-',
-            name: 'gloss',
-            attrs: 'class="gloss"',
-        },
-        {
-            markerChar: '=',
-            name: 'highlight',
-            attrs: 'class="highlight"',
-        }
-    ];
-    for (const span of spans) {
-        registerSpanRule(md, span);
-        md.renderer.rules[`${span.name}_open`] =
-            () => `<span ${span.attrs}>`;
-        md.renderer.rules[`${span.name}_close`] =
-            () => '</span>';
-    }
 }
 
-function registerSpanRule(md: MarkdownIt, rule: spanRule) {
-    const { markerChar, name: ruleName } = rule;
-    const markerCode = markerChar.charCodeAt(0);
-    const fullMarker = markerChar + markerChar;
+const SPAN_RULES: SpanRule[] = [
+    { delimiter: '++', name: 'kaitag', attrs: 'lang="xdq"' },
+    { delimiter: '--', name: 'gloss', attrs: 'class="gloss"' },
+];
 
-    md.inline.ruler.before('emphasis', ruleName, (state, silent) => {
-        const src = state.src;
-        const pos = state.pos;
+export default function (md: MarkdownIt) {
+    md.use(MdTable, { rowspan: true });
+    md.use(MdMark);
 
-        // quick bounds check (need at least two chars for opening)
-        if (pos + 1 >= src.length) return false;
+    SPAN_RULES.forEach(rule => registerSpanRule(md, rule));
+}
 
-        // must start with double marker
-        if (src.charCodeAt(pos) !== markerCode || src.charCodeAt(pos + 1) !== markerCode) {
+function registerSpanRule(md: MarkdownIt, rule: SpanRule) {
+    const { delimiter, name, attrs } = rule;
+
+    md.renderer.rules[`${name}_open`] = () => `<span ${attrs}>`;
+    md.renderer.rules[`${name}_close`] = () => '</span>';
+
+    md.inline.ruler.before('emphasis', name, (state, silent) => {
+        const { src, pos } = state;
+        if (!src.startsWith(delimiter, pos)) {
             return false;
         }
 
-        // find the closing double marker
-        const startInner = pos + 2;
-        const end = src.indexOf(fullMarker, startInner);
-        if (end === -1) return false;
-
-        // If silent, just report that we can tokenize here.
+        const contentStart = pos + delimiter.length;
+        const contentEnd = src.indexOf(delimiter, contentStart);
+        if (contentEnd === -1) return false;
         if (silent) return true;
 
-        // Push open token
-        const open = state.push(`${ruleName}_open`, 'span', 1);
-        open.markup = fullMarker;
+        // Add opening token
+        const openToken = state.push(`${name}_open`, 'span', 1);
+        openToken.markup = delimiter;
 
-        // Parse inner as inline markdown into temp tokens, then append them to state.tokens.
-        const tempTokens: Token[] = [];
-        // md.inline.parse accepts: (src, md, env, outTokens)
-        // For `env` use state.env so inline rules can access same env
-        state.md.inline.parse(src.slice(startInner, end), state.md, state.env, tempTokens);
-        // Append parsed tokens
-        for (const t of tempTokens) {
-            // push them directly into the current inline token stream
-            state.tokens.push(t);
-        }
+        // Parse inner content as inline markdown
+        const content = src.slice(contentStart, contentEnd);
+        md.inline.parse(content, md, state.env, state.tokens);
 
-        // Push close token
-        const close = state.push(`${ruleName}_close`, 'span', -1);
-        close.markup = fullMarker;
+        // Add closing token
+        const closeToken = state.push(`${name}_close`, 'span', -1);
+        closeToken.markup = delimiter;
 
-        // advance pos
-        state.pos = end + 2;
+        // Move position past the closing marker
+        state.pos = contentEnd + delimiter.length;
         return true;
     });
 }

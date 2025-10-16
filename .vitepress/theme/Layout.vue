@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Content, useRouter, useData } from 'vitepress';
 import Link from '@/components/Link.vue';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 
 const { frontmatter } = useData()
 
@@ -29,6 +29,16 @@ const langLink = computed(() => {
   return isHome.value
     ? isRu.value ? EN : RU
     : isRu.value ? path.value.replace(RU, '') : RU + path.value;
+});
+
+onMounted(() => {
+  document.querySelectorAll(':is(h1, h2, h3, h4, h5, h6)[id]')
+    .forEach(header => {
+      header.addEventListener('click', () => {
+        header.scrollIntoView({ behavior: 'smooth' });
+        window.location.hash = header.id;
+      });
+    });
 });
 </script>
 
