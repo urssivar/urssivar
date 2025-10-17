@@ -48,6 +48,10 @@
     @apply font-semibold leading-tight;
   }
 
+  .header-number {
+    @apply mr-[0.5em];
+  }
+
   h1 {
     @apply text-3xl;
   }

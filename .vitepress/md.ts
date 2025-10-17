@@ -1,6 +1,7 @@
 import MarkdownIt from 'markdown-it';
 import MdTable from "markdown-it-multimd-table";
 import MdMark from "markdown-it-mark";
+import MdNumbered from "./plugins/markdown-it-auto-number";
 
 interface SpanRule {
     delimiter: string;
@@ -16,6 +17,7 @@ const SPAN_RULES: SpanRule[] = [
 export default function (md: MarkdownIt) {
     md.use(MdTable, { rowspan: true });
     md.use(MdMark);
+    md.use(MdNumbered);
 
     SPAN_RULES.forEach(rule => registerSpanRule(md, rule));
 }
