@@ -131,7 +131,7 @@
   }
 
   .header-number {
-    @apply mr-[0.5em] text-dimmed;
+    @apply mr-[0.5em] text-dimmed select-none;
   }
 
   .custom-block {
