@@ -1,3 +1,7 @@
+---
+numbered: true
+---
+
 # Copulas
 
 Kaitag has three copula series, which roughly mean **"to be"**, **"to have"**, and **"to still have"**.
@@ -34,7 +38,7 @@ Kaitag has three copula series, which roughly mean **"to be"**, **"to have"**, a
 
 :::
 
-## 1 Facts {#1}
+## Facts
 
 <div class="table-wide">
 
@@ -78,7 +82,7 @@ Instead of ++це++ many villages use the old form ++ца==би==++ with class a
 
 :::
 
-### 1.1 Negation {#1.1}
+### Negation
 
 The negative counterparts, _"to be not"_:
 
@@ -99,7 +103,7 @@ The negative counterparts, _"to be not"_:
 - ++дила машин ==аччу==++  
   --[that] ==wasn't== my car--
 
-## 2 Presence {#2}
+## Presence
 
 <div class="table-wide">
 
@@ -132,7 +136,7 @@ And also for additional emphasis on a _particular moment_:
 - ++ниса дулшун ==ди да==++  
   --we ==are== working ==[right now]==--
 
-### 2.1 Absence {#2.1}
+### Absence
 
 The negative counterparts are irregular and have classes as well:
 
@@ -161,7 +165,7 @@ Some villages use the variants with ++-а-++: ++байкку++, ++дайккод
 
 :::
 
-## 3 Availability {#3}
+## Availability
 
 <div class="table-wide">
 

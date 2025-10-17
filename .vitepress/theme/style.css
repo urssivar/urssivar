@@ -48,10 +48,6 @@
     @apply font-semibold leading-tight;
   }
 
-  .header-number {
-    @apply mr-[0.5em];
-  }
-
   h1 {
     @apply text-3xl;
   }
@@ -96,8 +92,13 @@
     @apply transition-all underline underline-offset-[0.2em] hover:decoration-(--ui-text-dimmed);
   }
 
+  mark {
+    @apply bg-transparent underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented)/75 text-inherit;
+    text-decoration-skip-ink: none;
+  }
+
   table {
-    @apply w-full border-collapse rounded-md bg-elevated/50 text-[0.875rem];
+    @apply w-full border-collapse rounded-sm bg-elevated text-[0.875rem];
   }
 
   tbody {
@@ -127,12 +128,19 @@
     @apply text-toned text-[0.875em];
   }
 
-  mark {
-    @apply bg-transparent underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented)/75;
-    text-decoration-skip-ink: none;
-  }
-
   #app {
     @apply isolate;
+  }
+
+  .header-number {
+    @apply mr-[0.5em] text-dimmed;
+  }
+
+  .custom-block {
+    @apply rounded-sm px-4 py-3 border-l-4 border-default/50 bg-elevated/50 text-[0.875rem];
+
+    p {
+      @apply my-2;
+    }
   }
 }
