@@ -5,6 +5,7 @@ import MdMultimdTable from "markdown-it-multimd-table";
 import MdMark from "markdown-it-mark";
 import MdAutoNumber from "./plugins/markdown-it-auto-number";
 import MdCustomSpans from "./plugins/markdown-it-custom-spans";
+import MdColonBlock from "./plugins/markdown-it-colon-block";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -47,6 +48,7 @@ export default defineConfig({
       md.use(MdMark);
       md.use(MdAutoNumber);
       md.use(MdCustomSpans);
+      md.use(MdColonBlock);
     },
   },
 
