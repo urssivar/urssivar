@@ -77,6 +77,7 @@ export default defineConfig({
           button: {
             slots: {
               base: "cursor-pointer",
+              leadingIcon: 'text-highlighted',
             },
             defaultVariants: {
               color: 'neutral',
