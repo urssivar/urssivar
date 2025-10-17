@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Content, useRouter, useData, onContentUpdated } from 'vitepress';
+import { Content, useRouter, useData } from 'vitepress';
 import Link from '@/components/Link.vue';
 import { computed } from 'vue';
 import { useHeaderClicks } from '@/composables/useHeaderClicks';
@@ -32,6 +32,37 @@ const langLink = computed(() => {
     ? isRu.value ? EN : RU
     : isRu.value ? path.value.replace(RU, '') : RU + path.value;
 });
+
+// Language subsection article detection
+const isLanguageSubsection = computed(() => {
+  const pattern = /\/language\/(grammar|dictionary|phrasebook|texts)/;
+  return pattern.test(path.value);
+});
+
+const isLanguageArticle = computed(() => {
+  // Detect if we're on an article page, not just the subsection landing
+  // Articles have at least one more path segment after the subsection
+  const pattern = /\/language\/(grammar|dictionary|phrasebook|texts)\/[^/]+$/;
+  return pattern.test(path.value);
+});
+
+const currentSubsection = computed(() => {
+  const match = path.value.match(/\/language\/(grammar|dictionary|phrasebook|texts)/);
+  return match ? match[1] : null;
+});
+
+const subsections = [
+  { id: 'grammar', title: 'Грамматика' },
+  { id: 'dictionary', title: 'Словарь' },
+  { id: 'phrasebook', title: 'Разговорник' },
+  { id: 'texts', title: 'Тексты' }
+];
+
+const articles = [
+  { title: 'Падежи', path: '#' },
+  { title: 'Частицы', path: '#' },
+  { title: 'Связки', path: '#' }
+];
 </script>
 
 <template>
@@ -54,33 +85,57 @@ const langLink = computed(() => {
     </div>
     <USeparator />
 
-    <template v-if="path.includes('/language')">
-      <div class="content-container my-3">
-        <nav class="flex gap-3 text-sm items-center font-semibold overflow-x-auto">
-          <UButton icon="i-material-symbols:menu-rounded" size="xs" />
-          <span class="select-none text-dimmed text-xs">/</span>
-          <Link :to="langBase + 'language'">
-          Язык
-          </Link>
-          <span class="select-none text-dimmed text-xs">/</span>
-          <Link :to="langBase + 'language/grammar'">
-          Грамматика
-          </Link>
-          <Link :to="langBase + 'language/dictionary'">
-          Словарь
-          </Link>
-          <Link :to="langBase + 'language/phrasebook'">
-          Разговорник
-          </Link>
-          <Link :to="langBase + 'language/texts'">
-          Тексты
-          </Link>
-        </nav>
-      </div>
-      <USeparator />
-    </template>
+    <div v-if="isLanguageSubsection" class="mt-12 mb-24">
+      <div class="grid grid-cols-[220px_1fr_220px] gap-6 px-4">
+        <!-- Left Sidebar -->
+        <aside class="sticky top-[100px] max-h-[calc(100vh-120px)] overflow-y-auto">
+          <nav class="flex flex-col gap-3">
+            <Link :to="langBase + 'language'">
+            Язык
+            </Link>
 
-    <Content class="mt-12" :class="{
+            <USeparator />
+
+
+            <div v-for="subsection in subsections" :key="subsection.id">
+              <Link :to="langBase + 'language/' + subsection.id" :class="[
+                'block text-sm font-semibold decoration-transparent transition-colors',
+                currentSubsection === subsection.id
+                  ? 'text-blue-600 dark:text-blue-400'
+                  : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
+              ]">
+              {{ subsection.title }}
+              </Link>
+            </div>
+
+
+            <!-- Separator -->
+            <div class="border-t border-neutral-200 dark:border-neutral-800" />
+
+            <!-- Articles List -->
+            <div class="space-y-1.5">
+              <h5 class="text-xs font-semibold text-neutral-500 dark:text-neutral-500 uppercase tracking-wide">
+                {{ currentSubsection }}
+              </h5>
+              <div v-for="article in articles" :key="article.title" class="space-y-1">
+                <Link :to="article.path"
+                  class="block text-sm text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 decoration-transparent transition-colors">
+                {{ article.title }}
+                </Link>
+              </div>
+            </div>
+          </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <Content class="content-container" />
+
+        <!-- Right Spacer -->
+        <div />
+      </div>
+    </div>
+
+    <Content v-else class="mt-12" :class="{
       'content-container': !(isHome || frontmatter.wide),
       'mb-24': !isHome
     }" />
