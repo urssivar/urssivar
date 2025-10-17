@@ -290,6 +290,6 @@ articles = [
 
 ---
 
-P.S. adding this question myself: currently our footer displas license + 3 social media icons. I don't need social media icons are needed on every page. What if we only keep them at the main landing, add the social networks' names, and a headline, lie "subscribe to our channels, etc." (and maybe remove github, too).
+P.S. adding this question myself: currently our footer displays license + 3 social media icons. I don't think social media icons are needed on every page. What if we only keep them at the main landing, add the social networks' names, and a headline (e.g. "subscribe to our channels, etc."). And maybe remove github, too.
 
-The second question: what to put into footer? Remove altogether by moving license to landing? Or just keep landing on evry page? Or add "last edited" for every page? 
+The second question: what to put into footer then? Remove it altogether by moving license to landing? Keep license on every page? Add "last edited" too for every page? 
