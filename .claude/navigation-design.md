@@ -287,3 +287,9 @@ articles = [
 - **Clean hierarchy:** Global nav (utility) → Subsection nav (context) → Articles (content)
 - **Consistent across sizes:** Similar patterns at all breakpoints, adapted to screen constraints
 - **Print-first aesthetic:** Digital UI disappears on print; content is the hero
+
+---
+
+P.S. adding this question myself: currently our footer displas license + 3 social media icons. I don't need social media icons are needed on every page. What if we only keep them at the main landing, add the social networks' names, and a headline, lie "subscribe to our channels, etc." (and maybe remove github, too).
+
+The second question: what to put into footer? Remove altogether by moving license to landing? Or just keep landing on evry page? Or add "last edited" for every page? 
