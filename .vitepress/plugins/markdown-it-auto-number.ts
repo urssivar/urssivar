@@ -7,7 +7,7 @@ interface HeaderCounters {
   h4: number;
 }
 
-export default function(md: MarkdownIt) {
+export default function (md: MarkdownIt) {
   const originalHeadingOpen = md.renderer.rules.heading_open;
 
   md.renderer.rules.heading_open = (

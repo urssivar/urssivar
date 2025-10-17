@@ -32,17 +32,6 @@ const langLink = computed(() => {
     ? isRu.value ? EN : RU
     : isRu.value ? path.value.replace(RU, '') : RU + path.value;
 });
-
-onContentUpdated(() => {
-  document.querySelectorAll(':is(h1, h2, h3, h4, h5, h6)[id]')
-    .forEach(header => {
-      header.addEventListener('click', (e) => {
-        if ((e.target as HTMLElement)?.tagName === 'A') return;
-        header.scrollIntoView({ behavior: 'smooth' });
-        window.location.hash = header.id;
-      });
-    });
-})
 </script>
 
 <template>

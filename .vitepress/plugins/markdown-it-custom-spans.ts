@@ -11,7 +11,7 @@ const SPAN_RULES: SpanRule[] = [
   { delimiter: '--', name: 'gloss', attrs: 'class="gloss"' },
 ];
 
-export default function(md: MarkdownIt) {
+export default function (md: MarkdownIt) {
   SPAN_RULES.forEach(rule => {
     const { delimiter, name, attrs } = rule;
 
