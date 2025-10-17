@@ -1,7 +1,10 @@
 import { defineConfig } from 'vitepress';
 import path from "path";
 import ui from '@nuxt/ui/vite';
-import configMd from "./md";
+import MdMultimdTable from "markdown-it-multimd-table";
+import MdMark from "markdown-it-mark";
+import MdAutoNumber from "./plugins/markdown-it-auto-number";
+import MdCustomSpans from "./plugins/markdown-it-custom-spans";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -39,7 +42,12 @@ export default defineConfig({
   },
 
   markdown: {
-    config: configMd,
+    config: (md) => {
+      md.use(MdMultimdTable, { rowspan: true });
+      md.use(MdMark);
+      md.use(MdAutoNumber);
+      md.use(MdCustomSpans);
+    },
   },
 
   vite: {
