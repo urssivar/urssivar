@@ -1,39 +1,47 @@
 import type MarkdownIt from 'markdown-it';
 
+const DELIMITER = ':::';
+
 export default function (md: MarkdownIt) {
     md.block.ruler.before('fence', 'colon_container', (state, startLine, endLine, silent) => {
-        const startPos = state.bMarks[startLine] + state.tShift[startLine]
-        const maxPos = state.eMarks[startLine]
-        const marker = state.src.slice(startPos, maxPos).trim()
+        const lineStart = state.bMarks[startLine] + state.tShift[startLine];
+        const lineEnd = state.eMarks[startLine];
+        const openingMarker = state.src.slice(lineStart, lineEnd).trim();
 
         // Must start with exactly 3 colons
-        if (marker !== ':::') return false
-        if (silent) return true
+        if (openingMarker !== DELIMITER) return false;
+        if (silent) return true;
 
-        let nextLine = startLine
-        // Find closing :::
-        while (++nextLine < endLine) {
-            const line = state.src.slice(state.bMarks[nextLine] + state.tShift[nextLine], state.eMarks[nextLine]).trim()
-            if (line === ':::') break
+        // Search for closing delimiter
+        let closingLine = startLine;
+        while (++closingLine < endLine) {
+            const line = state.src.slice(
+                state.bMarks[closingLine] + state.tShift[closingLine],
+                state.eMarks[closingLine]
+            ).trim();
+            if (line === DELIMITER) break;
         }
 
-        if (nextLine >= endLine) return false
+        // Closing delimiter not found
+        if (closingLine >= endLine) return false;
 
-        // Open container token
-        const openToken = state.push('colon_container_open', 'div', 1)
-        openToken.map = [startLine, nextLine]
+        // Create opening token
+        const openToken = state.push('colon_container_open', 'div', 1);
+        openToken.map = [startLine, closingLine];
 
-        // Parse inner content
-        state.md.block.tokenize(state, startLine + 1, nextLine)
+        // Parse inner content as block-level markdown
+        state.md.block.tokenize(state, startLine + 1, closingLine);
 
-        // Close container token
-        state.push('colon_container_close', 'div', -1)
+        // Create closing token
+        state.push('colon_container_close', 'div', -1);
 
-        state.line = nextLine + 1
-        return true
-    })
+        state.line = closingLine + 1;
+        return true;
+    });
 
-    // Define renderer
-    md.renderer.rules.colon_container_open = () => `<div class="colon-block">\n`
-    md.renderer.rules.colon_container_close = () => `</div>\n`
+    // Render opening tag
+    md.renderer.rules.colon_container_open = () => '<div class="colon-block">\n';
+
+    // Render closing tag
+    md.renderer.rules.colon_container_close = () => '</div>\n';
 }
