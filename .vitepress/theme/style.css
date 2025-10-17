@@ -72,11 +72,9 @@
     @apply text-sm mt-2;
   }
 
-  :is(h1, h2, h3, h4, h5, h6)[id] {
-    @apply cursor-pointer;
-
+  :is(h2, h3, h4)[id] {
     &::before {
-      @apply absolute -translate-x-full pr-[0.375em] text-dimmed opacity-0 transition-opacity duration-200 content-['#'];
+      @apply absolute -translate-x-full pr-[0.375em] text-dimmed opacity-0 transition-opacity duration-200 content-['#'] cursor-pointer;
     }
 
     &:hover::before {
