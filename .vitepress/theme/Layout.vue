@@ -64,10 +64,9 @@ const isLanguageSubsection = computed(() => {
     </NavBar>
 
     <NavBar v-if="isLanguageSubsection" class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm shadow-xs">
-
       <template #leading>
         <UDrawer direction="left" :handle="false"
-          :ui="{ content: 'w-2/3 sm:w-72 p-4 rounded-none', overlay: 'backdrop-blur-sm' }">
+          :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-4 pr-8', overlay: 'backdrop-blur-sm' }">
           <UButton icon="i-material-symbols:menu-rounded" />
           <template #content>
             <SidebarNav class="w-full mt-12 mb-24" />
@@ -79,7 +78,7 @@ const isLanguageSubsection = computed(() => {
       </span>
       <template #trailing>
         <UDrawer direction="right" :handle="false"
-          :ui="{ content: 'w-2/3 sm:w-72 p-4 rounded-none', overlay: 'backdrop-blur-xs' }">
+          :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8', overlay: 'backdrop-blur-sm' }">
           <UButton icon="i-material-symbols:toc-rounded" />
           <template #content>
             <TableOfContents class="w-full mt-12 mb-24 text-sm!" />
@@ -88,22 +87,16 @@ const isLanguageSubsection = computed(() => {
       </template>
     </NavBar>
 
-    <div v-if="isLanguageSubsection">
-      <div class="mt-12 mb-24 grid px-4 grid-cols-1 gap-8 lg:grid-cols-[1fr_65ch_1fr]">
-        <aside class="hidden lg:block">
-          <SidebarNav class="sticky top-12" />
-        </aside>
-
-        <Content class="content-container w-full" />
-
-        <aside class="hidden lg:block">
-          <TableOfContents class="sticky top-12" />
-        </aside>
-      </div>
-
+    <div v-if="isLanguageSubsection" class="mt-12 mb-24 lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
+      <aside class="hidden lg:block">
+        <SidebarNav class="sticky top-12" />
+      </aside>
+      <Content class="content-container w-full" />
+      <aside class="hidden lg:block">
+        <TableOfContents class="sticky top-12" />
+      </aside>
     </div>
-
-    <Content v-else class="mt-12" :class="{
+    <Content v-else class="mt-12 mb-24" :class="{
       'content-container': !(isHome || frontmatter.wide),
       'mb-24': !isHome
     }" />
