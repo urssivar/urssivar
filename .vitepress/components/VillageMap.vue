@@ -90,7 +90,8 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <UTooltip :open="tooltipOpen" :reference="markerElement" :content="{ side: 'top' }" :ui="{ content: 'h-7' }">
+  <UTooltip :open="tooltipOpen" :reference="markerElement" :content="{ side: 'top' }"
+    :ui="{ content: 'h-7 bg-default/75 backdrop-blur-sm' }">
     <template #content>
       <span lang="xdq" class="font-bold text-base">
         {{ selectedVillage }}

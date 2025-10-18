@@ -40,19 +40,15 @@ const isLanguageSubsection = computed(() => {
   const pattern = /\/language\/(grammar|dictionary|phrasebook|texts)/;
   return pattern.test(path.value);
 });
-
-// Drawer states
-const isNavDrawerOpen = ref(false);
-const isTocDrawerOpen = ref(false);
 </script>
 
 <template>
   <UApp>
-    <div class="content-container my-3">
-      <nav class="flex gap-1.5 text-sm items-center">
-        <Link :to="homeLink" class="flex items-center gap-1.5 text-default decoration-transparent">
+    <div class="border-default border-b">
+      <nav class="flex gap-2 py-2 items-center content-container">
+        <Link :to="homeLink" class="flex gap-1.5 items-center text-default decoration-transparent">
         <img src="/favicon-dark.svg" alt="Urssivar logo"
-          class="size-6 invert-[88%] dark:invert-[12%] select-none pointer-events-none">
+          class="mx-1 size-6 invert-[88%] dark:invert-[12%] select-none pointer-events-none">
         <span v-if="!isHome" class="font-bold text-lg">
           Urssivar
         </span>
@@ -64,23 +60,29 @@ const isTocDrawerOpen = ref(false);
         </Link>
       </nav>
     </div>
-    <USeparator />
 
-    <template v-if="isLanguageSubsection">
-      <div class="lg:hidden sticky top-0 z-10 x-4 py-2.5 bg-default">
-        <div class="flex items-center gap-2 content-container ">
-          <UButton icon="i-material-symbols:menu" size="sm" color="neutral" variant="ghost"
-            @click="isNavDrawerOpen = true" />
-          <span class="text-sm font-semibold">
-            Грамматика
-          </span>
-          <div class="flex-1" />
-          <UButton icon="i-material-symbols:toc" size="sm" color="neutral" variant="ghost"
-            @click="isTocDrawerOpen = true" />
-        </div>
-      </div>
-      <USeparator class="lg:hidden sticky top-0 z-10" />
-    </template>
+    <div v-if="isLanguageSubsection"
+      class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm border-default border-b shadow-xs">
+      <nav class="flex items-center gap-2 py-2 content-container">
+        <UDrawer direction="left" :handle="false"
+          :ui="{ content: 'w-2/3 sm:w-72 p-4 rounded-none', overlay: 'backdrop-blur-sm' }">
+          <UButton icon="i-material-symbols:menu-rounded" />
+          <template #content>
+            <SidebarNav class="w-full mt-12 mb-24" />
+          </template>
+        </UDrawer>
+        <span class="font-semibold flex-1 text-center">
+          Грамматика
+        </span>
+        <UDrawer direction="right" :handle="false"
+          :ui="{ content: 'w-2/3 sm:w-72 p-4 rounded-none', overlay: 'backdrop-blur-xs' }">
+          <UButton icon="i-material-symbols:toc-rounded" />
+          <template #content>
+            <TableOfContents class="w-full mt-12 mb-24 text-sm!" />
+          </template>
+        </UDrawer>
+      </nav>
+    </div>
 
     <div v-if="isLanguageSubsection">
       <div class="mt-12 mb-24 grid px-4 grid-cols-1 gap-8 lg:grid-cols-[1fr_65ch_1fr]">
@@ -95,46 +97,6 @@ const isTocDrawerOpen = ref(false);
         </aside>
       </div>
 
-      <!-- Nav Drawer (Mobile) -->
-      <!-- <UDrawer v-model="isNavDrawerOpen" title="Navigation" side="left" :ui="{ title: 'text-base font-semibold' }">
-        <nav class="flex flex-col gap-4">
-          <Link :to="langBase + 'language'"
-            class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 decoration-transparent">
-          ← Язык
-          </Link>
-
-          <USeparator />
-
-          <div v-for="subsection in subsections" :key="subsection.id">
-            <Link :to="langBase + 'language/' + subsection.id" :class="[
-              'block text-sm font-semibold decoration-transparent transition-colors',
-              currentSubsection === subsection.id
-                ? 'text-blue-600 dark:text-blue-400'
-                : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100'
-            ]">
-            {{ subsection.title }}
-            </Link>
-          </div>
-
-          <USeparator />
-
-          <div class="space-y-1.5">
-            <h5 class="text-xs font-semibold text-neutral-500 dark:text-neutral-500 uppercase tracking-wide">
-              {{ currentSubsection }}
-            </h5>
-            <div v-for="article in articles" :key="article.title" class="space-y-1">
-              <Link :to="article.path"
-                class="block text-sm text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 decoration-transparent transition-colors">
-              {{ article.title }}
-              </Link>
-            </div>
-          </div>
-        </nav>
-      </UDrawer> -->
-
-      <!-- <UDrawer v-model="isTocDrawerOpen" title="Contents" :ui="{ title: 'text-base font-semibold' }">
-        <TableOfContents />
-      </UDrawer> -->
     </div>
 
     <Content v-else class="mt-12" :class="{
@@ -142,9 +104,8 @@ const isTocDrawerOpen = ref(false);
       'mb-24': !isHome
     }" />
 
-    <USeparator />
-    <div class="content-container my-3">
-      <nav class="flex gap-1.5 text-xs items-center">
+    <div class="border-default border-t">
+      <nav class="flex gap-2 py-2 text-xs items-center content-container ">
         <span>Лицензия CC BY 4.0</span>
         <div class="flex-1" />
         <Link to="https://t.me/urssivar">

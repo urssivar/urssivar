@@ -21,9 +21,6 @@ const articles = [
     Грамматика
     </Link>
 
-    <!-- <Link to="language" class="no-underline p-1.5 hover:text-highlighted font-semibold">
-    Грамматика
-    </Link> -->
     <Link v-for="a in articles" :key="a.title" :to="a.path" class="nav pl-8" :class="{
       'text-highlighted': a.current
     }">
