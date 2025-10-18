@@ -126,6 +126,10 @@
     @apply text-toned text-[0.875em];
   }
 
+  a.nav {
+    @apply p-1.5 text-dimmed hover:text-highlighted no-underline;
+  }
+
   #app {
     @apply isolate;
   }
