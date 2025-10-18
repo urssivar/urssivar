@@ -70,7 +70,7 @@ const isLanguageSubsection = computed(() => {
             :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-4 pr-8', overlay: 'backdrop-blur-sm' }">
             <UButton icon="i-material-symbols:menu-rounded" />
             <template #content>
-              <SidebarNav class="w-full mt-12 mb-24" />
+              <SidebarNav class="w-full" />
             </template>
           </UDrawer>
         </template>
@@ -78,11 +78,12 @@ const isLanguageSubsection = computed(() => {
           Грамматика
         </span>
         <template #trailing>
-          <UDrawer direction="right" :handle="false"
-            :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8', overlay: 'backdrop-blur-sm' }">
+          <UDrawer direction="right" :handle="false" inset :ui="{
+            content: 'w-2/3 sm:w-80 p-8'
+          }">
             <UButton icon="i-material-symbols:toc-rounded" />
             <template #content>
-              <TableOfContents class="w-full mt-12 mb-24 text-sm!" />
+              <TableOfContents class="w-full text-sm!" />
             </template>
           </UDrawer>
         </template>
