@@ -44,11 +44,10 @@ const getPadding = (level: number) => {
 
 <template>
   <nav class="text-dimmed text-xs flex flex-col">
-    <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" class="p-1.5 decoration-transparent hover:text-highlighted"
-      :class="{
-        'text-highlighted': observingId === h.id,
-        'font-semibold': h.level === 1
-      }">
+    <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" class="p-1.5 no-underline hover:text-highlighted" :class="{
+      'text-highlighted': observingId === h.id,
+      'font-semibold': h.level === 1
+    }">
       <div :class="getPadding(h.level)" v-html="h.html" />
     </a>
   </nav>
