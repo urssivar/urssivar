@@ -14,7 +14,7 @@ export function useHeaderClicks() {
         const mouseEvent = e as MouseEvent;
         if (!header || mouseEvent.offsetX > 0) return;
 
-        header.scrollIntoView({ behavior: 'smooth' });
+        // header.scrollIntoView({ behavior: 'smooth' });
         window.location.hash = header.id;
     };
 

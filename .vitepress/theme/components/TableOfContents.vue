@@ -1,0 +1,55 @@
+<script setup lang="ts">
+import { ref } from 'vue';
+import { onContentUpdated } from 'vitepress';
+import { useElementIdObserver } from '@/composables/useElementIdObserver';
+
+interface HeaderElement {
+  id: string;
+  html: string;
+  level: number;
+}
+
+const headers = ref<HeaderElement[]>([]);
+const { observingId, observer } = useElementIdObserver();
+
+onContentUpdated(() => {
+  observer.value?.disconnect();
+  const elements = document
+    .querySelectorAll('.content-container :is(h1, h2, h3, h4)');
+
+  headers.value = [];
+  elements.forEach((el) => {
+    if (el.id) {
+      headers.value.push({
+        level: parseInt(el.tagName[1]),
+        html: el.innerHTML,
+        id: el.id
+      });
+      observer.value?.observe(el);
+    }
+  });
+});
+
+const getPadding = (level: number) => {
+  switch (level) {
+    case 3:
+      return 'ml-2';
+    case 4:
+      return 'ml-4';
+    default:
+      return 'ml-0';
+  }
+}
+</script>
+
+<template>
+  <nav class="text-dimmed text-xs flex flex-col">
+    <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" class="p-1.5 decoration-transparent hover:text-highlighted"
+      :class="{
+        'text-highlighted': observingId === h.id,
+        'font-semibold': h.level === 1
+      }">
+      <div :class="getPadding(h.level)" v-html="h.html" />
+    </a>
+  </nav>
+</template>
