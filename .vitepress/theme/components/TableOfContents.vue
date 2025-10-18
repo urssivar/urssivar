@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { onContentUpdated } from 'vitepress';
 import { useElementIdObserver } from '@/composables/useElementIdObserver';
 
@@ -12,7 +12,7 @@ interface HeaderElement {
 const headers = ref<HeaderElement[]>([]);
 const { observingId, observer } = useElementIdObserver();
 
-onContentUpdated(() => {
+const observeHeaders = () => {
   observer.value?.disconnect();
   const elements = document
     .querySelectorAll('.content-container :is(h1, h2, h3, h4)');
@@ -28,7 +28,11 @@ onContentUpdated(() => {
       observer.value?.observe(el);
     }
   });
-});
+};
+
+onMounted(observeHeaders);
+
+onContentUpdated(observeHeaders);
 
 const getPadding = (level: number) => {
   switch (level) {
@@ -44,6 +48,7 @@ const getPadding = (level: number) => {
 
 <template>
   <nav class="text-xs flex flex-col">
+    static
     <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" class="nav" :class="{
       'text-highlighted': observingId === h.id,
       'font-semibold': h.level === 1
