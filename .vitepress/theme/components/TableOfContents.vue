@@ -15,7 +15,7 @@ const { observingId, observer } = useElementIdObserver();
 const observeHeaders = () => {
   observer.value?.disconnect();
   const elements = document
-    .querySelectorAll('.content-container :is(h1, h2, h3, h4)');
+    .querySelectorAll('article :is(h1, h2, h3, h4)');
 
   headers.value = [];
   elements.forEach((el) => {
@@ -48,7 +48,7 @@ const getPadding = (level: number) => {
 
 <template>
   <nav class="text-xs flex flex-col">
-    <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" class="nav" :class="{
+    <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" class="navlink" :class="{
       'text-highlighted': observingId === h.id,
       'font-semibold': h.level === 1
     }">

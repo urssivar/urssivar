@@ -88,21 +88,27 @@ const isLanguageSubsection = computed(() => {
         </template>
       </NavBar>
 
-      <div v-if="isLanguageSubsection" class="mt-12 mb-24 lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
+      <div class="h-12" />
+
+      <div v-if="isLanguageSubsection" class="lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
         <aside class="hidden lg:block">
           <SidebarNav class="sticky top-12" />
         </aside>
-        <Content class="content-container w-full" />
+        <article class="w-full">
+          <Content />
+        </article>
         <aside class="hidden lg:block">
           <TableOfContents class="sticky top-12" />
         </aside>
       </div>
-      <Content v-else class="mt-12 mb-24" :class="{
-        'content-container': !(isHome || frontmatter.wide),
-        'mb-24': !isHome
-      }" />
+      <Content v-else-if="frontmatter.wide" />
+      <article v-else>
+        <Content />
+      </article>
 
-      <div class="flex-1" />
+
+      <div class="flex-1 min-h-24" />
+
       <NavBar class="border-b-0 border-t">
         <template #leading>
           <span class="text-xs">Лицензия CC BY 4.0</span>

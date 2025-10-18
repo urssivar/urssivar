@@ -2,7 +2,7 @@ import { onContentUpdated } from 'vitepress';
 
 export function useHeaderClicks() {
     const addHeaderListeners = () => {
-        document.querySelectorAll(':is(h2, h3, h4)[id]')
+        document.querySelectorAll('article :is(h2, h3, h4)[id]')
             .forEach(anchor => {
                 anchor.removeEventListener('click', handler);
                 anchor.addEventListener('click', handler);
