@@ -3,7 +3,8 @@ import { Content, useRouter, useData } from 'vitepress';
 import Link from '@/components/Link.vue';
 import TableOfContents from './components/TableOfContents.vue';
 import SidebarNav from './components/SidebarNav.vue';
-import { computed, ref } from 'vue';
+import NavBar from './components/NavBar.vue';
+import { computed } from 'vue';
 import { useHeaderClicks } from '@/composables/useHeaderClicks';
 
 const { frontmatter } = useData();
@@ -44,8 +45,8 @@ const isLanguageSubsection = computed(() => {
 
 <template>
   <UApp>
-    <div class="border-default border-b">
-      <nav class="flex gap-2 py-2 items-center content-container">
+    <NavBar>
+      <template #leading>
         <Link :to="homeLink" class="flex gap-1.5 items-center text-default decoration-transparent">
         <img src="/favicon-dark.svg" alt="Urssivar logo"
           class="mx-1 size-6 invert-[88%] dark:invert-[12%] select-none pointer-events-none">
@@ -53,17 +54,18 @@ const isLanguageSubsection = computed(() => {
           Urssivar
         </span>
         </Link>
-        <div class="flex-1" />
+      </template>
+      <template #trailing>
         <UButton icon="i-material-symbols:search-rounded" />
         <Link :to="langLink">
         <UButton icon="i-material-symbols:translate-rounded" />
         </Link>
-      </nav>
-    </div>
+      </template>
+    </NavBar>
 
-    <div v-if="isLanguageSubsection"
-      class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm border-default border-b shadow-xs">
-      <nav class="flex items-center gap-2 py-2 content-container">
+    <NavBar v-if="isLanguageSubsection" class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm shadow-xs">
+
+      <template #leading>
         <UDrawer direction="left" :handle="false"
           :ui="{ content: 'w-2/3 sm:w-72 p-4 rounded-none', overlay: 'backdrop-blur-sm' }">
           <UButton icon="i-material-symbols:menu-rounded" />
@@ -71,9 +73,11 @@ const isLanguageSubsection = computed(() => {
             <SidebarNav class="w-full mt-12 mb-24" />
           </template>
         </UDrawer>
-        <span class="font-semibold flex-1 text-center">
-          Грамматика
-        </span>
+      </template>
+      <span class="font-semibold flex-1 text-center">
+        Грамматика
+      </span>
+      <template #trailing>
         <UDrawer direction="right" :handle="false"
           :ui="{ content: 'w-2/3 sm:w-72 p-4 rounded-none', overlay: 'backdrop-blur-xs' }">
           <UButton icon="i-material-symbols:toc-rounded" />
@@ -81,8 +85,8 @@ const isLanguageSubsection = computed(() => {
             <TableOfContents class="w-full mt-12 mb-24 text-sm!" />
           </template>
         </UDrawer>
-      </nav>
-    </div>
+      </template>
+    </NavBar>
 
     <div v-if="isLanguageSubsection">
       <div class="mt-12 mb-24 grid px-4 grid-cols-1 gap-8 lg:grid-cols-[1fr_65ch_1fr]">
@@ -104,10 +108,11 @@ const isLanguageSubsection = computed(() => {
       'mb-24': !isHome
     }" />
 
-    <div class="border-default border-t">
-      <nav class="flex gap-2 py-2 text-xs items-center content-container ">
-        <span>Лицензия CC BY 4.0</span>
-        <div class="flex-1" />
+    <NavBar class="border-b-0 border-t">
+      <template #leading>
+        <span class="text-xs">Лицензия CC BY 4.0</span>
+      </template>
+      <template #trailing>
         <Link to="https://t.me/urssivar">
         <UButton icon="i-ix:telegram-logo" />
         </Link>
@@ -117,7 +122,7 @@ const isLanguageSubsection = computed(() => {
         <Link to="https://github.com/urssivar">
         <UButton icon="i-ix:github-logo" />
         </Link>
-      </nav>
-    </div>
+      </template>
+    </NavBar>
   </UApp>
 </template>
