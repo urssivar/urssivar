@@ -1,46 +1,17 @@
 <script setup lang="ts">
-import { Content, useRouter, useData } from 'vitepress';
-import Link from '@/components/Link.vue';
+import { Content, useData } from 'vitepress';
 import TableOfContents from './components/TableOfContents.vue';
 import SidebarNav from './components/SidebarNav.vue';
 import NavBar from './components/NavBar.vue';
-import { computed } from 'vue';
+import HomeBrand from './components/HomeBrand.vue';
+import LocaleSwitch from './components/LocaleSwitch.vue';
 import { useHeaderClicks } from '@/composables/useHeaderClicks';
+import { useNav } from '@/composables/useNav';
 
 const { frontmatter } = useData();
 useHeaderClicks();
 
-const router = useRouter();
-const path = computed(() => {
-  return router.route.path;
-});
-
-const RU = '/ru';
-const EN = '/';
-const isRu = computed(() => {
-  return path.value === RU || path.value.startsWith(RU + '/');
-});
-const langBase = computed(() => {
-  return isRu.value ? RU + '/' : EN;
-});
-const isHome = computed(() => {
-  return path.value === EN || path.value === RU;
-});
-
-const homeLink = computed(() => {
-  return isRu.value ? RU : EN;
-});
-const langLink = computed(() => {
-  return isHome.value
-    ? isRu.value ? EN : RU
-    : isRu.value ? path.value.replace(RU, '') : RU + path.value;
-});
-
-// Language subsection article detection
-const isLanguageSubsection = computed(() => {
-  const pattern = /\/language\/(grammar|dictionary|phrasebook|texts)/;
-  return pattern.test(path.value);
-});
+const { currentSection } = useNav();
 </script>
 
 <template>
@@ -48,23 +19,15 @@ const isLanguageSubsection = computed(() => {
     <div class="min-h-screen flex flex-col">
       <NavBar>
         <template #leading>
-          <Link :to="homeLink" class="flex gap-1.5 items-center text-default decoration-transparent">
-          <img src="/favicon-dark.svg" alt="Urssivar logo"
-            class="mx-1 size-6 invert-[88%] dark:invert-[12%] select-none pointer-events-none">
-          <span v-if="!isHome" class="font-bold text-lg">
-            Urssivar
-          </span>
-          </Link>
+          <HomeBrand />
         </template>
         <template #trailing>
           <UButton icon="i-material-symbols:search-rounded" />
-          <Link :to="langLink">
-          <UButton icon="i-material-symbols:translate-rounded" />
-          </Link>
+          <LocaleSwitch />
         </template>
       </NavBar>
 
-      <NavBar v-if="isLanguageSubsection" class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm shadow-xs">
+      <NavBar v-if="currentSection" class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm shadow-xs">
         <template #leading>
           <UDrawer direction="left" :handle="false" :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8' }">
             <UButton icon="i-material-symbols:menu-rounded" />
@@ -74,7 +37,7 @@ const isLanguageSubsection = computed(() => {
           </UDrawer>
         </template>
         <span class="font-semibold flex-1 text-center">
-          Грамматика
+          {{ currentSection?.title }}
         </span>
         <template #trailing>
           <UDrawer direction="right" :handle="false" inset :ui="{ content: 'w-2/3 sm:w-80 p-8' }">
@@ -88,7 +51,7 @@ const isLanguageSubsection = computed(() => {
 
       <div class="h-12" />
 
-      <div v-if="isLanguageSubsection" class="lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
+      <div v-if="currentSection" class="lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
         <aside class="hidden lg:block">
           <SidebarNav class="sticky top-12" />
         </aside>

@@ -1,43 +1,38 @@
 <script setup lang="ts">
 import Link from '@/components/Link.vue';
+import { useNav } from '@/composables/useNav';
 
-const articles = [
-  { title: 'Падежи', path: '#', current: true },
-  { title: 'Частицы', path: '#' },
-  { title: 'Связки', path: '#' }
-];
+const { nav, currentSection, otherSections, currentArticle, getModulePath, getSectionPath, getArticlePath } = useNav();
 </script>
 
 <template>
   <nav class="text-sm flex flex-col">
-    <Link to="language" class="navlink font-semibold">
-    Кайтагский язык
+    <Link :to="getModulePath()" class="navlink font-semibold">
+    {{ nav.title }}
     </Link>
 
-    <div class="m-3" />
+    <template v-if="currentSection">
+      <div class="m-3" />
 
-    <Link to="language" class="navlink font-semibold">
-    Грамматика
-    </Link>
+      <Link :to="getSectionPath(currentSection)" class="navlink font-semibold">
+      {{ currentSection.title }}
+      </Link>
 
-    <Link v-for="a in articles" :key="a.title" :to="a.path" class="navlink" :class="{
-      'text-highlighted': a.current
-    }">
-    <span class="ml-4">
-      {{ a.title }}
-    </span>
-    </Link>
+      <Link v-for="article in currentSection.articles" :key="article.path" :to="getArticlePath(article)" class="navlink"
+        :class="{
+          'text-highlighted': article.path === currentArticle?.path
+        }">
+      <span class="ml-4">
+        {{ article.title }}
+      </span>
+      </Link>
 
-    <div class="m-3" />
+      <div class="m-3" />
+    </template>
 
-    <Link to="language" class="navlink font-semibold">
-    Словарь
-    </Link>
-    <Link to="language" class="navlink font-semibold">
-    Разговорник
-    </Link>
-    <Link to="language" class="navlink font-semibold">
-    Тексты
+    <Link v-for="section in otherSections" :key="section.path" :to="getSectionPath(section)"
+      class="navlink font-semibold">
+    {{ section.title }}
     </Link>
   </nav>
 </template>
