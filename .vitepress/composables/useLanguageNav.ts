@@ -3,7 +3,7 @@ import { useData, useRouter } from 'vitepress';
 import { languageNav } from '../nav/language';
 import { Article, Module, Section } from '@/nav/types';
 
-export function useNav() {
+export function useLanguageNav() {
   const { lang } = useData();
   const router = useRouter();
 
@@ -16,21 +16,16 @@ export function useNav() {
     return lang.value === 'ru' ? '/ru' : '';
   });
 
-  const buildNavPath = (...items: (string | undefined)[]): string => {
+  const buildNavPath = (...items: (string | undefined)[]) => {
     return [localePrefix.value, nav.value.path, ...items]
       .filter(i => !!i)
       .join('/');
   };
 
   const currentSection = computed(() => {
-    const path = router.route.path.substring(
-      localePrefix.value.length + 1
-    );
-    const isNav = path.startsWith(nav.value.path);
-    if (!isNav) return;
-
-    const sectionPath = path.split('/')[1];
-    console.log(sectionPath);
+    const sectionPath = router.route.path
+      .substring(buildNavPath().length + 1)
+      .split('/')[0];
     return nav.value.sections
       .find(s => s.path === sectionPath);
   });

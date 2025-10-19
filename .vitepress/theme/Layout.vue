@@ -6,12 +6,12 @@ import NavBar from './components/NavBar.vue';
 import HomeBrand from './components/HomeBrand.vue';
 import LocaleSwitch from './components/LocaleSwitch.vue';
 import { useHeaderClicks } from '@/composables/useHeaderClicks';
-import { useNav } from '@/composables/useNav';
+import { useLanguageNav } from '@/composables/useLanguageNav';
 
 const { frontmatter } = useData();
 useHeaderClicks();
 
-const { currentSection } = useNav();
+const { currentSection } = useLanguageNav();
 </script>
 
 <template>

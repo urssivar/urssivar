@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import Link from '@/components/Link.vue';
-import { useNav } from '@/composables/useNav';
+import { useLanguageNav } from '@/composables/useLanguageNav';
 
-const { nav, currentSection, otherSections, currentArticle, getModulePath, getSectionPath, getArticlePath } = useNav();
+const { nav, currentSection, otherSections, currentArticle, getModulePath, getSectionPath, getArticlePath } = useLanguageNav();
 </script>
 
 <template>
