@@ -2,7 +2,7 @@
 import Link from '@/components/Link.vue';
 import { useLanguageNav } from '@/composables/useLanguageNav';
 
-const { nav, currentSection, otherSections, currentArticle, getModulePath, getSectionPath, getArticlePath } = useLanguageNav();
+const { nav, currentSection, currentArticle, getModulePath, getSectionPath, getArticlePath } = useLanguageNav();
 </script>
 
 <template>
@@ -11,9 +11,9 @@ const { nav, currentSection, otherSections, currentArticle, getModulePath, getSe
     {{ nav.title }}
     </Link>
 
-    <template v-if="currentSection">
-      <div class="m-3" />
+    <div class="m-3" />
 
+    <template v-if="currentSection">
       <Link :to="getSectionPath(currentSection)" class="navlink font-semibold">
       {{ currentSection.title }}
       </Link>
@@ -30,7 +30,7 @@ const { nav, currentSection, otherSections, currentArticle, getModulePath, getSe
       <div class="m-3" />
     </template>
 
-    <Link v-for="section in otherSections" :key="section.path" :to="getSectionPath(section)"
+    <Link v-for="section in nav.sections" :key="section.path" :to="getSectionPath(section)"
       class="navlink font-semibold">
     {{ section.title }}
     </Link>

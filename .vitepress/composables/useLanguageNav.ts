@@ -30,13 +30,6 @@ export function useLanguageNav() {
       .find(s => s.path === sectionPath);
   });
 
-  const otherSections = computed<Section[]>(() => {
-    const sectionPath = currentSection.value?.path;
-    if (!sectionPath) return nav.value.sections;
-    return nav.value.sections
-      .filter(s => s.path !== sectionPath);
-  });
-
   const currentArticle = computed(() => {
     const pathItems = router.route.path.split('/');
     const articlePath = pathItems[pathItems.length - 1];
@@ -57,7 +50,6 @@ export function useLanguageNav() {
   return {
     nav,
     currentSection,
-    otherSections,
     currentArticle,
     getModulePath,
     getSectionPath,
