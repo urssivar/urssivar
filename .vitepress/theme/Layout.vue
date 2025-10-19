@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { Content, useData } from 'vitepress';
-import Link from '@/components/Link.vue';
 import TableOfContents from './components/TableOfContents.vue';
 import SidebarNav from './components/SidebarNav.vue';
 import NavBar from './components/NavBar.vue';
-import HomeBrand from './components/HomeBrand.vue';
-import LocaleSwitch from './components/LocaleSwitch.vue';
 import { useHeaderClicks } from '@/composables/useHeaderClicks';
 import { useLanguageNav } from '@/composables/useLanguageNav';
+import Footer from './components/Footer.vue';
+import Header from './components/Header.vue';
 
 const { frontmatter } = useData();
 useHeaderClicks();
@@ -18,15 +17,7 @@ const { currentSection } = useLanguageNav();
 <template>
   <UApp>
     <div class="min-h-screen flex flex-col">
-      <NavBar>
-        <template #leading>
-          <HomeBrand />
-        </template>
-        <template #trailing>
-          <UButton icon="i-material-symbols:search-rounded" />
-          <LocaleSwitch />
-        </template>
-      </NavBar>
+      <Header />
 
       <NavBar v-if="currentSection" class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm shadow-xs">
         <template #leading>
@@ -68,25 +59,9 @@ const { currentSection } = useLanguageNav();
         <Content />
       </article>
 
+      <div class="flex-1" />
 
-      <div class="flex-1 min-h-24" />
-
-      <NavBar class="border-b-0 border-t">
-        <template #leading>
-          <span class="text-xs">Лицензия CC BY 4.0</span>
-        </template>
-        <template #trailing>
-          <Link to="https://t.me/urssivar">
-          <UButton icon="i-ix:telegram-logo" />
-          </Link>
-          <Link to="https://youtube.com/@urssivar">
-          <UButton icon="i-ix:youtube-filled" />
-          </Link>
-          <Link to="https://github.com/urssivar">
-          <UButton icon="i-ix:github-logo" />
-          </Link>
-        </template>
-      </NavBar>
+      <Footer class="mt-24" />
     </div>
   </UApp>
 </template>
