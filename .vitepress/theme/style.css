@@ -114,6 +114,10 @@
 }
 
 @layer components {
+  #app {
+    @apply isolate;
+  }
+
   article {
     @apply max-w-prose mx-auto px-6 sm:px-8;
   }
@@ -130,12 +134,12 @@
     @apply text-toned text-[0.875em];
   }
 
-  a.navlink {
-    @apply p-1.5 text-dimmed hover:text-highlighted no-underline;
+  .navlinks a {
+    @apply p-1.5 no-underline hover:text-highlighted!;
   }
 
-  #app {
-    @apply isolate;
+  .navlinks {
+    @apply text-dimmed hover:text-toned;
   }
 
   .header-number {

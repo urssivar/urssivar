@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Content, useData } from 'vitepress';
+import Link from '@/components/Link.vue';
 import TableOfContents from './components/TableOfContents.vue';
 import SidebarNav from './components/SidebarNav.vue';
 import NavBar from './components/NavBar.vue';
@@ -32,7 +33,7 @@ const { currentSection } = useLanguageNav();
           <UDrawer direction="left" :handle="false" :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8' }">
             <UButton icon="i-material-symbols:menu-rounded" />
             <template #content>
-              <SidebarNav class="w-full" />
+              <SidebarNav class="w-full text-toned" />
             </template>
           </UDrawer>
         </template>
@@ -43,7 +44,7 @@ const { currentSection } = useLanguageNav();
           <UDrawer direction="right" :handle="false" inset :ui="{ content: 'w-2/3 sm:w-80 p-8' }">
             <UButton icon="i-material-symbols:toc-rounded" />
             <template #content>
-              <TableOfContents class="w-full text-sm!" />
+              <TableOfContents class="w-full text-sm! text-toned" />
             </template>
           </UDrawer>
         </template>
