@@ -66,8 +66,7 @@ const isLanguageSubsection = computed(() => {
 
       <NavBar v-if="isLanguageSubsection" class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm shadow-xs">
         <template #leading>
-          <UDrawer direction="left" :handle="false"
-            :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-4 pr-8', overlay: 'backdrop-blur-sm' }">
+          <UDrawer direction="left" :handle="false" :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8' }">
             <UButton icon="i-material-symbols:menu-rounded" />
             <template #content>
               <SidebarNav class="w-full" />
@@ -78,9 +77,7 @@ const isLanguageSubsection = computed(() => {
           Грамматика
         </span>
         <template #trailing>
-          <UDrawer direction="right" :handle="false" inset :ui="{
-            content: 'w-2/3 sm:w-80 p-8'
-          }">
+          <UDrawer direction="right" :handle="false" inset :ui="{ content: 'w-2/3 sm:w-80 p-8' }">
             <UButton icon="i-material-symbols:toc-rounded" />
             <template #content>
               <TableOfContents class="w-full text-sm!" />

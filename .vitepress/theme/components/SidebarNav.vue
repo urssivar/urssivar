@@ -10,32 +10,33 @@ const articles = [
 
 <template>
   <nav class="text-sm flex flex-col">
-    <Link to="language" class="navlink font-semibold flex items-center gap-1.5">
-    <UIcon name="i-material-symbols:arrow-back-2-rounded" class="size-5" />
-    Язык
+    <Link to="language" class="navlink font-semibold">
+    Кайтагский язык
     </Link>
 
     <div class="m-3" />
 
-    <Link to="language" class="navlink pl-8 font-semibold">
+    <Link to="language" class="navlink font-semibold">
     Грамматика
     </Link>
 
-    <Link v-for="a in articles" :key="a.title" :to="a.path" class="navlink pl-8" :class="{
+    <Link v-for="a in articles" :key="a.title" :to="a.path" class="navlink" :class="{
       'text-highlighted': a.current
     }">
-    {{ a.title }}
+    <span class="ml-4">
+      {{ a.title }}
+    </span>
     </Link>
 
     <div class="m-3" />
 
-    <Link to="language" class="navlink pl-8 font-semibold">
+    <Link to="language" class="navlink font-semibold">
     Словарь
     </Link>
-    <Link to="language" class="navlink pl-8 font-semibold">
+    <Link to="language" class="navlink font-semibold">
     Разговорник
     </Link>
-    <Link to="language" class="navlink pl-8 font-semibold">
+    <Link to="language" class="navlink font-semibold">
     Тексты
     </Link>
   </nav>
