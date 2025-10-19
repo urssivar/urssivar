@@ -1,4 +1,8 @@
-# Кайтагский язык
+---
+landing: true
+---
+
+# [Urssivar](index#каитагскии-язык): Кайтагский Язык
 
 Ut pellentesque augue risus, quis consequat arcu vulputate vel.
 

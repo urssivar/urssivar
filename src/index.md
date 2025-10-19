@@ -1,6 +1,8 @@
 ---
 title: "Urssivar: Kaitag Studies"
 description: "Resources & technologies for preserving and studying Kaitag language, culture, history, and people."
+
+landing: true
 wide: true
 ---
 
