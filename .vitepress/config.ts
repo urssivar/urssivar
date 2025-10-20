@@ -7,6 +7,7 @@ import MdAutoNumber from "./plugins/markdown-it-auto-number";
 import MdCustomSpans from "./plugins/markdown-it-custom-spans";
 import MdColonBlock from "./plugins/markdown-it-colon-block";
 import { uiConfig } from "./ui.config";
+import { customSlugify } from "./utils";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -16,9 +17,6 @@ export default defineConfig({
   lang: 'en',
 
   cleanUrls: true,
-  rewrites: {
-    ':path(.*)/index.md': ':path.md',
-  },
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
 
@@ -44,6 +42,12 @@ export default defineConfig({
   },
 
   markdown: {
+    anchor: {
+      slugify: customSlugify
+    },
+    headers: {
+      slugify: customSlugify
+    },
     config: (md) => {
       md.use(MdMultimdTable, { rowspan: true });
       md.use(MdMark);
