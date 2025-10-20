@@ -14,6 +14,13 @@ useHeaderClicks();
 
 const { currentSection } = useLanguageNav();
 const { t } = useI18n();
+
+// TODO: doesn't detect RU lang on home
+// it's likely due to moving the ru.md file to root via rewrites
+// need to solve together with Vitepress rewrites & LocaleConfig
+// and normalize the .md links too
+// TODO fix header anchors turning й to и
+// TODO fix tooltip animation reverted to instant somehow
 </script>
 
 <template>
