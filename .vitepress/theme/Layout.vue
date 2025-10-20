@@ -14,8 +14,6 @@ useHeaderClicks();
 
 const { currentSection } = useLanguageNav();
 const { t } = useI18n();
-
-// TODO fix tooltip animation reverted to instant somehow
 </script>
 
 <template>

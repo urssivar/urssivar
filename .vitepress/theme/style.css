@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @source "../**/*.vue";
 @source "../../src/**/*.md";
-@source "../config.ts";
+@source "../ui.config.ts";
 @import "@nuxt/ui";
 
 @theme {
