@@ -6,6 +6,7 @@ import MdMark from "markdown-it-mark";
 import MdAutoNumber from "./plugins/markdown-it-auto-number";
 import MdCustomSpans from "./plugins/markdown-it-custom-spans";
 import MdColonBlock from "./plugins/markdown-it-colon-block";
+import { uiConfig } from "./ui.config";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -71,27 +72,7 @@ export default defineConfig({
         components: {
           dts: path.resolve(__dirname, 'components.d.ts')
         },
-        ui: {
-          colors: {
-            primary: 'blue',
-            neutral: 'gray',
-          },
-          button: {
-            slots: {
-              base: "cursor-pointer",
-              leadingIcon: 'text-highlighted',
-            },
-            defaultVariants: {
-              color: 'neutral',
-              variant: 'ghost',
-            }
-          },
-          tooltip: {
-            slots: {
-              content: 'data-[state=instant-open]:animate-[scale-in_100ms_ease-out]'
-            }
-          },
-        }
+        ui: uiConfig
       })
     ]
   }
