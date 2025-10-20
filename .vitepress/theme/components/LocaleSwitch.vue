@@ -10,6 +10,11 @@ const { t } = useI18n();
 
 const langLink = computed(() => {
   const path = router.route.path;
+  console.log(lang.value, path);
+  // TODO: doesn't detect RU lang on home
+  // it's likely due to moving the ru.md file to root via rewrites
+  // need to solve together with Vitepress rewrites & LocaleConfig
+  // and normalize the .md links too
   return lang.value === 'ru'
     ? path.replace('/ru', '')
     : '/ru' + path;
