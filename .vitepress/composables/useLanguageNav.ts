@@ -12,14 +12,11 @@ export function useLanguageNav() {
     return languageNav[locale] || languageNav.en;
   });
 
-  const localePrefix = computed(() => {
-    return lang.value === 'ru' ? '/ru' : '';
-  });
-
   const buildNavPath = (...items: (string | undefined)[]) => {
-    return [localePrefix.value, nav.value.path, ...items]
-      .filter(i => !!i)
-      .join('/');
+    return (lang.value === 'ru' ? '/ru/' : '/')
+      + [nav.value.path, ...items]
+        .filter(i => !!i)
+        .join('/');
   };
 
   const currentSection = computed(() => {
