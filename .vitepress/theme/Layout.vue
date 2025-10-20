@@ -15,7 +15,7 @@ const { currentSection } = useLanguageNav();
 </script>
 
 <template>
-  <UApp>
+  <UApp :tooltip="{ delayDuration: 300 }">
     <div class="min-h-screen flex flex-col">
       <Header />
 
