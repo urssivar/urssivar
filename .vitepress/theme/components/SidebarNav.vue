@@ -17,19 +17,19 @@ const { nav, currentSection, currentArticle, getModulePath, getSectionPath, getA
         {{ currentSection.title }}
       </a>
 
-      <Link v-for="article in currentSection.articles" :key="article.path" :to="getArticlePath(article)" :class="{
+      <a v-for="article in currentSection.articles" :key="article.path" :href="getArticlePath(article)" :class="{
         'text-highlighted': article.path === currentArticle?.path
       }">
-      <span class="ml-4">
-        {{ article.title }}
-      </span>
+        <span class="ml-4">
+          {{ article.title }}
+        </span>
       </a>
 
       <div class="m-3" />
     </template>
 
-    <Link v-for="section in nav.sections" :key="section.path" :to="getSectionPath(section)">
-    {{ section.title }}
+    <a v-for="section in nav.sections" :key="section.path" :href="getSectionPath(section)">
+      {{ section.title }}
     </a>
   </nav>
 </template>
