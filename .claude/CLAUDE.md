@@ -79,6 +79,7 @@ Grammar/
 - Simple carousel component showing 2-3 recent posts
 - Posts include title, date, summary, link to full article
 - Responsive (full-width mobile, constrained desktop)
+- **Placement:** After stamp, before footer. Creates natural flow: main content → stamp (visual punctuation) → stay connected (updates + social) → footer (legal).
 
 ---
 
