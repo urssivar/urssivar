@@ -134,12 +134,12 @@
     @apply text-toned text-[0.875em];
   }
 
-  .navlinks a {
-    @apply p-1.5 no-underline hover:text-highlighted!;
-  }
-
   .navlinks {
-    @apply text-dimmed hover:text-toned;
+    @apply font-medium text-muted;
+
+    a {
+      @apply py-1.5 px-2.5 no-underline hover:text-highlighted!;
+    }
   }
 
   .header-number {

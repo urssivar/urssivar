@@ -7,20 +7,16 @@ const { t } = useI18n();
 </script>
 
 <template>
-    <NavBar class="border-b-0">
+    <NavBar class="border-b-0 navlinks text-xs">
         <Link :to="t('footer.licenseUrl')">
-        <UButton variant="link" size="sm">
-            {{ t('footer.license') }}
-        </UButton>
+        {{ t('footer.license') }}
         </Link>
-        <span class="select-none text-xs font-medium text-muted">·</span>
+        <span class="select-none">·</span>
         <Link :to="t('footer.contactEmail')">
-        <UButton variant="link" size="sm">
-            {{ t('footer.contact') }}
-        </UButton>
+        {{ t('footer.contact') }}
         </Link>
 
-    <!-- Social icons commented out - moved to Updates section
+        <!-- Social icons commented out - moved to Updates section
         <Link to="https://t.me/urssivar">
         <UTooltip :text="t('footer.telegram')">
             <UButton variant="link" icon="i-ix:telegram-logo" :aria-label="t('footer.telegram')" />

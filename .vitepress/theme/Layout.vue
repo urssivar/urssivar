@@ -28,7 +28,7 @@ const { t } = useI18n();
               <UButton icon="i-material-symbols:menu-rounded" :aria-label="t('nav.menu')" />
             </UTooltip>
             <template #content>
-              <SidebarNav class="w-full text-toned" />
+              <SidebarNav class="w-full" />
             </template>
           </UDrawer>
         </template>
@@ -41,7 +41,7 @@ const { t } = useI18n();
               <UButton icon="i-material-symbols:toc-rounded" :aria-label="t('nav.toc')" />
             </UTooltip>
             <template #content>
-              <TableOfContents class="w-full text-sm! text-toned" />
+              <TableOfContents class="w-full text-sm!" />
             </template>
           </UDrawer>
         </template>

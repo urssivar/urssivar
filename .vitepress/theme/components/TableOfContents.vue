@@ -48,10 +48,7 @@ const getPadding = (level: number) => {
 
 <template>
   <nav class="navlinks text-xs flex flex-col">
-    <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" :class="{
-      'text-highlighted': observingId === h.id,
-      'font-semibold': h.level === 1
-    }">
+    <a v-for="h in headers" :key="h.id" :href="`#${h.id}`" :class="{ 'text-highlighted': observingId === h.id }">
       <div :class="getPadding(h.level)" v-html="h.html" />
     </a>
   </nav>

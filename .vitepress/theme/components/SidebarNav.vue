@@ -7,14 +7,14 @@ const { nav, currentSection, currentArticle, getModulePath, getSectionPath, getA
 
 <template>
   <nav class="navlinks text-sm flex flex-col">
-    <Link :to="getModulePath()" class="font-semibold">
+    <Link :to="getModulePath()">
     {{ nav.title }}
     </Link>
 
     <div class="m-3" />
 
     <template v-if="currentSection">
-      <Link :to="getSectionPath(currentSection)" class="font-semibold">
+      <Link :to="getSectionPath(currentSection)">
       {{ currentSection.title }}
       </Link>
 
@@ -29,7 +29,7 @@ const { nav, currentSection, currentArticle, getModulePath, getSectionPath, getA
       <div class="m-3" />
     </template>
 
-    <Link v-for="section in nav.sections" :key="section.path" :to="getSectionPath(section)" class="font-semibold">
+    <Link v-for="section in nav.sections" :key="section.path" :to="getSectionPath(section)">
     {{ section.title }}
     </Link>
   </nav>
