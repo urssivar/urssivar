@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useData, useRouter } from 'vitepress';
-import Link from '@/components/Link.vue';
 import { useI18n } from '@/composables/useI18n';
 
 const { lang } = useData();
@@ -18,8 +17,8 @@ const langLink = computed(() => {
 
 <template>
   <UTooltip :text="t('header.localeSwitch')">
-    <Link :to="langLink">
-    <UButton icon="i-material-symbols:translate-rounded" :aria-label="t('header.localeSwitch')" />
-    </Link>
+    <a :href="langLink">
+      <UButton icon="i-material-symbols:translate-rounded" :aria-label="t('header.localeSwitch')" />
+    </a>
   </UTooltip>
 </template>
