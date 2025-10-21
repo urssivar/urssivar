@@ -452,21 +452,23 @@ language/
 **Decision:** Keep current sticky bar behavior for all screens <lg
 **Reasoning:** Tablets benefit from sticky bar with nav/ToC drawers just like mobile. Left sidebar remains visible on tablets for navigation. This works well in practice—no changes needed.
 
-### Footer Placement
-**Decision:** Landing page only
+### Footer Placement & Content
+**Decision:** Minimal footer (License + Contact) on every page; Social icons only on Updates section (landing)
 **Reasoning:**
-- Aligns with "minimal UI" philosophy
-- Grammar/content pages stay clean and focused on reading
-- Removes print styling complexity naturally
-- Users can always return home for links and license info
+- License is legal/meta info (belongs universally in footer)
+- Contact (email) is always accessible (users can reach out from any page)
+- Keeps footer minimal on grammar pages (aligns with "minimal UI" philosophy)
+- Social icons move to Updates section on landing (natural place for "join community")
+- Clear mental model: Footer = project essentials; Updates section = community hub
 
-### Footer Content & Style
-**Decision:** Icons only (no labels), keep all 3 social links
+### Footer Style
+**Decision:** License · Contact (centered, dot separator)
 **Reasoning:**
-- Icons are universally recognizable (Telegram, YouTube, GitHub)
-- Text labels would add visual clutter and height
-- All 3 platforms serve distinct purposes (community, learning, development)
-- Accessibility: use `aria-label` attributes on buttons if needed
+- Compact, intimate feeling with two items
+- Dot separator is elegant and minimal
+- Centered placement feels intentional (not sparse)
+- Works well across all screen sizes and devices
+- Matches minimalist, typography-focused aesthetic
 
 ### Page Timestamps
 **Decision:** Not implementing
@@ -515,14 +517,18 @@ language/
 - [x] Style sidebar, header, menus per design specs
 - [x] Finalize all UI/navigation decisions (see "Design Decisions - Phase 2")
 
-### Phase 2.5: UI Polish & Blog Integration
+### Phase 2.5: UI Polish & Updates Section Integration
 **Language docs site (codex.urssivar.com):**
-- [ ] Implement footer on landing page only (remove from grammar/article pages)
+- [ ] Update footer to show License · Contact (centered, dot separator)
+- [ ] Keep footer on every page (accessible everywhere, minimal footprint)
+- [ ] Move social icons (Telegram, YouTube, GitHub) from footer to Updates section only
 - [ ] Add print media styles to style.css (hide nav/sidebars on print)
 
 **Main campaign landing (urssivar.com):**
-- [ ] Create blog carousel component (simple: title, date, summary, link)
-- [ ] Integrate carousel into landing page layout
+- [ ] Create Updates section (rename from "blog"; includes news, essays, archive, notes, visualizations)
+- [ ] Create updates carousel component (simple: title, date, summary, link)
+- [ ] Integrate carousel + social icons beside it into landing page layout ("Follow the campaign" CTA)
+- [ ] Link to full updates archive from carousel
 - [ ] Ensure responsive behavior (mobile/desktop)
 
 ### Phase 3: Content Audit & Reorganization
