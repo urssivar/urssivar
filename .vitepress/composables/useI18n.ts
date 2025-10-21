@@ -14,6 +14,8 @@ const messages = {
     footer: {
       license: 'License CC BY 4.0',
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+      contact: 'Write to us',
+      contactEmail: 'mailto:alkaitagi@outlook.com',
       telegram: 'Telegram channel',
       youtube: 'YouTube channel',
       github: 'GitHub repository',
@@ -32,6 +34,8 @@ const messages = {
     footer: {
       license: 'Лицензия CC BY 4.0',
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/deed.ru',
+      contact: 'Написать нам',
+      contactEmail: 'mailto:alkaitagi@outlook.com',
       telegram: 'Telegram канал',
       youtube: 'YouTube канал',
       github: 'GitHub репозиторий',
