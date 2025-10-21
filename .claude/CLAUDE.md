@@ -478,6 +478,82 @@ language/
 **Decision:** Deferred to Phase 2.5
 **Reasoning:** Landing-page-only footer means grammar pages naturally print cleanly. Print styling will be added alongside footer implementation in Phase 2.5.
 
+### Design Decisions - Phase 2.5 (Navigation & Footer Polish - In Progress)
+
+#### Unified Navigation Typography
+**Decision:** All navigation (sidebar, ToC, footer) use `font-medium` weight
+**Reasoning:**
+- Matches UButton `variant="link"` styling (footer buttons)
+- Consistent design language across all navigation contexts
+- Medium weight is lighter than semibold (more minimal), heavier than normal (still clear)
+- Hierarchy defined by structure (position, spacing, indentation) not weight
+
+#### Navigation Color System
+**Decision:** All navigation default to `text-toned`, hover to `text-highlighted`
+**Reasoning:**
+- Default (`text-toned` = neutral-600): readable but doesn't compete with content
+- Hover (`text-highlighted` = neutral-900): maximum contrast, matches body text contrast standards
+- Removed container hover effect (redundant with individual link hover)
+- Clear two-state system: default + hover
+
+#### Sidebar Weight Hierarchy
+**Decision:** Only module kept `font-semibold`; subsections/articles use `font-medium`
+**Reasoning:**
+- Module = meta-level navigation ("which top-level section?"), deserves visual anchor
+- Subsections & articles = content links, structure defines hierarchy via spacing/indentation
+- Parallel to ToC: h1 (meta) gets bold, h2-h4 (content) are normal weight
+- Reduces visual clutter while maintaining clear three-tier structure
+
+#### ToC h1 Remains Bold
+**Decision:** Keep `font-semibold` on h1 (document title)
+**Reasoning:**
+- h1 functions as "back to top" button (replaces floating UI widget)
+- Functional distinction (document meta-nav vs section content-nav) justifies visual distinction
+- More minimal than adding separate back-to-top button
+- Bold signals "this does something different" than regular section headings
+
+#### Footer Link Implementation
+**Decision:** Plain `<a>` tags (not UButton) with `.navlinks` styles
+**Reasoning:**
+- Simplifies implementation (no UButton theming overrides needed)
+- Achieves full consistency: sidebar = ToC = footer (identical CSS)
+- UButton is overkill for two text links (better for complex buttons with icons)
+- Clearer mental model: footer isn't special, just another navigation context
+
+#### Footer Dot Separator Styling
+**Decision:** Middot (·) with `font-medium text-muted select-none`
+**Reasoning:**
+- Middot character = traditional separator (elegant, minimal)
+- Font-medium: matches link text weight (typographic unity)
+- Text-muted: subordinate to links, doesn't compete for attention
+- Select-none: prevents accidental selection as text (pure separator, not content)
+- Small size + muted color = "ghost separator" that integrates with text flow
+
+#### Navigation Text Selectability
+**Decision:** Removed `select-none` from `.navlinks` container
+**Reasoning:**
+- Navigation link labels are content (users should be able to copy them)
+- `select-none` appropriate only for pure UI chrome (icons, decorative elements)
+- Keep `select-none` only on: dot separators, icon-only buttons
+- Links = text that users interact with, not design chrome
+
+#### Drawer Design (ToC Inset vs Nav Full)
+**Decision:** Intentional asymmetry: ToC drawer uses `inset`, Nav drawer fills from edge
+**Reasoning:**
+- Nav = site-level navigation (cross-page) → full drawer is appropriate scope
+- ToC = page-level navigation (within document) → inset reinforces "part of this page"
+- Visual distinction matches functional distinction
+- Users intuitively understand: "full drawer = navigation", "inset drawer = on this page"
+
+#### Footer Link Text Tone
+**Decision:** "Write to us" instead of "Contact"
+**Reasoning:**
+- "Contact" feels corporate/official, creates distance
+- "Write to us" is warmer, more grounded, feels genuine
+- Reflects project values: ordinary folk, not institutional
+- Friendly without being cheesy, unpretentious without being cold
+- **Design principle:** UI text should be human-centered and warm where possible, avoiding corporate jargon while maintaining professionalism
+
 ---
 
 ## Accessibility & Usability
