@@ -1,14 +1,15 @@
 # Grammar Content Development Plan
 
-**Last Updated:** 2025-10-21
-**Status:** Ready for content development
+**Last Updated:** 2025-10-05
+**Status:** Planning phase complete, ready for content development
 
-This document contains detailed content planning for the Grammar section's 12 pages. For high-level roadmap, UX decisions, and technical implementation, see `CLAUDE.md`.
+This document contains the detailed content planning for the Grammar section. For high-level roadmap and UX decisions, see `CLAUDE.md`.
 
 ---
 
 ## Grammar Section Structure
 
+### Overview
 **Total: 12 pages** - Clean, flat sidebar with no subsection labels. Each page thoroughly covers its topic.
 
 ```
@@ -28,7 +29,7 @@ Grammar/
 ```
 
 **Key principles:**
-- Each page is self-contained and covers its topic thoroughly
+- Each page is **self-contained** and covers its topic thoroughly
 - No artificial "mechanics vs usage" division
 - Topics integrated where natural (negation in Copulas & Verbs, time in Cases & Numerals)
 - Questions merged into Predicative Particles (both use particles)
@@ -54,30 +55,6 @@ Grammar/
 - `/docs/dictionary/intro.md` (phonetics & orthography section)
 - `/docs/typing.md` (typing game component)
 - `/docs/public/typing/audio/` (existing audio files)
-
-**Page Structure:**
-```markdown
-# Alphabet & Script
-
-## Letters & Sounds
-[Tables with audio for each letter/sound]
-
-## Consonants
-[Detailed breakdown with examples]
-
-## Vowels
-[Detailed breakdown with examples]
-
-## Stress Patterns
-[Basic rules]
-
-## Typing Setup
-[Keyboard layouts: Yandex Keyboard, Google Gboard]
-[Text converter: Yaziv]
-
-## Practice
-<TypingTest />
-```
 
 ---
 
@@ -291,19 +268,15 @@ Grammar/
 
 ## Content Development Workflow
 
-### Phase 1: Planning ✅
-- Define vision and audience
-- Decide on structure (flat Grammar section)
-- Remove complex features (widgets, glossaries)
-- Plan cross-linking strategy
+### Phase 1: Planning ✓
+- [x] Define vision and audience
+- [x] Decide on structure (flat Grammar section)
+- [x] Remove complex features (widgets, glossaries)
+- [x] Plan cross-linking strategy
+- [x] Create roadmap document
 
-### Phase 2: Navigation Implementation ✅
-- Responsive layout with sidebars and drawers
-- Mobile/tablet/desktop navigation
-- Style and polish UI components
-
-### Phase 3: Content Audit & Reorganization
-- [ ] Move alphabet/orthography from dictionary intro → `/grammar/alphabet`
+### Phase 2: Content Audit & Reorganization
+- [ ] Move alphabet/orthography from dictionary intro to `/grammar/alphabet`
 - [ ] Integrate typing game into alphabet page
 - [ ] Simplify dictionary intro (focus on "how to use")
 - [ ] Clean up existing grammar pages:
@@ -311,9 +284,9 @@ Grammar/
   - [ ] Cases (remove glossaries, verify links)
   - [ ] Predicatives (remove glossaries)
   - [ ] Questions (remove glossaries)
-  - [ ] Locative cases (complete or merge)
+  - [ ] Locative cases (complete or merge with Cases)
 
-### Phase 4: New Content Creation (Priority Order)
+### Phase 3: New Content Creation (Priority Order)
 1. [ ] **Alphabet & Script** - Move from dictionary, embed typing game
 2. [ ] **Nouns & Classes** - Foundational (includes oblique stems)
 3. [ ] **Spatial Cases & Postpositions** - Merge locative-cases.md content
@@ -325,12 +298,96 @@ Grammar/
 9. [ ] **Phonology** - Rewrite as learner-friendly basics
 10. [ ] **Numerals** - Complete fragmentary content, add telling time
 
-### Phase 5: Polish & Cross-Linking
-- [ ] Add dictionary cross-links in examples (see CLAUDE.md for strategy)
+### Phase 4: Polish & Cross-Linking
+- [ ] Add dictionary cross-links in examples
 - [ ] Verify internal links between grammar pages
 - [ ] Ensure consistent formatting across all pages
 - [ ] Proofread for clarity and completeness
 - [ ] Test printability
+
+### Phase 5: Future Enhancements
+- [ ] Implement automatic Dictionary → Grammar tag-based links
+- [ ] Create Phrasebook section
+- [ ] Add Phrasebook cross-links
+- [ ] Consider audio enhancements beyond alphabet
+
+---
+
+## Dictionary Section Changes
+
+### Current state:
+- Dictionary intro contains comprehensive alphabet/orthography/phonology content (linguist-focused)
+- Was designed as standalone resource
+
+### Changes needed:
+1. **Move alphabet/orthography content** → `/grammar/alphabet`
+2. **Move phonology content** → `/grammar/phonology` (simplified for learners)
+3. **Simplify dictionary intro** to focus on:
+   - How to use the dictionary
+   - Entry structure explanation
+   - Credits and contributors
+   - Database statistics (5,171 lexemes, sources, license)
+   - Basic "how to read entries" (stress marks, tags)
+
+### Typing Game Relocation
+
+**Current:** Top-level nav item (awkward placement)
+
+**New location:** Embedded in `/grammar/alphabet` page as final section
+
+**Structure:**
+```markdown
+# Alphabet & Script
+
+## Letters & Sounds
+[Tables with audio for each letter/sound]
+
+## Consonants
+[Detailed breakdown with examples]
+
+## Vowels
+[Detailed breakdown with examples]
+
+## Stress Patterns
+[Basic rules]
+
+## Typing Setup
+[Keyboard layouts: Yandex Keyboard, Google Gboard]
+[Text converter: Yaziv]
+
+## Practice
+<TypingTest />
+```
+
+**Rationale:** Natural flow - learn letters → learn to type them → practice
+
+---
+
+## Cross-Linking Strategy
+
+### Reference → Dictionary (Manual, selective)
+- Link example words to dictionary entries
+- Format: `++[атта](/dictionary/а#атта)==л== беччив++`
+- Only for key illustrative words, not every word
+- **Timing:** Add during final pass once grammar pages are complete
+
+### Dictionary → Reference (Automatic, future)
+- Tag-based auto-linking in `DWord.vue` component
+- Map grammatical tags to pages:
+  - `N` → `/grammar/nouns`
+  - `V` → `/grammar/verbs`
+  - `ERG` → `/grammar/cases#2`
+- **Timing:** Implement after grammar content is stable
+
+### Phrasebook → Dictionary (Manual, future)
+- Individual word links in phrases
+- **Timing:** When phrasebook section is created
+
+### Phrasebook ↔ Grammar (Manual, future)
+- Light cross-references both directions
+- Grammar: "See Phrasebook for common examples"
+- Phrasebook: "See Grammar for pattern details"
+- **Timing:** When phrasebook section is created
 
 ---
 
@@ -339,8 +396,8 @@ Grammar/
 ### Purpose
 Ready-to-use phrases organized by situation - **what to say**, not grammar explanation.
 
-### Distinction from Grammar
-- **Grammar:** Explains *how* (patterns, rules, mechanics)
+### Distinction from Grammar/Usage
+- **Grammar/Usage:** Explains *how* (patterns, rules, mechanics)
 - **Phrasebook:** Provides *what* (memorizable phrases for situations)
 
 ### Example Sections
@@ -351,6 +408,7 @@ Ready-to-use phrases organized by situation - **what to say**, not grammar expla
 - Directions
 - Numbers & Counting
 - Food & Dining
+- etc.
 
 ### Relationship to Grammar
 Complementary, not overlapping:
@@ -359,9 +417,55 @@ Complementary, not overlapping:
 
 ---
 
+## Removed Features
+
+### 1. Context-Switching Widgets
+**What:** `<Context>` component with interactive class toggles (masc./fem./neut.)
+
+**Why removed:**
+- Adds cognitive load (users learn UI before learning Kaitag)
+- Breaks printability
+- Interrupts reading flow
+- Forces interaction when users want to read
+
+**Replacement:** Clear tables showing all forms at once, inline notation when needed
+
+**Example:**
+```markdown
+| Masculine | Feminine | Neuter |
+|-----------|----------|---------|
+| ++ви++    | ++ри++   | ++би++  |
+
+- ++тухтур ==ви==++ --doctor (m.) is [there]--
+- ++рирси ==ри==++ --girl is [there]--
+- ++чяй ==би==++ --tea is [there]--
+```
+
+### 2. Pre-Section Glossaries
+**What:** `:::details Glossary` blocks before each page
+
+**Why removed:**
+- Shows vocabulary before the grammar point
+- Breaks "quick reference" flow
+- Redundant with inline translations
+
+**Replacement:** Trust that examples with inline `++word++` `--translation--` are self-explanatory
+
+---
+
+## Style Guidelines
+
+- **Printable markdown** - no complex interactive widgets
+- **Clean formatting** - use `++kaitag++` and `--translation--` notation consistently
+- **Self-contained examples** - no glossaries before sections (they break flow)
+- **Minimal UI complexity** - removed context-switching widgets and glossaries
+- **Direct and concise** - explain the pattern, show examples, move on
+
+---
+
 ## Success Criteria
 
-When this plan is complete, users should be able to:
+When this roadmap is complete, users should be able to:
 
 1. **Learn the basics** - Read through Grammar section top-to-bottom and understand core Kaitag mechanics
 2. **Look up patterns** - Jump to any page to find how to do something specific
@@ -379,6 +483,34 @@ The section should feel:
 
 ---
 
+## Technical Notes
+
+### File Locations
+- Grammar pages: `/docs/reference/` (will remain here, just rename nav label)
+- Dictionary: `/docs/dictionary/`
+- Typing game component: `/components/TypingTest.vue`
+- Audio files: `/docs/public/typing/audio/`
+
+### Markup Conventions
+- Kaitag text: `++word++` (renders with Noto Sans font)
+- Translations: `--translation--`
+- Emphasis in Kaitag: `++word ==emphasized-part==++`
+- No complex custom components (removed Context, keeping existing markdown-it plugins)
+
+### Changes Needed in Config
+```typescript
+// Change nav label from "Reference" to "Grammar"
+{
+    text: "Grammar",  // was: "Reference"
+    link: "/reference/copulas",  // keep URLs same
+    activeMatch: "/reference/",
+}
+
+// Remove Typing from top-level nav (embedded in alphabet page instead)
+```
+
+---
+
 ## Open Questions
 
 **Resolve these during development:**
@@ -389,10 +521,36 @@ The section should feel:
 - Keep both pages focused on productive patterns
 
 ### Audio Resources
-- Can reuse typing game audio (`/docs/public/typing/audio/`) for Alphabet page?
+- Can reuse typing game audio (`/docs/public/typing/audio/`) for Alphabet page
 - Assess if additional recordings needed after page structure is complete
 
 ### Content Decisions (make as you go)
 - Numerals: keep all forms from existing content, clean up presentation
 - Locative cases: already decided to merge with postpositions
 - Let examples emerge naturally - don't force coverage
+
+---
+
+## Notes & Decisions Log
+
+**2025-10-05:**
+- Decided to rename "Reference" → "Grammar"
+- Removed context-switching widgets and glossaries
+- Moved typing game into Grammar/Alphabet page
+- Defined cross-linking strategy (manual now, automatic later)
+- Clarified Phrasebook vs Grammar distinction
+
+**2025-10-05 (Final Structure):**
+- **Killed "Usage Patterns" concept** - no artificial mechanics/usage division
+- **12 pages total** - flat structure, naturally ordered
+- **Key mergers:**
+  - Questions → Predicative Particles (both use particles)
+  - Locative cases + Postpositions → Spatial Cases & Postpositions (unified spatial system)
+- **Key integrations:**
+  - Negation: split between Copulas (forms) & Verbs Part 1 (prefix)
+  - Time: split between Cases (dative/ergative usage) & Numerals (telling time)
+  - Commands: in Verbs Part 1
+  - Comparisons: in Adjectives & Adverbs
+  - Oblique stems: introduced in Nouns, used in Cases
+- **Verbs split into 2 pages:** Basics (core tenses, negation, commands) + Advanced (preverbs, causatives, participles)
+- Each page is self-contained and thoroughly covers its topic

@@ -14,7 +14,9 @@ const villageBounds = computed<LatLngBoundsExpression>(() => {
   ];
 });
 
-// [[minLat, minLng], [maxLat, maxLng]]
+// Updating Map Backdrop
+// 1. QGIS export: EPSG:4326, bounds 47.2754-48.2753 lng, 41.8747-42.2207 lat
+// 2. `[[minLat, minLng], [maxLat, maxLng]]`
 const imageBounds: LatLngBoundsExpression = [
   [41.8747, 47.2754],
   [42.2207, 48.2753],
