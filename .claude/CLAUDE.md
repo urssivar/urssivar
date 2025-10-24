@@ -315,7 +315,7 @@ The site should feel:
 
 ### Navigation Typography & Color
 - All navigation (sidebar, ToC, footer) use `font-medium` weight
-- Default to `text-toned` (neutral-600), hover to `text-highlighted` (neutral-900)
+- Default to `text-muted` (neutral-500), hover to `text-highlighted` (neutral-900)
 - Module level uses `font-semibold` for visual anchor
 - ToC h1 remains bold (functions as "back to top" button)
 

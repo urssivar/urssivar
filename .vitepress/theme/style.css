@@ -74,7 +74,7 @@
 
   :is(h2, h3, h4)[id] {
     &::before {
-      @apply absolute -translate-x-full pr-[0.375em] font-normal text-dimmed opacity-0 transition-opacity duration-200 content-['#'] cursor-pointer;
+      @apply absolute -translate-x-full pr-[0.375em] font-medium text-muted opacity-0 transition-opacity duration-200 content-['§'] cursor-pointer;
     }
 
     &:hover::before {
