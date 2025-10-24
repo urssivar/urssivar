@@ -8,12 +8,15 @@ import { useLanguageNav } from '@/composables/useLanguageNav';
 import { useI18n } from '@/composables/useI18n';
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue';
+import { ref } from 'vue';
 
 const { frontmatter } = useData();
 useHeaderClicks();
 
 const { currentSection } = useLanguageNav();
 const { t } = useI18n();
+
+const menuOpen = ref(false);
 </script>
 
 <template>
@@ -23,12 +26,13 @@ const { t } = useI18n();
 
       <NavBar v-if="currentSection" class="lg:hidden sticky top-0 z-10 bg-default/75 backdrop-blur-sm shadow-xs">
         <template #leading>
-          <UDrawer direction="left" :handle="false" :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8' }">
+          <UDrawer direction="left" :handle="false" :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8' }"
+            v-model:open="menuOpen">
             <UTooltip :text="t('nav.menu')">
               <UButton icon="i-material-symbols:menu-rounded" :aria-label="t('nav.menu')" />
             </UTooltip>
             <template #content>
-              <SidebarNav class="w-full" />
+              <SidebarNav class="w-full" @navigate="menuOpen = false" />
             </template>
           </UDrawer>
         </template>
@@ -51,7 +55,7 @@ const { t } = useI18n();
 
       <div v-if="currentSection" class="lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
         <aside class="hidden lg:block">
-          <SidebarNav class="sticky top-12" />
+          <SidebarNav class="sticky top-12" @navigate="menuOpen = false" />
         </aside>
         <article class="w-full">
           <Content />
