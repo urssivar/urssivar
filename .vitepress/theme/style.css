@@ -87,7 +87,7 @@
   }
 
   a {
-    @apply transition-colors duration-200 underline underline-offset-[0.2em] hover:decoration-(--ui-text-dimmed);
+    @apply transition-colors duration-200 underline underline-offset-[0.2em] decoration-(--ui-text-muted) hover:decoration-(--ui-text-highlighted);
   }
 
   mark {
