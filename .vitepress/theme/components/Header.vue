@@ -24,8 +24,8 @@ const isLanding = computed(() => {
                 <a :href="homeLink" class="flex gap-1.5 items-center text-default decoration-transparent"
                     :aria-label="t('header.home')">
                     <img src="/favicon-dark.svg" alt=""
-                        class="mx-1 size-6 invert-[88%] dark:invert-[12%] select-none pointer-events-none">
-                    <span v-if="!isLanding" aria-hidden="true" class="font-bold text-lg">
+                        class="mx-1 size-6 invert-[90%] dark:invert-0 select-none pointer-events-none">
+                    <span v-if="!isLanding" aria-hidden="true" class="font-bold text-lg text-highlighted">
                         Urssivar
                     </span>
                 </a>
