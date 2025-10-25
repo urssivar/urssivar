@@ -9,7 +9,7 @@ import { data as notes } from './notes.data';
 
 # [Urssivar](../index#полевые-заметки): Полевые Заметки
 
-Новости и прогресс кампании Urssivar по документированию кайтагского языка, истории и народа.
+Находки, эссе и обновления о документировании кайтагского языка, истории и народа.
 
 [Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) · [GitHub](https://github.com/urssivar)
 
