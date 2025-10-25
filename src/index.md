@@ -10,7 +10,7 @@ wide: true
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
 import PostCard from "@/components/PostCard.vue";
-import { data as posts } from './updates/posts.data';
+import { data as notes } from './notes/notes.data';
 </script>
 
 <article>
@@ -51,11 +51,11 @@ We compile family trees — names, lifespans, villages, migrations. We use DNA t
 
 <article>
 
-## [Updates](./updates/)
+## [Field Notes](./notes/)
 
-News and progress from the Urssivar campaign documenting Kaitag language, history, and people.
+Findings, essays, and updates from documenting Kaitag language, history, and people.
 
-<PostCard v-for="p in posts.slice(0, 2)" :key="p.url" :page="p"/>
+<PostCard v-for="n in notes.slice(0, 2)" :key="n.url" :page="n"/>
 
 [Telegram](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
 
