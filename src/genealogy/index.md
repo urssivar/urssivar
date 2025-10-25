@@ -15,9 +15,9 @@ The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along 
 
 For centuries, Kaitag territory stood at the strategic frontier between empires — Persian, Ottoman, Russian — and the mountain peoples. This position at the crossroads of civilizations, controlling parts of the Caspian trade routes, shaped Kaitags into a distinctive part of the Caucasian mosaic.
 
-<!-- --- {.air}
+--- {.air}
 
-<DNAChart/> -->
+<DNAChart/>
 
 --- {.air}
 
