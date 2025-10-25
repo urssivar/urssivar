@@ -11,12 +11,11 @@ const colors = <Record<string, string>>{
 <template>
   <ol>
     <li v-for="k in kits" :key="k.id" :id="k.id">
-      <p>
-        <span lang="xdq" class="text-lg">
+      <p class="flex flex-col sm:flex-row gap-2">
+        <span lang="xdq">
           {{ `${k.village}, ${k.region}` }}
         </span>
-        <br class="sm:hidden" />
-        <a :href="'https://www.yfull.com/tree/' + (k.branch ?? k.subclade ?? k.haplogroup)" class="sm:ml-2">
+        <a :href="'https://www.yfull.com/tree/' + (k.branch ?? k.subclade ?? k.haplogroup)">
           <UButton variant="soft" size="xs">
             <span :style="{ color: colors[k.haplogroup] }" class="font-semibold">
               {{ k.haplogroup }}
