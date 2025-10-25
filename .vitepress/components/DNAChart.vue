@@ -5,22 +5,13 @@ import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import kits from '@/data/dna.json';
 
-ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
-
-const colorFamilies = {
-  R1b: {
-    base: 'rgb(59 130 246)',
-    shades: ['rgb(96 165 250)', 'rgb(147 197 253)', 'rgb(191 219 254)']
-  },
-  J1: {
-    base: 'rgb(71 85 105)',
-    shades: ['rgb(100 116 139)', 'rgb(148 163 184)', 'rgb(203 213 225)']
-  },
-  Q: {
-    base: 'rgb(139 92 246)',
-    shades: ['rgb(167 139 250)', 'rgb(196 181 253)', 'rgb(221 214 254)']
-  }
+const colors = <Record<string, string>>{
+  R1b: '#2563eb',  // blue-600
+  J1: '#0d9488',   // teal-600
+  Q: '#7c3aed',    // violet-600
 };
+
+ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
 const chartData = computed(() => {
   const haplogroupCounts = new Map<string, number>();
@@ -48,28 +39,24 @@ const chartData = computed(() => {
       return a.label.localeCompare(b.label);
     });
 
-  const haplogroupColors = haplogroups.map(([hg]) =>
-    colorFamilies[hg as keyof typeof colorFamilies]?.base || colorFamilies.R1b.base
-  );
-
-  const subcladeColors = subclades.map((sc, i) => {
-    const family = colorFamilies[sc.parent as keyof typeof colorFamilies] || colorFamilies.R1b;
-    const siblingIndex = subclades.filter(s => s.parent === sc.parent).indexOf(sc);
-    return family.shades[siblingIndex % family.shades.length];
-  });
-
   return {
     datasets: [
       {
         label: 'Subclades',
         data: subclades.map(sc => sc.count),
-        backgroundColor: subcladeColors,
-        weight: 1.5
+        backgroundColor: subclades.map((sc) =>
+          colors[sc.parent]
+        ),
+        borderColor: '#000',
+        weight: 1.5,
       },
       {
         label: 'Haplogroups',
         data: haplogroups.map(([_, count]) => count),
-        backgroundColor: haplogroupColors,
+        backgroundColor: haplogroups.map(([hg]) =>
+          colors[hg]
+        ),
+        borderColor: '#000',
       }
     ],
     haplogroups: haplogroups.map(([hg]) => hg),
@@ -80,36 +67,29 @@ const chartData = computed(() => {
 const chartOptions: any = {
   responsive: true,
   maintainAspectRatio: true,
-  cutout: '10%',
+  cutout: '5%',
   plugins: {
     legend: { display: false },
+    tooltip: { enabled: false },
     datalabels: {
-      color: 'white',
-      font: { family: 'Inter', size: 12, weight: 500 },
+      color: '#fff',
+      font: { family: 'Inter', size: 12, weight: 700 },
       formatter: (value: number, ctx: any) => {
         if (ctx.datasetIndex === 0) {
-          return chartData.value.subclades[ctx.dataIndex];
+          const label = chartData.value.subclades[ctx.dataIndex];
+          return `${label} · ${value}`;
         } else {
-          return chartData.value.haplogroups[ctx.dataIndex];
+          const label = chartData.value.haplogroups[ctx.dataIndex];
+          const total = ctx.dataset.data.reduce((a: number, b: number) => a + b, 0);
+          const pct = ((value / total) * 100).toFixed(1);
+          return `${label} · ${pct}%`;
         }
       },
-    },
-    tooltip: {
-      callbacks: {
-        label: (ctx: any) => {
-          const total = ctx.dataset.data.reduce((a: number, b: number) => a + b, 0);
-          const pct = ((ctx.parsed / total) * 100).toFixed(1);
-          const label = ctx.datasetIndex === 0
-            ? chartData.value.subclades[ctx.dataIndex]
-            : chartData.value.haplogroups[ctx.dataIndex];
-          return `${label}: ${ctx.parsed} (${pct}%)`;
-        }
-      }
     }
   }
 };
 </script>
 
 <template>
-  <Doughnut class="h-72 mx-auto" :data="chartData" :options="chartOptions" />
+  <Doughnut class="my-16 h-72 sm:h-96 mx-auto" :data="chartData" :options="chartOptions" />
 </template>

@@ -1,5 +1,11 @@
 <script setup lang="ts">
 import kits from '@/data/dna.json';
+
+const colors = <Record<string, string>>{
+  R1b: '#3b82f6',  // blue-500
+  J1: '#14b8a6',   // teal-500
+  Q: '#8b5cf6',    // violet-500
+};
 </script>
 
 <template>
@@ -9,15 +15,17 @@ import kits from '@/data/dna.json';
         {{ i + 1 }}
       </a>
     </span>
-    <span lang="xdq" class="mx-2">
+    <span lang="xdq" class="text-lg mx-2">
       {{ k.village }}, {{ k.region }}
     </span>
     <a :href="'https://www.yfull.com/tree/' + (k.branch ?? k.subclade ?? k.haplogroup)">
       <UButton variant="soft" size="xs">
+        <span :style="{ color: colors[k.haplogroup] }" class="font-semibold">
+          {{ k.haplogroup }}
+          <template v-if="k.subclade"> · {{ k.subclade }}</template>
+          <template v-if="k.branch"> · {{ k.branch }}</template>
+        </span>
         <template v-if="!k.yfullId">*</template>
-        {{ k.haplogroup }}
-        <template v-if="k.subclade"> · {{ k.subclade }}</template>
-        <template v-if="k.branch"> · {{ k.branch }}</template>
       </UButton>
     </a>
   </p>
