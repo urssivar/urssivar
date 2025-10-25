@@ -16,6 +16,9 @@ const messages = {
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       contact: 'Write to us',
       contactEmail: 'mailto:alkaitagi@outlook.com',
+    },
+    notes: {
+      backToNotes: 'Field Notes'
     }
   },
   ru: {
@@ -33,6 +36,9 @@ const messages = {
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/deed.ru',
       contact: 'Написать нам',
       contactEmail: 'mailto:alkaitagi@outlook.com',
+    },
+    notes: {
+      backToNotes: 'Полевые заметки'
     }
   }
 } as const;

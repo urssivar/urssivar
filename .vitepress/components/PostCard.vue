@@ -19,7 +19,7 @@ const id = computed(() => {
       <a :id :href="page.url">{{ page.frontmatter.title }}</a>
     </h4>
     <p>
-      <span class="text-toned mr-[0.5em]">
+      <span class="mr-[0.5em]">
         {{ dateString(page.frontmatter.date) }}
       </span>
       {{ page.frontmatter.description }}

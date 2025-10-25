@@ -1,9 +1,12 @@
-// Custom slugify that preserves Cyrillic characters
-export const customSlugify = (str: string): string => {
+export function customSlugify(str: string) {
   return str
     .toLowerCase()
-    .replace(/\s+/g, '-')           // spaces to dashes
-    .replace(/[^\p{L}\p{N}-]/gu, '') // keep only letters, numbers, and dashes
-    .replace(/-+/g, '-')             // collapse multiple dashes
-    .replace(/^-|-$/g, '')           // trim leading/trailing dashes
+    .replace(/\s+/g, '-')
+    .replace(/[^\p{L}\p{N}-]/gu, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+}
+
+export function dateString(date: Date) {
+  return date.toString().substring(0, 10);
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { Content, useData } from 'vitepress';
 import TableOfContents from './components/TableOfContents.vue';
 import SidebarNav from './components/SidebarNav.vue';
@@ -8,7 +9,7 @@ import { useLanguageNav } from '@/composables/useLanguageNav';
 import { useI18n } from '@/composables/useI18n';
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue';
-import { ref } from 'vue';
+import NotesHeader from './components/NotesHeader.vue';
 
 const { frontmatter } = useData();
 useHeaderClicks();
@@ -51,7 +52,7 @@ const menuOpen = ref(false);
         </template>
       </NavBar>
 
-      <hr class="air" />
+      <hr class=" air" />
 
       <div v-if="currentSection" class="lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
         <aside class="hidden lg:block">
@@ -66,6 +67,7 @@ const menuOpen = ref(false);
       </div>
       <Content v-else-if="frontmatter.wide" />
       <article v-else>
+        <NotesHeader />
         <Content />
       </article>
 
