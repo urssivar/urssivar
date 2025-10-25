@@ -59,10 +59,10 @@ Findings, essays, and updates from documenting Kaitag language, history, and peo
 
 --- {.air}
 
-[Telegram](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
+[**Telegram**](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
 
-[YouTube](https://youtube.com/@urssivar) — video essays, product demos, announcements.
+[**YouTube**](https://youtube.com/@urssivar) — video essays, product demos, announcements.
 
-[GitHub](https://github.com/urssivar) — open-source tools, datasets, documentation.
+[**GitHub**](https://github.com/urssivar) — open-source tools, datasets, documentation.
 
 </article>

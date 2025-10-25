@@ -9,7 +9,8 @@ wide: true
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
-import { data as posts } from './updates/posts.data';
+import PostCard from "@/components/PostCard.vue";
+import { data as notes } from './notes/notes.data';
 </script>
 
 <article>
@@ -50,14 +51,13 @@ _Наллара дел да. Ьам ра бел._ {lang=xdq}
 
 <article>
 
-## [Обновления кампании](./updates/)
+## [Полевые заметки](./notes/)
 
-Последние новости о документировании языка, ДНК-исследованиях и архивных находках.
+Находки, эссе и обновления о документировании кайтагского языка, истории и народа.
 
-<div v-for="p in posts.slice(0, 2)" :key="p.url" class="colon-block">
-<h4><a :href="p.url">{{ p.frontmatter.title }}</a></h4>
-<p>{{ p.frontmatter.summary }}</p>
-</div>
+<PostCard v-for="n in notes.slice(0, 2)" :key="n.url" :page="n"/>
+
+--- {.air}
 
 [**Telegram**](https://t.me/urssivar) — короткие заметки, отрывки, ссылки, обсуждения.
 

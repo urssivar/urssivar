@@ -3,7 +3,7 @@ import { createContentLoader, type ContentData } from 'vitepress';
 declare const data: ContentData[];
 export { data };
 
-export default createContentLoader('updates/*.md', {
+export default createContentLoader('ru/notes/*.md', {
   includeSrc: false,
   render: false,
   excerpt: false,
