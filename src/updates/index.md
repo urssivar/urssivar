@@ -5,7 +5,7 @@ import { data as posts } from './posts.data';
 
 # Updates
 
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) · [GitHub](https://github.com/urssivar) {.text-sm}
+[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) · [GitHub](https://github.com/urssivar)
 
 News and progress from the Urssivar campaign documenting Kaitag language, history, and people.
 

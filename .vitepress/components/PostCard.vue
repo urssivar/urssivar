@@ -8,13 +8,15 @@ defineProps<{
 
 <template>
   <div class="my-8">
-    <span class="text-xs">
-      {{ page.frontmatter.date.toString().substring(0, 10) }}
-    </span>
     <h4 class="title mt-0">
       <a :href="page.url">{{ page.frontmatter.title }}</a>
     </h4>
-    <p>{{ page.frontmatter.description }}</p>
+    <p class="text-sm">
+      <span class="text-toned mr-[0.5em]">
+        {{ page.frontmatter.date.toString().substring(0, 10) }}
+      </span>
+      {{ page.frontmatter.description }}
+    </p>
   </div>
 </template>
 

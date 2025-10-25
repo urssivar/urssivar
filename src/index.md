@@ -51,16 +51,16 @@ We compile family trees — names, lifespans, villages, migrations. We use DNA t
 
 <article>
 
-## [Campaign Updates](./updates/)
+## [Updates](./updates/)
 
-Latest from our work on language documentation, DNA research, and archival discoveries.
+News and progress from the Urssivar campaign documenting Kaitag language, history, and people.
 
 <PostCard v-for="p in posts.slice(0, 2)" :key="p.url" :page="p"/>
 
-[**Telegram**](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
+[Telegram](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
 
-[**YouTube**](https://youtube.com/@urssivar) — video essays, product demos, announcements.
+[YouTube](https://youtube.com/@urssivar) — video essays, product demos, announcements.
 
-[**GitHub**](https://github.com/urssivar) — open-source tools, datasets, documentation.
+[GitHub](https://github.com/urssivar) — open-source tools, datasets, documentation.
 
 </article>
