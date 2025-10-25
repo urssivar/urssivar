@@ -16,9 +16,6 @@ const messages = {
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       contact: 'Write to us',
       contactEmail: 'mailto:alkaitagi@outlook.com',
-      telegram: 'Telegram channel',
-      youtube: 'YouTube channel',
-      github: 'GitHub repository',
     }
   },
   ru: {
@@ -36,9 +33,6 @@ const messages = {
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/deed.ru',
       contact: 'Написать нам',
       contactEmail: 'mailto:alkaitagi@outlook.com',
-      telegram: 'Telegram канал',
-      youtube: 'YouTube канал',
-      github: 'GitHub репозиторий',
     }
   }
 } as const;
