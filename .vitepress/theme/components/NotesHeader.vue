@@ -16,7 +16,7 @@ const notesLink = computed(() => {
 </script>
 
 <template>
-    <p v-if="frontmatter.date" class="">
+    <p v-if="frontmatter.date" class="mt-0">
         <a :href="notesLink">
             {{ t('notes.backToNotes') }}
         </a>

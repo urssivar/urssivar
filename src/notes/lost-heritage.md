@@ -12,7 +12,7 @@ It has been 19 years since my grandmother died, may God forgive her sins. We pre
 
 Now the village is gone, and no one left to ask, like, what was our name for that plant?
 
-![Bidens tripartita](/notes/bidens-tripartita.jpg){.w-full .h-96 .object-cover .object-top}
+![Bidens tripartita](/notes/bidens-tripartita.jpg){.mt-16 .w-full .h-96 .object-cover .object-top}
 
 _Three-lobe beggarticks (Bidens tripartita)  
 Photo: Stefan.lefnaer, Wikimedia Commons, CC BY-SA 4.0_ {.text-center .text-xs}

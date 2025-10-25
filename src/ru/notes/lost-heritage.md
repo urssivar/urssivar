@@ -12,7 +12,7 @@ description: "Личные размышления о межпоколенчес�
 
 Теперь уже села нет, и больше некого спросить, как, например, у нас называлось то растение?
 
-![Bidens tripartita](/notes/bidens-tripartita.jpg){.w-full .h-96 .object-cover .object-top}
+![Bidens tripartita](/notes/bidens-tripartita.jpg){.mt-16 .w-full .h-96 .object-cover .object-top}
 
 _Череда трёхраздельная (Bidens tripartita)  
 Фото: Stefan.lefnaer, Wikimedia Commons, CC BY-SA 4.0_ {.text-center .text-xs}
