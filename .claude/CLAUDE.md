@@ -79,14 +79,35 @@ Campaign updates: language documentation, DNA research, village visits, archival
 
 ### Current: UI clean up & Content audit
 
-- [ ] Add print media styles (hide nav/sidebars on print)
 - [ ] Decouple auto-numbers from anchors
 - [ ] Use English anchors for /ru pages
-- [ ] Move alphabet/orthography from dictionary intro → `/grammar/alphabet`
-- [ ] Integrate typing game into alphabet page
-- [ ] Clean up existing grammar pages (remove widgets/glossaries)
+
+- [ ] Genealogy landing
+  - [ ] Intro
+	- [ ] Table & YFull links
+	- [ ] HH pie chart
+- [ ] Language landing
+	- [ ] Intro
+	- [ ] Grammar
+	- [ ] Dictionary
+	- [ ] Phrasebook & texts ?
+- [ ] Dictionary
+	- [ ] Intro
+	- [ ] Dynamic pages
+	- [ ] Custom table sidebar
+
+- [ ] Refactor the layouts
+- [ ] Add print media styles
+  - [ ] hide nav/sidebars
+  - [ ] footer & header buttons
+  - [ ] Links, notes on landing
+  - [ ] ???
 
 ### Next: Content Creation (Priority Order)
+
+- [ ] Integrate typing game into alphabet page
+- [ ] Clean up existing grammar pages (remove widgets/glossaries)
+- [ ] Move alphabet/orthography from dictionary intro → `/grammar/alphabet`
 
 1. Alphabet & Script (move + embed typing game)
 2. Nouns & Classes (foundational, oblique stems)
