@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import PostCard from "@/components/PostCard.vue";
 import { data as posts } from './posts.data';
 </script>
 
@@ -8,10 +9,4 @@ import { data as posts } from './posts.data';
 
 News and progress from the Urssivar campaign documenting Kaitag language, history, and people.
 
-<template v-for="p in posts" :key="p.url">
-<h3><a :href="p.url">{{ p.frontmatter.title }}</a></h3>
-<p>
-<span>{{ p.frontmatter.date.toString().substring(0, 10) }} ·</span>
-{{ p.frontmatter.description }}
-</p>
-</template>
+<PostCard v-for="p in posts" :key="p.url" :page="p"/>
