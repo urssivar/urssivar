@@ -73,16 +73,17 @@ const chartOptions: any = {
     tooltip: { enabled: false },
     datalabels: {
       color: '#fff',
-      font: { family: 'Inter', size: 12, weight: 700 },
+      font: { family: 'Inter', size: 12, weight: 600 },
+      textAlign: 'center',
       formatter: (value: number, ctx: any) => {
         if (ctx.datasetIndex === 0) {
           const label = chartData.value.subclades[ctx.dataIndex];
-          return `${label} · ${value}`;
+          return `${label}\n${value}`;
         } else {
           const label = chartData.value.haplogroups[ctx.dataIndex];
           const total = ctx.dataset.data.reduce((a: number, b: number) => a + b, 0);
           const pct = ((value / total) * 100).toFixed(1);
-          return `${label} · ${pct}%`;
+          return `${label}\n${pct}%`;
         }
       },
     }
