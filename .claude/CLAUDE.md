@@ -14,6 +14,7 @@ Documentation website for Kaitag language as part of Urssivar initiative (5-year
 **Target Audience:** Ordinary folk - not linguists, not complete beginners. People who want to understand and use Kaitag practically.
 
 **Core Philosophy:**
+
 - **Content-first**: Typography, spacing, navigation serve the content
 - **Printable**: Should look great as PDF, like a well-designed textbook
 - **Fast & Accessible**: Fast loads (Dagestan connectivity), responsive for all devices
@@ -46,6 +47,7 @@ Campaign updates: language documentation, DNA research, village visits, archival
 ## Design Principles
 
 ### Content & Typography
+
 - **Kaitag text:** `++word++` → EB Garamond 20px medium, lang="xdq"
 - **Translations:** `--text--` → Inter 14px, muted
 - **Emphasis:** `==highlight==` → grayish underline
@@ -53,16 +55,19 @@ Campaign updates: language documentation, DNA research, village visits, archival
 - **No complex widgets** - removed Context components, keeping markdown-it plugins
 
 ### Navigation & UI
+
 - **Layout:** Desktop: left sidebar (articles) + content + right ToC. Mobile: sticky bar with nav/ToC drawers
 - **Typography:** `font-medium` weight, `text-muted` (neutral-500) → `text-highlighted` (neutral-900) on hover
 - **Footer:** License · Write to us (plain `<a>` tags, middot separator)
 
 ### Cross-Linking (Future)
+
 - **Grammar → Dictionary:** Manual, selective links to key example words
 - **Dictionary → Grammar:** Automatic tag-based links (`N` → /grammar/nouns)
 - **Timing:** After grammar pages complete
 
 ### Tech Stack
+
 - VitePress v1, custom theme, Vercel deployment
 - Colors: `primary: 'blue'`, `neutral: 'gray'` in app.config.ts
 - Components: Layout.vue, SidebarNav.vue, NavBar.vue, TableOfContents.vue
@@ -73,36 +78,45 @@ Campaign updates: language documentation, DNA research, village visits, archival
 ## Roadmap
 
 ### ✅ Completed
+
 - Planning & structure definition
 - Navigation implementation (responsive layout, sidebars, drawers)
 - Notes section (bilingual, grid layout, social links)
 
 ### Current: UI clean up & Content audit
 
+- [x] Genealogy landing
+
+  - [x] Intro
+  - [x] Table & YFull links
+  - [x] HH pie chart
+    - [ ] Rework HH chart with d3.js
+    - [ ] Consistent styling & dark mode with css vars for HH
+
+- [ ] Language landing
+
+  - [ ] Intro
+  - [ ] Grammar
+  - [ ] Dictionary
+  - [ ] Phrasebook & texts ?
+
 - [ ] Decouple auto-numbers from anchors
 - [ ] Use English anchors for /ru pages
 
-- [ ] Genealogy landing
-  - [ ] Intro
-	- [ ] Table & YFull links
-	- [ ] HH pie chart
-- [ ] Language landing
-	- [ ] Intro
-	- [ ] Grammar
-	- [ ] Dictionary
-	- [ ] Phrasebook & texts ?
 - [ ] Dictionary
-	- [ ] Intro
-	- [ ] Dynamic pages
-	- [ ] Custom table sidebar
+
+  - [ ] Intro
+  - [ ] Dynamic pages
+  - [ ] Custom table sidebar
 
 - [ ] Refactor the layouts
 - [ ] Add print media styles
+
   - [ ] hide nav/sidebars
   - [ ] footer & header buttons
   - [ ] Links, notes on landing
   - [ ] ???
-     
+
 - [ ] Implement full-text search
 
 ### Next: Content Creation (Priority Order)
@@ -123,6 +137,7 @@ Campaign updates: language documentation, DNA research, village visits, archival
 10. Numerals (complete, add time expressions)
 
 ### Future
+
 - Dictionary cross-links in examples
 - Automatic Dictionary → Grammar tag-based links
 - Phrasebook section
