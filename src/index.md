@@ -37,7 +37,7 @@ We're recording living Kaitag speech and creating an archive of original texts: 
 
 **Oral texts:** Natural speech — stories, memories, descriptions of daily life and traditions, dialogues, prayers. We document not only vocabulary, but also patterns of thought, speech style, and culture.
 
-## [Kaitag Genealogy](https://www.familytreedna.com/groups/kaitag/about)
+## [Kaitag Genealogy](./genealogy/)
 
 We compile family trees — names, lifespans, villages, migrations. We use DNA testing to establish origins and kinship connections.
 
