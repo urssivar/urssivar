@@ -1,7 +1,7 @@
 ---
 date: 2025-08-19
 title: "Lost Heritage"
-description: "A personal reflection on the intergenerational loss of Kaitag cultural knowledge - the stories, songs, and everyday wisdom that disappeared when we weren't paying attention."
+description: "The intergenerational loss of Kaitag cultural knowledge that disappeared while we weren't paying attention."
 ---
 
 # Lost Heritage
