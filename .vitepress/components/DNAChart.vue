@@ -92,5 +92,5 @@ const chartOptions: any = {
 </script>
 
 <template>
-  <Doughnut class="my-16 h-72 sm:h-96 mx-auto" :data="chartData" :options="chartOptions" />
+  <Doughnut class="h-64 sm:h-80 mx-auto" :data="chartData" :options="chartOptions" />
 </template>

@@ -15,6 +15,20 @@ The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along 
 
 For centuries, Kaitag territory stood at the strategic frontier between empires — Persian, Ottoman, Russian — and the mountain peoples. This position at the crossroads of civilizations, controlling parts of the Caspian trade routes, shaped Kaitags into a distinctive part of the Caucasian mosaic.
 
+## Y-DNA Distribution
+
+We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) and [YFull](https://www.yfull.com/groups/kaitag/).
+
+--- {.air}
+
 <DNAChart/>
 
+--- {.air}
+
+### Samples
+
+9 samples, 6/56 villages.
+
 <DNATable />
+
+_\* Big Y test pending_ {.text-sm}

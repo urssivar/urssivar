@@ -10,14 +10,14 @@ const colors = <Record<string, string>>{
 
 <template>
   <p v-for="(k, i) in kits" :key="k.id" :id="k.id" class="my-2">
-    <span class="navlinks text-sm">
-      <a :href="`#${k.id}`" :title="k.id">
-        {{ i + 1 }}
-      </a>
+    <a :href="`#${k.id}`" class="no-underline text-muted hover:text-highlighted">
+      {{ i + 1 }}.
+    </a>
+    <span lang="xdq" class="text-lg">
+      {{ `${k.village}, ${k.region}` }}
     </span>
-    <span lang="xdq" class="text-lg mx-2">
-      {{ k.village }}, {{ k.region }}
-    </span>
+    &nbsp
+    <br class="sm:hidden" />
     <a :href="'https://www.yfull.com/tree/' + (k.branch ?? k.subclade ?? k.haplogroup)">
       <UButton variant="soft" size="xs">
         <span :style="{ color: colors[k.haplogroup] }" class="font-semibold">
