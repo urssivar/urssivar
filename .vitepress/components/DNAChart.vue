@@ -1,86 +1,108 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { Pie } from 'vue-chartjs';
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  type ChartOptions
-} from 'chart.js';
+import { Doughnut } from 'vue-chartjs';
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import kits from '@/data/dna.json';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, ChartDataLabels);
 
-const haplogroupCounts = computed(() => {
-  const counts = new Map<string, number>();
+const colorFamilies = {
+  R1b: {
+    base: 'rgb(59 130 246)',
+    shades: ['rgb(96 165 250)', 'rgb(147 197 253)', 'rgb(191 219 254)']
+  },
+  J1: {
+    base: 'rgb(71 85 105)',
+    shades: ['rgb(100 116 139)', 'rgb(148 163 184)', 'rgb(203 213 225)']
+  },
+  Q: {
+    base: 'rgb(139 92 246)',
+    shades: ['rgb(167 139 250)', 'rgb(196 181 253)', 'rgb(221 214 254)']
+  }
+};
+
+const chartData = computed(() => {
+  const haplogroupCounts = new Map<string, number>();
+  const subcladeMap = new Map<string, { count: number; parent: string }>();
 
   kits.forEach(kit => {
     const hg = kit.haplogroup;
-    counts.set(hg, (counts.get(hg) || 0) + 1);
+    const sc = kit.subclade || kit.haplogroup;
+
+    haplogroupCounts.set(hg, (haplogroupCounts.get(hg) || 0) + 1);
+
+    if (!subcladeMap.has(sc)) {
+      subcladeMap.set(sc, { count: 0, parent: hg });
+    }
+    subcladeMap.get(sc)!.count++;
   });
 
-  return counts;
-});
+  const haplogroups = Array.from(haplogroupCounts.entries())
+    .sort((a, b) => a[0].localeCompare(b[0]));
 
-// Prepare chart data
-const chartData = computed(() => {
-  const labels = Array.from(haplogroupCounts.value.keys());
-  const data = Array.from(haplogroupCounts.value.values());
+  const subclades = Array.from(subcladeMap.entries())
+    .map(([label, data]) => ({ label, ...data }))
+    .sort((a, b) => {
+      if (a.parent !== b.parent) return a.parent.localeCompare(b.parent);
+      return a.label.localeCompare(b.label);
+    });
 
-  // Monochrome color palette with subtle variations
-  const colors = [
-    'rgb(59, 130, 246)',   // blue-500 (primary)
-    'rgb(100, 116, 139)',  // gray-500
-    'rgb(148, 163, 184)',  // gray-400
-    'rgb(203, 213, 225)',  // gray-300
-    'rgb(226, 232, 240)',  // gray-200
-  ];
+  const haplogroupColors = haplogroups.map(([hg]) =>
+    colorFamilies[hg as keyof typeof colorFamilies]?.base || colorFamilies.R1b.base
+  );
+
+  const subcladeColors = subclades.map((sc, i) => {
+    const family = colorFamilies[sc.parent as keyof typeof colorFamilies] || colorFamilies.R1b;
+    const siblingIndex = subclades.filter(s => s.parent === sc.parent).indexOf(sc);
+    return family.shades[siblingIndex % family.shades.length];
+  });
 
   return {
-    labels,
-    datasets: [{
-      data,
-      backgroundColor: colors.slice(0, labels.length),
-      borderColor: 'rgb(255, 255, 255)',
-      borderWidth: 2,
-    }]
+    datasets: [
+      {
+        label: 'Subclades',
+        data: subclades.map(sc => sc.count),
+        backgroundColor: subcladeColors,
+        weight: 1.5
+      },
+      {
+        label: 'Haplogroups',
+        data: haplogroups.map(([_, count]) => count),
+        backgroundColor: haplogroupColors,
+      }
+    ],
+    haplogroups: haplogroups.map(([hg]) => hg),
+    subclades: subclades.map(sc => sc.label)
   };
 });
 
-// Chart options
-const chartOptions: ChartOptions<'pie'> = {
+const chartOptions: any = {
   responsive: true,
   maintainAspectRatio: true,
+  cutout: '10%',
   plugins: {
-    legend: {
-      position: 'bottom',
-      labels: {
-        padding: 16,
-        font: {
-          family: 'Inter, sans-serif',
-          size: 14,
-        },
-        color: 'rgb(100, 116, 139)', // text-muted equivalent
-        usePointStyle: true,
-        pointStyle: 'circle',
-      }
+    legend: { display: false },
+    datalabels: {
+      color: 'white',
+      font: { family: 'Inter', size: 12, weight: 500 },
+      formatter: (value: number, ctx: any) => {
+        if (ctx.datasetIndex === 0) {
+          return chartData.value.subclades[ctx.dataIndex];
+        } else {
+          return chartData.value.haplogroups[ctx.dataIndex];
+        }
+      },
     },
     tooltip: {
-      backgroundColor: 'rgb(255, 255, 255)',
-      titleColor: 'rgb(15, 23, 42)', // text-highlighted
-      bodyColor: 'rgb(100, 116, 139)', // text-muted
-      borderColor: 'rgb(226, 232, 240)',
-      borderWidth: 1,
-      padding: 12,
-      displayColors: true,
       callbacks: {
-        label: function (context) {
-          const label = context.label || '';
-          const value = context.parsed;
-          const total = context.dataset.data.reduce((a: number, b: number) => a + b, 0);
-          const percentage = ((value / total) * 100).toFixed(1);
-          return `${label}: ${value} (${percentage}%)`;
+        label: (ctx: any) => {
+          const total = ctx.dataset.data.reduce((a: number, b: number) => a + b, 0);
+          const pct = ((ctx.parsed / total) * 100).toFixed(1);
+          const label = ctx.datasetIndex === 0
+            ? chartData.value.subclades[ctx.dataIndex]
+            : chartData.value.haplogroups[ctx.dataIndex];
+          return `${label}: ${ctx.parsed} (${pct}%)`;
         }
       }
     }
@@ -89,5 +111,5 @@ const chartOptions: ChartOptions<'pie'> = {
 </script>
 
 <template>
-  <Pie class="h-64 mx-auto" :data="chartData" :options="chartOptions" />
+  <Doughnut class="h-72 mx-auto" :data="chartData" :options="chartOptions" />
 </template>
