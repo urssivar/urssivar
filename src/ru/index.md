@@ -9,6 +9,7 @@ wide: true
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
+import { data as updates } from './updates/updates.data.ts';
 </script>
 
 <article>
@@ -46,3 +47,22 @@ _Наллара дел да. Ьам ра бел._ {lang=xdq}
 </article>
 
 <Stamp />
+
+<article>
+
+## [Обновления кампании](./updates/)
+
+Последние новости о документировании языка, ДНК-исследованиях и архивных находках.
+
+<div v-for="u in updates.slice(0, 2)" class="colon-block">
+<h4><a :href="u.url">{{ u.title }}</a></h4>
+<p>{{ u.summary }}</p>
+</div>
+
+[**Telegram**](https://t.me/urssivar) — короткие заметки, отрывки, ссылки, обсуждения.
+
+[**YouTube**](https://youtube.com/@urssivar) — видеоэссе, демонстрации продуктов, объявления.
+
+[**GitHub**](https://github.com/urssivar) — инструменты и данные с открытым исходным кодом.
+
+</article>

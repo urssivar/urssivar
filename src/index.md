@@ -9,6 +9,7 @@ wide: true
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
+import { data as updates } from './updates/updates.data.ts';
 </script>
 
 <article>
@@ -46,3 +47,22 @@ We compile family trees — names, lifespans, villages, migrations. We use DNA t
 </article>
 
 <Stamp />
+
+<article>
+
+## [Campaign Updates](./updates/)
+
+Latest from our work on language documentation, DNA research, and archival discoveries.
+
+<div v-for="u in updates.slice(0, 2)" class="colon-block">
+<h4><a :href="u.url">{{ u.title }}</a></h4>
+<p>{{ u.summary }}</p>
+</div>
+
+[**Telegram**](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
+
+[**YouTube**](https://youtube.com/@urssivar) — video essays, product demos, announcements.
+
+[**GitHub**](https://github.com/urssivar) — open-source tools, datasets, documentation.
+
+</article>

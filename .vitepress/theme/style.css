@@ -90,6 +90,10 @@
     @apply transition-colors duration-200 underline underline-offset-[0.2em] decoration-(--ui-text-muted) hover:decoration-(--ui-text-highlighted);
   }
 
+  hr {
+    @apply border-default;
+  }
+
   mark {
     @apply bg-transparent underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented)/75 text-inherit;
     text-decoration-skip-ink: none;
@@ -147,7 +151,11 @@
   }
 
   .colon-block {
-    @apply rounded-sm px-4 py-1 border-l-4 border-default/50 bg-elevated/50 text-[0.875rem] my-4;
+    @apply rounded-sm px-4 py-3 border-l-4 border-default/50 bg-elevated/50 text-[0.875rem] my-4;
+
+    h4[id]::before {
+      content: none;
+    }
 
     p,
     ul,
