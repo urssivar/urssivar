@@ -51,17 +51,17 @@ const menuOpen = ref(false);
         </template>
       </NavBar>
 
-      <div class="h-12" />
+      <hr class="air" />
 
       <div v-if="currentSection" class="lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
         <aside class="hidden lg:block">
-          <SidebarNav class="sticky top-12" @navigate="menuOpen = false" />
+          <SidebarNav class="sticky" @navigate="menuOpen = false" />
         </aside>
         <article class="w-full">
           <Content />
         </article>
         <aside class="hidden lg:block">
-          <TableOfContents class="sticky top-12" />
+          <TableOfContents class="sticky" />
         </aside>
       </div>
       <Content v-else-if="frontmatter.wide" />
@@ -69,9 +69,9 @@ const menuOpen = ref(false);
         <Content />
       </article>
 
-      <div class="flex-1" />
+      <hr class="flex-1 air" />
 
-      <Footer class="mt-24" />
+      <Footer />
     </div>
   </UApp>
 </template>

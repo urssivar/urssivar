@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
       </span>
     </template>
   </UTooltip>
-  <div class="my-12 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
+  <div class="my-16 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
     <ClientOnly>
       <Transition name="fade" appear>
         <LMap :options="mapOptions" :use-global-leaflet="false"

@@ -57,6 +57,8 @@ Findings, essays, and updates from documenting Kaitag language, history, and peo
 
 <PostCard v-for="n in notes.slice(0, 2)" :key="n.url" :page="n"/>
 
+--- {.air}
+
 [Telegram](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
 
 [YouTube](https://youtube.com/@urssivar) — video essays, product demos, announcements.

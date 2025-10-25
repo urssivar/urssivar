@@ -115,15 +115,15 @@
       @apply px-3 py-1.5 align-text-top leading-snug;
     }
   }
+
+  article {
+    @apply max-w-prose mx-auto px-6 sm:px-8;
+  }
 }
 
 @layer components {
   #app {
     @apply isolate;
-  }
-
-  article {
-    @apply max-w-prose mx-auto px-6 sm:px-8;
   }
 
   .navbar {
@@ -158,5 +158,9 @@
     ol {
       @apply my-2;
     }
+  }
+
+  .air {
+    @apply my-8 border-0;
   }
 }
