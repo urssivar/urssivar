@@ -17,6 +17,9 @@ export default defineConfig({
   lang: 'en',
 
   cleanUrls: true,
+  sitemap: {
+    hostname: 'https://urssivar.com'
+  },
   head: [
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1' }],
 
