@@ -12,7 +12,7 @@ defineProps<{
       <a :href="page.url">{{ page.frontmatter.title }}</a>
     </h4>
     <p>
-      <span class="text-toned text-sm mr-[0.5em]">
+      <span class="text-toned mr-[0.5em]">
         {{ page.frontmatter.date.toString().substring(0, 10) }}
       </span>
       {{ page.frontmatter.description }}
