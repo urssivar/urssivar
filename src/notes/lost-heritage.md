@@ -15,4 +15,4 @@ Now the village is gone, and no one left to ask, like, what was our name for tha
 ![Bidens tripartita](/notes/bidens-tripartita.jpg){.mt-16 .w-full .h-96 .object-cover .object-top}
 
 _Three-lobe beggarticks (Bidens tripartita)  
-Photo: Stefan.lefnaer, Wikimedia Commons, CC BY-SA 4.0_ {.text-center .text-xs}
+Photo: Fornax, Wikimedia Commons, CC BY-SA 3.0_ {.text-center .text-xs}

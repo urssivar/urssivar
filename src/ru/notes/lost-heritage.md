@@ -15,4 +15,4 @@ description: "Межпоколенческая утрата культурных
 ![Bidens tripartita](/notes/bidens-tripartita.jpg){.mt-16 .w-full .h-96 .object-cover .object-top}
 
 _Череда трёхраздельная (Bidens tripartita)  
-Фото: Stefan.lefnaer, Wikimedia Commons, CC BY-SA 4.0_ {.text-center .text-xs}
+Фото: Fornax, Wikimedia Commons, CC BY-SA 3.0_ {.text-center .text-xs}
