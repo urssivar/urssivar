@@ -8,7 +8,7 @@ import kits from '@/data/dna.json';
 const colors = <Record<string, string>>{
   R1b: '#2563eb',  // blue-600
   J1: '#0d9488',   // teal-600
-  Q: '#7c3aed',    // violet-600
+  Q2: '#7c3aed',    // violet-600
 };
 
 ChartJS.register(ArcElement, Tooltip, ChartDataLabels);

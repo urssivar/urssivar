@@ -4,7 +4,7 @@ import kits from '@/data/dna.json';
 const colors = <Record<string, string>>{
   R1b: '#3b82f6',  // blue-500
   J1: '#14b8a6',   // teal-500
-  Q: '#8b5cf6',    // violet-500
+  Q2: '#8b5cf6',    // violet-500
 };
 </script>
 
