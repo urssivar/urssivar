@@ -102,6 +102,8 @@ Campaign updates: language documentation, DNA research, village visits, archival
   - [ ] footer & header buttons
   - [ ] Links, notes on landing
   - [ ] ???
+     
+- [ ] Implement full-text search
 
 ### Next: Content Creation (Priority Order)
 
