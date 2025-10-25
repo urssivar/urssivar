@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { data as updates } from './updates.data';
+import { data as posts } from './posts.data';
 </script>
 
 # Updates
@@ -8,7 +8,10 @@ import { data as updates } from './updates.data';
 
 News and progress from the Urssivar campaign documenting Kaitag language, history, and people.
 
-<template v-for="u in updates" :key="u.url">
-<h4><a :href="u.url">{{ u.title }}</a></h4>
-<p><time :datetime="u.date">{{ u.date }}</time> · {{ u.summary }}</p>
+<template v-for="p in posts" :key="p.url">
+<h3><a :href="p.url">{{ p.frontmatter.title }}</a></h3>
+<p>
+<span>{{ p.frontmatter.date.toString().substring(0, 10) }} ·</span>
+{{ p.frontmatter.description }}
+</p>
 </template>

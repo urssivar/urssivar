@@ -9,7 +9,7 @@ wide: true
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
-import { data as updates } from './updates/updates.data.ts';
+import { data as posts } from './updates/posts.data';
 </script>
 
 <article>
@@ -54,9 +54,9 @@ _Наллара дел да. Ьам ра бел._ {lang=xdq}
 
 Последние новости о документировании языка, ДНК-исследованиях и архивных находках.
 
-<div v-for="u in updates.slice(0, 2)" class="colon-block">
-<h4><a :href="u.url">{{ u.title }}</a></h4>
-<p>{{ u.summary }}</p>
+<div v-for="p in posts.slice(0, 2)" :key="p.url" class="colon-block">
+<h4><a :href="p.url">{{ p.frontmatter.title }}</a></h4>
+<p>{{ p.frontmatter.summary }}</p>
 </div>
 
 [**Telegram**](https://t.me/urssivar) — короткие заметки, отрывки, ссылки, обсуждения.
