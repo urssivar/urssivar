@@ -1,20 +1,25 @@
 <script setup lang="ts">
 import kits from "@/data/dna.json";
+import { computed } from "vue";
+
+const yfullLinks = computed(() => {
+  const base = "https://www.yfull.com/tree/";
+  return kits.map((k) => {
+    const tree = k.branch ?? k.subclade ?? k.haplogroup;
+    const highlight = k.yfullId ? `/#:~:text=${k.yfullId}` : "";
+    return base + tree + highlight;
+  });
+});
 </script>
 
 <template>
   <ol>
-    <li v-for="k in kits" :key="k.id" :id="k.id">
+    <li v-for="(k, i) in kits" :key="k.id" :id="k.id">
       <p class="flex flex-col sm:flex-row gap-2">
-        <span lang="xdq">
+        <span lang="xdq" :title="`Kit: ${k.id}`">
           {{ `${k.village}, ${k.region}` }}
         </span>
-        <a
-          :href="
-            'https://www.yfull.com/tree/' +
-            (k.branch ?? k.subclade ?? k.haplogroup)
-          "
-        >
+        <a :href="yfullLinks[i]">
           <UButton variant="soft" size="xs">
             <span :class="`hh-${k.haplogroup}`" class="font-semibold">
               {{ k.haplogroup }}
