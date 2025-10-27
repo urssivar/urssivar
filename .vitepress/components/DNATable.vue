@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import kits from '@/data/dna.json';
-
-const colors = <Record<string, string>>{
-  R1b: '#3b82f6',  // blue-500
-  J1: '#14b8a6',   // teal-500
-  Q2: '#8b5cf6',    // violet-500
-};
+import kits from "@/data/dna.json";
 </script>
 
 <template>
@@ -15,9 +9,14 @@ const colors = <Record<string, string>>{
         <span lang="xdq">
           {{ `${k.village}, ${k.region}` }}
         </span>
-        <a :href="'https://www.yfull.com/tree/' + (k.branch ?? k.subclade ?? k.haplogroup)">
+        <a
+          :href="
+            'https://www.yfull.com/tree/' +
+            (k.branch ?? k.subclade ?? k.haplogroup)
+          "
+        >
           <UButton variant="soft" size="xs">
-            <span :style="{ color: colors[k.haplogroup] }" class="font-semibold">
+            <span :class="`text-${k.haplogroup}`" class="font-semibold">
               {{ k.haplogroup }}
               <template v-if="k.subclade"> · {{ k.subclade }}</template>
               <template v-if="k.branch"> · {{ k.branch }}</template>
@@ -29,3 +28,17 @@ const colors = <Record<string, string>>{
     </li>
   </ol>
 </template>
+
+<style scoped>
+.text-R1b {
+  @apply text-(--color-amber-600) dark:text-(--color-amber-400);
+}
+
+.text-J1 {
+  @apply text-(--color-blue-600) dark:text-(--color-blue-400);
+}
+
+.text-Q2 {
+  @apply text-(--color-emerald-600) dark:text-(--color-emerald-400);
+}
+</style>
