@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { dateString } from '@/utils';
-import { type ContentData } from 'vitepress';
-import { computed } from 'vue';
+import { dateString } from "@/utils";
+import { type ContentData } from "vitepress";
+import { computed } from "vue";
 
 const props = defineProps<{
-  page: ContentData
+  page: ContentData;
 }>();
 
 const id = computed(() => {
-  const url = props.page.url.split('/');
-  return url[url.length - 1].split('.')[0];
-})
+  const url = props.page.url.split("/");
+  return url[url.length - 1].split(".")[0];
+});
 </script>
 
 <template>

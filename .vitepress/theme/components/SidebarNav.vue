@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import { useLanguageNav } from '@/composables/useLanguageNav';
+import { useLanguageNav } from "@/composables/useLanguageNav";
 
-const { nav, currentSection, currentArticle, getModulePath, getSectionPath, getArticlePath } = useLanguageNav();
+const {
+  nav,
+  currentSection,
+  currentArticle,
+  getModulePath,
+  getSectionPath,
+  getArticlePath,
+} = useLanguageNav();
 
 defineEmits<{
-  (e: 'navigate'): void
+  (e: "navigate"): void;
 }>();
 </script>
 
@@ -21,9 +28,15 @@ defineEmits<{
         {{ currentSection.title }}
       </a>
 
-      <a v-for="article in currentSection.articles" :key="article.path" :href="getArticlePath(article)" :class="{
-        'text-highlighted': article.path === currentArticle?.path
-      }" @click="$emit('navigate')">
+      <a
+        v-for="article in currentSection.articles"
+        :key="article.path"
+        :href="getArticlePath(article)"
+        :class="{
+          'text-highlighted': article.path === currentArticle?.path,
+        }"
+        @click="$emit('navigate')"
+      >
         <span class="ml-4">
           {{ article.title }}
         </span>
@@ -32,7 +45,12 @@ defineEmits<{
       <div class="m-3" />
     </template>
 
-    <a v-for="section in nav.sections" :key="section.path" :href="getSectionPath(section)" @click="$emit('navigate')">
+    <a
+      v-for="section in nav.sections"
+      :key="section.path"
+      :href="getSectionPath(section)"
+      @click="$emit('navigate')"
+    >
       {{ section.title }}
     </a>
   </nav>
