@@ -3,9 +3,9 @@ import { computed, onMounted, ref } from "vue";
 import * as d3 from "d3";
 import kits from "@/data/dna.json";
 
-const svgRef = ref<SVGSVGElement | null>(null);
+const svgRef = ref<SVGSVGElement>();
 
-const chartData = computed(() => {
+const data = computed(() => {
   const haplogroupCounts = new Map<string, number>();
   const subcladeMap = new Map<string, { count: number; parent: string }>();
 
@@ -45,132 +45,119 @@ const chartData = computed(() => {
   };
 });
 
-const getLabelPosition = (d: any, innerRadius: number, outerRadius: number) => {
-  const angle = (d.startAngle + d.endAngle) / 2;
-  const x = Math.cos(angle - Math.PI / 2) * ((innerRadius + outerRadius) / 2);
-  const y = Math.sin(angle - Math.PI / 2) * ((innerRadius + outerRadius) / 2);
-  return `translate(${x},${y})`;
-};
+function drawRingPaths(
+  g: any,
+  data: any[],
+  innerRadius: number,
+  outerRadius: number
+) {
+  const arc = d3.arc<any>().innerRadius(innerRadius).outerRadius(outerRadius);
+
+  const pie = d3
+    .pie<any>()
+    .value((d) => d.count)
+    .sort(null);
+
+  g.append("g")
+    .selectAll("g")
+    .data(pie(data))
+    .enter()
+    .append("g")
+    .append("path")
+    .attr("class", (d: any) => `dna-slice hh-${d.data.parent || d.data.label}`)
+    .attr("d", arc as any);
+}
+
+function drawRingLabels(
+  g: any,
+  data: any[],
+  innerRadius: number,
+  outerRadius: number,
+  labelClass: string,
+  getLabelText: (d: any) => [string, string]
+) {
+  const pie = d3
+    .pie<any>()
+    .value((d) => d.count)
+    .sort(null);
+
+  g.selectAll(`text.${labelClass}`)
+    .data(pie(data))
+    .enter()
+    .append("text")
+    .attr(
+      "class",
+      (d: any) => `dna-label ${labelClass} hh-${d.data.parent || d.data.label}`
+    )
+    .attr("transform", (d: any) => {
+      const a = (d.startAngle + d.endAngle) / 2;
+      const x = Math.cos(a - Math.PI / 2) * ((innerRadius + outerRadius) / 2);
+      const y = Math.sin(a - Math.PI / 2) * ((innerRadius + outerRadius) / 2);
+      return `translate(${x},${y})`;
+    })
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "middle")
+    .each(function (d: any) {
+      const [line1, line2] = getLabelText(d);
+      const text = d3.select(this);
+      text.append("tspan").attr("x", 0).attr("y", 0).text(line1);
+      text.append("tspan").attr("x", 0).attr("dy", "1.2em").text(line2);
+    });
+}
 
 onMounted(() => {
-  if (!svgRef.value) return;
-
   const container = svgRef.value;
-  const width = container.clientWidth || 400;
-  const height = container.clientHeight || width;
-  const radius = Math.min(width, height) / 2 - Math.min(width, height) * 0.05;
+  if (!container) return;
+
+  const A = Math.min(container.clientHeight, container.clientWidth);
 
   const svg = d3
-    .select(svgRef.value)
-    .attr("width", width)
-    .attr("height", height)
-    .attr("viewBox", [-width / 2, -height / 2, width, height]);
+    .select(container)
+    .attr("width", A)
+    .attr("height", A)
+    .attr("viewBox", [-A / 2, -A / 2, A, A]);
 
   svg.selectAll("*").remove();
 
+  const R = A / 2;
+  const hgInnerR = R * 0.05;
+  const hgOuterR = R * 0.5;
+  const scInnerR = R * 0.5;
+  const scOuterR = R * 1;
+
   const g = svg.append("g");
+  drawRingPaths(g, data.value.subclades, scInnerR, scOuterR);
+  drawRingPaths(g, data.value.haplogroups, hgInnerR, hgOuterR);
 
-  const subcladeData = chartData.value.subclades;
+  drawRingLabels(
+    g,
+    data.value.subclades,
+    scInnerR,
+    scOuterR,
+    "dna-label-subclade",
+    (d: any) => [d.data.label, String(d.data.count)]
+  );
 
-  const innerRadius = radius * 0.5;
-  const outerRadius = radius * 1;
-
-  const subcladeArc = d3
-    .arc<any>()
-    .innerRadius(innerRadius)
-    .outerRadius(outerRadius);
-
-  const subcladePie = d3
-    .pie<any>()
-    .value((d) => d.count)
-    .sort(null);
-
-  const subcladeArcs = g
-    .append("g")
-    .selectAll("g")
-    .data(subcladePie(subcladeData))
-    .enter()
-    .append("g");
-
-  subcladeArcs
-    .append("path")
-    .attr("class", (d: any) => `dna-slice hh-${d.data.parent}`)
-    .attr("d", subcladeArc as any);
-
-  // Outer ring (haplogroups)
-  const haplogroupData = chartData.value.haplogroups;
-  const haplogroupTotal = haplogroupData.reduce((sum, d) => sum + d.count, 0);
-
-  const hapOuterRadius = radius * 0.05;
-  const hapInnerRadius = radius * 0.5;
-
-  const hapArc = d3
-    .arc<any>()
-    .innerRadius(hapInnerRadius)
-    .outerRadius(hapOuterRadius);
-
-  const hapPie = d3
-    .pie<any>()
-    .value((d) => d.count)
-    .sort(null);
-
-  const hapArcs = g
-    .append("g")
-    .selectAll("g")
-    .data(hapPie(haplogroupData))
-    .enter()
-    .append("g");
-
-  hapArcs
-    .append("path")
-    .attr("class", (d: any) => `dna-slice hh-${d.data.label}`)
-    .attr("d", hapArc as any);
-
-  // Subclade labels (after all paths to ensure they render on top)
-  g.selectAll("text.dna-label-subclade")
-    .data(subcladePie(subcladeData))
-    .enter()
-    .append("text")
-    .attr(
-      "class",
-      (d: any) => `dna-label dna-label-subclade hh-${d.data.parent}`
-    )
-    .attr("transform", (d: any) =>
-      getLabelPosition(d, innerRadius, outerRadius)
-    )
-    .attr("text-anchor", "middle")
-    .attr("dominant-baseline", "middle")
-    .each(function (d: any) {
-      const text = d3.select(this);
-      text.append("tspan").attr("x", 0).attr("y", 0).text(d.data.label);
-      text.append("tspan").attr("x", 0).attr("dy", "1.2em").text(d.data.count);
-    });
-
-  // Haplogroup labels (after all paths to ensure they render on top)
-  g.selectAll("text.dna-label-haplogroup")
-    .data(hapPie(haplogroupData))
-    .enter()
-    .append("text")
-    .attr(
-      "class",
-      (d: any) => `dna-label dna-label-haplogroup hh-${d.data.label}`
-    )
-    .attr("transform", (d: any) =>
-      getLabelPosition(d, hapInnerRadius, hapOuterRadius)
-    )
-    .attr("text-anchor", "middle")
-    .attr("dominant-baseline", "middle")
-    .each(function (d: any) {
-      const pct = ((d.data.count / haplogroupTotal) * 100).toFixed(1);
-      const text = d3.select(this);
-      text.append("tspan").attr("x", 0).attr("y", 0).text(d.data.label);
-      text.append("tspan").attr("x", 0).attr("dy", "1.2em").text(`${pct}%`);
-    });
+  const hgTotal = data.value.haplogroups.reduce((sum, d) => sum + d.count, 0);
+  drawRingLabels(
+    g,
+    data.value.haplogroups,
+    hgInnerR,
+    hgOuterR,
+    "dna-label-haplogroup",
+    (d: any) => {
+      const pct = ((d.data.count / hgTotal) * 100).toFixed(1);
+      return [d.data.label, `${pct}%`];
+    }
+  );
 });
 </script>
 
 <template>
-  <svg ref="svgRef" class="mx-auto h-64 sm:h-96 aspect-square"></svg>
+  <svg
+    ref="svgRef"
+    class="mx-auto h-64 sm:h-96 aspect-square overflow-visible"
+  ></svg>
 </template>
 
 <style>
