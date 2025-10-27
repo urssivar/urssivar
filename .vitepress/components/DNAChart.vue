@@ -97,24 +97,6 @@ onMounted(() => {
     .attr("class", (d: any) => `dna-slice hh-${d.data.parent}`)
     .attr("d", subcladeArc as any);
 
-  // Subclade labels
-  subcladeArcs
-    .append("text")
-    .attr(
-      "class",
-      (d: any) => `dna-label dna-label-subclade hh-${d.data.parent}`
-    )
-    .attr("transform", (d: any) =>
-      getLabelPosition(d, innerRadius, outerRadius)
-    )
-    .attr("text-anchor", "middle")
-    .attr("dominant-baseline", "middle")
-    .each(function (d: any) {
-      const text = d3.select(this);
-      text.append("tspan").attr("x", 0).attr("y", 0).text(d.data.label);
-      text.append("tspan").attr("x", 0).attr("dy", "1.2em").text(d.data.count);
-    });
-
   // Outer ring (haplogroups)
   const haplogroupData = chartData.value.haplogroups;
   const haplogroupTotal = haplogroupData.reduce((sum, d) => sum + d.count, 0);
@@ -144,8 +126,30 @@ onMounted(() => {
     .attr("class", (d: any) => `dna-slice hh-${d.data.label}`)
     .attr("d", hapArc as any);
 
-  // Haplogroup labels
-  hapArcs
+  // Subclade labels (after all paths to ensure they render on top)
+  g.selectAll("text.dna-label-subclade")
+    .data(subcladePie(subcladeData))
+    .enter()
+    .append("text")
+    .attr(
+      "class",
+      (d: any) => `dna-label dna-label-subclade hh-${d.data.parent}`
+    )
+    .attr("transform", (d: any) =>
+      getLabelPosition(d, innerRadius, outerRadius)
+    )
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "middle")
+    .each(function (d: any) {
+      const text = d3.select(this);
+      text.append("tspan").attr("x", 0).attr("y", 0).text(d.data.label);
+      text.append("tspan").attr("x", 0).attr("dy", "1.2em").text(d.data.count);
+    });
+
+  // Haplogroup labels (after all paths to ensure they render on top)
+  g.selectAll("text.dna-label-haplogroup")
+    .data(hapPie(haplogroupData))
+    .enter()
     .append("text")
     .attr(
       "class",
