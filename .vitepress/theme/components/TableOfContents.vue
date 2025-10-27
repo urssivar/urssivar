@@ -36,9 +36,9 @@ onContentUpdated(observeHeaders);
 const getPadding = (level: number) => {
   switch (level) {
     case 3:
-      return "ml-2";
+      return "ml-3";
     case 4:
-      return "ml-4";
+      return "ml-6";
     default:
       return "ml-0";
   }
