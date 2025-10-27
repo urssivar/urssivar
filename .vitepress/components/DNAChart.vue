@@ -72,7 +72,7 @@ onMounted(() => {
 
   const subcladeData = chartData.value.subclades;
 
-  const innerRadius = radius * 0.55;
+  const innerRadius = radius * 0.5;
   const outerRadius = radius * 1;
 
   const subcladeArc = d3
@@ -94,13 +94,16 @@ onMounted(() => {
 
   subcladeArcs
     .append("path")
-    .attr("class", (d: any) => `dna-slice fill-${d.data.parent}`)
+    .attr("class", (d: any) => `dna-slice hh-${d.data.parent}`)
     .attr("d", subcladeArc as any);
 
   // Subclade labels
   subcladeArcs
     .append("text")
-    .attr("class", "dna-label dna-label-subclade")
+    .attr(
+      "class",
+      (d: any) => `dna-label dna-label-subclade hh-${d.data.parent}`
+    )
     .attr("transform", (d: any) =>
       getLabelPosition(d, innerRadius, outerRadius)
     )
@@ -138,13 +141,16 @@ onMounted(() => {
 
   hapArcs
     .append("path")
-    .attr("class", (d: any) => `dna-slice fill-${d.data.label}`)
+    .attr("class", (d: any) => `dna-slice hh-${d.data.label}`)
     .attr("d", hapArc as any);
 
   // Haplogroup labels
   hapArcs
     .append("text")
-    .attr("class", "dna-label dna-label-haplogroup")
+    .attr(
+      "class",
+      (d: any) => `dna-label dna-label-haplogroup hh-${d.data.label}`
+    )
     .attr("transform", (d: any) =>
       getLabelPosition(d, hapInnerRadius, hapOuterRadius)
     )
@@ -167,11 +173,35 @@ onMounted(() => {
 @reference "../theme/style.css";
 
 .dna-slice {
-  @apply stroke-2 stroke-(--ui-bg) transition-all duration-200 hover:brightness-110;
+  @apply stroke-4 stroke-(--ui-bg) fill-(--ui-bg-accented)/75 transition duration-200;
+
+  &.hh-R1b {
+    @apply hover:fill-amber-200/75 dark:hover:fill-(--color-amber-800)/75;
+  }
+
+  &.hh-J1 {
+    @apply hover:fill-sky-200/75 dark:hover:fill-(--color-sky-800)/75;
+  }
+
+  &.hh-Q2 {
+    @apply hover:fill-emerald-200/75 dark:hover:fill-(--color-emerald-800)/75;
+  }
 }
 
 .dna-label {
-  @apply font-bold fill-white pointer-events-none drop-shadow-xs/100;
+  @apply font-bold pointer-events-none;
+
+  &.hh-R1b {
+    @apply fill-(--color-amber-600) dark:fill-(--color-amber-400);
+  }
+
+  &.hh-J1 {
+    @apply fill-(--color-sky-600) dark:fill-(--color-sky-400);
+  }
+
+  &.hh-Q2 {
+    @apply fill-(--color-emerald-600) dark:fill-(--color-emerald-400);
+  }
 }
 
 .dna-label-subclade {
@@ -180,17 +210,5 @@ onMounted(() => {
 
 .dna-label-haplogroup {
   @apply text-sm;
-}
-
-.fill-R1b {
-  @apply fill-(--color-amber-700) dark:fill-(--color-amber-600);
-}
-
-.fill-J1 {
-  @apply fill-(--color-blue-700) dark:fill-(--color-blue-600);
-}
-
-.fill-Q2 {
-  @apply fill-(--color-emerald-700) dark:fill-(--color-emerald-600);
 }
 </style>

@@ -16,7 +16,7 @@ import kits from "@/data/dna.json";
           "
         >
           <UButton variant="soft" size="xs">
-            <span :class="`text-${k.haplogroup}`" class="font-semibold">
+            <span :class="`hh-${k.haplogroup}`" class="font-semibold">
               {{ k.haplogroup }}
               <template v-if="k.subclade"> · {{ k.subclade }}</template>
               <template v-if="k.branch"> · {{ k.branch }}</template>
@@ -30,15 +30,15 @@ import kits from "@/data/dna.json";
 </template>
 
 <style scoped>
-.text-R1b {
+.hh-R1b {
   @apply text-(--color-amber-600) dark:text-(--color-amber-400);
 }
 
-.text-J1 {
-  @apply text-(--color-blue-600) dark:text-(--color-blue-400);
+.hh-J1 {
+  @apply text-(--color-sky-600) dark:text-(--color-sky-400);
 }
 
-.text-Q2 {
+.hh-Q2 {
   @apply text-(--color-emerald-600) dark:text-(--color-emerald-400);
 }
 </style>
