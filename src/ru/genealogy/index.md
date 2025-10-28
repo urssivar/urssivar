@@ -27,7 +27,7 @@ import DNAChart from "@/components/DNAChart.vue";
 
 ### Образцы
 
-9 образцов, 6/56 сёл.
+10 образцов, 7/56 сёл.
 
 <DNATable />
 

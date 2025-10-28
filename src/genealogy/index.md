@@ -27,7 +27,7 @@ We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.co
 
 ### Samples
 
-9 samples, 6/56 villages.
+10 samples, 7/56 villages.
 
 <DNATable />
 
