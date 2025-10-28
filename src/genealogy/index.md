@@ -30,5 +30,3 @@ We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.co
 10 samples, 7/56 villages.
 
 <DNATable />
-
-_\* Big Y test: under consideration._ {.text-sm}

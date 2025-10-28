@@ -18,12 +18,14 @@ function getYfullLink(k: (typeof kits)[0]) {
         </span>
         <a :href="getYfullLink(k)">
           <UButton variant="soft" size="xs">
-            <span :class="`hh-${k.haplogroup}`" class="font-semibold">
+            <span
+              :class="[k.yfullId ? `hh-${k.haplogroup}` : 'text-muted']"
+              class="font-semibold"
+            >
               {{ k.haplogroup }}
               <template v-if="k.subclade"> · {{ k.subclade }}</template>
               <template v-if="k.branch"> · {{ k.branch }}</template>
             </span>
-            <template v-if="!k.yfullId">*</template>
           </UButton>
         </a>
       </p>

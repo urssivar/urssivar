@@ -30,5 +30,3 @@ import DNAChart from "@/components/DNAChart.vue";
 10 образцов, 7/56 сёл.
 
 <DNATable />
-
-_\* Тест Big Y: под рассмотрением._ {.text-sm}
