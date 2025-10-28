@@ -42,12 +42,12 @@ const isLanding = computed(() => {
       </UTooltip>
     </template>
     <template #trailing>
-      <UTooltip :text="t('header.search')">
+      <!-- <UTooltip :text="t('header.search')" :kbds="['meta', 'K']">
         <UButton
           icon="i-material-symbols:search-rounded"
           :aria-label="t('header.search')"
         />
-      </UTooltip>
+      </UTooltip> -->
       <LocaleSwitch />
     </template>
   </NavBar>
