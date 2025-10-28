@@ -64,8 +64,8 @@ onMounted(() => {
     .arc<any>()
     .startAngle((d) => d.x0)
     .endAngle((d) => d.x1)
-    .innerRadius((d) => d.y0)
-    .outerRadius((d) => d.y1);
+    .innerRadius((d) => (d.depth === 1 ? 0.05 : 0.5) * R)
+    .outerRadius((d) => (d.depth === 1 ? 0.5 : 1) * R);
 
   const g = svg.append("g");
 
@@ -92,7 +92,7 @@ onMounted(() => {
     )
     .attr("transform", (d: any) => {
       const a = (d.x0 + d.x1) / 2;
-      const r = (d.y0 + d.y1) / 2;
+      const r = ((d.depth === 1 ? 0.05 + 0.5 : 0.5 + 1) * R) / 2;
       const x = Math.cos(a - Math.PI / 2) * r;
       const y = Math.sin(a - Math.PI / 2) * r;
       return `translate(${x},${y})`;
