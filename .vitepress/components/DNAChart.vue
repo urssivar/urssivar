@@ -6,103 +6,33 @@ import kits from "@/data/dna.json";
 const svgRef = ref<SVGSVGElement>();
 
 const data = computed(() => {
-  const haplogroupCounts = new Map<string, number>();
-  const subcladeMap = new Map<string, { count: number; parent: string }>();
+  const haplogroupMap = new Map<string, Map<string, number>>();
 
   kits.forEach((kit) => {
     const hg = kit.haplogroup;
     const sc = kit.subclade || kit.haplogroup;
 
-    haplogroupCounts.set(hg, (haplogroupCounts.get(hg) || 0) + 1);
-
-    if (!subcladeMap.has(sc)) {
-      subcladeMap.set(sc, { count: 0, parent: hg });
+    if (!haplogroupMap.has(hg)) {
+      haplogroupMap.set(hg, new Map());
     }
-    subcladeMap.get(sc)!.count++;
+    const subclades = haplogroupMap.get(hg)!;
+    subclades.set(sc, (subclades.get(sc) || 0) + 1);
   });
 
-  const haplogroups = Array.from(haplogroupCounts.entries()).sort((a, b) =>
-    a[0].localeCompare(b[0])
-  );
-
-  const subclades = Array.from(subcladeMap.entries())
-    .map(([label, data]) => ({ label, ...data }))
-    .sort((a, b) => {
-      if (a.parent !== b.parent) return a.parent.localeCompare(b.parent);
-      return a.label.localeCompare(b.label);
-    });
-
   return {
-    haplogroups: haplogroups.map(([hg, count]) => ({
-      label: hg,
-      count,
-    })),
-    subclades: subclades.map((sc) => ({
-      label: sc.label,
-      count: sc.count,
-      parent: sc.parent,
-    })),
+    name: "root",
+    children: Array.from(haplogroupMap.entries(), ([label, subclades]) => ({
+      name: label,
+      children: Array.from(subclades.entries(), ([name, value]) => ({
+        name,
+        value,
+      })).sort((a, b) => a.name.localeCompare(b.name)),
+    })).sort((a, b) => a.name.localeCompare(b.name)),
   };
 });
 
-function drawRingPaths(
-  g: any,
-  data: any[],
-  innerRadius: number,
-  outerRadius: number
-) {
-  const arc = d3.arc<any>().innerRadius(innerRadius).outerRadius(outerRadius);
-
-  const pie = d3
-    .pie<any>()
-    .value((d) => d.count)
-    .sort(null);
-
-  g.append("g")
-    .selectAll("g")
-    .data(pie(data))
-    .enter()
-    .append("g")
-    .append("path")
-    .attr("class", (d: any) => `dna-slice hh-${d.data.parent || d.data.label}`)
-    .attr("d", arc as any);
-}
-
-function drawRingLabels(
-  g: any,
-  data: any[],
-  innerRadius: number,
-  outerRadius: number,
-  labelClass: string,
-  getLabelText: (d: any) => [string, string]
-) {
-  const pie = d3
-    .pie<any>()
-    .value((d) => d.count)
-    .sort(null);
-
-  g.selectAll(`text.${labelClass}`)
-    .data(pie(data))
-    .enter()
-    .append("text")
-    .attr(
-      "class",
-      (d: any) => `dna-label ${labelClass} hh-${d.data.parent || d.data.label}`
-    )
-    .attr("transform", (d: any) => {
-      const a = (d.startAngle + d.endAngle) / 2;
-      const x = Math.cos(a - Math.PI / 2) * ((innerRadius + outerRadius) / 2);
-      const y = Math.sin(a - Math.PI / 2) * ((innerRadius + outerRadius) / 2);
-      return `translate(${x},${y})`;
-    })
-    .attr("text-anchor", "middle")
-    .attr("dominant-baseline", "middle")
-    .each(function (d: any) {
-      const [line1, line2] = getLabelText(d);
-      const text = d3.select(this);
-      text.append("tspan").attr("x", 0).attr("y", 0).text(line1);
-      text.append("tspan").attr("x", 0).attr("dy", "1.2em").text(line2);
-    });
+function getHaplogroup(d: any): string {
+  return d.depth === 1 ? d.data.name : d.parent?.data.name || "";
 }
 
 onMounted(() => {
@@ -120,36 +50,68 @@ onMounted(() => {
   svg.selectAll("*").remove();
 
   const R = A / 2;
-  const hgInnerR = R * 0.05;
-  const hgOuterR = R * 0.5;
-  const scInnerR = R * 0.5;
-  const scOuterR = R * 1;
+
+  // Create hierarchy and partition layout
+  const root = d3
+    .hierarchy(data.value)
+    .sum((d: any) => d.value || 0)
+    .sort((a, b) => (b.value || 0) - (a.value || 0));
+
+  const partition = d3.partition<any>().size([2 * Math.PI, R]);
+  partition(root);
+
+  const arc = d3
+    .arc<any>()
+    .startAngle((d) => d.x0)
+    .endAngle((d) => d.x1)
+    .innerRadius((d) => d.y0)
+    .outerRadius((d) => d.y1);
 
   const g = svg.append("g");
-  drawRingPaths(g, data.value.subclades, scInnerR, scOuterR);
-  drawRingPaths(g, data.value.haplogroups, hgInnerR, hgOuterR);
 
-  drawRingLabels(
-    g,
-    data.value.subclades,
-    scInnerR,
-    scOuterR,
-    "dna-label-subclade",
-    (d: any) => [d.data.label, String(d.data.count)]
-  );
+  // Draw all arcs first
+  g.selectAll("path")
+    .data(root.descendants().filter((d) => d.depth > 0))
+    .enter()
+    .append("path")
+    .attr("class", (d: any) => `dna-slice hh-${getHaplogroup(d)}`)
+    .attr("d", arc);
 
-  const hgTotal = data.value.haplogroups.reduce((sum, d) => sum + d.count, 0);
-  drawRingLabels(
-    g,
-    data.value.haplogroups,
-    hgInnerR,
-    hgOuterR,
-    "dna-label-haplogroup",
-    (d: any) => {
-      const pct = ((d.data.count / hgTotal) * 100).toFixed(1);
-      return [d.data.label, `${pct}%`];
-    }
-  );
+  // Draw all labels after
+  const total = root.value || 1;
+  g.selectAll("text")
+    .data(root.descendants().filter((d) => d.depth > 0))
+    .enter()
+    .append("text")
+    .attr(
+      "class",
+      (d: any) =>
+        `dna-label ${
+          d.depth === 1 ? "dna-label-haplogroup" : "dna-label-subclade"
+        } hh-${getHaplogroup(d)}`
+    )
+    .attr("transform", (d: any) => {
+      const a = (d.x0 + d.x1) / 2;
+      const r = (d.y0 + d.y1) / 2;
+      const x = Math.cos(a - Math.PI / 2) * r;
+      const y = Math.sin(a - Math.PI / 2) * r;
+      return `translate(${x},${y})`;
+    })
+    .attr("text-anchor", "middle")
+    .attr("dominant-baseline", "middle")
+    .each(function (d: any) {
+      const title = d3.select(this);
+      title.append("tspan").attr("x", 0).attr("y", 0).text(d.data.name);
+
+      let subtitle = "";
+      if (d.depth === 1) {
+        const pct = ((d.value / total) * 100).toFixed(1);
+        subtitle = `${pct}%`;
+      } else {
+        subtitle = d.value;
+      }
+      title.append("tspan").attr("x", 0).attr("dy", "1.2em").text(subtitle);
+    });
 });
 </script>
 
