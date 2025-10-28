@@ -23,7 +23,7 @@ const isLanding = computed(() => {
       <UTooltip :text="t('header.home')">
         <a
           :href="homeLink"
-          class="flex gap-1.5 items-center text-default decoration-transparent"
+          class="flex gap-1 items-center text-default decoration-transparent"
           :aria-label="t('header.home')"
         >
           <img
