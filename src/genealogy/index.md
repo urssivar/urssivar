@@ -31,4 +31,4 @@ We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.co
 
 <DNATable />
 
-_\* Big Y test pending_ {.text-sm}
+_\* Big Y test: under consideration._ {.text-sm}

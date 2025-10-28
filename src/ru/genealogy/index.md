@@ -31,4 +31,4 @@ import DNAChart from "@/components/DNAChart.vue";
 
 <DNATable />
 
-_\* Тест Big Y ожидается_ {.text-sm}
+_\* Тест Big Y: под рассмотрением._ {.text-sm}
