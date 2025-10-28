@@ -14,7 +14,7 @@ function getYfullLink(k: (typeof kits)[0]) {
     <li v-for="k in kits" :key="k.id" :id="k.id">
       <p class="flex flex-col sm:flex-row gap-2">
         <span lang="xdq" :title="`Kit: ${k.id}`">
-          {{ `${k.village}, ${k.region}` }}
+          {{ k.village && k.region ? `${k.village}, ${k.region}` : "?" }}
         </span>
         <a :href="getYfullLink(k)">
           <UButton variant="soft" size="xs">
