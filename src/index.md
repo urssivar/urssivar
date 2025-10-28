@@ -29,7 +29,7 @@ We collect words, record stories, restore family trees, and conduct DNA testing.
 
 We're building a foundation for future research on Kaitag. With enough data, linguists will be able to classify dialects and understand how the language developed, while geneticists can verify legends about village origins and reconstruct the ancient history of the people. All of this depends **on us.**
 
-## [Kaitag Language](https://codex.urssivar.com/)
+## [Kaitag Language](./language/)
 
 We're recording living Kaitag speech and creating an archive of original texts: tales, stories, songs, proverbs — everything that will disappear forever without documentation now, while the last generation of speakers is still alive.
 
