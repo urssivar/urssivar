@@ -7,7 +7,7 @@ import DNATable from "@/components/DNATable.vue";
 import DNAChart from "@/components/DNAChart.vue";
 import { useDNAData } from "@/composables/useDNAData";
 
-const { kits, villages, hhTree } = useDNAData();
+const { kits, villages, haplogroupMap } = useDNAData();
 </script>
 
 # [Urssivar](../index#кайтагская-генеалогия): Кайтагская Генеалогия
@@ -22,7 +22,7 @@ const { kits, villages, hhTree } = useDNAData();
 
 Мы собираем данные Y-ДНК через [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) и [YFull](https://www.yfull.com/groups/kaitag/).
 
-**{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ hhTree.size }}** гаплогрупп.
+**{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ haplogroupMap.size }}** гаплогрупп.
 
 --- {.air}
 
