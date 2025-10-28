@@ -1,7 +1,7 @@
 export const uiConfig = {
   colors: {
     primary: 'blue',
-    neutral: 'gray',
+    neutral: 'neutral',
   },
   button: {
     slots: {
