@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import kits from "@/data/dna.json";
+import { useDNAData } from "@/composables/useDNAData";
+
+const { kits } = useDNAData();
 
 function getYfullLink(k: (typeof kits)[0]) {
   const base = "https://www.yfull.com/tree/";

@@ -5,6 +5,9 @@ landing: true
 <script setup lang="ts">
 import DNATable from "@/components/DNATable.vue";
 import DNAChart from "@/components/DNAChart.vue";
+import { useDNAData } from "@/composables/useDNAData";
+
+const { kits, villages, haplogroupMap } = useDNAData();
 </script>
 
 # [Urssivar](../index#kaitag-genealogy): Kaitag Genealogy
@@ -19,14 +22,12 @@ For centuries, Kaitag stood at the strategic frontier between empires — Persia
 
 We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) and [YFull](https://www.yfull.com/groups/kaitag/).
 
+**{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups.
+
 --- {.air}
 
 <DNAChart/>
 
 --- {.air}
-
-### Samples
-
-10 samples, 7/56 villages.
 
 <DNATable />

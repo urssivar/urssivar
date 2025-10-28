@@ -1,33 +1,24 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import * as d3 from "d3";
-import kits from "@/data/dna.json";
+import { useDNAData } from "@/composables/useDNAData";
 
+const { haplogroupMap } = useDNAData();
 const svgRef = ref<SVGSVGElement>();
 
-const data = computed(() => {
-  const haplogroupMap = new Map<string, Map<string, number>>();
-
-  kits.forEach((kit) => {
-    const hg = kit.haplogroup;
-    const sc = kit.subclade || kit.haplogroup;
-
-    if (!haplogroupMap.has(hg)) {
-      haplogroupMap.set(hg, new Map());
-    }
-    const subclades = haplogroupMap.get(hg)!;
-    subclades.set(sc, (subclades.get(sc) || 0) + 1);
-  });
-
+const chartData = computed(() => {
   return {
     name: "root",
-    children: Array.from(haplogroupMap.entries(), ([label, subclades]) => ({
-      name: label,
-      children: Array.from(subclades.entries(), ([name, value]) => ({
-        name,
-        value,
-      })).sort((a, b) => a.name.localeCompare(b.name)),
-    })).sort((a, b) => a.name.localeCompare(b.name)),
+    children: Array.from(
+      haplogroupMap.value.entries(),
+      ([label, subclades]) => ({
+        name: label,
+        children: Array.from(subclades.entries(), ([name, value]) => ({
+          name,
+          value,
+        })).sort((a, b) => a.name.localeCompare(b.name)),
+      })
+    ).sort((a, b) => a.name.localeCompare(b.name)),
   };
 });
 
@@ -53,7 +44,7 @@ onMounted(() => {
 
   // Create hierarchy and partition layout
   const root = d3
-    .hierarchy(data.value)
+    .hierarchy(chartData.value)
     .sum((d: any) => d.value || 0)
     .sort((a, b) => (b.value || 0) - (a.value || 0));
 

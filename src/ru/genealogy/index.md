@@ -5,6 +5,9 @@ landing: true
 <script setup lang="ts">
 import DNATable from "@/components/DNATable.vue";
 import DNAChart from "@/components/DNAChart.vue";
+import { useDNAData } from "@/composables/useDNAData";
+
+const { kits, villages, hhTree } = useDNAData();
 </script>
 
 # [Urssivar](../index#кайтагская-генеалогия): Кайтагская Генеалогия
@@ -19,14 +22,12 @@ import DNAChart from "@/components/DNAChart.vue";
 
 Мы собираем данные Y-ДНК через [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) и [YFull](https://www.yfull.com/groups/kaitag/).
 
+**{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ hhTree.size }}** гаплогрупп.
+
 --- {.air}
 
 <DNAChart/>
 
 --- {.air}
-
-### Образцы
-
-10 образцов, 7/56 сёл.
 
 <DNATable />
