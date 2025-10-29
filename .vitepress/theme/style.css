@@ -82,7 +82,8 @@
     }
   }
 
-  p {
+  p,
+  table {
     @apply my-4;
   }
 
