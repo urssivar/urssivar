@@ -86,9 +86,7 @@ function pauseAutoHover() {
   }
 }
 
-onBeforeUnmount(() => {
-  pauseAutoHover();
-});
+onBeforeUnmount(pauseAutoHover);
 </script>
 
 <template>
