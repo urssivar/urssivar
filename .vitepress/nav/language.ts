@@ -9,6 +9,7 @@ export const languageNav: LanguageNav = {
         title: 'Грамматика',
         path: 'grammar',
         articles: [
+          { title: 'Введение', path: 'intro' },
           { title: 'Падежи', path: 'cases' },
           { title: 'Связки', path: 'copulas' },
         ]
@@ -20,20 +21,6 @@ export const languageNav: LanguageNav = {
           { title: 'Введение', path: 'intro' },
         ]
       },
-      {
-        title: 'Разговорник',
-        path: 'phrasebook',
-        articles: [
-          { title: 'Введение', path: 'intro' },
-        ]
-      },
-      {
-        title: 'Тексты',
-        path: 'texts',
-        articles: [
-          { title: 'Введение', path: 'intro' },
-        ]
-      }
     ]
   },
   en: {
@@ -44,6 +31,7 @@ export const languageNav: LanguageNav = {
         title: 'Grammar',
         path: 'grammar',
         articles: [
+          { title: 'Introduction', path: 'intro' },
           { title: 'Cases', path: 'cases' },
           { title: 'Copulas', path: 'copulas' },
         ]
@@ -55,20 +43,6 @@ export const languageNav: LanguageNav = {
           { title: 'Introduction', path: 'intro' },
         ]
       },
-      {
-        title: 'Phrasebook',
-        path: 'phrasebook',
-        articles: [
-          { title: 'Introduction', path: 'intro' },
-        ]
-      },
-      {
-        title: 'Texts',
-        path: 'texts',
-        articles: [
-          { title: 'Introduction', path: 'intro' },
-        ]
-      }
     ]
   }
 };

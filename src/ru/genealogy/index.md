@@ -10,7 +10,7 @@ import { useDNAData } from "@/composables/useDNAData";
 const { kits, villages, haplogroupMap } = useDNAData();
 </script>
 
-# [Urssivar](../index#кайтагская-генеалогия): Кайтагская Генеалогия
+# [Urssivar](../index#кайтагская-генеалогия): Кайтагская генеалогия
 
 Кайтаги — коренной этнос Дагестана, язык которого относится к даргинской ветви нахско-дагестанской семьи.
 

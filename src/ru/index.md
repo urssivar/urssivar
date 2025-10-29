@@ -1,5 +1,5 @@
 ---
-title: "Urssivar: Кайтагские Исследования"
+title: "Urssivar: Кайтагские исследования"
 description: "Ресурсы & технологии для сохранения и изучения кайтагского языка, культуры, истории, и народа."
 
 landing: true
@@ -15,7 +15,7 @@ import { data as notes } from './notes/notes.data';
 
 <article>
 
-# Urssivar: Кайтагские Исследования
+# Urssivar: Кайтагские исследования
 
 _Наллара дел да. Ьам ра бел._ {lang=xdq}
 
