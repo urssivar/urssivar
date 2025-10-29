@@ -10,3 +10,7 @@ export function customSlugify(str: string) {
 export function dateString(date: Date) {
   return date.toString().substring(0, 10);
 }
+
+export function capitalize(word: string) {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+}
