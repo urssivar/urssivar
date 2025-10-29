@@ -48,7 +48,7 @@ function selectVillage(index: number) {
   tooltipOpen.value = true;
   markerElement.value = marker;
 
-  (marker.firstChild?.firstChild as HTMLElement)?.classList.add("scale-150");
+  (marker.firstChild?.firstChild as HTMLElement)?.classList.add("hover");
   return true;
 }
 
@@ -56,7 +56,7 @@ function deselectVillage() {
   tooltipOpen.value = false;
   (
     markerElement.value?.firstChild?.firstChild as HTMLElement
-  )?.classList.remove("scale-150");
+  )?.classList.remove("hover");
 }
 
 let autoHoverTimer: ReturnType<typeof setTimeout> | null = null;
@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
   <UTooltip
     :open="tooltipOpen"
     :reference="markerElement"
-    :content="{ side: 'top' }"
+    :content="{ side: 'top', sideOffset: 10 }"
     :ui="{ content: 'h-7' }"
   >
     <template #content>
@@ -141,9 +141,11 @@ onBeforeUnmount(() => {
             :z-index-offset="selectedVillage === village.name ? 1000 : 0"
           >
             <LIcon>
-              <div class="w-full h-full flex items-center justify-center">
+              <div
+                class="w-full h-full flex items-center justify-center relative"
+              >
                 <div
-                  class="village-dot size-3 rounded-full border-2 cursor-pointer transition-all duration-200 ease-out border-neutral-50 dark:border-neutral-900 bg-primary-600 dark:bg-primary-400 hover:scale-150"
+                  class="village-dot absolute rounded-full cursor-pointer transition-all duration-200 ease-out border-(--ui-bg) bg-(--ui-primary)"
                 />
               </div>
             </LIcon>
@@ -155,6 +157,8 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
+@reference "../theme/style.css";
+
 /* Override Leaflet default styles */
 :deep(.leaflet-container) {
   @apply bg-transparent;
@@ -166,6 +170,14 @@ onBeforeUnmount(() => {
 
 :deep(.leaflet-marker-icon) {
   @apply bg-transparent border-0;
+}
+
+.village-dot {
+  @apply size-3 sm:size-3.5 border-2 sm:border-3;
+
+  &.hover {
+    @apply size-5;
+  }
 }
 
 /* Fade transition */
