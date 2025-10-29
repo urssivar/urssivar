@@ -52,7 +52,10 @@ export default defineConfig({
       slugify: customSlugify
     },
     config: (md) => {
-      md.use(MdMultimdTable, { rowspan: true });
+      md.use(MdMultimdTable, {
+        multibody: false,
+        autolabel: false,
+      });
       md.use(MdMark);
       md.use(MdAutoNumber);
       md.use(MdCustomSpans);
