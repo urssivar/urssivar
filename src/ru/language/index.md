@@ -1,19 +1,42 @@
 ---
 landing: true
+wide: true
 ---
 
-# [Urssivar](../index.md#кайтагский-язык): Кайтагский Язык
+<script setup lang="ts">
+import QuotesTypewriter from "@/components/QuotesTypewriter.vue";
+</script>
 
-[работа в процессе...]
+<article>
 
-Ut pellentesque augue risus, quis consequat arcu vulputate vel. Nulla mollis ipsum quis volutpat hendrerit. Integer efficitur lectus eget nunc porta posuere. {.text-transparent .select-none}
+# [Urssivar](../index#кайтагский-язык): Кайтагский Язык
 
-<!-- Ut pellentesque augue risus, quis consequat arcu vulputate vel.
+Кайтагский язык входит в даргинскую ветвь восточнокавказской семьи. В начале XX века на нём говорили в 56 горных селениях девяти исторических микрорегионов на юге Дагестана.
 
-## [Грамматика](./grammar/cases.md)
+В 1938 году советское языковое строительство переклассифицировало кайтагский из самостоятельного языка в диалект — решение, продиктованное политикой, а не наукой. Последующий сдвиг в школьном образовании и этнической идентификации оставил людей бесправными и безголосыми. Не сложилось ни кайтагской инфраструктуры, ни литературной традиции. Язык остался по большей части недокументированным.
 
-Ut pellentesque augue risus, quis consequat arcu vulputate vel. Nulla mollis ipsum quis volutpat hendrerit. Integer efficitur lectus eget nunc porta posuere.
+Естественная передача языка прекратилась. Свободно владеющие носители сосредоточены среди пожилых. Многое потеряно, но мы записываем то, что осталось, пока носители ещё здесь. Любая помощь очень нужна и приветствуется.
 
-## [Словарь](./dictionary/intro)
+</article>
 
-Ut pellentesque augue risus, quis consequat arcu vulputate vel. Nulla mollis ipsum quis volutpat hendrerit. Integer efficitur lectus eget nunc porta posuere. -->
+<QuotesTypewriter />
+
+<article>
+
+## [Грамматика](./grammar/intro.md)
+
+Систематическая кодификация кайтагской грамматики. Устанавливает стандартизированную структуру и фундаментальную ментальную модель для понимания того, как работает кайтагский язык.
+
+## [Словарь](./dictionary/intro.md)
+
+Лексическая база из 5000+ статей с грамматическими формами и определениями. Документирует варианты по сёлам, устанавливая стандартный лексикон.
+
+## Разговорник
+
+В будущем здесь будет кайтагский разговорник.
+
+## Тексты
+
+В будущем здесь будут тексты на кайтагском.
+
+</article>
