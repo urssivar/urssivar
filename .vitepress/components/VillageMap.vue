@@ -155,7 +155,7 @@ onBeforeUnmount(pauseAutoHover);
 </template>
 
 <style scoped>
-@reference "../theme/style.css";
+@reference "@/theme/style.css";
 
 /* Override Leaflet default styles */
 :deep(.leaflet-container) {
