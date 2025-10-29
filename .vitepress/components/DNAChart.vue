@@ -77,8 +77,7 @@ onMounted(() => {
     .attr(
       "class",
       (d: any) =>
-        `dna-label ${
-          d.depth === 1 ? "dna-label-haplogroup" : "dna-label-subclade"
+        `dna-label ${d.depth === 1 ? "dna-label-haplogroup" : "dna-label-subclade"
         } hh-${getHaplogroup(d)}`
     )
     .attr("transform", (d: any) => {
@@ -107,28 +106,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <svg
-    ref="svgRef"
-    class="mx-auto h-64 sm:h-96 aspect-square overflow-visible"
-  ></svg>
+  <svg ref="svgRef" class="mx-auto h-64 sm:h-96 aspect-square overflow-visible"></svg>
 </template>
 
 <style>
 @reference "../theme/style.css";
 
 .dna-slice {
-  @apply stroke-4 stroke-(--ui-bg) fill-(--ui-bg-accented)/75 transition duration-200;
+  @apply stroke-4 stroke-(--ui-bg) transition duration-200;
 
   &.hh-R1b {
-    @apply hover:fill-amber-200/75 dark:hover:fill-(--color-amber-800)/75;
+    @apply fill-amber-200/60 hover:fill-amber-200/90 dark:fill-amber-800/60 dark:hover:fill-amber-800/90;
   }
 
   &.hh-J1 {
-    @apply hover:fill-sky-200/75 dark:hover:fill-(--color-sky-800)/75;
+    @apply fill-sky-200/60 hover:fill-sky-200/90 dark:fill-sky-800/60 dark:hover:fill-sky-800/90;
   }
 
   &.hh-Q2 {
-    @apply hover:fill-emerald-200/75 dark:hover:fill-(--color-emerald-800)/75;
+    @apply fill-emerald-200/60 hover:fill-emerald-200/90 dark:fill-emerald-800/60 dark:hover:fill-emerald-800/90;
   }
 }
 
