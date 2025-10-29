@@ -24,10 +24,6 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 **{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ haplogroupMap.size }}** гаплогрупп.
 
---- {.air}
-
 <DNAChart/>
-
---- {.air}
 
 <DNATable />

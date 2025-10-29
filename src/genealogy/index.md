@@ -24,10 +24,6 @@ We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.co
 
 **{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups.
 
---- {.air}
-
 <DNAChart/>
-
---- {.air}
 
 <DNATable />

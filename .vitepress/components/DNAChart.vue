@@ -106,7 +106,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <svg ref="svgRef" class="mx-auto h-64 sm:h-96 aspect-square overflow-visible"></svg>
+  <svg ref="svgRef" class="mx-auto my-12 h-64 sm:h-96 aspect-square overflow-visible"></svg>
 </template>
 
 <style>
