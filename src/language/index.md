@@ -11,11 +11,13 @@ import AlphabetGrid from "@/components/AlphabetGrid.vue";
 
 # [Urssivar](../index#kaitag-language): Kaitag Language
 
-Kaitag is a language of the Dargwic branch of the Northeast Caucasian family. In the early 20th century, it was spoken in 56 mountain villages across nine historical microregions in southern Dagestan.
+Kaitag is a distinct language of the Dargwic branch of the Northeast Caucasian family. In the early 20th century, it was spoken in 56 mountain villages across nine historical microregions in southern Dagestan.
 
-In 1938, Soviet language planning reclassified Kaitag from an independent language to a dialect — a decision driven by policy rather than science. The subsequent shift in school education and ethnic identification left people struggling and voiceless. No Kaitag infrastructure was developed and no literary tradition emerged. The language remained largely undocumented.
+In 1938, Soviet language planning reclassified Kaitag from an independent language to a dialect — a decision driven by policy rather than science. The subsequent shift in school instruction and ethnic identification stripped people of linguistic and cultural rights. No infrastructure was developed, no literary tradition emerged.
 
-Natural transmission has now ceased. Fluent speakers are concentrated among the elderly. Much has been lost, but we are recording what remains while speakers are still here. Any help is much needed and welcome.
+Natural transmission has ceased in the 21st century as Russian became the dominant language of education and public life. Today, fluent speakers remain only among the elderly. The language exists in a critical state — undocumented, unstandardized, and disappearing with each generation. Much has already been lost.
+
+But this is not the time to die. This is a story of our perseverance. We are writing it now.
 
 </article>
 
@@ -23,13 +25,13 @@ Natural transmission has now ceased. Fluent speakers are concentrated among the 
 
 <article>
 
-## [Grammar](./grammar/intro.md)
+## Grammar
 
-Systematic codification of Kaitag grammar. Establishes standardized framework and the foundational mental model for understanding how Kaitag language works.
+Systematic codification of Kaitag grammar — the foundational model for understanding how the language works.
 
 ## Dictionary
 
-Lexical database of 5,000+ entries with grammatical forms and definitions. Documents village variants while establishing standard lexicon.
+Comprehensive lexical database with 5,000+ entries — the core reference for standardizing Kaitag vocabulary while preserving dialectal diversity.
 
 ## Phrasebook
 
