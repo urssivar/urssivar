@@ -40,7 +40,7 @@ const getPadding = (level: number) => {
     case 4:
       return "ml-6";
     default:
-      return "ml-0";
+      return "";
   }
 };
 </script>
