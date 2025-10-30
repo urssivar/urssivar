@@ -6,10 +6,6 @@ import { onBeforeUnmount, onMounted, reactive, ref } from "vue";
 const { letters, dict } = useDictData();
 
 const words = reactive(Object.fromEntries(letters.value.map((l) => [l, "•"])));
-const activeLetters = ref(new Set<Letter>());
-
-const timers = new Map<string, ReturnType<typeof setTimeout>>();
-let isPaused = false;
 
 function randomWord(l: Letter) {
   const list = dict[l];
@@ -18,72 +14,36 @@ function randomWord(l: Letter) {
   words[l] = cleanHeadword(list[i].headword);
 }
 
-function scheduleRandomActivation(cycleId: string) {
-  return;
-  if (isPaused) {
-    // Reschedule if paused
-    const timer = setTimeout(() => scheduleRandomActivation(cycleId), 100);
-    timers.set(`${cycleId}-check`, timer);
-    return;
-  }
+const selectedLetter = ref<Letter | null>(null);
+let autoHoverTimer: ReturnType<typeof setTimeout> | null = null;
 
-  const randomLetter =
-    letters.value[Math.floor(Math.random() * letters.value.length)];
+function scheduleAutoHover() {
+  const DURATION = 2500;
 
-  activeLetters.value.add(randomLetter);
-  randomWord(randomLetter);
+  const i = Math.floor(Math.random() * letters.value.length);
+  const letter = letters.value[i];
 
-  // Remove after display duration
-  const displayTimer = setTimeout(() => {
-    activeLetters.value.delete(randomLetter);
-  }, 2000 + Math.random() * 1000);
+  selectedLetter.value = letter;
+  randomWord(letter);
 
-  timers.set(`${cycleId}-display`, displayTimer);
-
-  // Schedule next activation
-  const nextTimer = setTimeout(() => {
-    scheduleRandomActivation(cycleId);
-  }, 1500 + Math.random() * 1000);
-
-  timers.set(cycleId, nextTimer);
+  autoHoverTimer = setTimeout(scheduleAutoHover, DURATION);
 }
 
 function pauseAutoHover() {
-  isPaused = true;
+  if (autoHoverTimer) {
+    clearTimeout(autoHoverTimer);
+    autoHoverTimer = null;
+  }
 }
 
-function resumeAutoHover() {
-  isPaused = false;
-}
-
-function onLetterEnter(l: Letter) {
+function selectLetter(l: Letter) {
   pauseAutoHover();
-  activeLetters.value.add(l);
+  selectedLetter.value = l;
   randomWord(l);
 }
 
-function onLetterLeave() {
-  activeLetters.value.clear();
-  resumeAutoHover();
-}
-
-onMounted(() => {
-  const numCycles = 5;
-  for (let i = 0; i < numCycles; i++) {
-    const cycleId = `cycle-${i}`;
-    const initialDelay = i * 500;
-    const timer = setTimeout(
-      () => scheduleRandomActivation(cycleId),
-      initialDelay
-    );
-    timers.set(cycleId, timer);
-  }
-});
-
-onBeforeUnmount(() => {
-  timers.forEach((timer) => clearTimeout(timer));
-  timers.clear();
-});
+onMounted(scheduleAutoHover);
+onBeforeUnmount(pauseAutoHover);
 </script>
 
 <template>
@@ -95,9 +55,9 @@ onBeforeUnmount(() => {
         v-for="l in letters"
         :key="l"
         class="letter p-3 relative cursor-pointer"
-        :class="{ current: activeLetters.has(l) }"
-        @mouseenter="onLetterEnter(l)"
-        @mouseleave="onLetterLeave"
+        :class="{ current: selectedLetter === l }"
+        @mouseenter="selectLetter(l)"
+        @mouseleave="scheduleAutoHover"
       >
         <span
           lang="xdq"
