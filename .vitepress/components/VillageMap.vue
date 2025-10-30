@@ -40,7 +40,7 @@ const markerRefs = ref<HTMLElement[]>([]);
 
 function selectVillage(index: number) {
   const marker = markerRefs.value[index];
-  if (!marker) return false;
+  if (!marker) return;
 
   deselectVillage();
 
@@ -49,7 +49,6 @@ function selectVillage(index: number) {
   markerElement.value = marker;
 
   (marker.firstChild?.firstChild as HTMLElement)?.classList.add("hover");
-  return true;
 }
 
 function deselectVillage() {
@@ -62,21 +61,17 @@ function deselectVillage() {
 let autoHoverTimer: ReturnType<typeof setTimeout> | null = null;
 
 function scheduleAutoHover() {
-  const AUTO_HOVER_DURATION = 3000;
-  const AUTO_HOVER_INTERVAL = 2000;
+  const DURATION = 2500;
+  const PAUSE = 500;
 
   autoHoverTimer = setTimeout(() => {
     const i = Math.floor(Math.random() * villages.length);
-
-    if (selectVillage(i)) {
-      autoHoverTimer = setTimeout(() => {
-        deselectVillage();
-        scheduleAutoHover();
-      }, AUTO_HOVER_DURATION);
-    } else {
+    selectVillage(i);
+    autoHoverTimer = setTimeout(() => {
+      deselectVillage();
       scheduleAutoHover();
-    }
-  }, AUTO_HOVER_INTERVAL);
+    }, DURATION);
+  }, PAUSE);
 }
 
 function pauseAutoHover() {
@@ -84,6 +79,18 @@ function pauseAutoHover() {
     clearTimeout(autoHoverTimer);
     autoHoverTimer = null;
   }
+}
+
+function onVillageEnter(i: number) {
+  pauseAutoHover();
+  selectVillage(i);
+}
+
+function onVillageLeave() {
+  const DELAY = 1000;
+
+  deselectVillage();
+  autoHoverTimer = setTimeout(scheduleAutoHover, DELAY);
 }
 
 onBeforeUnmount(pauseAutoHover);
@@ -110,7 +117,8 @@ onBeforeUnmount(pauseAutoHover);
           :use-global-leaflet="false"
           class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
           @ready="(mapInstance: any) => {
-            mapInstance.fitBounds(villageBounds); scheduleAutoHover();
+            mapInstance.fitBounds(villageBounds);
+            scheduleAutoHover();
           }"
         >
           <LImageOverlay
@@ -124,18 +132,8 @@ onBeforeUnmount(pauseAutoHover);
             :key="village.name"
             :lat-lng="[village.lat, village.lng]"
             @ready="(marker: any) => markerRefs[i] = marker._icon"
-            @mouseover="
-              () => {
-                pauseAutoHover();
-                selectVillage(i);
-              }
-            "
-            @mouseout="
-              () => {
-                deselectVillage();
-                scheduleAutoHover();
-              }
-            "
+            @mouseover="onVillageEnter(i)"
+            @mouseout="onVillageLeave"
             :z-index-offset="selectedVillage === village.name ? 1000 : 0"
           >
             <LIcon>
