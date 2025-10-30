@@ -27,7 +27,7 @@ Natural transmission has now ceased. Fluent speakers are concentrated among the 
 
 Systematic codification of Kaitag grammar. Establishes standardized framework and the foundational mental model for understanding how Kaitag language works.
 
-## [Dictionary](./dictionary/intro.md)
+## Dictionary
 
 Lexical database of 5,000+ entries with grammatical forms and definitions. Documents village variants while establishing standard lexicon.
 
