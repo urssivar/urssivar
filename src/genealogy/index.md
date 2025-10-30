@@ -12,11 +12,13 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 # [Urssivar](../index#kaitag-genealogy): Kaitag Genealogy
 
-The Kaitags are an indigenous ethnic group of Dagestan whose language belongs to the Dargwic branch of the Northeast Caucasian family.
+The Kaitags are an indigenous ethnic group of Dagestan whose language belongs to the Dargwic branch of the Northeast Caucasian family. The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along the Ulluchay River in southern Dagestan. In the early 20th century, Kaitags inhabited 56 mountain villages forming nine historical microregions.
 
-The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along the Ulluchay River in southern Dagestan. In the early 20th century, 56 mountain villages formed nine historical microregions. Kaitags border closely related Dargins and Kubachins to the northwest, Lezgic peoples (Tabasarans and Aghuls) to the southwest, and Turkic populations (Kumyks and Terekeme) to the east. Historically, there was also a significant Juhuri (Mountain Jewish) population.
+Kaitags border closely related Kubachins and Dargins to the northwest, Lezgic peoples (Tabasarans and Aghuls) to the southwest, and Turkic populations (Kumyks and Terekeme) to the east. Historically, there was also a significant Juhuri (Mountain Jewish) population.
 
-For centuries, Kaitag stood at the strategic frontier between empires — Persian, Ottoman, Russian — and the mountain peoples. This position at the crossroads of civilizations, access to Caspian trade routes, and the region's diverse ethnic composition shaped Kaitags into a distinctive part of the East Caucasian mosaic.
+The Kaitag principality emerges in historical records from the 8th century AD, controlling strategic territories inland of Derbent. For over a millennium the principality maintained independence through resistance to successive imperial powers — Persian, Arab, Mongol, Ottoman, Russian — until the latter gradually eroded its sovereignty during the Caucasian War.
+
+The position at the crossroads of civilizations, access to Caspian trade routes, and the region's diverse ethnic composition shaped Kaitags into a distinctive part of the East Caucasian mosaic.
 
 ## Y-DNA Distribution
 
