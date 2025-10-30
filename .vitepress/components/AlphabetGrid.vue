@@ -19,6 +19,7 @@ function randomWord(l: Letter) {
 }
 
 function scheduleRandomActivation(cycleId: string) {
+  return;
   if (isPaused) {
     // Reschedule if paused
     const timer = setTimeout(() => scheduleRandomActivation(cycleId), 100);
@@ -86,28 +87,32 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div
-    lang="xdq"
-    class="bg-elevated my-12 px-6 py-4 sm:px-8 sm:py-6 grid grid-cols-5 sm:grid-cols-10 text-center justify-center font-semibold"
-  >
+  <div class="bg-elevated my-12 text-center">
     <div
-      v-for="l in letters"
-      :key="l"
-      class="letter p-3 relative cursor-pointer"
-      :class="{ current: activeLetters.has(l) }"
-      @mouseenter="onLetterEnter(l)"
-      @mouseleave="onLetterLeave"
+      class="max-w-full lg:max-w-screen-lg mx-auto px-6 sm:px-8 py-4 sm:py-6 grid grid-cols-6 md:grid-cols-7"
     >
-      <span
-        class="select-none capitalize text-muted transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)] delay-100"
+      <div
+        v-for="l in letters"
+        :key="l"
+        class="letter p-3 relative cursor-pointer"
+        :class="{ current: activeLetters.has(l) }"
+        @mouseenter="onLetterEnter(l)"
+        @mouseleave="onLetterLeave"
       >
-        {{ l }}
-      </span>
-      <span
-        class="leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
-      >
-        {{ words[l] }}
-      </span>
+        <span
+          lang="xdq"
+          class="font-semibold select-none capitalize text-muted transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        >
+          {{ l }}
+        </span>
+        <span
+          class="text-[0.875rem] sm:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        >
+          <span lang="xdq" class="font-semibold leading-none">
+            {{ words[l] }}
+          </span>
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -115,13 +120,13 @@ onBeforeUnmount(() => {
 <style scoped>
 @reference "@/theme/style.css";
 
-.letter:hover span:nth-child(1),
-.letter.current span:nth-child(1) {
-  @apply opacity-0 delay-[0];
+.letter:hover > :nth-child(1),
+.letter.current > :nth-child(1) {
+  @apply opacity-0;
 }
 
-.letter:hover span:nth-child(2),
-.letter.current span:nth-child(2) {
-  @apply opacity-100 delay-[100ms];
+.letter:hover > :nth-child(2),
+.letter.current > :nth-child(2) {
+  @apply opacity-100;
 }
 </style>
