@@ -73,7 +73,7 @@ onBeforeUnmount(pauseAutoHover);
           {{ l }}
         </span>
         <span
-          class="text-[0.875rem] md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          class="text-[0.875rem] pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
         >
           <span lang="xdq" class="font-semibold leading-none">
             {{ words[l] }}
@@ -89,11 +89,11 @@ onBeforeUnmount(pauseAutoHover);
 
 .letter:hover > :nth-child(1),
 .letter.current > :nth-child(1) {
-  @apply opacity-0;
+  @apply opacity-0 pointer-events-none;
 }
 
 .letter:hover > :nth-child(2),
 .letter.current > :nth-child(2) {
-  @apply opacity-100;
+  @apply opacity-100 pointer-events-auto;
 }
 </style>
