@@ -7,7 +7,7 @@ const { letters, dict } = useDictData();
 
 const words = reactive(Object.fromEntries(letters.value.map((l) => [l, "•"])));
 
-function randomWord(l: Letter) {
+function setRandomWord(l: Letter) {
   const list = dict[l];
   if (!list.length) return;
   const i = Math.floor(Math.random() * list.length);
@@ -18,13 +18,13 @@ const selectedLetter = ref<Letter | null>(null);
 let autoHoverTimer: ReturnType<typeof setTimeout> | null = null;
 
 function scheduleAutoHover() {
-  const DURATION = 2500;
+  const DURATION = 2000;
 
   const i = Math.floor(Math.random() * letters.value.length);
   const letter = letters.value[i];
 
   selectedLetter.value = letter;
-  randomWord(letter);
+  setRandomWord(letter);
 
   autoHoverTimer = setTimeout(scheduleAutoHover, DURATION);
 }
@@ -39,11 +39,12 @@ function pauseAutoHover() {
 function onLetterEnter(l: Letter) {
   pauseAutoHover();
   selectedLetter.value = l;
-  randomWord(l);
+  setRandomWord(l);
 }
 
 function onLetterLeave() {
-  const DELAY = 500;
+  const DELAY = 1000;
+
   selectedLetter.value = null;
   autoHoverTimer = setTimeout(scheduleAutoHover, DELAY);
 }
