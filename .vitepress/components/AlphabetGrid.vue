@@ -36,10 +36,16 @@ function pauseAutoHover() {
   }
 }
 
-function selectLetter(l: Letter) {
+function onLetterEnter(l: Letter) {
   pauseAutoHover();
   selectedLetter.value = l;
   randomWord(l);
+}
+
+function onLetterLeave() {
+  const DELAY = 500;
+  selectedLetter.value = null;
+  autoHoverTimer = setTimeout(scheduleAutoHover, DELAY);
 }
 
 onMounted(scheduleAutoHover);
@@ -56,8 +62,8 @@ onBeforeUnmount(pauseAutoHover);
         :key="l"
         class="letter p-3 relative cursor-pointer"
         :class="{ current: selectedLetter === l }"
-        @mouseenter="selectLetter(l)"
-        @mouseleave="scheduleAutoHover"
+        @mouseenter="onLetterEnter(l)"
+        @mouseleave="onLetterLeave"
       >
         <span
           lang="xdq"
