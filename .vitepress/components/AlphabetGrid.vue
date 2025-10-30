@@ -55,7 +55,7 @@ onBeforeUnmount(pauseAutoHover);
 <template>
   <div class="bg-elevated my-12 text-center">
     <div
-      class="max-w-full lg:max-w-screen-lg mx-auto px-6 sm:px-8 py-4 sm:py-6 grid grid-cols-6 md:grid-cols-7"
+      class="max-w-full md:max-w-screen-md mx-auto px-6 sm:px-8 py-4 sm:py-6 grid grid-cols-6 md:grid-cols-7"
     >
       <div
         v-for="l in letters"
@@ -72,7 +72,7 @@ onBeforeUnmount(pauseAutoHover);
           {{ l }}
         </span>
         <span
-          class="text-[0.875rem] sm:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          class="text-[0.875rem] md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
         >
           <span lang="xdq" class="font-semibold leading-none">
             {{ words[l] }}
