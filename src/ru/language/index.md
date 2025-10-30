@@ -4,7 +4,7 @@ wide: true
 ---
 
 <script setup lang="ts">
-import QuotesTypewriter from "@/components/QuotesTypewriter.vue";
+import QuotesTypewriter from "@/components/AlphabetGrid.vue";
 </script>
 
 <article>

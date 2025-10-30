@@ -4,7 +4,7 @@ wide: true
 ---
 
 <script setup lang="ts">
-import QuotesTypewriter from "@/components/QuotesTypewriter.vue";
+import AlphabetGrid from "@/components/AlphabetGrid.vue";
 </script>
 
 <article>
@@ -19,7 +19,7 @@ Natural transmission has now ceased. Fluent speakers are concentrated among the 
 
 </article>
 
-<QuotesTypewriter />
+<AlphabetGrid />
 
 <article>
 

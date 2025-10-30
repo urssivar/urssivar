@@ -14,3 +14,8 @@ export function dateString(date: Date) {
 export function capitalize(word: string) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
+
+export function cleanHeadword(word: string) {
+  const accent = String.fromCharCode(769);
+  return word.replace(new RegExp(accent, "g"), "");
+}
