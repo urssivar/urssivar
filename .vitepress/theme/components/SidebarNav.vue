@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useLanguageNav } from "@/composables/useLanguageNav";
+import DictIndex from "@/components/DictIndex.vue";
 
 const {
   nav,
@@ -17,13 +18,11 @@ defineEmits<{
 
 <template>
   <nav class="navlinks text-sm flex flex-col">
-    <a :href="getModulePath()" @click="$emit('navigate')">
+    <a :href="getModulePath()" @click="$emit('navigate')" class="mb-6">
       {{ nav.title }}
     </a>
 
-    <div class="m-3" />
-
-    <template v-if="currentSection">
+    <div v-if="currentSection" class="flex flex-col mb-6">
       <a :href="getSectionPath(currentSection)" @click="$emit('navigate')">
         {{ currentSection.title }}
       </a>
@@ -32,18 +31,19 @@ defineEmits<{
         v-for="article in currentSection.articles"
         :key="article.path"
         :href="getArticlePath(article)"
+        class="ml-4"
         :class="{
           'text-highlighted': article.path === currentArticle?.path,
         }"
         @click="$emit('navigate')"
       >
-        <span class="ml-4">
+        <span>
           {{ article.title }}
         </span>
       </a>
 
-      <div class="m-3" />
-    </template>
+      <DictIndex v-if="currentSection?.path === 'dictionary'" mode="sidebar" />
+    </div>
 
     <a
       v-for="section in nav.sections"
