@@ -35,7 +35,7 @@ To preserve the Kaitag language, we document it in its living form — through w
 
 **Dictionary:** Building the most complete lexical database across villages and dialects. Every word, variant, and form matters.
 
-**Oral texts:** Recording natural speech — tales, memories, dialogues, prayers. Preserving not just vocabulary, but mentality and culture.
+**Oral texts:** Recording natural speech — tales, memories, dialogues, prayers. Preserving not just sound, but mentality and culture.
 
 ## [Kaitag Genealogy](./genealogy/)
 
@@ -43,7 +43,7 @@ To understand our origins and how Kaitag families connect, we trace lineages thr
 
 **Family trees:** Recording names, lifespans, migrations, and kinship networks. Every family story adds to the larger picture.
 
-**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA. Verifying oral traditions, revealing ancestral connections, and reconstructing ancient history.
+**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA. Verifying oral traditions, revealing ancestral connections, and reconstructing our past.
 
 </article>
 
