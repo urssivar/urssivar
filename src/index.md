@@ -39,11 +39,11 @@ To preserve the Kaitag language, we document it in its living form — through w
 
 ## [Kaitag Genealogy](./genealogy/)
 
-Tracing family lineages through oral histories and genetic testing.
+To understand our origins and how Kaitag families connect, we trace lineages through legends and DNA analysis. Together, they reveal who our ancestors were and how villages are related.
 
-**Family trees:** Recording names, lifespans, and migrations from family accounts. Documenting kinship networks across the territory.
+**Family trees:** Recording names, lifespans, migrations, and kinship networks. Every family story adds to the larger picture.
 
-**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA (USA). Verifying oral traditions and revealing deeper ancestral connections.
+**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA. Verifying oral traditions, revealing ancestral connections, and reconstructing ancient history.
 
 </article>
 
