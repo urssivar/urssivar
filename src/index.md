@@ -19,7 +19,7 @@ import { data as notes } from './notes/notes.data';
 
 _Наллара дел да. Ьам ра бел._ {lang=xdq}
 
-We work on preserving the legacy of the Kaitag people of Dagestan through language archives, genealogical records, and genetic analysis. **Time is running out** — this is our final chance to capture what remains before the last bearers of tradition are gone.
+We work on preserving the legacy of the Kaitag people of Dagestan. As elder generations pass away, we race against time to capture what remains before it's lost forever.
 
 </article>
 
@@ -27,7 +27,7 @@ We work on preserving the legacy of the Kaitag people of Dagestan through langua
 
 <article>
 
-What we capture now becomes the foundation for understanding Kaitag. With enough data, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people. All of this depends **on us**.
+This data becomes the foundation for researching Kaitag. With enough of it, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people. All of this depends **on us**.
 
 ## [Kaitag Language](./language/)
 
