@@ -39,11 +39,11 @@ Linguistic documentation — from systematic grammar to living speech.
 
 ## [Kaitag Genealogy](./genealogy/)
 
-Reconstructing lineages by combining traditional genealogy with modern genetics.
+Tracing family lineages through oral histories and genetic testing.
 
-**Family trees:** Documenting names, lifespans, settlements, and migrations across generations. Mapping kinship networks and movement patterns across the territory.
+**Family trees:** Recording names, lifespans, and migrations from family accounts. Documenting kinship networks across the territory.
 
-**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA (USA). Working to confirm family origins, reconstruct clan branches, and trace migration history.
+**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA (USA). Verifying oral traditions and revealing deeper ancestral connections.
 
 </article>
 
