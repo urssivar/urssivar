@@ -19,7 +19,7 @@ import { data as notes } from './notes/notes.data';
 
 _Наллара дел да. Ьам ра бел._ {lang=xdq}
 
-We collect words, record stories, restore family trees, and conduct DNA testing. **Time is running out** — this is the last chance to preserve what remains. Every forgotten word, every lost lineage is a fragment of heritage that will disappear forever.
+Urssivar preserves the Kaitag people of Dagestan through language archives, genealogical records, and genetic analysis. **Time is running out** — this is the last chance to capture what remains before the last bearers of tradition are gone.
 
 </article>
 
@@ -27,23 +27,23 @@ We collect words, record stories, restore family trees, and conduct DNA testing.
 
 <article>
 
-We're building a foundation for future research on Kaitag. With enough data, linguists will be able to classify dialects and understand how the language developed, while geneticists can verify legends about village origins and reconstruct the ancient history of the people. All of this depends **on us.**
+We're building a foundation for future research. With enough data, linguists will be able to classify dialects and understand how the language developed, while geneticists can verify legends about village origins and reconstruct ancient history of the people.
 
 ## [Kaitag Language](./language/)
 
-We're recording living Kaitag speech and creating an archive of original texts: tales, stories, songs, proverbs — everything that will disappear forever without documentation now, while the last generation of speakers is still alive.
+Comprehensive linguistic record — from systematic grammar to living speech.
 
-**Dictionary:** A lexical database of the Kaitag language by villages and micro-regions. Base corpus of 5,000 words, expanding through contributions from native speakers.
+**Dictionary:** 5,000+ entries documenting forms across the varieties. Built through native speaker contributions.
 
-**Oral texts:** Natural speech — stories, memories, descriptions of daily life and traditions, dialogues, prayers. We document not only vocabulary, but also patterns of thought, speech style, and culture.
+**Oral texts:** Natural speech recordings — tales, memories, dialogues, prayers. Captures not just words, but thought patterns and cultural expression.
 
 ## [Kaitag Genealogy](./genealogy/)
 
-We compile family trees — names, lifespans, villages, migrations. We use DNA testing to establish origins and kinship connections.
+Lineage reconstruction combining traditional genealogy with modern genetics to trace family origins and connections.
 
-**Family trees:** We trace lineages backward through generations, documenting years of life, villages, and migrations.
+**Family trees:** Generational records of names, lifespans, settlements, and migrations. Maps kinship networks and movement patterns across the territory.
 
-**DNA tests:** Genetics confirms or refutes genealogies and shows the degree of kinship between families. We work with FamilyTreeDNA laboratory (USA), using Y-chromosomal analysis (paternal line) and autosomal testing (general ancestry). This allows us to reconstruct branches within clans, study migrations, and trace connections between villages.
+**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA (USA). Confirms relationships, reconstructs clan branches, reveals migration history.
 
 </article>
 
@@ -53,16 +53,13 @@ We compile family trees — names, lifespans, villages, migrations. We use DNA t
 
 ## [Field Notes](./notes/)
 
-Findings, essays, and updates from documenting Kaitag language, history, and people.
+Findings, essays, and updates from our work.
 
-<PostCard v-for="n in notes.slice(0, 2)" :key="n.url" :page="n"/>
+[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) ·
+[GitHub](https://github.com/urssivar)
 
 --- {.air}
 
-[**Telegram**](https://t.me/urssivar) — quick updates, excerpts, links, discussions.
-
-[**YouTube**](https://youtube.com/@urssivar) — video essays, product demos, announcements.
-
-[**GitHub**](https://github.com/urssivar) — open-source tools, datasets, documentation.
+<PostCard v-for="n in notes.slice(0, 3)" :key="n.url" :page="n"/>
 
 </article>
