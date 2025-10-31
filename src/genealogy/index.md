@@ -19,7 +19,7 @@ The Kaitags are an indigenous ethnic group of Dagestan whose language belongs to
 
 Kaitags border closely related Kubachins and Dargins to the northwest, Lezgic peoples (Tabasarans and Aghuls) to the southwest, and Turkic populations (Kumyks and Terekeme) to the east. Historically, there was also a significant Juhuri (Mountain Jewish) population.
 
-The Kaitag principality emerges in historical records from the 8th century AD, controlling strategic territories inland of Derbent. For over a millennium the principality maintained independence through resistance to successive imperial powers — Persian, Arab, Mongol, Ottoman, Russian — until the latter gradually eroded its sovereignty during the Caucasian War.
+The Kaitag principality emerges in historical records from the 8th century AD, controlling strategic territories inland of Derbent. For over a millennium Kaitag resisted successive imperial powers — Persian, Arab, Mongol, Ottoman, Russian — until the latter gradually eroded its sovereignty during the Caucasian War.
 
 The position at the crossroads of civilizations, access to Caspian trade routes, and the region's diverse ethnic composition shaped Kaitags into a distinctive part of the East Caucasian mosaic.
 
