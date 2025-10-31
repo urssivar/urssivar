@@ -31,11 +31,11 @@ This data becomes the foundation for researching Kaitag. With enough of it, ling
 
 ## [Kaitag Language](./language/)
 
-Linguistic documentation — from systematic grammar to living speech.
+To preserve the Kaitag language, we document it in its living form — through words and speech. What we don't capture now, while the last generation of speakers is alive, will be lost irretrievably.
 
-**Dictionary:** 5,000+ entries documenting forms across the varieties. Built through native speaker contributions.
+**Dictionary:** Building the most complete lexical database across villages and dialects. Every word, variant, and form matters.
 
-**Oral texts:** Recordings of natural speech — tales, memories, dialogues, prayers. Capturing not just words, but thought patterns and cultural expression.
+**Oral texts:** Recording natural speech — tales, memories, dialogues, prayers. Preserving not just vocabulary, but mentality and culture.
 
 ## [Kaitag Genealogy](./genealogy/)
 
