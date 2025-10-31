@@ -1,6 +1,6 @@
 ---
 title: "Urssivar: Kaitag Studies"
-description: "Resources & technologies for preserving and studying Kaitag language, culture, history, and people."
+description: "Preserving and studying Kaitag language, culture, history, and people."
 
 landing: true
 wide: true
@@ -19,7 +19,7 @@ import { data as notes } from './notes/notes.data';
 
 _Наллара дел да. Ьам ра бел._ {lang=xdq}
 
-Urssivar works on preserving the legacy of the Kaitag people of Dagestan through language archives, genealogical records, and genetic analysis. **Time is running out** — this is the last chance to capture what remains before the last bearers of tradition are gone.
+Urssivar works on preserving the legacy of the Kaitag people of Dagestan through language archives, genealogical records, and genetic analysis. **Time is running out** — this is our final chance to capture what remains before the last bearers of tradition are gone.
 
 </article>
 
@@ -27,23 +27,23 @@ Urssivar works on preserving the legacy of the Kaitag people of Dagestan through
 
 <article>
 
-We're building a foundation for future research. With enough data, linguists will be able to classify dialects and understand how the language developed, while geneticists can verify legends about village origins and reconstruct ancient history of the people.
+What we capture now becomes the foundation for understanding Kaitag. With enough data, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people. All of this depends **on us**.
 
 ## [Kaitag Language](./language/)
 
-Comprehensive linguistic record — from systematic grammar to living speech.
+Linguistic documentation — from systematic grammar to living speech.
 
 **Dictionary:** 5,000+ entries documenting forms across the varieties. Built through native speaker contributions.
 
-**Oral texts:** Natural speech recordings — tales, memories, dialogues, prayers. Captures not just words, but thought patterns and cultural expression.
+**Oral texts:** Recordings of natural speech — tales, memories, dialogues, prayers. Capturing not just words, but thought patterns and cultural expression.
 
 ## [Kaitag Genealogy](./genealogy/)
 
-Lineage reconstruction combining traditional genealogy with modern genetics to trace family origins and connections.
+Reconstructing lineages by combining traditional genealogy with modern genetics.
 
-**Family trees:** Generational records of names, lifespans, settlements, and migrations. Maps kinship networks and movement patterns across the territory.
+**Family trees:** Documenting names, lifespans, settlements, and migrations across generations. Mapping kinship networks and movement patterns across the territory.
 
-**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA (USA). Confirms relationships, reconstructs clan branches, reveals migration history.
+**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA (USA). Working to confirm family origins, reconstruct clan branches, and trace migration history.
 
 </article>
 

@@ -12,7 +12,8 @@ import { customSlugify } from "./utils";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Urssivar: Kaitag Studies",
-  description: "Resources & technologies for preserving and studying Kaitag language, culture, history, and people.",
+  titleTemplate: false,
+  description: "Preserving and studying Kaitag language, culture, history, and people.",
   srcDir: 'src',
   lang: 'en',
 

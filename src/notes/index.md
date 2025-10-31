@@ -1,4 +1,7 @@
 ---
+title: "Urssivar: Field Notes"
+description: "Findings, essays, and updates from documenting Kaitag language, history, and people."
+
 landing: true
 ---
 

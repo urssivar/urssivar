@@ -1,4 +1,7 @@
 ---
+title: "Urssivar: Kaitag Language"
+description: "Grammar, dictionary, and documentation of the Kaitag language."
+
 landing: true
 wide: true
 ---
@@ -17,7 +20,7 @@ In 1938, Soviet language planning demoted Kaitag from an independent language to
 
 By the end of the 20th century, Russian had become the dominant language of education and public life. Natural transmission has ceased in the 21st century. Today, fluent speakers remain only among the elderly. The language exists in a critical state — undocumented, unstandardized, and disappearing with each generation. Much has already been lost.
 
-But this is not the time to die. This will be a story of our perseverance. We are writing it now.
+But what remains is worth the fight.
 
 </article>
 
@@ -27,11 +30,11 @@ But this is not the time to die. This will be a story of our perseverance. We ar
 
 ## Grammar
 
-Systematic codification of Kaitag grammar — the foundational model for understanding how the language works.
+Codification of Kaitag grammar — a model for understanding how the language works.
 
 ## Dictionary
 
-Comprehensive lexical database with 5,000+ entries — the core reference for standardizing Kaitag vocabulary.
+Lexical database with 5,000+ entries — a reference for standardizing Kaitag vocabulary.
 
 ## Phrasebook
 
