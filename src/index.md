@@ -19,7 +19,7 @@ import { data as notes } from './notes/notes.data';
 
 _Наллара дел да. Ьам ра бел._ {lang=xdq}
 
-Urssivar works on preserving the legacy of the Kaitag people of Dagestan through language archives, genealogical records, and genetic analysis. **Time is running out** — this is our final chance to capture what remains before the last bearers of tradition are gone.
+We work on preserving the legacy of the Kaitag people of Dagestan through language archives, genealogical records, and genetic analysis. **Time is running out** — this is our final chance to capture what remains before the last bearers of tradition are gone.
 
 </article>
 
