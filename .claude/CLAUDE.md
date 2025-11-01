@@ -60,6 +60,33 @@ Campaign updates: language documentation, DNA research, village visits, archival
 - **Typography:** `font-medium` weight, `text-muted` (neutral-500) → `text-highlighted` (neutral-900) on hover
 - **Footer:** License · Write to us (plain `<a>` tags, middot separator)
 
+### Anchors & IDs
+
+**English Anchors for Multilingual Consistency:**
+
+Russian pages use manually-specified English anchors to ensure consistency across languages:
+
+```markdown
+## Русский заголовок {#english-anchor}
+```
+
+**Why English anchors:**
+
+- Consistent cross-language linking (same anchor works for EN/RU)
+- Clean URLs (no Cyrillic percent-encoding)
+- Better SEO and accessibility
+- Stable identifiers (independent of heading text changes)
+
+**Where applied:**
+
+- Landing pages (index, genealogy, language) - ✅ Done
+- Grammar pages - as content is written
+- Important sections needing cross-references
+
+**Exception:** Dictionary entries use database IDs (`{#word-1234}`) for uniqueness and programmatic linking.
+
+**Auto-numbering:** Pages with `numbered: true` frontmatter display visual numbers (1, 1.1, 2) via CSS counters, but anchors remain semantic (`#facts`, not `#1`).
+
 ### Cross-Linking (Future)
 
 - **Grammar → Dictionary:** Manual, selective links to key example words
@@ -100,8 +127,8 @@ Campaign updates: language documentation, DNA research, village visits, archival
   - [ ] Dictionary
   - [ ] Phrasebook & texts ?
 
-- [ ] Decouple auto-numbers from anchors
-- [ ] Use English anchors for /ru pages
+- [x] Decouple auto-numbers from anchors
+- [x] Use English anchors for /ru pages (landing pages done)
 
 - [ ] Dictionary
 
