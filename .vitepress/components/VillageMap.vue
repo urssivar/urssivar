@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import villages from "@/data/villages.json";
 import type { LatLngBoundsExpression } from "leaflet";
 import { computed, ref } from "vue";
-import { useAutoCycle } from "@/composables/useAutoHover";
+import { useAutoCycle } from "@/composables/useAutoCycle";
 
 const villageBounds = computed<LatLngBoundsExpression>(() => {
   const lats = villages.map((v) => v.lat);

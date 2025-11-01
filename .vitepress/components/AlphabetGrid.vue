@@ -2,7 +2,7 @@
 import { useDictData, type Letter } from "@/composables/useDictData";
 import { cleanHeadword } from "@/utils";
 import { reactive, ref } from "vue";
-import { useAutoCycle } from "@/composables/useAutoHover";
+import { useAutoCycle } from "@/composables/useAutoCycle";
 
 const { letters, dict } = useDictData();
 
