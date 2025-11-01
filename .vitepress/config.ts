@@ -4,7 +4,7 @@ import ui from '@nuxt/ui/vite';
 import anchor from 'markdown-it-anchor';
 import MdMultimdTable from "markdown-it-multimd-table";
 import MdMark from "markdown-it-mark";
-import MdAutoNumber from "./plugins/markdown-it-auto-number";
+import MdNumbering from "./plugins/markdown-it-numbering";
 import MdCustomSpans from "./plugins/markdown-it-custom-spans";
 import MdColonBlock from "./plugins/markdown-it-colon-block";
 import { uiConfig } from "./ui.config";
@@ -58,7 +58,7 @@ export default defineConfig({
         autolabel: false,
       });
       md.use(MdMark);
-      md.use(MdAutoNumber);
+      md.use(MdNumbering);
       md.use(MdCustomSpans);
       md.use(MdColonBlock);
     },
