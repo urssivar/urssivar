@@ -3,7 +3,8 @@ import { LMap, LImageOverlay, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
 import "leaflet/dist/leaflet.css";
 import villages from "@/data/villages.json";
 import type { LatLngBoundsExpression } from "leaflet";
-import { computed, onBeforeUnmount, ref } from "vue";
+import { computed, ref } from "vue";
+import { useAutoCycle } from "@/composables/useAutoHover";
 
 const villageBounds = computed<LatLngBoundsExpression>(() => {
   const lats = villages.map((v) => v.lat);
@@ -58,42 +59,26 @@ function deselectVillage() {
   )?.classList.remove("hover");
 }
 
-let autoHoverTimer: ReturnType<typeof setTimeout> | null = null;
-
-function scheduleAutoHover() {
-  const DURATION = 2500;
-  const PAUSE = 500;
-
-  autoHoverTimer = setTimeout(() => {
+const autoHover = useAutoCycle({
+  onEnter: () => {
     const i = Math.floor(Math.random() * villages.length);
     selectVillage(i);
-    autoHoverTimer = setTimeout(() => {
-      deselectVillage();
-      scheduleAutoHover();
-    }, DURATION);
-  }, PAUSE);
-}
-
-function pauseAutoHover() {
-  if (autoHoverTimer) {
-    clearTimeout(autoHoverTimer);
-    autoHoverTimer = null;
-  }
-}
+  },
+  onExit: deselectVillage,
+  duration: 2500,
+  gap: 500,
+  resumeDelay: 1000,
+});
 
 function onVillageEnter(i: number) {
-  pauseAutoHover();
+  autoHover.stop();
   selectVillage(i);
 }
 
 function onVillageLeave() {
-  const DELAY = 1000;
-
   deselectVillage();
-  autoHoverTimer = setTimeout(scheduleAutoHover, DELAY);
+  autoHover.resume();
 }
-
-onBeforeUnmount(pauseAutoHover);
 </script>
 
 <template>
@@ -116,10 +101,7 @@ onBeforeUnmount(pauseAutoHover);
           :options="mapOptions"
           :use-global-leaflet="false"
           class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
-          @ready="(mapInstance: any) => {
-            mapInstance.fitBounds(villageBounds);
-            scheduleAutoHover();
-          }"
+          @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)"
         >
           <LImageOverlay
             url="/map.webp"

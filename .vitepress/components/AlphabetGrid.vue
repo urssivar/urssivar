@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useDictData, type Letter } from "@/composables/useDictData";
 import { cleanHeadword } from "@/utils";
-import { onBeforeUnmount, onMounted, reactive, ref } from "vue";
+import { reactive, ref } from "vue";
+import { useAutoCycle } from "@/composables/useAutoHover";
 
 const { letters, dict } = useDictData();
 
@@ -15,42 +16,30 @@ function setRandomWord(l: Letter) {
 }
 
 const selectedLetter = ref<Letter | null>(null);
-let autoHoverTimer: ReturnType<typeof setTimeout> | null = null;
 
-function scheduleAutoHover() {
-  const DURATION = 2000;
+const autoHover = useAutoCycle({
+  onEnter: () => {
+    const i = Math.floor(Math.random() * letters.value.length);
+    const letter = letters.value[i];
 
-  const i = Math.floor(Math.random() * letters.value.length);
-  const letter = letters.value[i];
-
-  selectedLetter.value = letter;
-  setRandomWord(letter);
-
-  autoHoverTimer = setTimeout(scheduleAutoHover, DURATION);
-}
-
-function pauseAutoHover() {
-  if (autoHoverTimer) {
-    clearTimeout(autoHoverTimer);
-    autoHoverTimer = null;
-  }
-}
+    selectedLetter.value = letter;
+    setRandomWord(letter);
+  },
+  duration: 2000,
+  gap: 0,
+  resumeDelay: 1000,
+});
 
 function onLetterEnter(l: Letter) {
-  pauseAutoHover();
+  autoHover.stop();
   selectedLetter.value = l;
   setRandomWord(l);
 }
 
 function onLetterLeave() {
-  const DELAY = 1000;
-
   selectedLetter.value = null;
-  autoHoverTimer = setTimeout(scheduleAutoHover, DELAY);
+  autoHover.resume();
 }
-
-onMounted(scheduleAutoHover);
-onBeforeUnmount(pauseAutoHover);
 </script>
 
 <template>
