@@ -7,7 +7,7 @@ interface HeaderElement {
   id: string;
   text: string;
   level: number;
-  number?: string;
+  numbering: string | null;
 }
 
 const headers = ref<HeaderElement[]>([]);
@@ -15,35 +15,20 @@ const { observingId, observer } = useElementIdObserver();
 
 const observeHeaders = () => {
   observer.value?.disconnect();
-  const elements = document.querySelectorAll("article :is(h1, h2, h3, h4)[id]");
-  const counters = { h2: 0, h3: 0, h4: 0 };
+  const elements = document.querySelectorAll(
+    "article :is(h1, h2, h3, h4, h5, h6)[id]"
+  );
 
   headers.value = [];
   elements.forEach((el) => {
-    const level = parseInt(el.tagName[1]);
-    let numbering = [] as number[];
-
-    if (el.hasAttribute("data-numbered")) {
-      if (level === 2) {
-        counters.h2++;
-        counters.h3 = 0;
-        counters.h4 = 0;
-        numbering = [counters.h2];
-      } else if (level === 3) {
-        counters.h3++;
-        counters.h4 = 0;
-        numbering = [counters.h2, counters.h3];
-      } else if (level === 4) {
-        counters.h4++;
-        numbering = [counters.h2, counters.h3, counters.h4];
-      }
-    }
+    const h = el.cloneNode(true) as HTMLElement;
+    h.querySelector(".header-anchor")?.remove();
 
     headers.value.push({
-      level,
-      text: el.textContent || "",
-      id: el.id,
-      number: numbering.join("."),
+      level: parseInt(h.tagName[1]),
+      text: h.textContent,
+      id: h.id,
+      numbering: h.getAttribute("data-numbering"),
     });
     observer.value?.observe(el);
   });
@@ -62,17 +47,15 @@ onContentUpdated(observeHeaders);
       :href="`#${h.id}`"
       :class="{ 'text-highlighted': observingId === h.id }"
     >
-      <div
+      <span
+        :data-numbering="h.numbering"
         :class="{
           'ml-3': h.level === 3,
           'ml-6': h.level === 4,
         }"
       >
-        <span v-if="h.number" class="select-none mr-[0.5em]">{{
-          h.number
-        }}</span
-        >{{ h.text }}
-      </div>
+        {{ h.text }}
+      </span>
     </a>
   </nav>
 </template>

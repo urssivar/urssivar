@@ -49,40 +49,6 @@
   }
 
   h1 {
-    counter-reset: h2-counter h3-counter h4-counter;
-  }
-
-  h2[data-numbered] {
-    counter-increment: h2-counter;
-    counter-reset: h3-counter h4-counter;
-  }
-
-  h3[data-numbered] {
-    counter-increment: h3-counter;
-    counter-reset: h4-counter;
-  }
-
-  h4[data-numbered] {
-    counter-increment: h4-counter;
-  }
-
-  h2[data-numbered]::before {
-    content: counter(h2-counter) " ";
-    @apply mr-[0.5em] select-none;
-  }
-
-  h3[data-numbered]::before {
-    content: counter(h2-counter) "." counter(h3-counter) " ";
-    @apply mr-[0.5em] select-none;
-  }
-
-  h4[data-numbered]::before {
-    content: counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter)
-      " ";
-    @apply mr-[0.5em] select-none;
-  }
-
-  h1 {
     @apply text-3xl;
   }
 
@@ -171,7 +137,7 @@
     }
   }
 
-  :is(h1, h2, h3, h4, h5, h6) {
+  :is(h2, h3, h4, h5, h6) {
     > .header-anchor {
       @apply absolute left-0 -translate-x-full font-medium text-muted hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
     }
@@ -179,6 +145,15 @@
     &:hover > .header-anchor {
       @apply opacity-100;
     }
+  }
+
+  h1 .header-anchor {
+    @apply hidden;
+  }
+
+  [data-numbering]::before {
+    content: attr(data-numbering);
+    @apply mr-[0.5em] select-none;
   }
 
   .colon-block {

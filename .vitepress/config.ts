@@ -47,7 +47,7 @@ export default defineConfig({
 
   markdown: {
     anchor: {
-      level: [2, 3, 4],
+      level: [1, 2, 3, 4],
       permalink: anchor.permalink.linkInsideHeader({
         symbol: '§'
       })
