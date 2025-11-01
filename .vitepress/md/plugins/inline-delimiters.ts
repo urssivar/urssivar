@@ -1,46 +1,43 @@
 import type MarkdownIt from 'markdown-it';
 import type StateInline from 'markdown-it/lib/rules_inline/state_inline.mjs';
+import type { DelimiterRule } from './types';
 
-interface DelimiterConfig {
-  marker: string;
-  tokenName: string;
-  tag: string;
-  attrs?: Record<string, string>;
-}
+export default function inlineDelimiters(
+  md: MarkdownIt,
+  rules: DelimiterRule[]
+) {
+  rules.forEach((rule) => {
+    const { delimiter, tokenName, tag, attrs } = rule;
+    const delimiterCode = delimiter.charCodeAt(0);
+    const delimiterLen = delimiter.length;
 
-function createDelimiterPlugin(config: DelimiterConfig) {
-  const { marker, tokenName, tag, attrs } = config;
-  const markerCode = marker.charCodeAt(0);
-  const markerLen = marker.length;
-
-  return function (md: MarkdownIt) {
     function tokenize(state: StateInline, silent: boolean) {
       const start = state.pos;
       const src = state.src;
 
       if (silent) return false;
-      if (!src.startsWith(marker, start)) return false;
+      if (!src.startsWith(delimiter, start)) return false;
 
       const scanned = state.scanDelims(start, true);
       let len = scanned.length;
 
-      if (len < markerLen) return false;
+      if (len < delimiterLen) return false;
 
       // Handle odd-length sequences
-      if (len % markerLen) {
+      if (len % delimiterLen) {
         const token = state.push('text', '', 0);
-        token.content = marker.slice(0, len % markerLen);
-        len -= len % markerLen;
+        token.content = delimiter.slice(0, len % delimiterLen);
+        len -= len % delimiterLen;
       }
 
-      for (let i = 0; i < len; i += markerLen) {
+      for (let i = 0; i < len; i += delimiterLen) {
         const token = state.push('text', '', 0);
-        token.content = marker;
+        token.content = delimiter;
 
         if (!scanned.can_open && !scanned.can_close) continue;
 
         state.delimiters.push({
-          marker: markerCode,
+          marker: delimiterCode,
           length: 0,
           token: state.tokens.length - 1,
           end: -1,
@@ -59,7 +56,7 @@ function createDelimiterPlugin(config: DelimiterConfig) {
       for (let i = 0; i < max; i++) {
         const startDelim = delimiters[i];
 
-        if (startDelim.marker !== markerCode) continue;
+        if (startDelim.marker !== delimiterCode) continue;
         if (startDelim.end === -1) continue;
 
         const endDelim = delimiters[startDelim.end];
@@ -68,14 +65,14 @@ function createDelimiterPlugin(config: DelimiterConfig) {
         token_o.type = `${tokenName}_open`;
         token_o.tag = tag;
         token_o.nesting = 1;
-        token_o.markup = marker;
+        token_o.markup = delimiter;
         token_o.content = '';
 
         const token_c = state.tokens[endDelim.token];
         token_c.type = `${tokenName}_close`;
         token_c.tag = tag;
         token_c.nesting = -1;
-        token_c.markup = marker;
+        token_c.markup = delimiter;
         token_c.content = '';
       }
     }
@@ -84,8 +81,10 @@ function createDelimiterPlugin(config: DelimiterConfig) {
     const attrsStr = attrs
       ? Object.entries(attrs).map(([k, v]) => `${k}="${v}"`).join(' ')
       : '';
-    md.renderer.rules[`${tokenName}_open`] = () => `<${tag}${attrsStr ? ' ' + attrsStr : ''}>`;
-    md.renderer.rules[`${tokenName}_close`] = () => `</${tag}>`;
+    md.renderer.rules[`${tokenName}_open`] =
+      () => `<${tag}${attrsStr ? ' ' + attrsStr : ''}>`;
+    md.renderer.rules[`${tokenName}_close`] =
+      () => `</${tag}>`;
 
     md.inline.ruler.before('emphasis', tokenName, tokenize);
     md.inline.ruler2.before('emphasis', tokenName, function (state) {
@@ -95,27 +94,12 @@ function createDelimiterPlugin(config: DelimiterConfig) {
       postProcess(state, state.delimiters);
 
       for (let curr = 0; curr < max; curr++) {
-        if (tokens_meta && tokens_meta[curr]?.delimiters) {
-          postProcess(state, tokens_meta[curr].delimiters);
+        const delimeters = tokens_meta[curr]?.delimiters;
+        if (delimeters) {
+          postProcess(state, delimeters);
         }
       }
       return false;
     });
-  };
-}
-
-export default function (md: MarkdownIt) {
-  md.use(createDelimiterPlugin({
-    marker: '++',
-    tokenName: 'kaitag',
-    tag: 'span',
-    attrs: { lang: 'xdq' }
-  }));
-
-  md.use(createDelimiterPlugin({
-    marker: '--',
-    tokenName: 'gloss',
-    tag: 'span',
-    attrs: { class: 'gloss' }
-  }));
+  });
 }

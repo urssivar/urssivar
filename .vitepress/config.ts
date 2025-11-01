@@ -1,13 +1,8 @@
 import { defineConfig } from 'vitepress';
 import path from "path";
 import ui from '@nuxt/ui/vite';
-import anchor from 'markdown-it-anchor';
-import MdMultimdTable from "markdown-it-multimd-table";
-import MdMark from "markdown-it-mark";
-import MdNumbering from "./plugins/markdown-it-numbering";
-import MdCustomSpans from "./plugins/markdown-it-custom-spans";
-import MdColonBlock from "./plugins/markdown-it-colon-block";
-import { uiConfig } from "./ui.config";
+import mdConfig from "./md";
+import uiConfig from "./ui.config";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -45,25 +40,7 @@ export default defineConfig({
     }
   },
 
-  markdown: {
-    anchor: {
-      level: [1, 2, 3, 4],
-      permalink: anchor.permalink.linkInsideHeader({
-        symbol: '§'
-      })
-    },
-    config: (md) => {
-      md.use(MdMultimdTable, {
-        multibody: false,
-        autolabel: false,
-      });
-      md.use(MdMark);
-      md.use(MdNumbering);
-      md.use(MdCustomSpans);
-      md.use(MdColonBlock);
-    },
-  },
-
+  markdown: mdConfig,
   vite: {
     server: {
       host: '0.0.0.0',
