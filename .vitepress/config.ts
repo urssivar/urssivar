@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 import path from "path";
 import ui from '@nuxt/ui/vite';
+import anchor from 'markdown-it-anchor';
 import MdMultimdTable from "markdown-it-multimd-table";
 import MdMark from "markdown-it-mark";
 import MdAutoNumber from "./plugins/markdown-it-auto-number";
@@ -45,6 +46,12 @@ export default defineConfig({
   },
 
   markdown: {
+    anchor: {
+      level: [2, 3, 4],
+      permalink: anchor.permalink.linkInsideHeader({
+        symbol: '§'
+      })
+    },
     config: (md) => {
       md.use(MdMultimdTable, {
         multibody: false,

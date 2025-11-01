@@ -171,16 +171,14 @@
     }
   }
 
-  :is(h2, h3, h4) .header-anchor {
-    @apply absolute left-0 -translate-x-full font-medium text-muted opacity-0 transition-opacity duration-200 no-underline;
-
-    &::before {
-      @apply pr-[0.375em] content-['§'];
+  :is(h1, h2, h3, h4, h5, h6) {
+    > .header-anchor {
+      @apply absolute left-0 -translate-x-full font-medium text-muted hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
     }
-  }
 
-  :is(h2, h3, h4):hover .header-anchor {
-    @apply opacity-100;
+    &:hover > .header-anchor {
+      @apply opacity-100;
+    }
   }
 
   .colon-block {
