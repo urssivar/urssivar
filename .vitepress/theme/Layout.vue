@@ -4,7 +4,6 @@ import { Content, useData } from "vitepress";
 import TableOfContents from "./components/TableOfContents.vue";
 import SidebarNav from "./components/SidebarNav.vue";
 import NavBar from "./components/NavBar.vue";
-import { useHeaderClicks } from "@/composables/useHeaderClicks";
 import { useLanguageNav } from "@/composables/useLanguageNav";
 import { useI18n } from "@/composables/useI18n";
 import Footer from "./components/Footer.vue";
@@ -12,7 +11,6 @@ import Header from "./components/Header.vue";
 import NotesHeader from "./components/NotesHeader.vue";
 
 const { frontmatter } = useData();
-useHeaderClicks();
 
 const { currentSection } = useLanguageNav();
 const { t } = useI18n();

@@ -45,7 +45,41 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold leading-tight;
+    @apply font-semibold leading-tight relative;
+  }
+
+  h1 {
+    counter-reset: h2-counter h3-counter h4-counter;
+  }
+
+  h2[data-numbered] {
+    counter-increment: h2-counter;
+    counter-reset: h3-counter h4-counter;
+  }
+
+  h3[data-numbered] {
+    counter-increment: h3-counter;
+    counter-reset: h4-counter;
+  }
+
+  h4[data-numbered] {
+    counter-increment: h4-counter;
+  }
+
+  h2[data-numbered]::before {
+    content: counter(h2-counter) " ";
+    @apply mr-[0.5em] select-none;
+  }
+
+  h3[data-numbered]::before {
+    content: counter(h2-counter) "." counter(h3-counter) " ";
+    @apply mr-[0.5em] select-none;
+  }
+
+  h4[data-numbered]::before {
+    content: counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter)
+      " ";
+    @apply mr-[0.5em] select-none;
   }
 
   h1 {
@@ -70,16 +104,6 @@
 
   h6 {
     @apply text-sm mt-2;
-  }
-
-  :is(h2, h3, h4)[id] {
-    &::before {
-      @apply absolute -translate-x-full pr-[0.375em] font-medium text-muted opacity-0 transition-opacity duration-200 content-['§'] cursor-pointer;
-    }
-
-    &:hover::before {
-      @apply opacity-100;
-    }
   }
 
   p,
@@ -147,8 +171,16 @@
     }
   }
 
-  .header-number {
-    @apply mr-[0.5em] select-none;
+  :is(h2, h3, h4) .header-anchor {
+    @apply absolute left-0 -translate-x-full font-medium text-muted opacity-0 transition-opacity duration-200 no-underline;
+
+    &::before {
+      @apply pr-[0.375em] content-['§'];
+    }
+  }
+
+  :is(h2, h3, h4):hover .header-anchor {
+    @apply opacity-100;
   }
 
   .colon-block {
