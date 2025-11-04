@@ -11,7 +11,7 @@ const { letters, dict } = useDictData();
 <template>
   <div
     v-if="variant === 'sidebar'"
-    class="grid ml-4 grid-cols-4 xl:grid-cols-7 border-default border-t pt-1.5 mt-1.5"
+    class="grid ml-4 grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 border-default border-t border-dashed pt-1.5 mt-1.5"
   >
     <a
       v-for="l in letters"
