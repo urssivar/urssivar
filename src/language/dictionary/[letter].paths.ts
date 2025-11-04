@@ -1,10 +1,8 @@
-import { useDictData } from "@/composables/useDictData";
+import dict from "../../../.vitepress/data/dict.json";
 
 export default {
   paths() {
-    const { letters } = useDictData();
-
-    return Object.keys(letters).map((letter) => ({
+    return Object.keys(dict).map((letter) => ({
       params: { letter }
     }));
   }

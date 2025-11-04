@@ -1,1 +1,0 @@
-- Nouns (_N_) list the nominative case as the headword (++тьу́пп++)
