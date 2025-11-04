@@ -2,7 +2,7 @@
 
 Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>  
 Uzlipat Gasanova, +7 960 408-99-18, <uzlipat066@mail.ru>  
-5,171 lexemes · DB 20.05.2025 · doc 29.05.2025 · license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) {.text-sm .italic}
+5,171 lexemes · DB 20.05.2025 · doc 04.11.2025 · license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) {.text-sm .italic}
 
 This work primarily draws on the speech of the villages **Turaga** (Irchamul microregion) and **Shilyagi** (Lower Kattagan microregion). The the core of the lexical database is from the dissertation of **Gasanova U. U. (2012)**, with whom we spent countless hours refining the material. Additional resources include the works of **Temirbulatova S. M. (2004, 2008, 2021)** and **Gabibova K. M. (2009)**.
 
@@ -164,7 +164,7 @@ The modern Kaitag alphabet, developed in 2024 and based on Cyrillic, consists of
 
 - Presentation: ["Evolving the Kaitag script"](https://youtu.be/Ad2o1hwYagA) on YouTube
 - Mobile keyboards: [Yandex Keyboard](https://redirect.appmetrica.yandex.com/serve/172416875559437678) and [Google Gboard](https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin)
-- Automatic text converter: [Yaziv](https://yaziv.raxys.app/?lang=xdq&to=0&from=3&text=%D0%BA%D1%8A%D0%B0%D0%B1%D0%B0%D0%B3%D1%8A+%D0%B1%D0%B5%D0%BB%D1%85%D1%8C%D1%83%D0%BD)
+- Automatic text converter: [Yaziv](https://yaziv.raxys.app/xdq?from=cyr_soviet&to=cyr&text=%D1%86%D0%B0%D0%BA%D1%8A%D0%BA%D1%8A%D0%B0+%D0%BA%D1%8A%D0%B0%D0%B1%D0%B0%D0%B3%D1%8A)
 
 ### Dictionary Navigation
 
@@ -178,10 +178,6 @@ The modern Kaitag alphabet, developed in 2024 and based on Cyrillic, consists of
       @apply my-0;
       td {
          @apply text-xs whitespace-nowrap;
-
-         [lang=xdq] {
-            @apply text-lg leading-none;
-         }
       }
    }
 }
