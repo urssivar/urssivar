@@ -5,6 +5,9 @@ import villages from "@/data/villages.json";
 import type { LatLngBoundsExpression } from "leaflet";
 import { computed, ref } from "vue";
 import { useAutoCycle } from "@/composables/autoCycle";
+import { useI18n } from "@/composables/i18n";
+
+const { t } = useI18n();
 
 const villageBounds = computed<LatLngBoundsExpression>(() => {
   const lats = villages.map((v) => v.lat);
@@ -31,7 +34,6 @@ const mapOptions = {
   doubleClickZoom: false,
   boxZoom: false,
   keyboard: false,
-  attributionControl: false,
 };
 
 const tooltipOpen = ref(false);
@@ -108,6 +110,8 @@ function onVillageLeave() {
             :bounds="imageBounds"
             :opacity="1"
             class-name="map-backdrop-image"
+            :attribution="`<a href='https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4' target='_blank'
+  rel='noopener'>${t('map.villageData')}</a>`"
           />
           <LMarker
             v-for="(village, i) in villages"
@@ -140,6 +144,18 @@ function onVillageLeave() {
 /* Override Leaflet default styles */
 :deep(.leaflet-container) {
   @apply bg-transparent;
+}
+
+/* Hide default Leaflet attribution, keep only custom attribution */
+:deep(.leaflet-control-attribution) {
+  @apply bg-transparent mb-3 mr-2 p-0;
+
+  > :nth-child(-n + 2) {
+    @apply hidden;
+  }
+  a {
+    @apply bg-default rounded-sm font-sans font-medium text-xs py-1.5 px-2.5 no-underline text-muted hover:text-highlighted;
+  }
 }
 
 :deep(.map-backdrop-image) {

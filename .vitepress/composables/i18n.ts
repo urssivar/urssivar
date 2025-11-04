@@ -7,6 +7,9 @@ const messages = {
       search: 'Search',
       localeSwitch: 'Русский'
     },
+    map: {
+      villageData: 'Villages sheet'
+    },
     nav: {
       menu: 'Menu',
       toc: 'Contents'
@@ -26,6 +29,9 @@ const messages = {
       home: 'Главная',
       search: 'Поиск',
       localeSwitch: 'English'
+    },
+    map: {
+      villageData: 'Таблица сёл'
     },
     nav: {
       menu: 'Меню',
