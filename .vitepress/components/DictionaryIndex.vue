@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import { useDictData } from "@/composables/dictionary";
+import { useData } from "vitepress";
+import { computed } from "vue";
 
 defineProps<{
   variant: "print" | "intro" | "sidebar";
 }>();
 
 const { letters, dict } = useDictData();
+
+const { params } = useData();
+
+const letter = computed(() => {
+  const l = params.value?.letter;
+  return letters.value.includes(l) ? l : "";
+});
 </script>
 
 <template>
@@ -18,6 +27,7 @@ const { letters, dict } = useDictData();
       :href="`./${l}`"
       :key="l"
       class="capitalize text-center"
+      :class="{ active: l === letter }"
     >
       {{ l }}
     </a>

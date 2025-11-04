@@ -45,7 +45,7 @@ onContentUpdated(observeHeaders);
       v-for="h in headers"
       :key="h.id"
       :href="`#${h.id}`"
-      :class="{ 'text-highlighted': observingId === h.id }"
+      :class="{ active: observingId === h.id }"
     >
       <span
         :data-numbering="h.numbering"

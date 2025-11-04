@@ -33,7 +33,7 @@ defineEmits<{
         :href="getArticlePath(article)"
         class="ml-4"
         :class="{
-          'text-highlighted': article.path === currentArticle?.path,
+          active: article.path === currentArticle?.path,
         }"
         @click="$emit('navigate')"
       >

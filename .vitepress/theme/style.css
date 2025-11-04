@@ -138,6 +138,10 @@
 
     a {
       @apply py-1.5 px-2.5 no-underline hover:text-highlighted!;
+
+      &.active {
+        @apply text-highlighted!;
+      }
     }
   }
 
