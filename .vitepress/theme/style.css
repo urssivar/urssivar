@@ -45,7 +45,7 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold leading-tight relative;
+    @apply font-semibold leading-tight;
   }
 
   h1 {
@@ -141,9 +141,11 @@
     }
   }
 
-  :is(h2, h3, h4, h5, h6) {
+  *:has(> .header-anchor) {
+    @apply relative;
+
     > .header-anchor {
-      @apply absolute left-0 -translate-x-full font-medium text-muted hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
+      @apply absolute font-sans left-0 -translate-x-full text-muted hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
     }
 
     &:hover > .header-anchor {

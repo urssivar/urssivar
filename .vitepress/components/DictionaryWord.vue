@@ -16,6 +16,7 @@ defineProps<{
 
 <template>
   <p :id="word.id" class="pl-3 -indent-3 m-0">
+    <a class="header-anchor mt-px" :href="`#${word.id}`">#</a>
     <span lang="xdq" class="font-semibold">
       {{ word.headword }}
     </span>
