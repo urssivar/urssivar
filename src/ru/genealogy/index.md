@@ -8,7 +8,7 @@ landing: true
 <script setup lang="ts">
 import DNATable from "@/components/DNATable.vue";
 import DNAChart from "@/components/DNAChart.vue";
-import { useDNAData } from "@/composables/useDNAData";
+import { useDNAData } from "@/composables/dna";
 
 const { kits, villages, haplogroupMap } = useDNAData();
 </script>

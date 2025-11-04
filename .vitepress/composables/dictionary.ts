@@ -1,5 +1,5 @@
 import { computed } from "vue";
-import dict from "@/data/dict.json";
+import dict from "@/data/dictionary.json";
 
 export type Letter = keyof typeof dict;
 

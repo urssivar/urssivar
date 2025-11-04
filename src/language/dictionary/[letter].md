@@ -2,9 +2,9 @@
 import { useData } from 'vitepress';
 import { onMounted } from 'vue';
 import { capitalize } from '@/utils';
-import { useDictData } from '@/composables/useDictData';
+import { useDictData } from '@/composables/dictionary';
 
-import DictWord from '@/components/DictWord.vue';
+import DictWord from '@/components/DictionaryWord.vue';
 
 const { params } = useData();
 const letter = params.value.letter;

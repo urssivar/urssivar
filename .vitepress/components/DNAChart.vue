@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, computed } from "vue";
 import * as d3 from "d3";
-import { useDNAData } from "@/composables/useDNAData";
+import { useDNAData } from "@/composables/dna";
 
 const { haplogroupMap } = useDNAData();
 const svgRef = ref<SVGSVGElement>();

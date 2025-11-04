@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import NavBar from "./NavBar.vue";
-import { useI18n } from "@/composables/useI18n";
+import { useI18n } from "@/composables/i18n";
 
 const { t } = useI18n();
 </script>

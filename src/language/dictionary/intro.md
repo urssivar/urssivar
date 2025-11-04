@@ -1,5 +1,5 @@
 <script setup>
-import DictIndex from '@/components/DictIndex.vue';
+import DictIndex from '@/components/DictionaryIndex.vue';
 </script>
 
 <!--@include: ./intro_.md-->

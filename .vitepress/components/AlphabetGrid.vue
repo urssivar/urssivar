@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useDictData, type Letter } from "@/composables/useDictData";
+import { useDictData, type Letter } from "@/composables/dictionary";
 import { cleanHeadword } from "@/utils";
 import { reactive, ref } from "vue";
-import { useAutoCycle } from "@/composables/useAutoCycle";
+import { useAutoCycle } from "@/composables/autoCycle";
 
 const { letters, dict } = useDictData();
 

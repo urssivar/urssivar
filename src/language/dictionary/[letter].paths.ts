@@ -1,4 +1,4 @@
-import dict from "../../../.vitepress/data/dict.json";
+import dict from "../../../.vitepress/data/dictionary.json";
 
 export default {
   paths() {

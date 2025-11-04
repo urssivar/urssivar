@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import NavBar from "./NavBar.vue";
 import LocaleSwitch from "./LocaleSwitch.vue";
-import { useI18n } from "@/composables/useI18n";
+import { useI18n } from "@/composables/i18n";
 import { computed } from "vue";
 import { useData } from "vitepress";
 

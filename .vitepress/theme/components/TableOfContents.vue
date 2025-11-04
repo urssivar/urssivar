@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { onContentUpdated } from "vitepress";
-import { useElementIdObserver } from "@/composables/useElementIdObserver";
+import { useElementIdObserver } from "@/composables/elementIdObserver";
 
 interface HeaderElement {
   id: string;

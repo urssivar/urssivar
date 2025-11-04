@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDNAData } from "@/composables/useDNAData";
+import { useDNAData } from "@/composables/dna";
 
 const { kits } = useDNAData();
 

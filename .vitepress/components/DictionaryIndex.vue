@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDictData } from "@/composables/useDictData";
+import { useDictData } from "@/composables/dictionary";
 
 defineProps<{
   mode: "print" | "intro" | "sidebar";

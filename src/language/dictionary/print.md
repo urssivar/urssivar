@@ -1,8 +1,8 @@
 <script setup>
 import { capitalize } from '@/utils';
-import DictWord from '@/components/DictWord.vue';
-import DictIndex from '@/components/DictIndex.vue';
-import { useDictData } from '@/composables/useDictData';
+import DictWord from '@/components/DictionaryWord.vue';
+import DictIndex from '@/components/DictionaryIndex.vue';
+import { useDictData } from '@/composables/dictionary';
 
 const { dict } = useDictData();
 </script>

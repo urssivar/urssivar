@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useLanguageNav } from "@/composables/useLanguageNav";
-import DictIndex from "@/components/DictIndex.vue";
+import { useLanguageNav } from "@/composables/languageNav";
+import DictIndex from "@/components/DictionaryIndex.vue";
 
 const {
   nav,

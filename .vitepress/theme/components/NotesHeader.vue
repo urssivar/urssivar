@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useData } from "vitepress";
-import { useI18n } from "@/composables/useI18n";
+import { useI18n } from "@/composables/i18n";
 import { dateString } from "@/utils";
 
 const { frontmatter, lang, page } = useData();
