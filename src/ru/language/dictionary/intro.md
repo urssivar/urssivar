@@ -1,3 +1,7 @@
-# Кайтагский словарь
+<script setup>
+import DictIndex from '@/components/DictionaryIndex.vue';
+</script>
 
-В будущем здесь появится кайтагский словарь.
+<!--@include: ./_intro.md-->
+
+<DictIndex variant="intro"/>
