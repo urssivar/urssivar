@@ -9,7 +9,7 @@ const { dict } = useDictData();
 
 <!--@include: ./intro_.md-->
 
-<DictIndex mode="print"/>
+<DictIndex variant="print"/>
 
 <div class='columns-2 break-before-page'>
     <template v-for="(words, letter) in dict">

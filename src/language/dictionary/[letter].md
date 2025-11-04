@@ -11,7 +11,7 @@ const letter = params.value.letter;
 const { dict } = useDictData();
 </script>
 
-<h1>{{ capitalize(letter) }}</h1>
+<h1 lang="xdq">{{ capitalize(letter) }}</h1>
 
 <br/>
 

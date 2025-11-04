@@ -4,4 +4,4 @@ import DictIndex from '@/components/DictionaryIndex.vue';
 
 <!--@include: ./intro_.md-->
 
-<DictIndex mode="intro"/>
+<DictIndex variant="intro"/>

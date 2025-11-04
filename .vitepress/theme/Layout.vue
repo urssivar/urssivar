@@ -72,7 +72,7 @@ const menuOpen = ref(false);
 
       <div
         v-if="currentSection"
-        class="lg:px-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]"
+        class="lg:px-4 gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]"
       >
         <aside class="hidden lg:block">
           <SidebarNav class="sticky top-8" @navigate="menuOpen = false" />

@@ -42,7 +42,10 @@ defineEmits<{
         </span>
       </a>
 
-      <DictIndex v-if="currentSection?.path === 'dictionary'" mode="sidebar" />
+      <DictIndex
+        v-if="currentSection?.path === 'dictionary'"
+        variant="sidebar"
+      />
     </div>
 
     <a
