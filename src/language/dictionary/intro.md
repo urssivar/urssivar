@@ -2,6 +2,6 @@
 import DictIndex from '@/components/DictionaryIndex.vue';
 </script>
 
-<!--@include: ./intro_.md-->
+<!--@include: ./_intro.md-->
 
 <DictIndex variant="intro"/>

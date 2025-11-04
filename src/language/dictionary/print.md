@@ -7,7 +7,7 @@ import { useDictData } from '@/composables/dictionary';
 const { dict } = useDictData();
 </script>
 
-<!--@include: ./intro_.md-->
+<!--@include: ./_intro.md-->
 
 <DictIndex variant="print"/>
 
