@@ -3,6 +3,7 @@ import path from "path";
 import ui from '@nuxt/ui/vite';
 import mdConfig from "./md";
 import uiConfig from "./ui.config";
+import { capitalize } from './utils';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -28,6 +29,15 @@ export default defineConfig({
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet' }]
   ],
+
+  async transformPageData(pageData) {
+    if (pageData.relativePath.includes('/dictionary/')
+      && pageData.params?.letter) {
+      const letter = capitalize(pageData.params.letter);
+      pageData.title = `${letter} · Kaitag Dictionary`;
+      pageData.description = `Kaitag words starting with ${letter}`;
+    }
+  },
 
   locales: {
     root: {

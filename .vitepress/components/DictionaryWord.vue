@@ -15,8 +15,8 @@ defineProps<{
 </script>
 
 <template>
-  <p class="pl-3 -indent-3 m-0">
-    <span :id="cleanHeadword(word.headword)" lang="xdq" class="font-semibold">
+  <p :id="word.id" class="pl-3 -indent-3 m-0">
+    <span lang="xdq" class="font-semibold">
       {{ word.headword }}
     </span>
     {{ " " }}
