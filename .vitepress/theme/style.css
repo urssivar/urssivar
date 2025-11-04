@@ -45,7 +45,7 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold leading-tight;
+    @apply font-semibold leading-tight relative;
   }
 
   h1 {
@@ -70,16 +70,6 @@
 
   h6 {
     @apply text-sm mt-2;
-  }
-
-  :is(h2, h3, h4)[id] {
-    &::before {
-      @apply absolute -translate-x-full pr-[0.375em] font-medium text-muted opacity-0 transition-opacity duration-200 content-['§'] cursor-pointer;
-    }
-
-    &:hover::before {
-      @apply opacity-100;
-    }
   }
 
   p,
@@ -147,7 +137,22 @@
     }
   }
 
-  .header-number {
+  :is(h2, h3, h4, h5, h6) {
+    > .header-anchor {
+      @apply absolute left-0 -translate-x-full font-medium text-muted hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
+    }
+
+    &:hover > .header-anchor {
+      @apply opacity-100;
+    }
+  }
+
+  h1 .header-anchor {
+    @apply hidden;
+  }
+
+  [data-numbering]::before {
+    content: attr(data-numbering);
     @apply mr-[0.5em] select-none;
   }
 

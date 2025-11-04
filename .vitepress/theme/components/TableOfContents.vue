@@ -5,8 +5,9 @@ import { useElementIdObserver } from "@/composables/useElementIdObserver";
 
 interface HeaderElement {
   id: string;
-  html: string;
+  text: string;
   level: number;
+  numbering: string | null;
 }
 
 const headers = ref<HeaderElement[]>([]);
@@ -14,35 +15,28 @@ const { observingId, observer } = useElementIdObserver();
 
 const observeHeaders = () => {
   observer.value?.disconnect();
-  const elements = document.querySelectorAll("article :is(h1, h2, h3, h4)");
+  const elements = document.querySelectorAll(
+    "article :is(h1, h2, h3, h4, h5, h6)[id]"
+  );
 
   headers.value = [];
   elements.forEach((el) => {
-    if (el.id) {
-      headers.value.push({
-        level: parseInt(el.tagName[1]),
-        html: el.innerHTML,
-        id: el.id,
-      });
-      observer.value?.observe(el);
-    }
+    const h = el.cloneNode(true) as HTMLElement;
+    h.querySelector(".header-anchor")?.remove();
+
+    headers.value.push({
+      level: parseInt(h.tagName[1]),
+      text: h.textContent,
+      id: h.id,
+      numbering: h.getAttribute("data-numbering"),
+    });
+    observer.value?.observe(el);
   });
 };
 
 onMounted(observeHeaders);
 
 onContentUpdated(observeHeaders);
-
-const getPadding = (level: number) => {
-  switch (level) {
-    case 3:
-      return "ml-3";
-    case 4:
-      return "ml-6";
-    default:
-      return "";
-  }
-};
 </script>
 
 <template>
@@ -53,7 +47,15 @@ const getPadding = (level: number) => {
       :href="`#${h.id}`"
       :class="{ 'text-highlighted': observingId === h.id }"
     >
-      <div :class="getPadding(h.level)" v-html="h.html" />
+      <span
+        :data-numbering="h.numbering"
+        :class="{
+          'ml-3': h.level === 3,
+          'ml-6': h.level === 4,
+        }"
+      >
+        {{ h.text }}
+      </span>
     </a>
   </nav>
 </template>

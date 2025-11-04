@@ -1,4 +1,6 @@
-export const uiConfig = {
+import type { NuxtUIOptions } from "@nuxt/ui/unplugin";
+
+export default <NuxtUIOptions>{
   colors: {
     primary: 'blue',
     neutral: 'neutral',
