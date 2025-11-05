@@ -10,8 +10,8 @@ export const languageNav: LanguageNav = {
         path: 'grammar',
         articles: [
           { title: 'Введение', path: 'intro' },
-          { title: 'Падежи', path: 'cases' },
-          { title: 'Связки', path: 'copulas' },
+          // { title: 'Падежи', path: 'cases' },
+          // { title: 'Связки', path: 'copulas' },
         ]
       },
       {
@@ -32,8 +32,8 @@ export const languageNav: LanguageNav = {
         path: 'grammar',
         articles: [
           { title: 'Introduction', path: 'intro' },
-          { title: 'Cases', path: 'cases' },
-          { title: 'Copulas', path: 'copulas' },
+          // { title: 'Cases', path: 'cases' },
+          // { title: 'Copulas', path: 'copulas' },
         ]
       },
       {
