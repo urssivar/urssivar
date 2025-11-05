@@ -28,17 +28,17 @@ defineEmits<{
       </a>
 
       <a
-        v-for="article in currentSection.articles"
-        :key="article.path"
-        :href="getArticlePath(article)"
+        v-for="a in currentSection.articles"
+        :key="a.path"
+        :href="getArticlePath(a)"
         class="ml-4"
         :class="{
-          active: article.path === currentArticle?.path,
+          active: a.path === currentArticle?.path,
         }"
         @click="$emit('navigate')"
       >
         <span>
-          {{ article.title }}
+          {{ a.title }}
         </span>
       </a>
 
@@ -48,13 +48,14 @@ defineEmits<{
       />
     </div>
 
-    <a
-      v-for="section in nav.sections"
-      :key="section.path"
-      :href="getSectionPath(section)"
-      @click="$emit('navigate')"
-    >
-      {{ section.title }}
-    </a>
+    <template v-for="s in nav.sections" :key="s.path">
+      <a
+        v-if="currentSection?.path !== s.path"
+        :href="getSectionPath(s)"
+        @click="$emit('navigate')"
+      >
+        {{ s.title }}
+      </a>
+    </template>
   </nav>
 </template>
