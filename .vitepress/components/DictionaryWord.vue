@@ -1,16 +1,8 @@
 <script setup lang="ts">
-import { cleanHeadword } from "@/utils";
+import type { Word } from "@/composables/dictionary";
 
 defineProps<{
-  word: {
-    id: string;
-    headword: string;
-    ipa: string;
-    tags: string[];
-    forms?: string[];
-    variants?: string[];
-    definitions: string[];
-  };
+  word: Word;
 }>();
 </script>
 
