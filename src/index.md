@@ -17,9 +17,9 @@ import { data as notes } from './notes/notes.data';
 
 # Urssivar: Kaitag Studies
 
-_Наллара дел да. Ьам ра бел._ {lang=xdq}
+++_Наллара дел да. Ьам ра бел._++
 
-We work on preserving the legacy of the Kaitag people of Dagestan. As elder generations pass away, we race against time to capture what remains before it's lost forever.
+Reclaiming the legacy of the Kaitag people of Dagestan. The race against time to preserve what remains before it vanishes forever.
 
 </article>
 
@@ -27,7 +27,9 @@ We work on preserving the legacy of the Kaitag people of Dagestan. As elder gene
 
 <article>
 
-This data becomes the foundation for researching Kaitag. With enough of it, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people. All of this depends **on us**.
+This data becomes the foundation for understanding Kaitag. With sufficient volume, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people.
+
+There's much to be done.
 
 ## [Kaitag Language](./language/)
 
