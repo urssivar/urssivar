@@ -91,7 +91,7 @@
   }
 
   table {
-    @apply w-full border-collapse rounded-sm bg-elevated text-[0.875rem];
+    @apply my-6 w-full border-collapse rounded-sm bg-elevated text-[0.875rem];
   }
 
   tbody {
@@ -178,5 +178,13 @@
 
   .air {
     @apply my-6 border-0;
+  }
+
+  .fig {
+    @apply my-6 rounded-sm w-full object-cover object-top dark:opacity-90;
+  }
+
+  .figcap {
+    @apply -mt-3 mb-6 italic text-center text-xs text-toned;
   }
 }
