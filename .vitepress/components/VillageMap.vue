@@ -118,7 +118,7 @@ function onVillageLeave() {
           @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)"
         >
           <LImageOverlay
-            url="/map.webp"
+            url="/assets/map.webp"
             :bounds="imageBounds"
             :opacity="1"
             class-name="map-backdrop-image"

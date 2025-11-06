@@ -9,7 +9,7 @@
 Словарь доступен в трёх форматах:
 
 - Вебсайт [Urssivar.com](https://urssivar.com/ru/language/dictionary/intro) — для удобного доступа с любого устройства
-- [PDF документ](/xdq-rus%20dictionary.pdf) — для локального хранения и печати
+- [PDF документ](/assets/pdfs/kaitag-dictionary-ru.pdf) — для локального хранения и печати
 - Таблица [Google Sheets](https://docs.google.com/spreadsheets/d/1TAvQAMAw0jDdStvq2Z1E-m1mz3UWkCMGQBgLCnPQgJs) — для анализа данных и лингвистических исследований
 
 А также краткий видеокомментарий: ["Встречайте кайтагский словарь"](https://youtu.be/zLPXSASLAFA) на YouTube.

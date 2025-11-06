@@ -23,7 +23,7 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon-light.svg', media: '(prefers-color-scheme: light)' }],
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon-dark.svg', media: '(prefers-color-scheme: dark)' }],
 
-    ['link', { rel: 'preload', as: 'image', href: '/map.webp', type: 'image/webp' }],
+    ['link', { rel: 'preload', as: 'image', href: '/assets/map.webp', type: 'image/webp' }],
 
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
