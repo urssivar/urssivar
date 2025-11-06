@@ -1,5 +1,7 @@
 import { useData } from 'vitepress';
 
+export type Lang = 'en' | 'ru';
+
 const messages = {
   en: {
     header: {
@@ -53,7 +55,7 @@ export function useI18n() {
   const { lang } = useData();
 
   const t = (key: string): string => {
-    const locale = lang.value as 'en' | 'ru';
+    const locale = lang.value as Lang;
     const keys = key.split('.');
     let value: any = messages[locale];
 

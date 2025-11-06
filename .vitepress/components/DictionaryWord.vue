@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import type { Word } from "@/composables/dictionary";
+import type { Lang } from "@/composables/i18n";
+import { useData } from "vitepress";
+import { computed } from "vue";
 
 defineProps<{
   word: Word;
 }>();
+
+const data = useData();
+
+const lang = computed(() => {
+  return data.lang.value as Lang;
+});
 </script>
 
 <template>
@@ -14,10 +23,10 @@ defineProps<{
     </span>
     {{ " " }}
     <span class="text-xs text-toned italic">
-      {{ word.tags.join(" ") }}
+      {{ word.tags[lang].join(" ") }}
     </span>
     {{ " " }}
-    {{ word.definitions.map((w) => w + ";").join(" ") }}
+    {{ word.definitions[lang].map((w) => w + ";").join(" ") }}
     <span lang="xdq" class="text-base text-toned font-medium">
       <span v-if="word.forms?.length"> ... {{ word.forms.join(", ") }} </span>
       <span v-if="word.variants?.length" class="italic">
