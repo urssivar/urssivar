@@ -10,7 +10,7 @@ import PostCard from "@/components/PostCard.vue";
 import { data as notes } from './notes.data';
 </script>
 
-# [Urssivar](../index#полевые-заметки): Полевые Заметки
+# [Urssivar](../index#полевые-заметки): Полевые заметки
 
 Находки, эссе и обновления о документировании кайтагского языка, истории и народа.
 
