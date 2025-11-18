@@ -2,8 +2,7 @@
 title: "Urssivar: Кайтагский язык"
 description: "Грамматика, словарь и документация кайтагского языка."
 
-landing: true
-wide: true
+layout: landing
 ---
 
 <script setup lang="ts">

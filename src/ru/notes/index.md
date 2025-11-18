@@ -2,13 +2,15 @@
 title: "Urssivar: Полевые Заметки"
 description: "Находки, эссе и обновления о документировании кайтагского языка, истории и народа."
 
-landing: true
+layout: landing
 ---
 
 <script setup lang="ts">
 import PostCard from "@/components/PostCard.vue";
 import { data as notes } from './notes.data';
 </script>
+
+<article>
 
 # [Urssivar](../index#полевые-заметки): Полевые заметки
 
@@ -19,3 +21,5 @@ import { data as notes } from './notes.data';
 --- {.air}
 
 <PostCard v-for="n in notes" :key="n.url" :page="n"/>
+
+</article>

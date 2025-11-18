@@ -2,13 +2,15 @@
 title: "Urssivar: Field Notes"
 description: "Findings, essays, and updates from documenting Kaitag language, history, and people."
 
-landing: true
+layout: landing
 ---
 
 <script setup lang="ts">
 import PostCard from "@/components/PostCard.vue";
 import { data as notes } from './notes.data';
 </script>
+
+<article>
 
 # [Urssivar](../index#field-notes): Field Notes
 
@@ -19,3 +21,5 @@ Findings, essays, and updates from documenting Kaitag language, history, and peo
 --- {.air}
 
 <PostCard v-for="n in notes" :key="n.url" :page="n"/>
+
+</article>

@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { Content, useData } from "vitepress";
+import { Content } from "vitepress";
 import TableOfContents from "./components/TableOfContents.vue";
 import SidebarNav from "./components/SidebarNav.vue";
 import NavBar from "./components/NavBar.vue";
 import { useLanguageNav } from "@/composables/languageNav";
+import { useLayout } from "@/composables/layout";
 import { useI18n } from "@/composables/i18n";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import NotesHeader from "./components/NotesHeader.vue";
 
-const { frontmatter } = useData();
-
+const layout = useLayout();
 const { currentSection } = useLanguageNav();
 const { t } = useI18n();
 
@@ -24,7 +24,7 @@ const menuOpen = ref(false);
       <Header />
 
       <NavBar
-        v-if="currentSection"
+        v-if="layout === 'docs'"
         class="lg:hidden sticky top-0 z-10 border-default border-b bg-default/75 backdrop-blur-sm shadow-xs"
       >
         <template #leading>
@@ -76,8 +76,9 @@ const menuOpen = ref(false);
 
       <hr class="air" />
 
+      <!-- Docs layout: three-column with sidebars -->
       <div
-        v-if="currentSection"
+        v-if="layout === 'docs'"
         class="lg:px-4 lg:gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]"
       >
         <aside
@@ -92,9 +93,18 @@ const menuOpen = ref(false);
           <TableOfContents class="sticky top-8" />
         </aside>
       </div>
-      <Content v-else-if="frontmatter.wide" />
-      <article v-else>
+
+      <!-- Landing layout: full-width -->
+      <Content v-else-if="layout === 'landing'" />
+
+      <!-- Post layout: article with notes header -->
+      <article v-else-if="layout === 'post'">
         <NotesHeader />
+        <Content />
+      </article>
+
+      <!-- Article layout: simple article -->
+      <article v-else>
         <Content />
       </article>
 

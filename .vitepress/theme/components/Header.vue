@@ -2,18 +2,18 @@
 import NavBar from "./NavBar.vue";
 import LocaleSwitch from "./LocaleSwitch.vue";
 import { useI18n } from "@/composables/i18n";
+import { useLayout } from "@/composables/layout";
 import { computed } from "vue";
-import { useData } from "vitepress";
 
-const { frontmatter } = useData();
 const { t, buildPath } = useI18n();
+const layout = useLayout();
 
 const homeLink = computed(() => {
   return buildPath("/");
 });
 
-const isLanding = computed(() => {
-  return frontmatter.value.landing;
+const showBrand = computed(() => {
+  return layout.value !== 'landing';
 });
 </script>
 
@@ -32,7 +32,7 @@ const isLanding = computed(() => {
             class="mx-1 size-6 invert-[90%] dark:invert-0 select-none pointer-events-none"
           />
           <span
-            v-if="!isLanding"
+            v-if="showBrand"
             aria-hidden="true"
             class="font-bold text-lg text-highlighted"
           >

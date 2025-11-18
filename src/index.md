@@ -2,8 +2,7 @@
 title: "Urssivar: Kaitag Studies"
 description: "Preserving and studying Kaitag language, culture, history, and people."
 
-landing: true
-wide: true
+layout: landing
 ---
 
 <script setup lang="ts">

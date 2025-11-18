@@ -2,7 +2,7 @@
 title: "Urssivar: Kaitag Genealogy"
 description: "Y-DNA distribution and family lineages of the Kaitags."
 
-landing: true
+layout: landing
 ---
 
 <script setup lang="ts">
@@ -12,6 +12,8 @@ import { useDNAData } from "@/composables/dna";
 
 const { kits, villages, haplogroupMap } = useDNAData();
 </script>
+
+<article>
 
 # [Urssivar](../index#kaitag-genealogy): Kaitag Genealogy
 
@@ -32,3 +34,5 @@ We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.co
 <DNAChart/>
 
 <DNATable />
+
+</article>

@@ -2,7 +2,7 @@
 title: "Urssivar: Кайтагская генеалогия"
 description: "Y-ДНК распределение и родословные кайтагов."
 
-landing: true
+layout: landing
 ---
 
 <script setup lang="ts">
@@ -12,6 +12,8 @@ import { useDNAData } from "@/composables/dna";
 
 const { kits, villages, haplogroupMap } = useDNAData();
 </script>
+
+<article>
 
 # [Urssivar](../index#kaitag-genealogy): Кайтагская генеалогия
 
@@ -32,3 +34,5 @@ const { kits, villages, haplogroupMap } = useDNAData();
 <DNAChart/>
 
 <DNATable />
+
+</article>

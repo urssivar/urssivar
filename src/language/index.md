@@ -2,8 +2,7 @@
 title: "Urssivar: Kaitag Language"
 description: "Grammar, dictionary, and documentation of the Kaitag language."
 
-landing: true
-wide: true
+layout: landing
 ---
 
 <script setup lang="ts">
