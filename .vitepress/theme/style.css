@@ -61,15 +61,15 @@
   }
 
   h4 {
-    @apply text-lg mt-4;
+    @apply text-lg mt-6;
   }
 
   h5 {
-    @apply text-base mt-3;
+    @apply text-base mt-5;
   }
 
   h6 {
-    @apply text-sm mt-2;
+    @apply text-sm mt-4;
   }
 
   p,
