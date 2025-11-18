@@ -130,7 +130,7 @@
   }
 
   .gloss {
-    @apply text-toned text-[0.875em];
+    @apply text-default text-[0.875em];
   }
 
   .navlinks {

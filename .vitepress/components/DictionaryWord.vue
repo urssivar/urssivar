@@ -27,7 +27,7 @@ const lang = computed(() => {
     </span>
     {{ " " }}
     {{ word.definitions[lang].map((w) => w + ";").join(" ") }}
-    <span lang="xdq" class="text-base text-toned font-medium">
+    <span lang="xdq" class="text-base gloss font-medium">
       <span v-if="word.forms?.length"> ... {{ word.forms.join(", ") }} </span>
       <span v-if="word.variants?.length" class="italic">
         <br />
