@@ -65,13 +65,13 @@ A glottal stop /ʔ/ ++ъ++ is implicitly present before word-initial vowels but 
 
 The phoneme /l/ ++л++ assimilates to adjacent /n/ ++н++, and /n/ ++н++ assimilates to adjacent /b/ ++б++. To keep the orthography transparent, these assimilations are not reflected in writing. Examples:
 
-- ++у́ле++ --'eye'--, ++уле́н++- (OBL) > ++уле́нла [уленна] бира́ра++ --'to jinx'--
-- ++шин++ --'water'-- > ++шинбе́ [шимбе]++ --'waters'--
+- ++у́ле++ --'eye'--, ++уле́н++- (OBL) → ++уле́нла [уленна] бира́ра++ --'to jinx'--
+- ++шин++ --'water'-- → ++шинбе́ [шимбе]++ --'waters'--
 
 Some varieties lose consonant gemination in syllable-final position. However, gemination is restored when followed by a vowel, so it is consistently preserved in the orthography:
 
-- ++миҡҡ [миҡ]++ --'wedding'-- > ++ми́ҡҡи++ --'at wedding'--
-- ++уцци́++ --'brother'-- > ++уццбе́ [уцбе]++ --'brothers'--
+- ++миҡҡ [миҡ]++ --'wedding'-- → ++ми́ҡҡи++ --'at wedding'--
+- ++уцци́++ --'brother'-- → ++уццбе́ [уцбе]++ --'brothers'--
 
 Syllable-final /l/ ++л++ becomes palatalized after vowels /e/ ++е++, /i/ ++и++:
 
@@ -84,16 +84,16 @@ The four voiceless fricatives /s/ ++с++, /ʃ/ ++ш++, /x/ ++ҳ++, and /χ/ ++х
 
 1. Unlike geminated affricates and stops, their realization varies between villages without altering the meaning:
 
-   - ++атта́сса++ --'by father'-- (Sanchi) > ++атта́са++ (Shilyagi)
-   - ++баҳҳа́ра++ --'to walk'-- > ++баҳа́ра++
+   - ++атта́сса++ --'by father'-- (Sanchi) → ++атта́са++ (Shilyagi)
+   - ++баҳҳа́ра++ --'to walk'-- → ++баҳа́ра++
 
 2. It is clearly audible only between vowels:
 
-   - ++ччими́сси++ --'quince'-- (Shilyagi) > ++ччи́мсе++ (Turaga)
+   - ++ччими́сси++ --'quince'-- (Shilyagi) → ++ччи́мсе++ (Turaga)
 
 3. It consistently appears in plural forms with ++-е++:
 
-   - ++яру́с++ --'Russian'-- > ++яруссе́++ --'Russians'--
+   - ++яру́с++ --'Russian'-- → ++яруссе́++ --'Russians'--
    - but ++яру́си++ --'to [a] Russian'--
 
 For now, fricative gemination is not shown in the orthography (++ни́са [нисса]++) but is marked in the IPA in the table ([ˈnisːa]). Further study is needed.
@@ -116,16 +116,16 @@ To maintain transparent orthography, vowel assimilations in verb morphology are 
 
 The directional prefixes ++ка-++ /ka-/, ++ьа-++ /ha-/, ++ца-++ /tsa-/, as well as the negative prefix ++а-++ /a-/, become /æ/ ++я++ or /e/ ++е++ when followed by verb roots with these vowels:
 
-- ++бел++ --'still is'-- > ++а́бел [ебел]++ --'no more'--
-- ++ц́яун++ --'came'-- > ++а́цяун [яцяун]++ --'didn't come'--
-- ++бертта́ра++ --'to rip'-- > ++цабертта́ра [цеберттара]++ --'to tear'--
-- ++бяҡа́ра++ --'to wound'-- > ++ьабяҡа́ра [ьябяҡара]++ --'to kick'--.
+- ++бел++ --'still is'-- → ++а́бел [ебел]++ --'no more'--
+- ++ц́яун++ --'came'-- → ++а́цяун [яцяун]++ --'didn't come'--
+- ++бертта́ра++ --'to rip'-- → ++цабертта́ра [цеберттара]++ --'to tear'--
+- ++бяҡа́ра++ --'to wound'-- → ++ьабяҡа́ра [ьябяҡара]++ --'to kick'--.
 
 In most varieties, the vowel in the causative suffixes ++-их++ /-iχ/, ++-ух++ /-uχ/, and ++-ях++ /-æχ/ assimilates to the vowel that follows:
 
-- ++бара́ра++ --'to do'-- > ++бариха́ра [барахара]++ --'to force to do'--
-- ++биьо́ра++ --'to be'-- > ++биьуха́ра [биьахара]++ --'to let be, to make'--
-- ++бя́рғур++ --'dried'-- > ++бя́рғяхур [бярғухур]++ --'made dry'--
+- ++бара́ра++ --'to do'-- → ++бариха́ра [барахара]++ --'to force to do'--
+- ++биьо́ра++ --'to be'-- → ++биьуха́ра [биьахара]++ --'to let be, to make'--
+- ++бя́рғур++ --'dried'-- → ++бя́рғяхур [бярғухур]++ --'made dry'--
 
 #### Stress
 
@@ -136,25 +136,25 @@ Stress is prominent and contrastive in Kaitag. It is always marked on headwords:
 
 In case-inflected forms, stress shifts to the final syllable of the stem, immediately before the case suffix:
 
-- ++а́тта++ --'father'-- > ++атта́-ла++ --'father's'--
-- ++бизи́++ --'cat'-- > ++бизи́-цци++ --'with cat'--
-- ++Мяья́мад++ --'Muhammad'-- > ++Мяьяма́д-и++ --'to Muhammad'--
+- ++а́тта++ --'father'-- → ++атта́-ла++ --'father's'--
+- ++бизи́++ --'cat'-- → ++бизи́-цци++ --'with cat'--
+- ++Мяья́мад++ --'Muhammad'-- → ++Мяьяма́д-и++ --'to Muhammad'--
 
 This applies to the oblique stem when present:
 
-- ++чух++ --'walnut'-- > ++чуха́-ла++ --'of walnut'--
-- ++ляъ++ --'ear'-- > ++ляъу́н-жи++ --'onto ear'--
-- ++миҡе́ре++ --'chest'-- > ++миҡри́н-цци++ --'into chest'--
+- ++чух++ --'walnut'-- → ++чуха́-ла++ --'of walnut'--
+- ++ляъ++ --'ear'-- → ++ляъу́н-жи++ --'onto ear'--
+- ++миҡе́ре++ --'chest'-- → ++миҡри́н-цци++ --'into chest'--
 
 Plural forms have stress on the final syllable of the plural stem, before any case suffixes:
 
-- ++кка́лкка++ --'tree'--, ++ккилккне́++ --'trees'-- > ++ккилккна́-ла++ --'of trees'--
-- ++мургу́л++ --'man'--, ++миргле́++ --'men'-- > ++миргла́-ла++ --'of men'--
+- ++кка́лкка++ --'tree'--, ++ккилккне́++ --'trees'-- → ++ккилккна́-ла++ --'of trees'--
+- ++мургу́л++ --'man'--, ++миргле́++ --'men'-- → ++миргла́-ла++ --'of men'--
 
 In verbs, stress falls on the penultimate syllable in the infinitive and on the first syllable in other forms:
 
-- ++бара́ра++ --'to do'-- > ++ба́рив++ --'did'--
-- ++чицабуца́ра++ --'to put on'-- > ++чи́цабуца++ --'put on!'--
+- ++бара́ра++ --'to do'-- → ++ба́рив++ --'did'--
+- ++чицабуца́ра++ --'to put on'-- → ++чи́цабуца++ --'put on!'--
 
 ## Alphabet
 

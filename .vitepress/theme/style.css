@@ -5,7 +5,7 @@
 @import "@nuxt/ui";
 
 @theme {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Inter", "Noto Sans Math", sans-serif;
   --font-serif: "EB Garamond", serif;
 }
 
