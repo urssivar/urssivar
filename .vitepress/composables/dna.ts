@@ -1,7 +1,7 @@
 import { computed } from "vue";
 import kits from "@/data/dna.json";
 
-export const useDNAData = () => {
+export function useDNAData() {
   const villages = computed(() => {
     const villages = new Set<string>();
     kits.forEach((kit) => {
@@ -34,4 +34,4 @@ export const useDNAData = () => {
     villages,
     haplogroupMap,
   };
-};
+}

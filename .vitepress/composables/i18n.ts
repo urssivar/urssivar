@@ -54,7 +54,7 @@ const messages = {
 export function useI18n() {
   const { lang } = useData();
 
-  const t = (key: string): string => {
+  function t(key: string): string {
     const locale = lang.value as Lang;
     const keys = key.split('.');
     let value: any = messages[locale];
@@ -64,17 +64,12 @@ export function useI18n() {
     }
 
     return value || key;
-  };
+  }
 
-  /**
-   * Build a localized path from segments
-   * @example buildPath('/notes', '#intro') => '/ru/notes#intro' (for Russian)
-   * @example buildPath('/grammar/cases') => '/grammar/cases' (for English)
-   */
-  const buildPath = (...segments: string[]): string => {
+  function buildPath(...segments: string[]): string {
     const localePrefix = lang.value === "ru" ? "/ru" : "";
     return [localePrefix, ...segments].filter(Boolean).join("");
-  };
+  }
 
   return { t, buildPath };
 }

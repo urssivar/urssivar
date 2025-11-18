@@ -4,7 +4,7 @@ import dict from "@/data/dictionary.json";
 export type Letter = keyof typeof dict;
 export type Word = typeof dict[Letter][number];
 
-export const useDictData = () => {
+export function useDictData() {
   const letters = computed(() => {
     return Object.keys(dict) as Letter[];
   });
@@ -13,4 +13,4 @@ export const useDictData = () => {
     letters,
     dict,
   };
-};
+}

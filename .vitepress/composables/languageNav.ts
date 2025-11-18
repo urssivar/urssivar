@@ -14,11 +14,11 @@ export function useLanguageNav() {
     return languageNav[locale] || languageNav.en;
   });
 
-  const buildNavPath = (...items: (string | undefined)[]) => {
+  function buildNavPath(...items: (string | undefined)[]) {
     return buildPath('/', [nav.value.path, ...items]
       .filter(i => !!i)
       .join('/'));
-  };
+  }
 
   const currentSection = computed(() => {
     const sectionPath = router.route.path
