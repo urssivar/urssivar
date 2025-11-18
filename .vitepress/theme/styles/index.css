@@ -8,6 +8,7 @@
 @source "../**/*.vue";
 @source "../../src/**/*.md";
 @source "../ui.config.ts";
+@source "./*.css";
 @import "@nuxt/ui";
 
 /* Theme Configuration */
@@ -18,7 +19,7 @@
 
 /* Style Modules */
 @import "./base.css";
-@import "./language.css";
-@import "./navigation.css";
 @import "./components.css";
 @import "./utilities.css";
+@import "./language.css";
+@import "./navigation.css";
