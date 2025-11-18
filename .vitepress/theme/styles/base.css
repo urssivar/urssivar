@@ -1,0 +1,111 @@
+/**
+ * Base Styles
+ * HTML elements, typography fundamentals, tables, and layout containers
+ */
+
+@layer base {
+  /* Reset & Normalize */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Body & Typography Base */
+  body {
+    @apply font-sans leading-relaxed text-highlighted;
+  }
+
+  /* Lists */
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ol,
+  ul {
+    @apply list-outside pl-5 my-4;
+  }
+
+  li:has(span[lang="xdq"]) {
+    @apply leading-snug;
+  }
+
+  /* Headings Hierarchy */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold leading-tight;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl mt-12;
+  }
+
+  h3 {
+    @apply text-xl mt-8;
+  }
+
+  h4 {
+    @apply text-lg mt-6;
+  }
+
+  h5 {
+    @apply text-base mt-5;
+  }
+
+  h6 {
+    @apply text-sm mt-4;
+  }
+
+  /* Paragraphs & Basic Elements */
+  p,
+  table {
+    @apply my-4;
+  }
+
+  /* Interactive Elements */
+  a {
+    @apply transition-colors duration-200 underline underline-offset-[0.2em] decoration-(--ui-text-muted) hover:decoration-(--ui-text-highlighted);
+  }
+
+  hr {
+    @apply border-default;
+  }
+
+  mark {
+    @apply bg-transparent underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented)/75 text-inherit;
+    text-decoration-skip-ink: none;
+  }
+
+  /* Tables */
+  table {
+    @apply my-6 w-full border-collapse rounded-sm bg-elevated text-[0.875rem];
+  }
+
+  tbody {
+    tr {
+      @apply border-b border-default/50;
+
+      &:last-child {
+        @apply border-b-0;
+      }
+    }
+    td {
+      @apply px-3 py-1.5 align-text-top leading-snug;
+    }
+  }
+
+  /* Layout Container */
+  article {
+    @apply max-w-prose mx-auto px-6 sm:px-8;
+  }
+}

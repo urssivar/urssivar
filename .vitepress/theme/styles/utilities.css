@@ -1,0 +1,17 @@
+/**
+ * Utility Classes
+ * One-off utilities, auto-numbering, and special-purpose helpers
+ */
+
+@layer components {
+  /* Auto-numbering for Sections */
+  [data-numbering]::before {
+    content: attr(data-numbering);
+    @apply mr-[0.5em] select-none;
+  }
+
+  /* Spacer Utility */
+  .air {
+    @apply my-6 border-0;
+  }
+}

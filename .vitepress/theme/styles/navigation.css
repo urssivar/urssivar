@@ -1,0 +1,46 @@
+/**
+ * Navigation Styles
+ * Navigation links, header anchors, and interactive navigation elements
+ */
+
+@layer components {
+  /* App Isolation */
+  #app {
+    @apply isolate;
+  }
+
+  /* Navbar Container */
+  .navbar {
+    @apply max-w-prose mx-auto px-4 sm:px-6;
+  }
+
+  /* Navigation Links */
+  .navlinks {
+    @apply font-medium text-muted;
+
+    a {
+      @apply py-1.5 px-2.5 no-underline hover:text-highlighted!;
+
+      &.active {
+        @apply text-highlighted!;
+      }
+    }
+  }
+
+  /* Header Anchors (Section Links) */
+  *:has(> .header-anchor) {
+    @apply relative;
+
+    > .header-anchor {
+      @apply absolute font-sans left-0 -translate-x-full text-muted select-none hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
+    }
+
+    &:hover > .header-anchor {
+      @apply opacity-100;
+    }
+  }
+
+  h1 .header-anchor {
+    @apply hidden;
+  }
+}
