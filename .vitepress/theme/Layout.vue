@@ -31,7 +31,10 @@ const menuOpen = ref(false);
           <UDrawer
             direction="left"
             :handle="false"
-            :ui="{ content: 'w-2/3 sm:w-80 rounded-none p-8' }"
+            :ui="{
+              content: 'w-2/3 sm:w-80 rounded-none',
+              body: 'p-2',
+            }"
             v-model:open="menuOpen"
           >
             <UTooltip :text="t('nav.menu')">
@@ -40,8 +43,8 @@ const menuOpen = ref(false);
                 :aria-label="t('nav.menu')"
               />
             </UTooltip>
-            <template #content>
-              <SidebarNav class="w-full" @navigate="menuOpen = false" />
+            <template #body>
+              <SidebarNav @navigate="menuOpen = false" />
             </template>
           </UDrawer>
         </template>
@@ -53,7 +56,10 @@ const menuOpen = ref(false);
             direction="right"
             :handle="false"
             inset
-            :ui="{ content: 'w-2/3 sm:w-80 p-8' }"
+            :ui="{
+              content: 'w-2/3 sm:w-80',
+              body: 'p-2',
+            }"
           >
             <UTooltip :text="t('nav.toc')">
               <UButton
@@ -61,8 +67,8 @@ const menuOpen = ref(false);
                 :aria-label="t('nav.toc')"
               />
             </UTooltip>
-            <template #content>
-              <TableOfContents class="w-full text-sm!" />
+            <template #body>
+              <TableOfContents class="text-sm!" />
             </template>
           </UDrawer>
         </template>
@@ -77,7 +83,7 @@ const menuOpen = ref(false);
         <aside
           class="hidden lg:block border-r border-default border-dashed pr-4"
         >
-          <SidebarNav class="sticky top-8" @navigate="menuOpen = false" />
+          <SidebarNav @navigate="menuOpen = false" />
         </aside>
         <article class="w-full">
           <Content />
