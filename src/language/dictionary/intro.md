@@ -1,3 +1,7 @@
+---
+numbered: true
+---
+
 <script setup>
 import DictIndex from '@/components/DictionaryIndex.vue';
 </script>
