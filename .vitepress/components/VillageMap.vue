@@ -149,7 +149,7 @@ function onVillageLeave() {
 </template>
 
 <style scoped>
-@reference "@/theme/style.css";
+@reference "@/theme/styles/index.css";
 
 /* Override Leaflet default styles */
 :deep(.leaflet-container) {

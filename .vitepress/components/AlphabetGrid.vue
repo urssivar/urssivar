@@ -74,7 +74,7 @@ function onLetterLeave() {
 </template>
 
 <style scoped>
-@reference "@/theme/style.css";
+@reference "@/theme/styles/index.css";
 
 .letter:hover > :nth-child(1),
 .letter.current > :nth-child(1) {

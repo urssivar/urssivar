@@ -114,7 +114,7 @@ onMounted(() => {
 </template>
 
 <style>
-@reference "@/theme/style.css";
+@reference "@/theme/styles/index.css";
 
 .dna-slice {
   @apply stroke-4 stroke-(--ui-bg) transition duration-200;
