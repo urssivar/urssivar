@@ -4,16 +4,13 @@ import { useData } from "vitepress";
 import { useI18n } from "@/composables/i18n";
 import { dateString } from "@/utils";
 
-const { frontmatter, lang, page } = useData();
-const { t } = useI18n();
+const { frontmatter, page } = useData();
+const { t, buildPath } = useI18n();
 
 const notesLink = computed(() => {
   const path = page.value.filePath.split("/");
-  return (
-    (lang.value === "ru" ? "/ru" : "") +
-    "/notes#" +
-    path[path.length - 1].split(".")[0]
-  );
+  const anchor = "#" + path[path.length - 1].split(".")[0];
+  return buildPath("/notes", anchor);
 });
 </script>
 

@@ -5,11 +5,11 @@ import { useI18n } from "@/composables/i18n";
 import { computed } from "vue";
 import { useData } from "vitepress";
 
-const { lang, frontmatter } = useData();
-const { t } = useI18n();
+const { frontmatter } = useData();
+const { t, buildPath } = useI18n();
 
 const homeLink = computed(() => {
-  return lang.value === "ru" ? "/ru" : "/";
+  return buildPath("/");
 });
 
 const isLanding = computed(() => {

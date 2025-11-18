@@ -2,11 +2,12 @@ import { computed } from 'vue';
 import { useData, useRouter } from 'vitepress';
 import { languageNav } from '../nav/language';
 import { Article, Module, Section } from '@/nav/types';
-import type { Lang } from './i18n';
+import { useI18n, type Lang } from './i18n';
 
 export function useLanguageNav() {
   const { lang } = useData();
   const router = useRouter();
+  const { buildPath } = useI18n();
 
   const nav = computed<Module>(() => {
     const locale = lang.value as Lang;
@@ -14,10 +15,9 @@ export function useLanguageNav() {
   });
 
   const buildNavPath = (...items: (string | undefined)[]) => {
-    return (lang.value === 'ru' ? '/ru/' : '/')
-      + [nav.value.path, ...items]
-        .filter(i => !!i)
-        .join('/');
+    return buildPath('/', [nav.value.path, ...items]
+      .filter(i => !!i)
+      .join('/'));
   };
 
   const currentSection = computed(() => {

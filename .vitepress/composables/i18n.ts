@@ -66,5 +66,15 @@ export function useI18n() {
     return value || key;
   };
 
-  return { t };
+  /**
+   * Build a localized path from segments
+   * @example buildPath('/notes', '#intro') => '/ru/notes#intro' (for Russian)
+   * @example buildPath('/grammar/cases') => '/grammar/cases' (for English)
+   */
+  const buildPath = (...segments: string[]): string => {
+    const localePrefix = lang.value === "ru" ? "/ru" : "";
+    return [localePrefix, ...segments].filter(Boolean).join("");
+  };
+
+  return { t, buildPath };
 }
