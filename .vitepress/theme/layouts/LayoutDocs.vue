@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { Content } from "vitepress";
 import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
@@ -8,10 +8,19 @@ import DictionaryIndex from "@/components/DictionaryIndex.vue";
 import { useLanguageNav } from "@/composables/languageNav";
 import { useI18n } from "@/composables/i18n";
 import BaseLayout from "./BaseLayout.vue";
+import { useRoute } from "vitepress";
 
 const { currentSection } = useLanguageNav();
 const { t } = useI18n();
 const menuOpen = ref(false);
+
+const route = useRoute();
+watch(
+  () => route.path,
+  () => {
+    menuOpen.value = false;
+  }
+);
 </script>
 
 <template>

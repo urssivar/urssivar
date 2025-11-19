@@ -9,20 +9,16 @@ const {
   getSectionPath,
   getArticlePath,
 } = useLanguageNav();
-
-defineEmits<{
-  (e: "navigate"): void;
-}>();
 </script>
 
 <template>
   <nav class="navlinks text-sm flex flex-col">
-    <a :href="getModulePath()" @click="$emit('navigate')" class="mb-6">
+    <a :href="getModulePath()" class="mb-6">
       {{ nav.title }}
     </a>
 
     <div v-if="currentSection" class="flex flex-col mb-6">
-      <a :href="getSectionPath(currentSection)" @click="$emit('navigate')">
+      <a :href="getSectionPath(currentSection)">
         {{ currentSection.title }}
       </a>
 
@@ -34,7 +30,6 @@ defineEmits<{
         :class="{
           active: a.path === currentArticle?.path,
         }"
-        @click="$emit('navigate')"
       >
         <span>
           {{ a.title }}
@@ -45,11 +40,7 @@ defineEmits<{
     </div>
 
     <template v-for="s in nav.sections" :key="s.path">
-      <a
-        v-if="currentSection?.path !== s.path"
-        :href="getSectionPath(s)"
-        @click="$emit('navigate')"
-      >
+      <a v-if="currentSection?.path !== s.path" :href="getSectionPath(s)">
         {{ s.title }}
       </a>
     </template>
