@@ -2,9 +2,9 @@
   <div>
     <nav class="navbar flex items-center gap-4 h-16">
       <slot name="leading" />
-      <div class="flex-1" />
+      <div class="grow" />
       <slot />
-      <div class="flex-1" />
+      <div class="grow" />
       <slot name="trailing" />
     </nav>
   </div>
