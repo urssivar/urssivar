@@ -19,12 +19,12 @@ const layouts = {
 
 <template>
   <UApp :tooltip="{ delayDuration: 300 }">
-    <Header />
-    <hr class="air" />
-
-    <component :is="layouts[layout]" />
-
-    <hr class="grow air" />
-    <Footer />
+    <div class="min-h-screen flex flex-col">
+      <Header />
+      <div class="grow">
+        <component :is="layouts[layout]" />
+      </div>
+      <Footer />
+    </div>
   </UApp>
 </template>

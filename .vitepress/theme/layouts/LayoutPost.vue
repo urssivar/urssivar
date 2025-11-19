@@ -3,6 +3,7 @@ import { computed } from "vue";
 import { Content, useData } from "vitepress";
 import { useI18n } from "@/composables/i18n";
 import { dateString } from "@/utils";
+import BaseLayout from "./BaseLayout.vue";
 
 const { frontmatter, page } = useData();
 const { t, buildPath } = useI18n();
@@ -15,14 +16,16 @@ const notesLink = computed(() => {
 </script>
 
 <template>
-  <article>
-    <p v-if="frontmatter.date" class="mt-0">
-      <a :href="notesLink">
-        {{ t("notes.backToNotes") }}
-      </a>
-      ·
-      {{ dateString(frontmatter.date) }}
-    </p>
-    <Content />
-  </article>
+  <BaseLayout>
+    <article>
+      <p v-if="frontmatter.date" class="mt-0">
+        <a :href="notesLink">
+          {{ t("notes.backToNotes") }}
+        </a>
+        ·
+        {{ dateString(frontmatter.date) }}
+      </p>
+      <Content />
+    </article>
+  </BaseLayout>
 </template>

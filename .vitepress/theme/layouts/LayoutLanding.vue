@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { Content } from "vitepress";
+import BaseLayout from "./BaseLayout.vue";
 </script>
 
 <template>
-  <Content />
+  <BaseLayout>
+    <Content />
+  </BaseLayout>
 </template>
