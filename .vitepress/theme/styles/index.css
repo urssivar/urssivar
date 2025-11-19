@@ -1,24 +1,15 @@
-/**
- * Main Stylesheet
- * Imports all style modules in correct order
- */
-
-/* Tailwind & Framework Setup */
 @import "tailwindcss";
 @source "../../**/*.vue";
 @source "../../../src/**/*.md";
 @source "../../ui.config.ts";
 @import "@nuxt/ui";
 
-/* Theme Configuration */
 @theme {
   --font-sans: "Inter", "Noto Sans Math", sans-serif;
   --font-serif: "EB Garamond", serif;
 }
 
-/* Style Modules */
 @import "./base.css";
 @import "./components.css";
-@import "./utilities.css";
-@import "./language.css";
+@import "./text-formatting.css";
 @import "./navigation.css";

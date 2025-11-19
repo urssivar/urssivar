@@ -1,8 +1,3 @@
-/**
- * Content Components
- * Custom blocks, figures, charts, and content-specific elements
- */
-
 @layer components {
   /* Colon Blocks (:::note, etc.) */
   .colon-block {
@@ -38,5 +33,16 @@
         }
       }
     }
+  }
+
+  /* Auto-numbering for Sections */
+  [data-numbering]::before {
+    content: attr(data-numbering);
+    @apply mr-[0.5em] select-none;
+  }
+
+  /* Spacer Utility */
+  .air {
+    @apply my-6 border-0;
   }
 }

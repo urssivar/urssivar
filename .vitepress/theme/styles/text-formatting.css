@@ -1,10 +1,4 @@
-/**
- * Language-Specific Styles
- * Kaitag text styling and translation glosses
- */
-
 @layer components {
-  /* Kaitag Language Text */
   [lang="xdq"] {
     @apply font-serif;
 
@@ -13,8 +7,12 @@
     }
   }
 
-  /* Translation Glosses */
   .gloss {
     @apply text-default text-[0.875em];
+  }
+
+  mark {
+    @apply bg-transparent underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented)/75 text-inherit;
+    text-decoration-skip-ink: none;
   }
 }

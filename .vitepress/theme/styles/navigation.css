@@ -1,20 +1,12 @@
-/**
- * Navigation Styles
- * Navigation links, header anchors, and interactive navigation elements
- */
-
 @layer components {
-  /* App Isolation */
   #app {
     @apply isolate;
   }
 
-  /* Navbar Container */
   .navbar {
     @apply max-w-prose mx-auto px-4 sm:px-6;
   }
 
-  /* Navigation Links */
   .navlinks {
     @apply font-medium text-muted;
 
@@ -27,7 +19,6 @@
     }
   }
 
-  /* Header Anchors (Section Links) */
   *:has(> .header-anchor) {
     @apply relative;
 

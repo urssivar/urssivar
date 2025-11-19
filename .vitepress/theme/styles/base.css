@@ -1,20 +1,12 @@
-/**
- * Base Styles
- * HTML elements, typography fundamentals, tables, and layout containers
- */
-
 @layer base {
-  /* Reset & Normalize */
   * {
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Body & Typography Base */
   body {
     @apply font-sans leading-relaxed text-highlighted;
   }
 
-  /* Lists */
   ul {
     @apply list-disc;
   }
@@ -32,7 +24,6 @@
     @apply leading-snug;
   }
 
-  /* Headings Hierarchy */
   h1,
   h2,
   h3,
@@ -66,13 +57,11 @@
     @apply text-sm mt-4;
   }
 
-  /* Paragraphs & Basic Elements */
   p,
   table {
     @apply my-4;
   }
 
-  /* Interactive Elements */
   a {
     @apply transition-colors duration-200 underline underline-offset-[0.2em] decoration-(--ui-text-muted) hover:decoration-(--ui-text-highlighted);
   }
@@ -81,12 +70,6 @@
     @apply border-default;
   }
 
-  mark {
-    @apply bg-transparent underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented)/75 text-inherit;
-    text-decoration-skip-ink: none;
-  }
-
-  /* Tables */
   table {
     @apply my-6 w-full border-collapse rounded-sm bg-elevated text-[0.875rem];
   }
@@ -104,7 +87,6 @@
     }
   }
 
-  /* Layout Container */
   article {
     @apply max-w-prose mx-auto px-6 sm:px-8;
   }
