@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useLanguageNav } from "@/composables/languageNav";
-import DictIndex from "@/components/DictionaryIndex.vue";
 
 const {
   nav,
@@ -42,10 +41,7 @@ defineEmits<{
         </span>
       </a>
 
-      <DictIndex
-        v-if="currentSection?.path === 'dictionary'"
-        variant="sidebar"
-      />
+      <slot />
     </div>
 
     <template v-for="s in nav.sections" :key="s.path">

@@ -4,6 +4,7 @@ import { Content } from "vitepress";
 import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
 import NavBar from "../components/NavBar.vue";
+import DictionaryIndex from "@/components/DictionaryIndex.vue";
 import { useLanguageNav } from "@/composables/languageNav";
 import { useI18n } from "@/composables/i18n";
 import BaseLayout from "./BaseLayout.vue";
@@ -36,7 +37,12 @@ const menuOpen = ref(false);
               />
             </UTooltip>
             <template #body>
-              <SidebarNav @navigate="menuOpen = false" />
+              <SidebarNav @navigate="menuOpen = false">
+                <DictionaryIndex
+                  v-if="currentSection?.path === 'dictionary'"
+                  variant="sidebar"
+                />
+              </SidebarNav>
             </template>
           </UDrawer>
         </template>
@@ -68,7 +74,12 @@ const menuOpen = ref(false);
     </template>
     <div class="lg:px-4 lg:gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
       <aside class="hidden lg:block border-r border-default border-dashed pr-4">
-        <SidebarNav @navigate="menuOpen = false" />
+        <SidebarNav>
+          <DictionaryIndex
+            v-if="currentSection?.path === 'dictionary'"
+            variant="sidebar"
+          />
+        </SidebarNav>
       </aside>
       <article class="w-full">
         <Content />
