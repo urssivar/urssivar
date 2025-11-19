@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useData } from "vitepress";
+import { Content, useData } from "vitepress";
 import { useI18n } from "@/composables/i18n";
 import { dateString } from "@/utils";
 
@@ -15,11 +15,14 @@ const notesLink = computed(() => {
 </script>
 
 <template>
-  <p v-if="frontmatter.date" class="mt-0">
-    <a :href="notesLink">
-      {{ t("notes.backToNotes") }}
-    </a>
-    ·
-    {{ dateString(frontmatter.date) }}
-  </p>
+  <article>
+    <p v-if="frontmatter.date" class="mt-0">
+      <a :href="notesLink">
+        {{ t("notes.backToNotes") }}
+      </a>
+      ·
+      {{ dateString(frontmatter.date) }}
+    </p>
+    <Content />
+  </article>
 </template>
