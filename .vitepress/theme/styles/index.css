@@ -5,9 +5,9 @@
 
 /* Tailwind & Framework Setup */
 @import "tailwindcss";
-@source "@/**/*.vue";
-@source "@/../src/**/*.md";
-@source "@/ui.config.ts";
+@source "../../**/*.vue";
+@source "../../../src/**/*.md";
+@source "../../ui.config.ts";
 @import "@nuxt/ui";
 
 /* Theme Configuration */
