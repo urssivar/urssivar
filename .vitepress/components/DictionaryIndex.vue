@@ -36,7 +36,7 @@ const letter = computed(() => {
     <a
       v-for="l in letters"
       :href="(variant === 'print' ? '#' : './') + l"
-      class="text-center rounded-md p-2 flex flex-col !no-underline bg-elevated hover:bg-accented/75"
+      class="text-center rounded-md p-2 flex flex-col !no-underline bg-elevated hover:bg-accented/75 print:break-inside-avoid"
     >
       <span lang="xdq" class="text-lg font-semibold leading-tight capitalize">
         {{ l }}
