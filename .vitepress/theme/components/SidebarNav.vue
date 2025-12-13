@@ -10,32 +10,28 @@ const nav = useDocsNav();
       {{ nav.module.text }}
     </a>
 
-    <div v-if="nav.section" class="flex flex-col mb-6">
+    <template v-if="nav.section">
       <a :href="nav.section.href">
         {{ nav.section.text }}
       </a>
-
-      <a
-        v-for="a in nav.allArticles"
-        :key="a.href"
-        :href="a.href"
-        class="ml-4"
-        :class="{
-          active: a.href === nav.article?.href,
-        }"
-      >
-        <span>
+      <div class="flex flex-col mb-6 ml-4">
+        <a
+          v-for="a in nav.allArticles"
+          :key="a.href"
+          :href="a.href"
+          :class="{
+            active: a.href === nav.article?.href,
+          }"
+        >
           {{ a.text }}
-        </span>
-      </a>
+        </a>
 
-      <slot />
-    </div>
-
-    <template v-for="s in nav.otherSections" :key="s.href">
-      <a :href="s.href">
-        {{ s.text }}
-      </a>
+        <slot />
+      </div>
     </template>
+
+    <a v-for="s in nav.otherSections" :key="s.href" :href="s.href">
+      {{ s.text }}
+    </a>
   </nav>
 </template>
