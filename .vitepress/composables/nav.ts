@@ -60,17 +60,17 @@ export function useDocsNav() {
     )),
     section: computed(() => section.value && getLink(
       section.value,
-      getPath(section.value.articles[0], section.value)
+      getPath(section.value, section.value.articles[0])
     )),
     article: computed(() => article.value && getLink(
       article.value,
-      getPath(article.value, section.value)
+      getPath(section.value, article.value)
     )),
     allArticles: computed(() => section.value?.articles.map(
-      a => getLink(a, getPath(a, section.value))
+      a => getLink(a, getPath(section.value, a))
     )),
     otherSections: computed(() => module.value?.sections?.map(
-      s => getLink(s, getPath(s.articles[0], s))
+      s => getLink(s, getPath(s, s.articles[0]))
     )),
   });
 }
