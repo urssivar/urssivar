@@ -1,6 +1,6 @@
 # Urssivar Documentation Site - Project Guide
 
-**Last Updated:** 2025-10-25
+**Last Updated:** 2025-12-13
 **Project:** Kaitag language documentation site
 **Tech Stack:** VitePress v1 + Nuxt UI
 **Current Phase:** UI clean up & Content audit
@@ -56,9 +56,12 @@ Campaign updates: language documentation, DNA research, village visits, archival
 
 ### Navigation & UI
 
-- **Layout:** Desktop: left sidebar (articles) + content + right ToC. Mobile: sticky bar with nav/ToC drawers
-- **Typography:** `font-medium` weight, `text-muted` (neutral-500) → `text-highlighted` (neutral-900) on hover
-- **Footer:** License · Write to us (plain `<a>` tags, middot separator)
+- Desktop: Three-column (sidebar | content 65ch | ToC), mobile: single column with drawers
+- Header: Logo, search (Cmd+K), locale switch
+- SidebarNav: Hierarchical (module → section → articles), active highlighting
+- TableOfContents: IntersectionObserver, auto-numbering support
+- Footer: License · Contact (hidden in print)
+- Typography: font-medium, text-muted → text-highlighted on hover, 200ms transitions
 
 ### Anchors & IDs
 
@@ -95,10 +98,61 @@ Russian pages use manually-specified English anchors to ensure consistency acros
 
 ### Tech Stack
 
-- VitePress v1, custom theme, Vercel deployment
-- Colors: `primary: 'blue'`, `neutral: 'gray'` in app.config.ts
-- Components: Layout.vue, SidebarNav.vue, NavBar.vue, TableOfContents.vue
-- Composables: useHeaderClicks, useElementIdObserver
+**Core:** VitePress, Nuxt UI, Tailwind CSS, Vue 3
+
+**Layouts:** 4 types (BaseLayout, LayoutDocs, LayoutLanding, LayoutArticle) selected via `useLayout()` composable
+
+**Components:** Header, Footer, SidebarNav, TableOfContents, NavBar, DNAChart (D3.js), VillageMap (Leaflet), DictionaryIndex, DictionaryWord, AlphabetGrid
+
+**Markdown Plugins:**
+- markdown-it-anchor, -mark, -multimd-table
+- Custom: inline delimiters (++/--), block delimiters (:::), auto-numbering
+
+**Data:** dictionary.json (2.2MB), dna.json, villages.json
+
+**Styling:** 5 CSS files (234 lines): base, components, text-formatting, navigation, index
+
+**Composables:** useLayout, useDocsNav, useDictData, useDNAData, t (i18n), buildPath, useElementIdObserver
+
+---
+
+## Implementation Details
+
+### Layout System
+
+4 layouts controlled by frontmatter or nav config:
+- **BaseLayout**: Foundation wrapper
+- **LayoutDocs**: Three-column (Sidebar | Content 65ch | ToC), mobile drawers, print linearized
+- **LayoutLanding**: Simple content wrapper
+- **LayoutArticle**: Minimal article wrapper
+
+### Styling
+
+5 CSS files (234 lines): index, base, components, text-formatting, navigation
+
+**Typography:** Inter (body), EB Garamond (Kaitag text), Noto Sans Math
+
+**Colors:** Primary blue, neutral gray, semantic tokens (text-muted → text-highlighted)
+
+### Print Styles
+
+**Implemented:** Headings/tables break-inside-avoid, nav/footer hidden, layout linearized, orphans/widows control
+
+**TODO:** Page headers/footers, link URLs, advanced page breaks, PDF optimization
+
+### Navigation
+
+Three nav trees in `.vitepress/navs/index.ts`: languageNav, notesNav, genealogyNav
+
+Structure: Module → Section → Articles (en/ru localized)
+
+`useDocsNav()` provides: module, section, article, allArticles, otherSections
+
+### i18n
+
+EN: `/` | RU: `/ru`
+
+`t(key)` for translations, `buildPath()` adds /ru prefix, English anchors for cross-language links
 
 ---
 
@@ -109,48 +163,22 @@ Russian pages use manually-specified English anchors to ensure consistency acros
 - Planning & structure definition
 - Navigation implementation (responsive layout, sidebars, drawers)
 - Notes section (bilingual, grid layout, social links)
+- Layout system refactoring (4 layouts: Base, Docs, Landing, Article)
+- Navbar & navigation components (Header, Footer, SidebarNav, ToC)
+- Print styles (headings, tables, nav/footer hidden, layout linearized)
+- Decouple auto-numbers from anchors
+- English anchors for /ru pages
+- Genealogy landing (intro, table, HH pie chart with d3.js)
+- Language landing (intro, grammar/dictionary/phrasebook previews)
+- Dictionary (intro, dynamic letter pages, custom sidebar nav)
 
-### Current: UI clean up & Content audit
-
-- [x] Genealogy landing
-
-  - [x] Intro
-  - [x] Table & YFull links
-  - [x] HH pie chart
-    - [ ] Rework HH chart with d3.js
-    - [ ] Consistent styling & dark mode with css vars for HH
-
-- [ ] Language landing
-
-  - [ ] Intro
-  - [ ] Grammar
-  - [ ] Dictionary
-  - [ ] Phrasebook & texts ?
-
-- [x] Decouple auto-numbers from anchors
-- [x] Use English anchors for /ru pages (landing pages done)
-
-- [ ] Dictionary
-
-  - [ ] Intro
-  - [ ] Dynamic pages
-  - [ ] Custom table sidebar
-
-- [ ] Refactor the layouts
-- [ ] Add print media styles
-
-  - [ ] hide nav/sidebars
-  - [ ] footer & header buttons
-  - [ ] Links, notes on landing
-  - [ ] ???
+### Current: Content Creation
 
 - [ ] Implement full-text search
+- [ ] Clean up existing grammar pages (remove old widgets/glossaries)
+- [ ] Move alphabet content from dictionary intro → /grammar/alphabet
 
-### Next: Content Creation (Priority Order)
-
-- [ ] Integrate typing game into alphabet page
-- [ ] Clean up existing grammar pages (remove widgets/glossaries)
-- [ ] Move alphabet/orthography from dictionary intro → `/grammar/alphabet`
+### Next: Grammar Pages (Priority Order)
 
 1. Alphabet & Script (move + embed typing game)
 2. Nouns & Classes (foundational, oblique stems)
