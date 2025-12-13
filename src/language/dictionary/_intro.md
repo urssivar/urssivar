@@ -2,7 +2,7 @@
 
 Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>  
 Uzlipat Gasanova, +7 960 408-99-18, <uzlipat066@mail.ru>  
-5,171 lexemes · DB 20.05.2025 · doc 29.05.2025 · license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) {.text-sm .italic}
+5,171 lexemes · DB 20.05.2025 · doc 13.12.2025 · license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) {.text-sm .italic}
 
 This work primarily draws on the speech of the villages **Turaga** (Irchamul microregion) and **Shilyagi** (Lower Kattagan microregion). The core of the lexical database is from the dissertation of **Gasanova U. U. (2012)**, with whom we spent countless hours refining the material. Additional resources include the works of **Temirbulatova S. M. (2004, 2008, 2021)** and **Gabibova K. M. (2009)**.
 
