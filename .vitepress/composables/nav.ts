@@ -68,11 +68,12 @@ export function useDocsNav() {
     article: computed(() => buildLink(article.value, [
       section.value, article.value
     ])),
-    allArticles: computed(() => section.value?.articles.map(
-      a => buildLink(a, [section.value, a])
-    )),
-    otherSections: computed(() => module.value?.sections?.map(
-      s => buildLink(s, [s, s.articles[0]])
-    )),
+    allArticles: computed(() => section.value?.articles
+      .map(a => buildLink(a, [section.value, a]))
+    ),
+    otherSections: computed(() => module.value?.sections
+      ?.filter(s => s.path !== section.value?.path)
+      .map(s => buildLink(s, [s, s.articles[0]]))
+    ),
   });
 }
