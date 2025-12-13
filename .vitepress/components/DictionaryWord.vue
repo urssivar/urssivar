@@ -16,9 +16,9 @@ const lang = computed(() => {
 </script>
 
 <template>
-  <p :id="word.id" class="pl-3 -indent-3 m-0">
-    <a class="header-anchor mt-px" :href="`#${word.id}`">#</a>
-    <span lang="xdq" class="font-semibold">
+  <p :id="word.id" class="pl-3 -indent-3 m-0 leading-0">
+    <a class="header-anchor mt-px leading-relaxed" :href="`#${word.id}`">#</a>
+    <span lang="xdq" class="font-semibold leading-0">
       {{ word.headword }}
     </span>
     {{ " " }}
