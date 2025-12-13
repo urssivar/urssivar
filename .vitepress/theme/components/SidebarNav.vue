@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { useNav } from "@/composables/nav";
-import { languageNav } from "@/nav/language";
 
-const nav = useNav(languageNav);
+const nav = useNav();
 </script>
 
 <template>
-  <nav class="navlinks text-sm flex flex-col">
+  <nav v-if="nav.module" class="navlinks text-sm flex flex-col">
     <a :href="nav.module.href" class="mb-6">
       {{ nav.module.text }}
     </a>

@@ -1,25 +1,23 @@
 import { useData, useRouter } from "vitepress";
 import { Lang, useI18n } from "./i18n";
 import { computed, readonly } from "vue";
+import { NavNode } from "./navs/types";
+import { navModules } from "./navs";
 
-type Link = { text: string, href: string };
-
-type NavNode = { title: string; path: string; };
-
-export type Article = NavNode
-export type Section = NavNode & { articles: Article[]; }
-export type Module = NavNode & { sections: Section[]; }
-
-export type NavTree = Record<Lang, Module>
-
-export function useNav(tree: NavTree) {
+export function useNav() {
   const { lang } = useData();
   const router = useRouter();
   const { buildPath } = useI18n();
 
-  const module = computed<Module>(() => {
+  const module = computed(() => {
+    const modulePath = router.route.path
+      .substring(buildPath('/').length)
+      .split('/')[0];
+    const tree = navModules
+      .find(m => m['en'].path === modulePath);
+
     const locale = lang.value as Lang;
-    return tree[locale] || tree.en;
+    return tree && (tree[locale] || tree.en);
   });
 
   function getPath(...nodes: (NavNode | undefined)[]) {
@@ -31,11 +29,15 @@ export function useNav(tree: NavTree) {
     );
   }
 
+  function getLink(node: NavNode, href: string) {
+    return { ...node, href };
+  }
+
   const section = computed(() => {
     const sectionPath = router.route.path
       .substring(getPath().length + 1)
       .split('/')[0];
-    return module.value.sections
+    return module.value?.sections
       .find(s => s.path === sectionPath);
   });
 
@@ -47,28 +49,23 @@ export function useNav(tree: NavTree) {
   });
 
   return readonly({
-    module: computed(() => <Link>{
-      text: module.value.title,
-      href: getPath()
-    }),
-    section: computed(() => section.value &&
-      <Link>{
-        text: section.value.title,
-        href: getPath(section.value.articles[0], section.value)
-      }),
-    article: computed(() => article.value &&
-      <Link>{
-        text: article.value.title,
-        href: getPath(article.value, section.value)
-      }),
-    allArticles: computed(() => section.value &&
-      section.value.articles.map(a => <Link>{
-        text: a.title,
-        href: getPath(a, section.value)
-      })),
-    otherSections: computed(() => module.value.sections.map(s => <Link>{
-      text: s.title,
-      href: getPath(s.articles[0], s)
-    })),
+    module: computed(() => module.value && getLink(
+      module.value,
+      getPath()
+    )),
+    section: computed(() => section.value && getLink(
+      section.value,
+      getPath(section.value.articles[0], section.value)
+    )),
+    article: computed(() => article.value && getLink(
+      article.value,
+      getPath(article.value, section.value)
+    )),
+    allArticles: computed(() => section.value?.articles.map(
+      a => getLink(a, getPath(a, section.value))
+    )),
+    otherSections: computed(() => module.value?.sections.map(
+      s => getLink(s, getPath(s.articles[0], s))
+    )),
   });
 }

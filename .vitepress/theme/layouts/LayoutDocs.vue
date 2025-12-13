@@ -5,12 +5,12 @@ import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
 import NavBar from "../components/NavBar.vue";
 import DictionaryIndex from "@/components/DictionaryIndex.vue";
-import { useLanguageNav } from "@/composables/languageNav";
 import { useI18n } from "@/composables/i18n";
 import BaseLayout from "./BaseLayout.vue";
 import { useRoute } from "vitepress";
+import { useNav } from "@/composables/nav";
 
-const { currentSection } = useLanguageNav();
+const nav = useNav();
 const { t } = useI18n();
 const menuOpen = ref(false);
 
@@ -48,7 +48,7 @@ watch(
             <template #body>
               <SidebarNav @navigate="menuOpen = false">
                 <DictionaryIndex
-                  v-if="currentSection?.path === 'dictionary'"
+                  v-if="nav.section?.path === 'dictionary'"
                   variant="sidebar"
                 />
               </SidebarNav>
@@ -56,7 +56,7 @@ watch(
           </UDrawer>
         </template>
         <span class="font-semibold flex-1 text-center">
-          {{ currentSection?.title }}
+          {{ nav.section?.text }}
         </span>
         <template #trailing>
           <UDrawer
@@ -85,7 +85,7 @@ watch(
       <aside class="hidden lg:block border-r border-default border-dashed pr-4">
         <SidebarNav>
           <DictionaryIndex
-            v-if="currentSection?.path === 'dictionary'"
+            v-if="nav.section?.path === 'dictionary'"
             variant="sidebar"
           />
         </SidebarNav>
