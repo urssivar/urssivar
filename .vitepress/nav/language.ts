@@ -1,4 +1,4 @@
-import { NavTree } from "./types";
+import { NavTree } from "@/composables/nav";
 
 export const languageNav: NavTree = {
   ru: {
