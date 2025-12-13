@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { useLayout } from "@/composables/layout";
-import { layouts } from "./layouts";
+import { useLayout, layouts } from "@/composables/layout";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 

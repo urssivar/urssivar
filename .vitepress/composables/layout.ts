@@ -1,9 +1,19 @@
 import { computed } from 'vue';
 import { useData } from 'vitepress';
 import { useNavModule } from '@/composables/nav';
-import type { LayoutType } from '@/theme/layouts';
+import LayoutLanding from '@/theme/layouts/LayoutLanding.vue';
+import LayoutDocs from '@/theme/layouts/LayoutDocs.vue';
+import LayoutPost from '@/theme/layouts/LayoutPost.vue';
+import LayoutArticle from '@/theme/layouts/LayoutArticle.vue';
 
-export type { LayoutType };
+export const layouts = {
+  landing: LayoutLanding,
+  docs: LayoutDocs,
+  post: LayoutPost,
+  article: LayoutArticle,
+} as const;
+
+export type LayoutType = keyof typeof layouts;
 
 export function useLayout() {
   const { frontmatter } = useData();
