@@ -1,9 +1,10 @@
 import { NavTree } from "./types";
 
-export const languageNav: NavTree = {
+export const languageNav = <NavTree>{
   ru: {
     text: 'Кайтагский язык',
     path: 'language',
+    layout: 'docs',
     sections: [
       {
         text: 'Грамматика',
@@ -26,6 +27,7 @@ export const languageNav: NavTree = {
   en: {
     text: 'Kaitag Language',
     path: 'language',
+    layout: 'docs',
     sections: [
       {
         text: 'Grammar',

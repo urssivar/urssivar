@@ -4,12 +4,12 @@ import { computed, readonly } from "vue";
 import { NavNode } from "./navs/types";
 import { navModules } from "./navs";
 
-export function useNav() {
+export function useNavModule() {
   const { lang } = useData();
   const router = useRouter();
   const { buildPath } = useI18n();
 
-  const module = computed(() => {
+  return computed(() => {
     const modulePath = router.route.path
       .substring(buildPath('/').length)
       .split('/')[0];
@@ -19,6 +19,13 @@ export function useNav() {
     const locale = lang.value as Lang;
     return tree && (tree[locale] || tree.en);
   });
+}
+
+export function useDocsNav() {
+  const router = useRouter();
+  const { buildPath } = useI18n();
+
+  const module = useNavModule();
 
   function getPath(...nodes: (NavNode | undefined)[]) {
     return buildPath('/',
@@ -37,8 +44,7 @@ export function useNav() {
     const sectionPath = router.route.path
       .substring(getPath().length + 1)
       .split('/')[0];
-    return module.value?.sections
-      .find(s => s.path === sectionPath);
+    return module.value?.sections?.find(s => s.path === sectionPath);
   });
 
   const article = computed(() => {
@@ -64,7 +70,7 @@ export function useNav() {
     allArticles: computed(() => section.value?.articles.map(
       a => getLink(a, getPath(a, section.value))
     )),
-    otherSections: computed(() => module.value?.sections.map(
+    otherSections: computed(() => module.value?.sections?.map(
       s => getLink(s, getPath(s.articles[0], s))
     )),
   });

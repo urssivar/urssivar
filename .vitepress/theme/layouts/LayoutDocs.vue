@@ -8,9 +8,9 @@ import DictionaryIndex from "@/components/DictionaryIndex.vue";
 import { useI18n } from "@/composables/i18n";
 import BaseLayout from "./BaseLayout.vue";
 import { useRoute } from "vitepress";
-import { useNav } from "@/composables/nav";
+import { useDocsNav } from "@/composables/nav";
 
-const nav = useNav();
+const nav = useDocsNav();
 const { t } = useI18n();
 const menuOpen = ref(false);
 

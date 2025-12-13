@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useNav } from "@/composables/nav";
+import { useDocsNav } from "@/composables/nav";
 
-const nav = useNav();
+const nav = useDocsNav();
 </script>
 
 <template>
