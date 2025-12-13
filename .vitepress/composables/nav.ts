@@ -1,8 +1,7 @@
 import { useData, useRouter } from "vitepress";
 import { Lang, useI18n } from "./i18n";
 import { computed, readonly } from "vue";
-import { NavNode } from "./navs/types";
-import { navModules } from "./navs";
+import { navModules, type NavNode } from "@/navs";
 
 export function useNavModule() {
   const { lang } = useData();

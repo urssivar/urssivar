@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 import { useData } from 'vitepress';
-import { useNavModule } from './nav';
+import { useNavModule } from '@/composables/nav';
 
 export type LayoutType = 'landing' | 'docs' | 'post' | 'article';
 

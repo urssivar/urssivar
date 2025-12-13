@@ -7,3 +7,11 @@ export const navModules = [
   notesNav,
   genealogyNav
 ];
+
+export type {
+  NavNode,
+  Article,
+  Section,
+  Module,
+  NavTree
+} from "./types";
