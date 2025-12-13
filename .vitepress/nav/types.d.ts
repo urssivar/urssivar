@@ -1,21 +1,12 @@
-export interface Article {
-    title: string;
-    path: string;
-}
+import { Lang } from "@/composables/i18n";
 
-export interface Section {
-    title: string;
-    path: string;
-    articles: Article[];
-}
+type NavNode = {
+  title: string;
+  path: string;
+};
 
-export interface Module {
-    title: string;
-    path: string;
-    sections: Section[];
-}
+export type Article = NavNode
+export type Section = NavNode & { articles: Article[]; }
+export type Module = NavNode & { sections: Section[]; }
 
-export interface LanguageNav {
-    ru: Module;
-    en: Module;
-}
+export type NavTree = Record<Lang, Module>

@@ -11,13 +11,10 @@ export function useLayout() {
     if (frontmatter.value.layout) {
       return frontmatter.value.layout as LayoutType;
     }
-
     const path = router.route.path.replace(/^\/ru\//, '/');
-
 
     if (path.match(/^\/language\//)) return 'docs';
     if (path.match(/^\/notes\//)) return 'post';
-
     return 'article';
   });
 

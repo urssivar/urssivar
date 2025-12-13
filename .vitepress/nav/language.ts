@@ -1,6 +1,6 @@
-import { LanguageNav } from "./types";
+import { NavTree } from "./types";
 
-export const languageNav: LanguageNav = {
+export const languageNav: NavTree = {
   ru: {
     title: 'Кайтагский язык',
     path: 'language',
