@@ -26,51 +26,53 @@ export function useDocsNav() {
 
   const module = useNavModule();
 
-  function getPath(...nodes: (NavNode | undefined)[]) {
-    return buildPath('/',
-      [module.value, ...nodes]
-        .filter(i => !!i)
-        .map(i => i.path)
-        .join('/')
-    );
-  }
-
-  function getLink(node: NavNode, href: string) {
-    return { ...node, href };
+  function buildLink(
+    node: NavNode | undefined,
+    paths: (NavNode | undefined)[] = []
+  ) {
+    return node && {
+      ...node, href: buildPath('/',
+        [module.value, ...paths]
+          .filter(i => !!i)
+          .map(i => i.path)
+          .join('/')
+      )
+    };
   }
 
   const section = computed(() => {
+    const base = buildLink(module.value)?.href;
+    if (!base) return;
+
     const sectionPath = router.route.path
-      .substring(getPath().length + 1)
+      .substring(base.length + 1)
       .split('/')[0];
-    return module.value?.sections?.find(s => s.path === sectionPath);
+    return module.value?.sections
+      ?.find(s => s.path === sectionPath);
   });
 
   const article = computed(() => {
+    if (!section.value) return;
+
     const pathItems = router.route.path.split('/');
     const articlePath = pathItems[pathItems.length - 1];
-    return section.value?.articles
+    return section.value.articles
       .find(a => a.path === articlePath)
   });
 
   return readonly({
-    module: computed(() => module.value && getLink(
-      module.value,
-      getPath()
-    )),
-    section: computed(() => section.value && getLink(
-      section.value,
-      getPath(section.value, section.value.articles[0])
-    )),
-    article: computed(() => article.value && getLink(
-      article.value,
-      getPath(section.value, article.value)
-    )),
+    module: computed(() => buildLink(module.value)),
+    section: computed(() => buildLink(section.value, [
+      section.value, section.value?.articles[0]
+    ])),
+    article: computed(() => buildLink(article.value, [
+      section.value, article.value
+    ])),
     allArticles: computed(() => section.value?.articles.map(
-      a => getLink(a, getPath(section.value, a))
+      a => buildLink(a, [section.value, a])
     )),
     otherSections: computed(() => module.value?.sections?.map(
-      s => getLink(s, getPath(s, s.articles[0]))
+      s => buildLink(s, [s, s.articles[0]])
     )),
   });
 }
