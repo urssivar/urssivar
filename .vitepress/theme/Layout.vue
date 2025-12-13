@@ -13,7 +13,7 @@ const layout = useLayout();
       <div class="grow">
         <component :is="layouts[layout]" />
       </div>
-      <Footer />
+      <Footer/>
     </div>
   </UApp>
 </template>

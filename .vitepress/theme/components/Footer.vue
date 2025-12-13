@@ -6,7 +6,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <NavBar class="text-xs">
+  <NavBar class="text-xs print:hidden">
     <div class="navlinks flex items-center gap-2">
       <a :href="t('footer.licenseUrl')">
         {{ t("footer.license") }}

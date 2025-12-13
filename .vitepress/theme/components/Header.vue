@@ -13,7 +13,7 @@ const homeLink = computed(() => {
 });
 
 const showBrand = computed(() => {
-  return layout.value !== 'landing';
+  return layout.value !== "landing";
 });
 </script>
 
@@ -42,12 +42,12 @@ const showBrand = computed(() => {
       </UTooltip>
     </template>
     <template #trailing>
-      <!-- <UTooltip :text="t('header.search')" :kbds="['meta', 'K']">
+      <UTooltip :text="t('header.search')" :kbds="['meta', 'K']">
         <UButton
           icon="i-material-symbols:search-rounded"
           :aria-label="t('header.search')"
         />
-      </UTooltip> -->
+      </UTooltip>
       <LocaleSwitch />
     </template>
   </NavBar>

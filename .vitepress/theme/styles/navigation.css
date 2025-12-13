@@ -34,4 +34,11 @@
   h1 .header-anchor {
     @apply hidden;
   }
+
+  aside,
+  button,
+  [role="button"],
+  .header-anchor {
+    @apply print:hidden!;
+  }
 }

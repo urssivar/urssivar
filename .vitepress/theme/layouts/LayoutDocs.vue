@@ -27,7 +27,7 @@ watch(
   <BaseLayout>
     <template #header>
       <NavBar
-        class="lg:hidden sticky top-0 z-10 border-default border-b bg-default/75 backdrop-blur-sm shadow-xs"
+        class="lg:hidden print:hidden sticky top-0 z-10 border-default border-b bg-default/75 backdrop-blur-sm shadow-xs"
       >
         <template #leading>
           <UDrawer
@@ -81,7 +81,9 @@ watch(
         </template>
       </NavBar>
     </template>
-    <div class="lg:px-4 lg:gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr]">
+    <div
+      class="lg:px-4 lg:gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr] print:block"
+    >
       <aside class="hidden lg:block border-r border-default border-dashed pr-4">
         <SidebarNav>
           <DictionaryIndex

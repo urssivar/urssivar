@@ -1,6 +1,7 @@
 @layer base {
   * {
     -webkit-tap-highlight-color: transparent;
+    @apply print:static! print:break-words;
   }
 
   body {
@@ -30,7 +31,16 @@
   h4,
   h5,
   h6 {
-    @apply font-semibold leading-tight;
+    @apply font-semibold leading-tight print:break-inside-avoid print:break-after-avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @media print {
+      orphans: 3;
+      widows: 3;
+    }
   }
 
   h1 {
@@ -76,7 +86,7 @@
 
   tbody {
     tr {
-      @apply border-b border-default/50;
+      @apply border-b border-default/50 print:break-inside-avoid;
 
       &:last-child {
         @apply border-b-0;
@@ -85,6 +95,12 @@
     td {
       @apply px-3 py-1.5 align-text-top leading-snug;
     }
+  }
+
+  figure,
+  blockquote,
+  pre {
+    @apply print:break-inside-avoid;
   }
 
   article {
