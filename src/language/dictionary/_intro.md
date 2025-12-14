@@ -110,7 +110,9 @@ For now, fricative gemination is not shown in the orthography (++ни́са [н�
 
 </figure>
 
+:::
 _Note: While /o/ is technically just a contextual realization of /ʷa/, treating it as a separate phoneme makes writing significantly more convenient._
+:::
 
 To maintain transparent orthography, vowel assimilations in verb morphology are not reflected in the spelling.
 
