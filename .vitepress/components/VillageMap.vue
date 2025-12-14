@@ -97,7 +97,7 @@ function onVillageLeave() {
       </span>
     </template>
   </UTooltip>
-  <div class="my-12 relative h-[15rem] sm:h-[30rem] overflow-x-clip">
+  <div class="my-12 relative h-60 sm:h-120 overflow-x-clip">
     <div
       class="navlinks absolute right-0 bottom-0 z-20 m-2 bg-default rounded-sm font-sans text-xs flex"
     >
@@ -137,7 +137,7 @@ function onVillageLeave() {
                 class="w-full h-full flex items-center justify-center relative"
               >
                 <div
-                  class="village-dot absolute rounded-full cursor-pointer transition-all duration-200 ease-out border-(--ui-bg) bg-(--ui-primary)"
+                  class="village-dot absolute rounded-full cursor-pointer transition-all duration-200 ease-out border-bg bg-primary"
                 />
               </div>
             </LIcon>
@@ -157,7 +157,7 @@ function onVillageLeave() {
 }
 
 :deep(.map-backdrop-image) {
-  @apply invert-[10%] dark:invert-[100%] select-none;
+  @apply invert-10 dark:invert-100 select-none;
 }
 
 :deep(.leaflet-marker-icon) {
