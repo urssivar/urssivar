@@ -32,11 +32,14 @@ const letter = computed(() => {
       {{ l }}
     </a>
   </div>
-  <div v-else class="my-6 grid gap-1 grid-cols-5 sm:grid-cols-9">
+  <div
+    v-else
+    class="my-6 grid gap-1 grid-cols-5 sm:grid-cols-9 print:break-inside-avoid"
+  >
     <a
       v-for="l in letters"
       :href="(variant === 'print' ? '#' : './') + l"
-      class="text-center rounded-md p-2 flex flex-col !no-underline bg-elevated hover:bg-accented/75 print:break-inside-avoid"
+      class="text-center rounded-md p-2 flex flex-col no-underline! bg-elevated hover:bg-accented/75"
     >
       <span lang="xdq" class="text-lg font-semibold leading-tight capitalize">
         {{ l }}
