@@ -1,7 +1,7 @@
 @layer base {
   * {
     -webkit-tap-highlight-color: transparent;
-    @apply print:static! print:break-words;
+    @apply print:wrap-break-word;
   }
 
   body {
@@ -119,5 +119,23 @@
 
   article {
     @apply max-w-prose mx-auto px-6 sm:px-8;
+  }
+}
+
+@page {
+  margin: 0.75in 0;
+}
+
+@page :left {
+  @bottom-left {
+    content: counter(page);
+    @apply text-xs text-dimmed ml-18;
+  }
+}
+
+@page :right {
+  @bottom-right {
+    content: counter(page);
+    @apply text-xs text-dimmed mr-18;
   }
 }
