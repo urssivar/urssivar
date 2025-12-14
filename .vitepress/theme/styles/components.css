@@ -1,7 +1,7 @@
 @layer components {
   /* Colon Blocks (:::note, etc.) */
   .colon-block {
-    @apply rounded-sm px-4 py-3 border-l-4 border-default/50 bg-elevated/50 text-[0.875rem] my-4;
+    @apply rounded-sm px-4 py-3 border-l-4 border-default/50 bg-elevated/50 text-[0.875rem] my-4 print:break-inside-avoid;
 
     p,
     ul,

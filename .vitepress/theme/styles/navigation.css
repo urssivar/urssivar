@@ -4,7 +4,7 @@
   }
 
   .navbar {
-    @apply max-w-prose mx-auto px-4 sm:px-6;
+    @apply max-w-prose print:max-w-full mx-auto px-4 sm:px-6;
   }
 
   .navlinks {
