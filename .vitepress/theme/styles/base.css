@@ -96,7 +96,22 @@
     }
   }
 
-  figure,
+  figure {
+    @apply my-6 print:break-inside-avoid;
+
+    img {
+      @apply rounded-sm w-full object-cover object-top dark:opacity-90;
+    }
+
+    table {
+      @apply my-0;
+    }
+  }
+
+  figcaption {
+    @apply mt-3 italic text-center text-xs text-toned;
+  }
+
   blockquote,
   pre {
     @apply print:break-inside-avoid;
