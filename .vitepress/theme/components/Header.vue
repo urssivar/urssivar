@@ -29,7 +29,7 @@ const showBrand = computed(() => {
           <img
             src="/favicon-dark.svg"
             alt=""
-            class="mx-1 size-6 invert-[90%] dark:invert-0 select-none pointer-events-none"
+            class="mx-1 size-6 invert-90 dark:invert-0 select-none pointer-events-none"
           />
           <span
             v-if="showBrand"
