@@ -10,27 +10,31 @@
     }
   }
 
-  /* Figures */
-  .fig {
-    @apply my-6 rounded-sm w-full object-cover object-top dark:opacity-90;
+  figure {
+    @apply my-6;
   }
 
-  .figcap {
-    @apply -mt-3 mb-6 italic text-center text-xs text-toned;
+  figure img {
+    @apply rounded-sm w-full object-cover object-top dark:opacity-90;
+  }
+
+  figure table {
+    @apply my-0;
+  }
+
+  figcaption {
+    @apply mt-3 italic text-center text-xs text-toned;
   }
 
   /* IPA Phonetic Charts */
   .ipa-chart {
     @apply my-4 -mx-6 sm:mx-0 px-6 sm:px-0 overflow-x-auto;
 
-    table {
-      @apply my-0;
-      td {
-        @apply pt-2 whitespace-nowrap text-xs text-default;
+    table td {
+      @apply pt-2 whitespace-nowrap text-xs text-default;
 
-        [lang="xdq"] {
-          @apply block text-[1.5em]/[1.15] text-highlighted;
-        }
+      [lang="xdq"] {
+        @apply block text-[1.5em]/[1.15] text-highlighted;
       }
     }
   }

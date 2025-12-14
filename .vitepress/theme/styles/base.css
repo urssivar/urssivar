@@ -67,8 +67,7 @@
     @apply text-sm mt-4;
   }
 
-  p,
-  table {
+  p {
     @apply my-4;
   }
 

@@ -42,11 +42,11 @@ The dictionary uses the modern [Kaitag alphabet](#alphabet). Below is an overvie
 
 ### Consonants
 
-<div class="ipa-chart">
+<figure class="ipa-chart">
 
 |                    |
 | :----------------: | :--------------: | :--------------: | :--------------: | :-------------: | :------------: | :----------------: | :-------------: |
-|     /m/ ++м++      |     /n/ ++н++     |
+|     /m/ ++м++      |    /n/ ++н++     |
 |     /b/ ++б++      |    /d/ ++д++     |                  |                  |                 |   /g/ ++г++    |
 |   /p/ [pʰ] ++п++   |  /t/ [tʰ] ++т++  |                  |                  |                 | /k/ [kʰ] ++к++ | /q/ [qʰ~qχʰ] ++ҡ++ | /ʔ/ [ʔ~ʡ] ++ъ++ |
 |    /pː/ ++пп++     |   /tː/ ++тт++    |                  |                  |                 |  /kː/ ++кк++   |    /qː/ ++ҡҡ++     |
@@ -59,7 +59,7 @@ The dictionary uses the modern [Kaitag alphabet](#alphabet). Below is an overvie
 |                    |                  |  /r/ [ɾ] ++р++   |
 |                    | /l/ [l~lʲ] ++л++ |                  |                  |    /j/ ++й++    |
 
-</div>
+</figure>
 
 A glottal stop /ʔ/ ++ъ++ is implicitly present before word-initial vowels but is not written. The rare sound /ɸ/ ++ьв++ occurs in only one word: ++ьуьв++ /huɸ/ --'blow'--. Additionally, the phonemes /ħ/ ++хӏ++ and /ʡ/ ++гӏ++ appear in a small number of words from the _Sanchi_ variety, where they have not yet merged into /h/ ++ь++ and /ʔ/ ++ъ++, respectively.
 
@@ -100,7 +100,7 @@ For now, fricative gemination is not shown in the orthography (++ни́са [н�
 
 ### Vowels
 
-<div class="ipa-chart">
+<figure class="ipa-chart">
 
 |                   |
 | :---------------: | :-------------: | :----------------: |
@@ -108,7 +108,7 @@ For now, fricative gemination is not shown in the orthography (++ни́са [н�
 |   /e/ [ɛ] ++е++   | /a/ [ɑ~ɐ] ++а++ | /o/ [ɔ~ʷɑ~œ] ++о++ |
 | /æ/ [æ~aˤ] ++я++  |
 
-</div>
+</figure>
 
 _Note: While /o/ is technically just a contextual realization of /ʷa/, treating it as a separate phoneme makes writing significantly more convenient._
 
