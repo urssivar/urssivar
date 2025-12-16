@@ -70,10 +70,12 @@ export function useDocsNav() {
     ])),
     allArticles: computed(() => section.value?.articles
       .map(a => buildLink(a, [section.value, a]))
-    ),
+      .filter(l => !!l)
+    ) ?? [],
     otherSections: computed(() => module.value?.sections
       ?.filter(s => s.path !== section.value?.path)
       .map(s => buildLink(s, [s, s.articles[0]]))
-    ),
+      .filter(l => !!l)
+    ) ?? [],
   });
 }
