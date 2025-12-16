@@ -84,7 +84,7 @@ watch(
     <div
       class="lg:px-4 lg:gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr] print:block"
     >
-      <aside class="hidden lg:block border-r border-default border-dashed pr-4">
+      <aside class="hidden lg:block h-min border-r border-default border-dashed pr-4">
         <SidebarNav>
           <DictionaryIndex
             v-if="nav.section?.path === 'dictionary'"
