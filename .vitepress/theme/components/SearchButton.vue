@@ -2,8 +2,6 @@
 import { useI18n } from "@/composables/i18n";
 import { onMounted, ref, watch } from "vue";
 import type { Pagefind, PagefindSearchFragment } from "@/types/pagefind";
-import { title } from "process";
-import Header from "./Header.vue";
 
 const { t } = useI18n();
 
@@ -34,6 +32,30 @@ async function loadPagefind() {
   const pf = await import(pfPath);
   await pf.init();
   pagefind = pf as unknown as Pagefind;
+}
+
+function getResultUrl(result: PagefindSearchFragment): string {
+  const { anchors, weighted_locations, locations } = result;
+
+  // No anchors or locations - just use page URL
+  if (!anchors?.length || (!weighted_locations?.length && !locations?.length)) {
+    return result.url;
+  }
+
+  // Get first match location (weighted_locations sorted by score)
+  const matchLocation = weighted_locations?.[0]?.location ?? locations[0];
+
+  // Find closest preceding anchor (anchors are sorted by location)
+  let closestAnchor = null;
+  for (const anchor of anchors) {
+    if (anchor.location <= matchLocation) {
+      closestAnchor = anchor;
+    } else {
+      break;
+    }
+  }
+
+  return closestAnchor ? `${result.url}#${closestAnchor.id}` : result.url;
 }
 
 async function search(q: string) {
@@ -92,7 +114,7 @@ async function search(q: string) {
           <a
             v-for="result in results"
             :key="result.url"
-            :href="result.url"
+            :href="getResultUrl(result)"
             class="py-3 px-6 hover:bg-elevated transition-colors no-underline"
             @click="isOpen = false"
           >
