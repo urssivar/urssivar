@@ -51,6 +51,11 @@ export default defineConfig({
       host: '0.0.0.0',
       port: 5173
     },
+    build: {
+      rollupOptions: {
+        external: ['/pagefind/pagefind.js']
+      }
+    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname),
