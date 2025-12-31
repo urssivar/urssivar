@@ -90,7 +90,7 @@ async function search(q: string) {
     :content="{ onCloseAutoFocus: (e: Event) => e.preventDefault() }"
     :ui="{
       header: 'm-0! p-0! min-h-14 font-medium',
-      body: 'p-0! min-h-screen',
+      body: 'p-0!',
     }"
   >
     <UTooltip :text="t('header.search')" :kbds="['/']">
@@ -119,7 +119,7 @@ async function search(q: string) {
       />
     </template>
     <template #body>
-      <div class="flex flex-col overflow-y-auto min-h-screen">
+      <div class="flex flex-col overflow-y-auto">
         <template v-if="results.length">
           <a
             v-for="result in results"
@@ -147,6 +147,6 @@ async function search(q: string) {
 @reference "@/theme/styles/index.css";
 
 :deep(mark) {
-  @apply text-info font-medium no-underline!;
+  @apply bg-accented/75 rounded-sm px-1 py-0.5 no-underline!;
 }
 </style>
