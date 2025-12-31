@@ -3,6 +3,7 @@ import { useI18n } from "@/composables/i18n";
 import { onMounted, ref, watch } from "vue";
 import type { Pagefind, PagefindSearchFragment } from "@/types/pagefind";
 import { title } from "process";
+import Header from "./Header.vue";
 
 const { t } = useI18n();
 
@@ -55,7 +56,7 @@ async function search(q: string) {
   <UModal
     v-model:open="isOpen"
     :ui="{
-      title: 'm-0 font-medium',
+      header: 'm-0! p-0! min-h-14 font-medium',
       body: 'p-0!',
     }"
   >
@@ -66,38 +67,46 @@ async function search(q: string) {
       />
     </UTooltip>
 
-    <template #title>
+    <template #header>
       <UInput
         v-model="query"
-        :placeholder="t('header.search')"
-        icon="i-material-symbols:search-rounded"
+        :placeholder="t('header.search') + '...'"
         autofocus
+        class="w-full"
         size="xl"
+        :ui="{
+          base: 'ml-3 py-4',
+        }"
+        variant="none"
+      />
+      <UButton
+        icon="i-material-symbols:close-rounded"
+        @click="isOpen = false"
+        class="rounded-full mr-2"
       />
     </template>
     <template #body>
-      <div v-if="loading" class="text-center py-4 text-muted">Loading...</div>
-
-      <div v-else class="flex flex-col overflow-y-auto gap-2">
-        <a
-          v-for="result in results"
-          :key="result.url"
-          :href="result.url"
-          class="py-3 px-6 hover:bg-elevated transition-colors no-underline"
-          @click="isOpen = false"
-        >
-          <h4 class="mt-0 mb-1" v-if="result.meta?.title">
-            {{ result.meta?.title }}
-          </h4>
-          <div class="text-sm line-clamp-2" v-html="result.excerpt" />
-        </a>
-
-        <div
-          v-if="query && !results.length && !loading"
-          class="text-muted py-4 text-center"
-        >
-          No results found
-        </div>
+      <div class="flex flex-col overflow-y-auto h-96">
+        <template v-if="results.length">
+          <a
+            v-for="result in results"
+            :key="result.url"
+            :href="result.url"
+            class="py-3 px-6 hover:bg-elevated transition-colors no-underline"
+            @click="isOpen = false"
+          >
+            <h5 class="mt-0 mb-0.5" v-if="result.meta?.title">
+              {{ result.meta?.title }}
+            </h5>
+            <div class="text-sm line-clamp-2" v-html="result.excerpt" />
+          </a>
+        </template>
+        <img
+          v-else
+          src="/stamp-logo.svg"
+          alt="Urssivar logo"
+          class="place-self-center size-90 invert-10 dark:invert-0 pointer-events-none"
+        />
       </div>
     </template>
   </UModal>
