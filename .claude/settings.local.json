@@ -13,7 +13,9 @@
       "Bash(cat:*)",
       "Bash(npm run dev:*)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:pagefind.app)"
+      "WebFetch(domain:pagefind.app)",
+      "mcp__ide__getDiagnostics",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []
