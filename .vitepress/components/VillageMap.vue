@@ -92,12 +92,15 @@ function onVillageLeave() {
     :ui="{ content: 'h-7' }"
   >
     <template #content>
-      <span lang="xdq" class="font-bold text-base">
+      <span lang="xdq" class="font-bold text-base" data-pagefind-ignore>
         {{ selectedVillage }}
       </span>
     </template>
   </UTooltip>
-  <div class="my-12 relative h-60 sm:h-120 overflow-x-clip">
+  <div
+    class="my-12 relative h-60 sm:h-120 overflow-x-clip"
+    data-pagefind-ignore
+  >
     <div
       class="navlinks absolute right-0 bottom-0 z-20 m-2 bg-default rounded-sm font-sans text-xs flex"
     >

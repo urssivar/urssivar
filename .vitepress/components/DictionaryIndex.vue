@@ -21,6 +21,7 @@ const letter = computed(() => {
   <div
     v-if="variant === 'sidebar'"
     class="grid grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 border-default border-t border-dashed pt-1.5 mt-1.5"
+    data-pagefind-ignore
   >
     <a
       v-for="l in letters"
@@ -35,6 +36,7 @@ const letter = computed(() => {
   <div
     v-else
     class="my-6 grid gap-1 grid-cols-5 sm:grid-cols-9 print:break-inside-avoid"
+    data-pagefind-ignore
   >
     <a
       v-for="l in letters"

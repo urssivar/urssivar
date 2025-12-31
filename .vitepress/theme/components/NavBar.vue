@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div data-pagefind-ignore>
     <nav class="navbar flex items-center gap-4 h-16">
       <slot name="leading" />
       <div class="grow" />

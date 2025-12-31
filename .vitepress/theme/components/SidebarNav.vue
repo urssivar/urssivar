@@ -5,7 +5,11 @@ const nav = useDocsNav();
 </script>
 
 <template>
-  <nav v-if="nav.module" class="navlinks text-sm flex flex-col">
+  <nav
+    v-if="nav.module"
+    class="navlinks text-sm flex flex-col"
+    data-pagefind-ignore
+  >
     <a :href="nav.module.href" class="mb-6">
       {{ nav.module.text }}
     </a>
@@ -15,9 +19,14 @@ const nav = useDocsNav();
         {{ nav.section.text }}
       </a>
       <div class="flex flex-col mb-6 ml-4">
-        <a v-for="a in nav.allArticles" :key="a.href" :href="a.href" :class="{
-          active: a.href === nav.article?.href,
-        }">
+        <a
+          v-for="a in nav.allArticles"
+          :key="a.href"
+          :href="a.href"
+          :class="{
+            active: a.href === nav.article?.href,
+          }"
+        >
           {{ a.text }}
         </a>
 

@@ -23,5 +23,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="pagefind-search" class="w-80"></div>
+  <div id="pagefind-search" class="w-80" data-pagefind-ignore></div>
 </template>

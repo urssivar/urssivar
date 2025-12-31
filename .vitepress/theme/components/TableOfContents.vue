@@ -40,7 +40,7 @@ onContentUpdated(observeHeaders);
 </script>
 
 <template>
-  <nav class="navlinks text-xs flex flex-col">
+  <nav class="navlinks text-xs flex flex-col" data-pagefind-ignore>
     <a
       v-for="h in headers"
       :key="h.id"

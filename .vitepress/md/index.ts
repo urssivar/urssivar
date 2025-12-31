@@ -12,7 +12,8 @@ export default <MarkdownOptions>{
   anchor: {
     level: [1, 2, 3, 4],
     permalink: anchor.permalink.linkInsideHeader({
-      symbol: '§'
+      symbol: '§',
+      renderAttrs: () => ({ 'data-pagefind-ignore': '' })
     })
   },
   config: (md) => {
