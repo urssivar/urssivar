@@ -2,6 +2,7 @@
 import { useI18n } from "@/composables/i18n";
 import { onMounted, ref, watch } from "vue";
 import type { Pagefind, PagefindSearchFragment } from "@/types/pagefind";
+import { title } from "process";
 
 const { t } = useI18n();
 
@@ -53,9 +54,9 @@ async function search(q: string) {
 <template>
   <UModal
     v-model:open="isOpen"
-    :title="t('header.search')"
     :ui="{
-      title: 'm-0',
+      title: 'm-0 font-medium',
+      body: 'p-0!',
     }"
   >
     <UTooltip :text="t('header.search')" :kbds="['/']">
@@ -65,30 +66,30 @@ async function search(q: string) {
       />
     </UTooltip>
 
-    <template #body>
+    <template #title>
       <UInput
         v-model="query"
         :placeholder="t('header.search')"
         icon="i-material-symbols:search-rounded"
         autofocus
-        class="mb-4"
+        size="xl"
       />
-
+    </template>
+    <template #body>
       <div v-if="loading" class="text-center py-4 text-muted">Loading...</div>
 
-      <div v-else class="overflow-y-auto max-h-[60vh] space-y-2">
+      <div v-else class="flex flex-col overflow-y-auto gap-2">
         <a
           v-for="result in results"
           :key="result.url"
           :href="result.url"
-          class="block rounded-sm px-3 py-2 hover:bg-elevated transition-colors"
+          class="py-3 px-6 hover:bg-elevated transition-colors no-underline"
           @click="isOpen = false"
         >
-          <div class="font-medium">{{ result.meta?.title || "Untitled" }}</div>
-          <div
-            class="text-sm text-muted line-clamp-2"
-            v-html="result.excerpt"
-          />
+          <h4 class="mt-0 mb-1" v-if="result.meta?.title">
+            {{ result.meta?.title }}
+          </h4>
+          <div class="text-sm line-clamp-2" v-html="result.excerpt" />
         </a>
 
         <div
@@ -101,3 +102,11 @@ async function search(q: string) {
     </template>
   </UModal>
 </template>
+
+<style scoped>
+@reference "@/theme/styles/index.css";
+
+:deep(mark) {
+  @apply text-info font-medium no-underline!;
+}
+</style>
