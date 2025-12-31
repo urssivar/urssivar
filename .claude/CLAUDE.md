@@ -1,6 +1,6 @@
 # Urssivar Documentation Site - Project Guide
 
-**Last Updated:** 2025-12-13
+**Last Updated:** 2025-12-31
 **Project:** Kaitag language documentation site
 **Tech Stack:** VitePress v1 + Nuxt UI
 **Current Phase:** UI clean up & Content audit
@@ -102,7 +102,7 @@ Russian pages use manually-specified English anchors to ensure consistency acros
 
 **Layouts:** 4 types (BaseLayout, LayoutDocs, LayoutLanding, LayoutArticle) selected via `useLayout()` composable
 
-**Components:** Header, Footer, SidebarNav, TableOfContents, NavBar, DNAChart (D3.js), VillageMap (Leaflet), DictionaryIndex, DictionaryWord, AlphabetGrid
+**Components:** Header, Footer, SidebarNav, TableOfContents, NavBar, SearchButton, DNAChart (D3.js), VillageMap (Leaflet), DictionaryIndex, DictionaryWord, AlphabetGrid
 
 **Markdown Plugins:**
 - markdown-it-anchor, -mark, -multimd-table
@@ -171,10 +171,10 @@ EN: `/` | RU: `/ru`
 - Genealogy landing (intro, table, HH pie chart with d3.js)
 - Language landing (intro, grammar/dictionary/phrasebook previews)
 - Dictionary (intro, dynamic letter pages, custom sidebar nav)
+- Full-text search (Pagefind, modal with fixed height, centered logo on empty)
 
 ### Current: Content Creation
 
-- [ ] Implement full-text search
 - [ ] Clean up existing grammar pages (remove old widgets/glossaries)
 - [ ] Move alphabet content from dictionary intro → /grammar/alphabet
 
