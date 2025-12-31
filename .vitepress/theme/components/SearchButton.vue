@@ -55,6 +55,7 @@ async function search(q: string) {
 <template>
   <UModal
     v-model:open="isOpen"
+    :content="{ onCloseAutoFocus: (e: Event) => e.preventDefault() }"
     :ui="{
       header: 'm-0! p-0! min-h-14 font-medium',
       body: 'p-0! min-h-screen',
