@@ -2,7 +2,6 @@
 import { useLayout, layouts } from "@/composables/layout";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
-import PagefindSearch from "@/components/PagefindSearch.vue";
 
 const layout = useLayout();
 </script>

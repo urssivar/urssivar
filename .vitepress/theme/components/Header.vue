@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from "./NavBar.vue";
 import LocaleSwitch from "./LocaleSwitch.vue";
+import SearchButton from "./SearchButton.vue";
 import { useI18n } from "@/composables/i18n";
 import { useLayout } from "@/composables/layout";
 import { computed } from "vue";
@@ -42,12 +43,7 @@ const showBrand = computed(() => {
       </UTooltip>
     </template>
     <template #trailing>
-      <UTooltip :text="t('header.search')" :kbds="['meta', 'K']">
-        <UButton
-          icon="i-material-symbols:search-rounded"
-          :aria-label="t('header.search')"
-        />
-      </UTooltip>
+      <SearchButton />
       <LocaleSwitch />
     </template>
   </NavBar>
