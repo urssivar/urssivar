@@ -43,7 +43,7 @@ function onLetterLeave() {
 </script>
 
 <template>
-  <div class="bg-elevated my-12 text-center">
+  <div class="bg-elevated my-12 text-center" data-pagefind-ignore>
     <div
       class="max-w-full md:max-w-screen-md mx-auto px-6 sm:px-8 py-4 sm:py-6 grid grid-cols-6 md:grid-cols-7"
     >
