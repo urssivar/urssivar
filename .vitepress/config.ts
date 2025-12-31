@@ -4,6 +4,7 @@ import ui from '@nuxt/ui/vite';
 import markdown from "./md";
 import uiConfig from "./ui.config";
 import transformPageData from './transforms';
+import { pagefindDev } from './plugins/pagefind-dev';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -56,6 +57,8 @@ export default defineConfig({
       },
     },
     plugins: [
+      // @ts-expect-error - VitePress bundles its own Vite version causing type conflicts
+      pagefindDev(),
       // @ts-expect-error - VitePress bundles its own Vite version causing type conflicts
       ui({
         autoImport: {
