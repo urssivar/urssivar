@@ -16,10 +16,6 @@ const loading = ref(false);
 
 let pagefind: Pagefind;
 
-defineShortcuts({
-  "/": () => (isOpen.value = !isOpen.value),
-});
-
 watch(query, search);
 
 watch(isOpen, (open) => {
@@ -94,7 +90,7 @@ async function search(q: string) {
       content: 'h-[70vh] max-h-[70vh]',
     }"
   >
-    <UTooltip :text="t('header.search')" :kbds="['/']">
+    <UTooltip :text="t('header.search')">
       <UButton
         icon="i-material-symbols:search-rounded"
         :aria-label="t('header.search')"
