@@ -21,7 +21,7 @@ defineShortcuts({
 watch(query, search);
 
 watch(isOpen, (open) => {
-  if (!open) {
+  if (open) {
     query.value = "";
     results.value = [];
   }
@@ -57,7 +57,7 @@ async function search(q: string) {
     v-model:open="isOpen"
     :ui="{
       header: 'm-0! p-0! min-h-14 font-medium',
-      body: 'p-0!',
+      body: 'p-0! min-h-screen',
     }"
   >
     <UTooltip :text="t('header.search')" :kbds="['/']">
@@ -86,7 +86,7 @@ async function search(q: string) {
       />
     </template>
     <template #body>
-      <div class="flex flex-col overflow-y-auto h-96">
+      <div class="flex flex-col overflow-y-auto min-h-screen">
         <template v-if="results.length">
           <a
             v-for="result in results"
@@ -105,7 +105,7 @@ async function search(q: string) {
           v-else
           src="/stamp-logo.svg"
           alt="Urssivar logo"
-          class="place-self-center size-90 invert-10 dark:invert-0 pointer-events-none"
+          class="self-center size-80 invert-10 dark:invert-0 pointer-events-none"
         />
       </div>
     </template>
