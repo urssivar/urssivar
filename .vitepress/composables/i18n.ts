@@ -24,6 +24,10 @@ const messages = {
     },
     notes: {
       backToNotes: 'Field Notes'
+    },
+    notFound: {
+      title: 'Page not found',
+      home: 'Go home'
     }
   },
   ru: {
@@ -47,6 +51,10 @@ const messages = {
     },
     notes: {
       backToNotes: 'Полевые заметки'
+    },
+    notFound: {
+      title: 'Страница не найдена',
+      home: 'На главную'
     }
   }
 } as const;
