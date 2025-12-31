@@ -43,7 +43,7 @@ async function search(q: string) {
   }
   loading.value = true;
   const search = await pagefind.debouncedSearch(q);
-  if (!search) return;
+  if (!search || q !== query.value) return;
 
   results.value = await Promise.all(
     search.results.slice(0, 10).map((r) => r.data())
