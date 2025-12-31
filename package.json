@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vitepress dev",
-    "build": "vitepress build",
+    "build": "vitepress build && pagefind --site .vitepress/dist",
     "preview": "vitepress preview"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^24.7.2",
     "markdown-it-anchor": "^9.2.0",
+    "pagefind": "^1.4.0",
     "vitepress": "^1.6.4"
   }
 }
