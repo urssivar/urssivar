@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import { useI18n } from "@/composables/i18n";
 import { onMounted, ref, watch } from "vue";
-import type { Pagefind, PagefindSubResult } from "@/types/pagefind";
+import type {
+  Pagefind,
+  PagefindSubResult,
+  PagefindSearchAnchor,
+} from "@/types/pagefind";
 
 const { t } = useI18n();
 
@@ -34,6 +38,18 @@ async function loadPagefind() {
   pagefind = pf as unknown as Pagefind;
 }
 
+function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
+  let closest = null;
+  for (const anchor of anchors) {
+    if (anchor.location <= location) {
+      closest = anchor;
+    } else {
+      break;
+    }
+  }
+  return closest;
+}
+
 async function search(q: string) {
   if (!q.trim() || !pagefind) {
     results.value = [];
@@ -46,13 +62,22 @@ async function search(q: string) {
   const pages = await Promise.all(search.results.map((r) => r.data()));
   results.value = pages
     .flatMap((p) =>
-      p.sub_results.map((sub) => ({
-        ...sub,
-        title:
+      p.sub_results.map((sub) => {
+        const loc = sub.weighted_locations?.[0]?.location ?? sub.locations?.[0];
+        const anchor = loc != null ? findClosestAnchor(p.anchors, loc) : null;
+        const url = anchor ? `${p.url}#${anchor.id}` : sub.url;
+
+        const title =
           sub.title != p.meta?.title
             ? `${p.meta?.title} · ${sub.title}`
-            : p.meta?.title,
-      }))
+            : p.meta?.title;
+
+        return {
+          ...sub,
+          url,
+          title,
+        };
+      })
     )
     .slice(0, 15);
   loading.value = false;
