@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useI18n } from "@/composables/i18n";
 import { onMounted, ref, watch } from "vue";
-import type { Pagefind, PagefindSearchFragment } from "@/types/pagefind";
+import type { Pagefind, PagefindSubResult } from "@/types/pagefind";
 
 const { t } = useI18n();
 
 const isOpen = ref(false);
 const query = ref("");
-const results = ref<PagefindSearchFragment[]>([]);
+const results = ref<PagefindSubResult[]>([]);
 const loading = ref(false);
 
 let pagefind: Pagefind;
@@ -28,34 +28,10 @@ watch(isOpen, (open) => {
 onMounted(loadPagefind);
 
 async function loadPagefind() {
-  const pfPath = "/pagefind/pagefind.js";
-  const pf = await import(pfPath);
+  const path = "/pagefind/pagefind.js";
+  const pf = await import(path);
   await pf.init();
   pagefind = pf as unknown as Pagefind;
-}
-
-function getResultUrl(result: PagefindSearchFragment): string {
-  const { anchors, weighted_locations, locations } = result;
-
-  // No anchors or locations - just use page URL
-  if (!anchors?.length || (!weighted_locations?.length && !locations?.length)) {
-    return result.url;
-  }
-
-  // Get first match location (weighted_locations sorted by score)
-  const matchLocation = weighted_locations?.[0]?.location ?? locations[0];
-
-  // Find closest preceding anchor (anchors are sorted by location)
-  let closestAnchor = null;
-  for (const anchor of anchors) {
-    if (anchor.location <= matchLocation) {
-      closestAnchor = anchor;
-    } else {
-      break;
-    }
-  }
-
-  return closestAnchor ? `${result.url}#${closestAnchor.id}` : result.url;
 }
 
 async function search(q: string) {
@@ -67,9 +43,18 @@ async function search(q: string) {
   const search = await pagefind.debouncedSearch(q);
   if (!search || q !== query.value) return;
 
-  results.value = await Promise.all(
-    search.results.slice(0, 10).map((r) => r.data())
-  );
+  const pages = await Promise.all(search.results.map((r) => r.data()));
+  results.value = pages
+    .flatMap((p) =>
+      p.sub_results.map((sub) => ({
+        ...sub,
+        title:
+          sub.title != p.meta?.title
+            ? `${p.meta?.title} · ${sub.title}`
+            : p.meta?.title,
+      }))
+    )
+    .slice(0, 15);
   loading.value = false;
 }
 </script>
@@ -114,14 +99,12 @@ async function search(q: string) {
           <a
             v-for="result in results"
             :key="result.url"
-            :href="getResultUrl(result)"
-            class="py-3 px-6 hover:bg-elevated transition-colors no-underline"
+            :href="result.url"
+            class="py-3 px-6 hover:bg-elevated transition-colors no-underline block text-sm"
             @click="isOpen = false"
           >
-            <h5 class="mt-0 mb-0.5" v-if="result.meta?.title">
-              {{ result.meta?.title }}
-            </h5>
-            <div class="text-sm line-clamp-2" v-html="result.excerpt" />
+            <div class="font-semibold mb-0.5">{{ result.title }}</div>
+            <div class="line-clamp-2" v-html="result.excerpt" />
           </a>
         </template>
         <img
