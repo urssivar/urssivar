@@ -16,10 +16,20 @@ defineShortcuts({
   "/": () => (isOpen.value = !isOpen.value),
 });
 
+watch(query, search);
+
+watch(isOpen, (open) => {
+  if (!open) {
+    query.value = "";
+    results.value = [];
+  }
+});
+
+onMounted(loadPagefind);
+
 async function loadPagefind() {
-  if (pagefind) return;
-  const pagefindPath = "/pagefind/pagefind.js";
-  const pf = await import(/* @vite-ignore */ pagefindPath);
+  const pfPath = "/pagefind/pagefind.js";
+  const pf = await import(pfPath);
   await pf.init();
   pagefind = pf as unknown as Pagefind;
 }
@@ -30,32 +40,14 @@ async function search(q: string) {
     return;
   }
   loading.value = true;
-  try {
-    const searchResult = await pagefind.debouncedSearch(q);
-    // Returns null if superseded by another search
-    if (searchResult === null) return;
-    const data = await Promise.all(
-      searchResult.results.slice(0, 10).map((r) => r.data())
-    );
-    results.value = data;
-  } catch (e) {
-    console.error("Search failed:", e);
-    results.value = [];
-  }
+  const search = await pagefind.debouncedSearch(q);
+  if (!search) return;
+
+  results.value = await Promise.all(
+    search.results.slice(0, 10).map((r) => r.data())
+  );
   loading.value = false;
 }
-
-watch(query, search);
-
-watch(isOpen, async (open) => {
-  if (open) {
-    await loadPagefind();
-  } else {
-    // Reset state when modal closes
-    query.value = "";
-    results.value = [];
-  }
-});
 </script>
 
 <template>
@@ -93,7 +85,10 @@ watch(isOpen, async (open) => {
           @click="isOpen = false"
         >
           <div class="font-medium">{{ result.meta?.title || "Untitled" }}</div>
-          <div class="text-sm text-muted line-clamp-2" v-html="result.excerpt" />
+          <div
+            class="text-sm text-muted line-clamp-2"
+            v-html="result.excerpt"
+          />
         </a>
 
         <div
