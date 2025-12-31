@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch, onMounted, onUnmounted, nextTick } from "vue";
+import { watch, nextTick } from "vue";
 import { useI18n } from "@/composables/i18n";
 
 const open = defineModel<boolean>("open", { default: false });
@@ -37,25 +37,11 @@ watch(open, async (isOpen) => {
     await nextTick();
     loadPagefind();
     // Focus input
-    const input = document.querySelector("#pagefind-search input") as HTMLInputElement;
+    const input = document.querySelector(
+      "#pagefind-search input"
+    ) as HTMLInputElement;
     input?.focus();
   }
-});
-
-// Global Cmd+K listener
-function handleGlobalKeydown(e: KeyboardEvent) {
-  if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-    e.preventDefault();
-    open.value = !open.value;
-  }
-}
-
-onMounted(() => {
-  window.addEventListener("keydown", handleGlobalKeydown);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("keydown", handleGlobalKeydown);
 });
 </script>
 
@@ -95,4 +81,3 @@ onUnmounted(() => {
     </template>
   </UModal>
 </template>
-

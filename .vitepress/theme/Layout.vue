@@ -8,7 +8,6 @@ const layout = useLayout();
 
 <template>
   <UApp :tooltip="{ delayDuration: 300 }">
-    <PagefindSearch />
     <div class="min-h-screen flex flex-col">
       <Header />
       <div class="grow">
