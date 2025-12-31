@@ -5,11 +5,7 @@ const nav = useDocsNav();
 </script>
 
 <template>
-  <nav
-    v-if="nav.module"
-    class="navlinks text-sm flex flex-col"
-    data-pagefind-ignore
-  >
+  <nav v-if="nav.module" class="navlinks text-sm flex flex-col">
     <a :href="nav.module.href" class="mb-6">
       {{ nav.module.text }}
     </a>
