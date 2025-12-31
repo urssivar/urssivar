@@ -11,6 +11,7 @@ export default defineConfig({
   titleTemplate: false,
   description: "Preserving and studying Kaitag language, culture, history, and people.",
   srcDir: 'src',
+  srcExclude: ['**/_*.md'],
   lang: 'en',
 
   cleanUrls: true,
