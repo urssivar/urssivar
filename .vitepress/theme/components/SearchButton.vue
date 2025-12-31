@@ -90,7 +90,8 @@ async function search(q: string) {
     :content="{ onCloseAutoFocus: (e: Event) => e.preventDefault() }"
     :ui="{
       header: 'm-0! p-0! min-h-14 font-medium',
-      body: 'p-0!',
+      body: 'p-0! flex-1 flex flex-col',
+      content: 'h-[70vh] max-h-[70vh]',
     }"
   >
     <UTooltip :text="t('header.search')" :kbds="['/']">
@@ -119,7 +120,7 @@ async function search(q: string) {
       />
     </template>
     <template #body>
-      <div class="flex flex-col overflow-y-auto">
+      <div class="flex flex-col flex-1 overflow-y-auto">
         <template v-if="results.length">
           <a
             v-for="result in results"
@@ -132,12 +133,13 @@ async function search(q: string) {
             <div class="line-clamp-2" v-html="result.excerpt" />
           </a>
         </template>
-        <img
-          v-else
-          src="/stamp-logo.svg"
-          alt="Urssivar logo"
-          class="self-center size-80 invert-10 dark:invert-0 pointer-events-none"
-        />
+        <div v-else class="flex-1 flex items-center justify-center">
+          <img
+            src="/stamp-logo.svg"
+            alt="Urssivar logo"
+            class="size-80 invert-10 dark:invert-0 pointer-events-none"
+          />
+        </div>
       </div>
     </template>
   </UModal>
