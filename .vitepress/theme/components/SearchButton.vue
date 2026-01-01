@@ -85,9 +85,10 @@ async function search(q: string) {
     v-model:open="isOpen"
     :content="{ onCloseAutoFocus: (e: Event) => e.preventDefault() }"
     :ui="{
+      overlay: 'z-100',
+      content: 'z-100 h-[70vh] max-h-[70vh]',
       header: 'm-0! p-0! min-h-14 font-medium',
       body: 'p-0! flex-1 flex flex-col',
-      content: 'h-[70vh] max-h-[70vh]',
     }"
   >
     <UTooltip :text="t('header.search')">
