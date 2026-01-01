@@ -133,7 +133,7 @@ async function search(q: string) {
           <img
             src="/stamp-logo.svg"
             alt="Urssivar logo"
-            class="size-80 invert-10 dark:invert-0 pointer-events-none"
+            class="size-80 invert-90 dark:invert-0 opacity-30 pointer-events-none"
           />
         </div>
       </div>
