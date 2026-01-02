@@ -16,8 +16,11 @@ const loading = ref(false);
 
 let pagefind: Pagefind;
 
-watch(query, search);
-
+defineShortcuts({
+  ".": () => {
+    isOpen.value = true;
+  },
+});
 watch(isOpen, (open) => {
   if (open) {
     query.value = "";
@@ -25,27 +28,14 @@ watch(isOpen, (open) => {
   }
 });
 
-onMounted(loadPagefind);
-
-async function loadPagefind() {
+onMounted(async () => {
   const path = "/pagefind/pagefind.js";
   const pf = await import(path);
   await pf.init();
   pagefind = pf as unknown as Pagefind;
-}
+});
 
-function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
-  let closest = null;
-  for (const anchor of anchors) {
-    if (anchor.location <= location) {
-      closest = anchor;
-    } else {
-      break;
-    }
-  }
-  return closest;
-}
-
+watch(query, search);
 async function search(q: string) {
   if (!q.trim() || !pagefind) {
     results.value = [];
@@ -78,6 +68,18 @@ async function search(q: string) {
     .slice(0, 15);
   loading.value = false;
 }
+
+function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
+  let closest = null;
+  for (const anchor of anchors) {
+    if (anchor.location <= location) {
+      closest = anchor;
+    } else {
+      break;
+    }
+  }
+  return closest;
+}
 </script>
 
 <template>
@@ -91,7 +93,7 @@ async function search(q: string) {
       body: 'p-0! flex-1 flex flex-col',
     }"
   >
-    <UTooltip :text="t('header.search')">
+    <UTooltip :text="t('header.search')" :kbds="['.']">
       <UButton
         icon="i-material-symbols:search-rounded"
         :aria-label="t('header.search')"
