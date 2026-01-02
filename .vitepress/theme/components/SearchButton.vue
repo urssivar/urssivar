@@ -30,9 +30,9 @@ watch(isOpen, (open) => {
 
 onMounted(async () => {
   const path = "/pagefind/pagefind.js";
-  const pf = await import(path);
-  await pf.init();
-  pagefind = pf as unknown as Pagefind;
+  pagefind = (await import(path)) as Pagefind;
+  await pagefind.options({ excerptLength: 20 });
+  pagefind.init();
 });
 
 watch(query, search);
