@@ -36,7 +36,7 @@ const lang = computed(() => {
     <span v-for="(d, i) in word.definitions" class="ml-1.5">
       <span class="font-medium">
         <span v-if="word.definitions.length > 1" class="text-sm">
-          {{ `${i + 1}.` }}&nbsp;</span
+          {{ ` ${i + 1}.` }}&nbsp;</span
         >
         <span>
           {{ d.translation[lang] }}
