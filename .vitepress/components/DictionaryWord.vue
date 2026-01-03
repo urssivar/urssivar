@@ -17,7 +17,11 @@ const lang = computed(() => {
 
 <template>
   <p :id="word.id" class="pl-3 -indent-3 m-0 leading-0">
-    <a class="header-anchor mt-px" :href="`#${word.id}`" data-pagefind-ignore>
+    <a
+      class="header-anchor mt-px leading-relaxed"
+      :href="`#${word.id}`"
+      data-pagefind-ignore
+    >
       #
     </a>
 
