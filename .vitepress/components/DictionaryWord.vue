@@ -17,27 +17,52 @@ const lang = computed(() => {
 
 <template>
   <p :id="word.id" class="pl-3 -indent-3 m-0 leading-0">
-    <a
-      class="header-anchor mt-px leading-tight"
-      :href="`#${word.id}`"
-      data-pagefind-ignore
-    >
+    <a class="header-anchor mt-px" :href="`#${word.id}`" data-pagefind-ignore>
       #
     </a>
-    <span lang="xdq" class="font-semibold leading-0">
+
+    <span lang="xdq" class="font-semibold">
       {{ word.headword }}
     </span>
     {{ " " }}
-    <span class="text-xs text-toned italic">
-      {{ word.tags[lang].join(" ") }}
+    <span v-if="word.tags?.length" class="text-xs text-toned italic">
+      {{ word.tags.map((t) => t[lang]).join(" ") }}
     </span>
-    {{ " " }}
-    {{ word.definitions[lang].map((w) => w + ";").join(" ") }}
-    <span lang="xdq" class="text-base gloss font-medium">
-      <span v-if="word.forms?.length"> ... {{ word.forms.join(", ") }} </span>
-      <span v-if="word.variants?.length" class="italic">
-        <br />
-        // {{ word.variants.join(", ") }}
+
+    <span v-for="(d, i) in word.definitions" class="ml-1">
+      <span class="font-medium">
+        <span v-if="word.definitions.length > 1" class="text-sm">
+          {{ ` ${i + 1}. ` }}
+        </span>
+        {{ d.translation[lang] }}
+      </span>
+
+      <template v-for="e in d.examples ?? []">
+        {{ " " }}
+        <span
+          class="border-l-4 border-default rounded-sm bg-elevated text-sm px-1"
+        >
+          <span lang="xdq">
+            {{ e.text }}
+          </span>
+          {{ " · " }}
+          {{ e.translation[lang] }}
+        </span>
+      </template>
+    </span>
+
+    <span class="text-sm text-toned">
+      <span v-if="word.forms?.length">
+        ...
+        <span lang="xdq">
+          {{ word.forms.join(", ") }}
+        </span>
+      </span>
+      <span v-if="word.variants?.length">
+        //
+        <span lang="xdq">
+          {{ word.variants.join(", ") }}
+        </span>
       </span>
     </span>
   </p>
