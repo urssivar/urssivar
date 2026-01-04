@@ -28,49 +28,55 @@ const lang = computed(() => {
     <span lang="xdq" class="font-semibold">
       {{ word.headword }}
     </span>
+
     {{ " " }}
     <span v-if="word.tags?.length" class="text-xs text-toned italic">
       {{ word.tags.map((t) => t[lang]).join(" ") }}
     </span>
 
-    <span v-for="(d, i) in word.definitions" class="ml-1.5">
-      <span class="font-medium">
-        {{ " " }}
-        <span v-if="word.definitions.length > 1" class="text-sm">
-          {{ `${i + 1}.` }}&nbsp;</span
-        >
-        <span>
-          {{ d.translation[lang] }}
-        </span>
-      </span>
+    <template v-for="(d, i) in word.definitions">
+      <span class="ws">{{ " " }}</span>
+      <span v-if="word.definitions.length > 1" class="text-sm">
+        {{ `${i + 1}.` }}&nbsp;</span
+      >
+      <span>{{ d.translation[lang] }}</span>
 
-      <span v-for="e in d.examples ?? []" class="text-sm/relaxed text-toned">
-        {{ " " }}
-        <span class="ml-1.5">
+      <template v-for="e in d.examples ?? []">
+        <span class="ws">{{ " " }}</span>
+        <span class="text-sm/relaxed text-toned">
           •&nbsp;<span lang="xdq" class="leading-[1.15]">
             {{ e.text }}
           </span>
-          {{ /[.!?]$/.test(e.text) ? "" : "–" }}
-          <span>
-            {{ e.translation[lang] }}
-          </span>
+          {{ /[.!?]$/.test(e.text) ? "" : " – " }}
+          {{ e.translation[lang] }}
         </span>
-      </span>
-    </span>
+      </template>
+    </template>
 
     <span class="text-sm/relaxed italic">
-      <span v-if="word.forms?.length" class="ml-1.5">
+      <template v-if="word.forms?.length">
+        <span class="ws">{{ " " }}</span>
         ...
         <span lang="xdq" class="leading-[1.15]">
           {{ word.forms.join(", ") }}
         </span>
-      </span>
-      <span v-if="word.variants?.length" class="ml-1.5">
+      </template>
+
+      <template v-if="word.variants?.length">
+        <span class="ws">{{ " " }}</span>
         //
         <span lang="xdq" class="leading-[1.15]">
           {{ word.variants.join(", ") }}
         </span>
-      </span>
+      </template>
     </span>
   </p>
 </template>
+
+<style scoped>
+@reference "@/theme/styles/index.css";
+
+.ws {
+  @apply text-base! font-normal! font-sans! ml-2;
+}
+</style>
