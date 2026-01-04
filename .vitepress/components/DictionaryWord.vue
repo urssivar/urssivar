@@ -58,14 +58,14 @@ const lang = computed(() => {
       </span>
     </span>
 
-    <span class="text-sm/relaxed italic ml-1.5">
-      <span v-if="word.forms?.length">
+    <span class="text-sm/relaxed italic">
+      <span v-if="word.forms?.length" class="ml-1.5">
         ...
         <span lang="xdq" class="leading-[1.15]">
           {{ word.forms.join(", ") }}
         </span>
       </span>
-      <span v-if="word.variants?.length">
+      <span v-if="word.variants?.length" class="ml-1.5">
         //
         <span lang="xdq" class="leading-[1.15]">
           {{ word.variants.join(", ") }}
