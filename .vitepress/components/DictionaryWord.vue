@@ -16,7 +16,7 @@ const lang = computed(() => {
 </script>
 
 <template>
-  <p :id="word.id" class="pl-3 -indent-3 m-0 leading-0">
+  <p :id="word.id" class="pl-3 -indent-3 m-0 leading-snug">
     <a
       class="header-anchor mt-px leading-relaxed"
       :href="`#${word.id}`"
@@ -76,5 +76,9 @@ const lang = computed(() => {
 
 .ws {
   @apply text-base! font-normal! font-sans! ml-2;
+}
+
+span {
+  @apply leading-0!;
 }
 </style>
