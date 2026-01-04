@@ -43,7 +43,7 @@ const lang = computed(() => {
 
       <template v-for="e in d.examples ?? []">
         <span class="ws">{{ " " }}</span>
-        <span class="text-sm text-toned">
+        <span class="text-sm text-default">
           •&nbsp;<span lang="xdq">
             {{ e.text }}
           </span>
