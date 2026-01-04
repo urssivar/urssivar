@@ -43,8 +43,8 @@ const lang = computed(() => {
 
       <template v-for="e in d.examples ?? []">
         <span class="ws">{{ " " }}</span>
-        <span class="text-sm/relaxed text-toned">
-          •&nbsp;<span lang="xdq" class="leading-[1.15]">
+        <span class="text-sm text-toned">
+          •&nbsp;<span lang="xdq">
             {{ e.text }}
           </span>
           {{ /[.!?]$/.test(e.text) ? "" : " – " }}
@@ -53,17 +53,17 @@ const lang = computed(() => {
       </template>
     </template>
 
-    <span class="text-sm/relaxed italic">
+    <span class="text-sm italic">
       <template v-if="word.forms?.length">
         <span class="ws">{{ " " }}</span>
-        ...&nbsp;<span lang="xdq" class="leading-[1.15]">
+        ...&nbsp;<span lang="xdq">
           {{ word.forms.join(", ") }}
         </span>
       </template>
 
       <template v-if="word.variants?.length">
         <span class="ws">{{ " " }}</span>
-        //&nbsp;<span lang="xdq" class="leading-[1.15]">
+        //&nbsp;<span lang="xdq">
           {{ word.variants.join(", ") }}
         </span>
       </template>
