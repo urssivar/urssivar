@@ -12,7 +12,7 @@
   }
 
   mark {
-    @apply bg-transparent underline underline-offset-[0.05em] decoration-[0.25em] decoration-(--ui-border-accented)/75 text-inherit;
+    @apply bg-transparent underline underline-offset-[0.1em] decoration-[0.15em] decoration-(--ui-border-accented) text-inherit;
     text-decoration-skip-ink: none;
   }
 }

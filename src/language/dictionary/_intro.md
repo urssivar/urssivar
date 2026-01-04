@@ -138,20 +138,20 @@ Stress is prominent and contrastive in Kaitag. It is always marked on headwords:
 
 In case-inflected forms, stress shifts to the final syllable of the stem, immediately before the case suffix:
 
-- ++а́тта++ --'father'-- → ++атта́-ла++ --'father's'--
-- ++бизи́++ --'cat'-- → ++бизи́-цци++ --'with cat'--
-- ++Мяья́мад++ --'Muhammad'-- → ++Мяьяма́д-и++ --'to Muhammad'--
+- ++а́тта++ --'father'-- → ++атта́==ла==++ --'father's'--
+- ++бизи́++ --'cat'-- → ++бизи́==цци==++ --'with cat'--
+- ++Мяья́мад++ --'Muhammad'-- → ++Мяьяма́д==и==++ --'to Muhammad'--
 
 This applies to the oblique stem when present:
 
-- ++чух++ --'walnut'-- → ++чуха́-ла++ --'of walnut'--
-- ++ляъ++ --'ear'-- → ++ляъу́н-жи++ --'onto ear'--
-- ++миҡе́ре++ --'chest'-- → ++миҡри́н-цци++ --'into chest'--
+- ++чух++ --'walnut'-- → ++чуха́==ла==++ --'of walnut'--
+- ++ляъ++ --'ear'-- → ++ляъу́н==жи==++ --'onto ear'--
+- ++миҡе́ре++ --'chest'-- → ++миҡри́н==цци==++ --'into chest'--
 
 Plural forms have stress on the final syllable of the plural stem, before any case suffixes:
 
-- ++кка́лкка++ --'tree'--, ++ккилккне́++ --'trees'-- → ++ккилккна́-ла++ --'of trees'--
-- ++мургу́л++ --'man'--, ++миргле́++ --'men'-- → ++миргла́-ла++ --'of men'--
+- ++кка́лкка++ --'tree'--, ++ккилккне́++ --'trees'-- → ++ккилккна́==ла==++ --'of trees'--
+- ++мургу́л++ --'man'--, ++миргле́++ --'men'-- → ++миргла́==ла==++ --'of men'--
 
 In verbs, stress falls on the penultimate syllable in the infinitive and on the first syllable in other forms:
 
