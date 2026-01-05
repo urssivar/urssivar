@@ -7,7 +7,7 @@ interface HeaderElement {
   id: string;
   text: string;
   level: number;
-  numbering: string | null;
+  numbering?: string;
 }
 
 const headers = ref<HeaderElement[]>([]);
@@ -26,9 +26,9 @@ const observeHeaders = () => {
 
     headers.value.push({
       level: parseInt(h.tagName[1]),
-      text: h.textContent,
+      text: h.dataset.tocText ?? h.textContent,
       id: h.id,
-      numbering: h.getAttribute("data-numbering"),
+      numbering: h.dataset.numbering,
     });
     observer.value?.observe(el);
   });

@@ -4,6 +4,7 @@ import type { Lang } from "@/composables/i18n";
 import { useData } from "vitepress";
 import { computed } from "vue";
 import MarkdownIt from "markdown-it";
+import { cleanHeadword } from "@/utils";
 
 const md = new MarkdownIt();
 
@@ -25,14 +26,14 @@ const notes = computed(() => {
 </script>
 
 <template>
-  <div :id="word.id" class="mb-3">
+  <div class="my-4">
     <a class="header-anchor mt-px" :href="`#${word.id}`" data-pagefind-ignore>
       #
     </a>
     <p class="pl-3 -indent-3 m-0">
-      <span lang="xdq" class="font-semibold">
+      <h3 :id="word.id" :data-toc-text="cleanHeadword(word.headword)" lang="xdq" class="font-semibold inline">
         {{ word.headword }}
-      </span>
+      </h3>
 
       {{ " " }}
       <span v-if="word.tags?.length" class="text-xs text-toned italic">
