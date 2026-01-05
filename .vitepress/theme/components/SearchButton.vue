@@ -150,6 +150,6 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
 @reference "@/theme/styles/index.css";
 
 :deep(mark) {
-  @apply bg-accented/75 rounded-sm px-1 py-0.5 no-underline!;
+  @apply bg-accented/75 rounded-sm px-1 no-underline!;
 }
 </style>
