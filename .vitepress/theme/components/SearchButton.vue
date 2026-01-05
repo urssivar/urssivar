@@ -45,7 +45,9 @@ async function search(q: string) {
   const search = await pagefind.debouncedSearch(q);
   if (!search || q !== query.value) return;
 
-  const pages = await Promise.all(search.results.map((r) => r.data()));
+  const pages = await Promise.all(
+    search.results.slice(0, 25).map((r) => r.data())
+  );
   results.value = pages
     .flatMap((p) =>
       p.sub_results.map((sub) => {
@@ -65,7 +67,7 @@ async function search(q: string) {
         };
       })
     )
-    .slice(0, 15);
+    .slice(0, 50);
   loading.value = false;
 }
 
