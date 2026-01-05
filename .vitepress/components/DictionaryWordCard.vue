@@ -63,7 +63,12 @@ const lang = computed(() => {
       }"
     >
       <li v-for="d in word.definitions" class="leading-normal">
-        {{ d.translation[lang] }}
+        <p>
+          {{ d.translation[lang] }}
+          <span v-if="d.aliases?.[lang]?.length" class="sr-only">
+            + {{ d.aliases[lang]!.join(", ") }}
+          </span>
+        </p>
         <p
           v-if="d.note?.[lang]"
           class="note"
@@ -71,11 +76,10 @@ const lang = computed(() => {
         />
         <ul class="text-sm text-default m-0" v-if="d.examples?.length">
           <li v-for="e in d.examples">
-            <span lang="xdq">{{ e.text }}</span>
-            <template v-if="e.translation?.[lang]">
-              <br />
+            <p lang="xdq">{{ e.text }}</p>
+            <p v-if="e.translation?.[lang]">
               {{ e.translation[lang] }}
-            </template>
+            </p>
           </li>
         </ul>
       </li>
@@ -102,10 +106,14 @@ const lang = computed(() => {
 }
 
 ol > li:only-child::marker {
-  color: transparent;
+  @apply text-transparent;
+}
+
+p {
+  @apply m-0;
 }
 
 .note {
-  @apply text-sm pl-2 py-0.5 m-0 my-1 ml-3 bg-linear-to-r from-elevated rounded-sm;
+  @apply text-sm pl-2 py-0.5 my-1 ml-3 bg-linear-to-r from-elevated rounded-sm;
 }
 </style>
