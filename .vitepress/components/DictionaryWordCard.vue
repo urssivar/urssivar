@@ -17,12 +17,6 @@ const data = useData();
 const lang = computed(() => {
   return data.lang.value as Lang;
 });
-
-const notes = computed(() => {
-  return [word.etymology?.[lang.value], word.note?.[lang.value]].filter(
-    (n) => n
-  );
-});
 </script>
 
 <template>
@@ -45,7 +39,7 @@ const notes = computed(() => {
         {{ word.tags.map((t) => t[lang]).join(" ") }}
       </span>
 
-      <span class="text-sm italic">
+      <span class="text-xs italic">
         <template v-if="word.forms?.length">
           <span class="ws">{{ " " }}</span>
           ...&nbsp;<span lang="xdq">
@@ -70,20 +64,32 @@ const notes = computed(() => {
     >
       <li v-for="d in word.definitions" class="leading-normal">
         {{ d.translation[lang] }}
+        <p
+          v-if="d.note?.[lang]"
+          class="note"
+          v-html="md.renderInline(d.note[lang]!)"
+        />
         <ul class="text-sm text-default m-0" v-if="d.examples?.length">
           <li v-for="e in d.examples">
             <span lang="xdq">{{ e.text }}</span>
-            <br />
-            {{ e.translation[lang] }}
+            <template v-if="e.translation?.[lang]">
+              <br />
+              {{ e.translation[lang] }}
+            </template>
           </li>
         </ul>
       </li>
     </ol>
 
     <p
-      v-for="n in notes"
-      class="text-sm border-l-2 border-accented pl-2.5 m-0 ml-2 mt-1"
-      v-html="md.renderInline(n)"
+      v-if="word.etymology?.[lang]"
+      class="note"
+      v-html="md.renderInline(word.etymology[lang]!)"
+    />
+    <p
+      v-if="word.note?.[lang]"
+      class="note"
+      v-html="md.renderInline(word.note[lang]!)"
     />
   </div>
 </template>
@@ -97,5 +103,9 @@ const notes = computed(() => {
 
 ol > li:only-child::marker {
   color: transparent;
+}
+
+.note {
+  @apply text-sm pl-2 py-0.5 m-0 my-1 ml-3 bg-linear-to-r from-elevated rounded-sm;
 }
 </style>

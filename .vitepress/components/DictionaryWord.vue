@@ -22,7 +22,7 @@ const lang = computed(() => {
     </span>
 
     {{ " " }}
-    <span v-if="word.tags?.length" class="text-xs text-toned italic">
+    <span v-if="word.tags" class="text-xs text-toned italic">
       {{ word.tags.map((t) => t[lang]).join(" ") }}
     </span>
 
@@ -39,8 +39,10 @@ const lang = computed(() => {
           •&nbsp;<span lang="xdq">
             {{ e.text }}
           </span>
-          {{ /[.!?]$/.test(e.text) ? "" : " – " }}
-          {{ e.translation[lang] }}
+          <template v-if="e.translation?.[lang]">
+            {{ /[.!?]$/.test(e.text) ? "" : " – " }}
+            {{ e.translation[lang] }}
+          </template>
         </span>
       </template>
     </template>
