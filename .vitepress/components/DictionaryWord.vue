@@ -17,8 +17,6 @@ const lang = computed(() => {
 
 <template>
   <p :id="word.id" class="pl-3 -indent-3 m-0 leading-snug">
-    <a class="header-anchor" :href="`#${word.id}`" data-pagefind-ignore>#</a>
-
     <span lang="xdq" class="font-semibold">
       {{ word.headword }}
     </span>

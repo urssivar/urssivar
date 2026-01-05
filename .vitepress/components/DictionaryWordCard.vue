@@ -30,8 +30,13 @@ const notes = computed(() => {
     <a class="header-anchor mt-px" :href="`#${word.id}`" data-pagefind-ignore>
       #
     </a>
-    <p class="pl-3 -indent-3 m-0">
-      <h3 :id="word.id" :data-toc-text="cleanHeadword(word.headword)" lang="xdq" class="font-semibold inline">
+    <div class="pl-3 -indent-3 m-0">
+      <h3
+        :id="word.id"
+        :data-toc-text="cleanHeadword(word.headword)"
+        lang="xdq"
+        class="font-semibold inline"
+      >
         {{ word.headword }}
       </h3>
 
@@ -55,7 +60,7 @@ const notes = computed(() => {
           </span>
         </template>
       </span>
-    </p>
+    </div>
 
     <ol
       class="m-0 ml-5"
