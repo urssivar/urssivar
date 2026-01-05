@@ -39,7 +39,7 @@ const lang = computed(() => {
         {{ word.tags.map((t) => t[lang]).join(" ") }}
       </span>
 
-      <span class="text-xs italic">
+      <span class="text-sm italic">
         <template v-if="word.forms?.length">
           <span class="ws">{{ " " }}</span>
           ...&nbsp;<span lang="xdq">
