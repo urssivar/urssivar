@@ -40,7 +40,7 @@ onContentUpdated(observeHeaders);
 </script>
 
 <template>
-  <nav class="navlinks text-xs flex flex-col">
+  <nav class="navlinks toc-scroll text-xs flex flex-col">
     <a
       v-for="h in headers"
       :key="h.id"
