@@ -50,8 +50,8 @@
     mask-image: linear-gradient(
       to bottom,
       transparent,
-      black --spacing(6),
-      black calc(100% - --spacing(6)),
+      black --spacing(3),
+      black calc(100% - --spacing(3)),
       transparent
     );
 
