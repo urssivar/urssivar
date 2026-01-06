@@ -11,6 +11,6 @@ const letter = params.value.letter;
 const { dict } = useDictData();
 </script>
 
-<h1 lang="xdq" class="mb-4">{{ capitalize(letter) }}</h1>
+<h1 lang="xdq" :id="letter" class="mb-4">{{ capitalize(letter) }}</h1>
 
 <DictWord v-for="word in dict[letter]" :key="word.id" :word="word"/>
