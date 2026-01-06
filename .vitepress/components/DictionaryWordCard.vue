@@ -114,6 +114,6 @@ p {
 }
 
 .note {
-  @apply text-sm pl-2 py-0.5 my-1 ml-3 bg-linear-to-r from-elevated rounded-sm;
+  @apply text-sm pl-2 py-1.5 my-1.5 ml-3 bg-linear-to-r from-elevated rounded-sm;
 }
 </style>
