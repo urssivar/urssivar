@@ -25,14 +25,14 @@ const lang = computed(() => {
       #
     </a>
     <div class="pl-3 -indent-3 m-0">
-      <h3
+      <h2
         :id="word.id"
         :data-toc-text="cleanHeadword(word.headword)"
         lang="xdq"
-        class="font-semibold inline"
+        class="font-semibold inline text-xl"
       >
         {{ word.headword }}
-      </h3>
+      </h2>
 
       {{ " " }}
       <span v-if="word.tags?.length" class="text-xs text-toned italic">
