@@ -29,10 +29,14 @@ watch(isOpen, (open) => {
 });
 
 onMounted(async () => {
-  const path = "/pagefind/pagefind.js";
-  pagefind = (await import(path)) as Pagefind;
-  await pagefind.options({ excerptLength: 20 });
-  pagefind.init();
+  try {
+    const path = "/pagefind/pagefind.js";
+    pagefind = await import(/* @vite-ignore */ path);
+    await pagefind.options({ excerptLength: 20 });
+    pagefind.init();
+  } catch {
+    // Pagefind not available (dev mode or not yet indexed)
+  }
 });
 
 watch(query, search);
