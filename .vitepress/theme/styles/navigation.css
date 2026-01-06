@@ -46,6 +46,7 @@
     @apply max-h-screen overflow-y-auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    scroll-padding-block: --spacing(16);
     mask-image: linear-gradient(
       to bottom,
       transparent,

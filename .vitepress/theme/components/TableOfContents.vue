@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, watch, onMounted, useTemplateRef } from "vue";
 import { onContentUpdated } from "vitepress";
 import { useElementIdObserver } from "@/composables/elementIdObserver";
 
@@ -12,6 +12,12 @@ interface HeaderElement {
 
 const headers = ref<HeaderElement[]>([]);
 const { observingId, observer } = useElementIdObserver();
+const links = useTemplateRef<HTMLAnchorElement[]>("links");
+
+watch(observingId, (id) => {
+  const link = links.value?.find((el) => el.hash === `#${id}`);
+  link?.scrollIntoView({ block: "nearest" });
+});
 
 const observeHeaders = () => {
   observer.value?.disconnect();
@@ -43,6 +49,7 @@ onContentUpdated(observeHeaders);
   <nav class="navlinks text-xs flex flex-col">
     <a
       v-for="h in headers"
+      ref="links"
       :key="h.id"
       :href="`#${h.id}`"
       :class="{ active: observingId === h.id }"
