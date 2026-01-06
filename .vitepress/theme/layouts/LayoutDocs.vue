@@ -35,7 +35,7 @@ watch(
             :handle="false"
             :ui="{
               content: 'w-2/3 sm:w-80 rounded-none',
-              body: 'p-2',
+              body: 'py-2',
             }"
             v-model:open="menuOpen"
           >
@@ -65,7 +65,7 @@ watch(
             inset
             :ui="{
               content: 'w-2/3 sm:w-80',
-              body: 'p-2',
+              body: 'py-2',
             }"
           >
             <UTooltip :text="t('nav.toc')">
@@ -84,10 +84,8 @@ watch(
     <div
       class="lg:px-4 lg:gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr] print:block"
     >
-      <aside
-        class="hidden lg:block h-min border-r border-default border-dashed pr-4"
-      >
-        <SidebarNav>
+      <aside class="hidden lg:block border-r border-default border-dashed pr-4">
+        <SidebarNav class="sticky top-0 aside-scroll py-4">
           <DictionaryIndex
             v-if="nav.section?.path === 'dictionary'"
             variant="sidebar"
@@ -98,7 +96,7 @@ watch(
         <Content />
       </article>
       <aside class="hidden lg:block">
-        <TableOfContents class="sticky top-0 toc-scroll" />
+        <TableOfContents class="sticky top-0 aside-scroll py-4" />
       </aside>
     </div>
   </BaseLayout>

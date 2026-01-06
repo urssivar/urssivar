@@ -42,7 +42,7 @@
     @apply print:hidden!;
   }
 
-  .toc-scroll {
+  .aside-scroll {
     @apply max-h-screen overflow-y-auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -50,8 +50,8 @@
     mask-image: linear-gradient(
       to bottom,
       transparent,
-      black --spacing(3),
-      black calc(100% - --spacing(3)),
+      black --spacing(6),
+      black calc(100% - --spacing(6)),
       transparent
     );
 
