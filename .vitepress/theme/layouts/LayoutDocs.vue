@@ -98,7 +98,7 @@ watch(
         <Content />
       </article>
       <aside class="hidden lg:block">
-        <TableOfContents class="sticky top-0" />
+        <TableOfContents class="sticky top-0 toc-scroll" />
       </aside>
     </div>
   </BaseLayout>
