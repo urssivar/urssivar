@@ -5,6 +5,10 @@ import { Lang } from "./i18n";
 export type Letter = keyof typeof dict;
 
 type BilingualText = Partial<Record<Lang, string>>;
+type WordLink = {
+  headword: string;
+  link: string;
+};
 
 export type Word = {
   id: string;
@@ -27,6 +31,8 @@ export type Word = {
   }[];
   note?: BilingualText;
   etymology?: BilingualText;
+  derived_from?: WordLink[];
+  see_also?: WordLink[];
 }
 
 export function useDictData() {

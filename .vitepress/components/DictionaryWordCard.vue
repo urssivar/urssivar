@@ -5,6 +5,7 @@ import { useData } from "vitepress";
 import { computed } from "vue";
 import MarkdownIt from "markdown-it";
 import { cleanHeadword } from "@/utils";
+import { useI18n } from "@/composables/i18n";
 
 const md = new MarkdownIt();
 
@@ -17,6 +18,12 @@ const data = useData();
 const lang = computed(() => {
   return data.lang.value as Lang;
 });
+
+const { buildPath } = useI18n();
+
+function buildDictLink(link: string) {
+  return buildPath("/language/dictionary/", link);
+}
 </script>
 
 <template>
@@ -39,20 +46,10 @@ const lang = computed(() => {
         {{ word.tags.map((t) => t[lang]).join(" ") }}
       </span>
 
-      <span class="text-sm italic">
-        <template v-if="word.forms?.length">
-          <span class="ws">{{ " " }}</span>
-          ...&nbsp;<span lang="xdq">
-            {{ word.forms.join(", ") }}
-          </span>
-        </template>
-
-        <template v-if="word.variants?.length">
-          <span class="ws">{{ " " }}</span>
-          //&nbsp;<span lang="xdq">
-            {{ word.variants.join(", ") }}
-          </span>
-        </template>
+      <span v-if="word.forms?.length" class="text-sm pl-2">
+        …&nbsp;<span lang="xdq" class="italic">
+          {{ word.forms.join(", ") }}
+        </span>
       </span>
     </div>
 
@@ -95,15 +92,35 @@ const lang = computed(() => {
       class="note"
       v-html="md.renderInline(word.note[lang]!)"
     />
+
+    <p class="text-xs text-toned pl-3.5">
+      <span v-if="word.variants?.length" class="ml-1.5">
+        ~&nbsp;<span lang="xdq" class="italic">
+          {{ word.variants.join(", ") }}
+        </span>
+      </span>
+      <span v-if="word.derived_from?.length" class="ml-1.5">
+        «&nbsp;<span
+          v-for="(w, i) in word.derived_from"
+          lang="xdq"
+          class="italic"
+        >
+          <a :href="buildDictLink(w.link)"> {{ w.headword }} </a
+          >{{ i < word.derived_from.length - 1 ? ", " : "" }}
+        </span>
+      </span>
+      <span v-if="word.see_also?.length" class="ml-1.5">
+        »&nbsp;<span v-for="(w, i) in word.see_also" lang="xdq" class="italic">
+          <a :href="buildDictLink(w.link)"> {{ w.headword }} </a
+          >{{ i < word.see_also.length - 1 ? ", " : "" }}
+        </span>
+      </span>
+    </p>
   </div>
 </template>
 
 <style scoped>
 @reference "@/theme/styles/index.css";
-
-.ws {
-  @apply text-base! font-normal! font-sans! ml-2;
-}
 
 ol > li:only-child::marker {
   @apply text-transparent;
@@ -114,6 +131,6 @@ p {
 }
 
 .note {
-  @apply text-sm pl-2 py-1.5 my-1.5 ml-3 bg-linear-to-r from-elevated rounded-sm;
+  @apply text-default text-sm pl-2 py-1.5 my-1.5 ml-3 bg-linear-to-r from-elevated rounded-sm;
 }
 </style>
