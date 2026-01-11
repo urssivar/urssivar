@@ -16,7 +16,8 @@
       "WebFetch(domain:pagefind.app)",
       "mcp__ide__getDiagnostics",
       "Bash(curl:*)",
-      "WebFetch(domain:vitepress.dev)"
+      "WebFetch(domain:vitepress.dev)",
+      "Bash(wc:*)"
     ],
     "deny": [],
     "ask": []

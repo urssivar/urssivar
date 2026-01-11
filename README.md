@@ -1,18 +1,7 @@
 # Urssivar: Kaitag Studies
 
-**Nallara del da. Ham ra bel.**
-
 Landing page for Kaitag language and culture preservation initiative.
 
-## Development
+## License
 
-```bash
-npm install
-npm run dev
-```
-
-## Build
-
-```bash
-npm run generate
-```
+Dual-licensed: **Content** under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), **Code** under [MIT](https://opensource.org/licenses/MIT). See [LICENSE](LICENSE) for details.

@@ -1,6 +1,23 @@
-MIT License
+# Dual License
 
-Copyright (c) 2024 Urssivar : Kaitag Studies
+This project uses a dual-licensing model:
+
+## Content License: CC BY 4.0
+
+All **content** (documentation, data files, images, PDFs, audio, and other educational materials) is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+**Attribution:**
+
+```
+Urssivar (2026). Licensed under CC BY 4.0.
+https://github.com/urssivar/urssivar
+```
+
+## Code License: MIT
+
+All **code** (`.ts`, `.vue` files, etc.) is licensed under the MIT License.
+
+Copyright (c) 2026 Urssivar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
