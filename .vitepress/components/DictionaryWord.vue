@@ -22,7 +22,7 @@ const lang = computed(() => {
     </span>
 
     {{ " " }}
-    <span v-if="word.tags" class="text-xs text-toned italic">
+    <span v-if="word.tags?.length" class="text-xs text-toned italic">
       {{ word.tags.map((t) => t[lang]).join(" ") }}
     </span>
 
@@ -36,31 +36,28 @@ const lang = computed(() => {
       <template v-for="e in d.examples ?? []">
         <span class="ws">{{ " " }}</span>
         <span class="text-sm text-default">
-          •&nbsp;<span lang="xdq">
-            {{ e.text }}
-          </span>
+          <span class="text-xs">•&nbsp;</span>
+          <span lang="xdq">{{ e.text }}</span>
           <template v-if="e.translation?.[lang]">
-            {{ /[.!?]$/.test(e.text) ? "" : " – " }}
-            {{ e.translation[lang] }}
+            {{ " " }}
+            <template v-if="!/[.!?]$/.test(e.text)">–&nbsp;</template
+            >{{ e.translation[lang] }}
           </template>
         </span>
       </template>
     </template>
 
-    <span class="text-sm italic">
-      <template v-if="word.forms?.length">
-        <span class="ws">{{ " " }}</span>
-        ...&nbsp;<span lang="xdq">
-          {{ word.forms.join(", ") }}
-        </span>
-      </template>
-
-      <template v-if="word.variants?.length">
-        <span class="ws">{{ " " }}</span>
-        //&nbsp;<span lang="xdq">
-          {{ word.variants.join(", ") }}
-        </span>
-      </template>
+    <span v-if="word.forms?.length" class="text-sm">
+      <span class="ws">{{ " " }}</span>
+      …&nbsp;<span lang="xdq" class="italic">
+        {{ word.forms.join(", ") }}
+      </span>
+    </span>
+    <span v-if="word.variants?.length" class="text-sm">
+      <span class="ws">{{ " " }}</span>
+      ~&nbsp;<span lang="xdq" class="italic">
+        {{ word.variants.join(", ") }}
+      </span>
     </span>
   </p>
 </template>

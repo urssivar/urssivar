@@ -75,8 +75,8 @@ function buildDictLink(link: string) {
         </p>
         <ul class="text-sm text-default m-0" v-if="d.examples?.length">
           <li v-for="e in d.examples" class="my-1">
-            <span lang="xdq">{{ e.text }}</span
-            ><template v-if="e.translation?.[lang]">
+            <span lang="xdq">{{ e.text }}</span>
+            <template v-if="e.translation?.[lang]">
               —&nbsp;{{ e.translation[lang] }}
             </template>
           </li>
