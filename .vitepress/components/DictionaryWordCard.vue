@@ -27,11 +27,11 @@ function buildDictLink(link: string) {
 </script>
 
 <template>
-  <div class="my-4">
+  <div class="my-6">
     <a class="header-anchor mt-px" :href="`#${word.id}`" data-pagefind-ignore>
       #
     </a>
-    <div class="pl-3 -indent-3 m-0 mb-0.5">
+    <div class="pl-3 -indent-3 m-0 my-1">
       <h2
         :id="word.id"
         :data-toc-text="cleanHeadword(word.headword)"
@@ -59,7 +59,7 @@ function buildDictLink(link: string) {
         'p-0': word.definitions.length == 1,
       }"
     >
-      <li v-for="d in word.definitions" class="leading-normal">
+      <li v-for="d in word.definitions" class="leading-normal my-1">
         <p>
           {{ d.translation[lang]
           }}<span v-if="d.aliases?.[lang]?.length" class="sr-only">
@@ -73,8 +73,8 @@ function buildDictLink(link: string) {
             />
           </template>
         </p>
-        <ul class="text-sm text-default m-0 my-1" v-if="d.examples?.length">
-          <li v-for="e in d.examples">
+        <ul class="text-sm text-default m-0" v-if="d.examples?.length">
+          <li v-for="e in d.examples" class="my-1">
             <span lang="xdq">{{ e.text }}</span
             ><template v-if="e.translation?.[lang]">
               —&nbsp;{{ e.translation[lang] }}
@@ -95,13 +95,13 @@ function buildDictLink(link: string) {
       v-html="md.renderInline(word.note[lang]!)"
     />
 
-    <p class="text-xs text-toned pl-3.5 my-1.5!">
-      <span v-if="word.variants?.length" class="ml-1.5">
+    <p class="text-xs text-toned pl-3 my-2!">
+      <span v-if="word.variants?.length" class="ml-2">
         ~&nbsp;<span lang="xdq" class="italic">
           {{ word.variants.join(", ") }}
         </span>
       </span>
-      <span v-if="word.derived_from?.length" class="ml-1.5">
+      <span v-if="word.derived_from?.length" class="ml-2">
         «&nbsp;<span
           v-for="(w, i) in word.derived_from"
           lang="xdq"
@@ -111,7 +111,7 @@ function buildDictLink(link: string) {
           >{{ i < word.derived_from.length - 1 ? ", " : "" }}
         </span>
       </span>
-      <span v-if="word.see_also?.length" class="ml-1.5">
+      <span v-if="word.see_also?.length" class="ml-2">
         »&nbsp;<span v-for="(w, i) in word.see_also" lang="xdq" class="italic">
           <a :href="buildDictLink(w.link)"> {{ w.headword }} </a
           >{{ i < word.see_also.length - 1 ? ", " : "" }}
@@ -149,6 +149,6 @@ a {
 }
 
 .note {
-  @apply text-default text-sm pl-2 py-0.5 my-2 ml-2.5 border-default border-l-2;
+  @apply text-default text-sm pl-2 py-1 my-2 ml-2.5 border-default border-l-2;
 }
 </style>
