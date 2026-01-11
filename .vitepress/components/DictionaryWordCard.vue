@@ -31,7 +31,7 @@ function buildDictLink(link: string) {
     <a class="header-anchor mt-px" :href="`#${word.id}`" data-pagefind-ignore>
       #
     </a>
-    <div class="pl-3 -indent-3 m-0">
+    <div class="pl-3 -indent-3 m-0 mb-0.5">
       <h2
         :id="word.id"
         :data-toc-text="cleanHeadword(word.headword)"
@@ -61,22 +61,24 @@ function buildDictLink(link: string) {
     >
       <li v-for="d in word.definitions" class="leading-normal">
         <p>
-          {{ d.translation[lang] }}
-          <span v-if="d.aliases?.[lang]?.length" class="sr-only">
-            + {{ d.aliases[lang]!.join(", ") }}
-          </span>
+          {{ d.translation[lang]
+          }}<span v-if="d.aliases?.[lang]?.length" class="sr-only">
+            &nbsp;+&nbsp;{{ d.aliases[lang]!.join(", ") }} </span
+          ><template v-if="d.note?.[lang]"
+            >;
+            <span
+              v-if="d.note?.[lang]"
+              class="text-default text-sm"
+              v-html="md.renderInline(d.note[lang]!)"
+            />
+          </template>
         </p>
-        <p
-          v-if="d.note?.[lang]"
-          class="note"
-          v-html="md.renderInline(d.note[lang]!)"
-        />
-        <ul class="text-sm text-default m-0" v-if="d.examples?.length">
+        <ul class="text-sm text-default m-0 my-1" v-if="d.examples?.length">
           <li v-for="e in d.examples">
-            <p lang="xdq">{{ e.text }}</p>
-            <p v-if="e.translation?.[lang]">
-              {{ e.translation[lang] }}
-            </p>
+            <span lang="xdq">{{ e.text }}</span
+            ><template v-if="e.translation?.[lang]">
+              —&nbsp;{{ e.translation[lang] }}
+            </template>
           </li>
         </ul>
       </li>
@@ -93,7 +95,7 @@ function buildDictLink(link: string) {
       v-html="md.renderInline(word.note[lang]!)"
     />
 
-    <p class="text-xs text-toned pl-3.5">
+    <p class="text-xs text-toned pl-3.5 my-1.5!">
       <span v-if="word.variants?.length" class="ml-1.5">
         ~&nbsp;<span lang="xdq" class="italic">
           {{ word.variants.join(", ") }}
@@ -126,11 +128,27 @@ ol > li:only-child::marker {
   @apply text-transparent;
 }
 
+ol > li::marker {
+  @apply text-sm;
+}
+
+ul > li::marker {
+  @apply text-xs;
+}
+
 p {
-  @apply m-0;
+  @apply m-0 leading-tight;
+}
+
+span {
+  @apply leading-0!;
+}
+
+a {
+  @apply decoration-dotted;
 }
 
 .note {
-  @apply text-default text-sm pl-2 py-1.5 my-1.5 ml-3 bg-linear-to-r from-elevated rounded-sm;
+  @apply text-default text-sm pl-2 py-0.5 my-2 ml-2.5 border-default border-l-2;
 }
 </style>
