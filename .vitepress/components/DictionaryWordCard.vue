@@ -86,16 +86,16 @@ function buildDictLink(link: string) {
 
     <p
       v-if="word.etymology?.[lang]"
-      class="note"
+      class="text-default text-sm my-2!"
       v-html="md.renderInline(word.etymology[lang]!)"
     />
     <p
       v-if="word.note?.[lang]"
-      class="note"
+      class="text-default text-sm my-2!"
       v-html="md.renderInline(word.note[lang]!)"
     />
 
-    <p class="text-xs text-toned pl-3 my-2!">
+    <p class="text-xs text-default -indent-2 my-2!">
       <span v-if="word.variants?.length" class="ml-2">
         ~&nbsp;<span lang="xdq" class="italic">
           {{ word.variants.join(", ") }}
@@ -146,9 +146,5 @@ span {
 
 a {
   @apply decoration-dotted;
-}
-
-.note {
-  @apply text-default text-sm pl-2 py-1 my-2 ml-2.5 border-default border-l-2;
 }
 </style>
