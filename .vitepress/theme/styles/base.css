@@ -80,31 +80,32 @@
   }
 
   table {
-    @apply my-6 w-full border-collapse rounded-sm bg-elevated text-[0.875rem];
+    @apply my-6 w-full border-collapse text-[0.875rem];
   }
 
   tbody {
     tr {
-      @apply border-b border-default/50 print:break-inside-avoid;
+      @apply border-b border-dashed border-accented/50 print:break-inside-avoid;
 
       &:last-child {
         @apply border-b-0;
       }
     }
+
     td {
-      @apply px-3 py-1.5 align-text-top leading-snug;
+      @apply px-3 py-1.5 align-text-top leading-tight;
     }
   }
 
   figure {
-    @apply my-6 print:break-inside-avoid;
+    @apply bg-elevated py-4 px-8 my-6 -mx-16! print:break-inside-avoid overflow-x-auto;
 
-    img {
-      @apply rounded-sm w-full object-cover object-top dark:opacity-90;
+    > * {
+      @apply m-0;
     }
 
-    table {
-      @apply my-0;
+    > img {
+      @apply w-full object-cover object-top dark:opacity-90;
     }
   }
 
@@ -118,7 +119,7 @@
   }
 
   article {
-    @apply max-w-prose print:max-w-full mx-auto px-6 sm:px-8;
+    @apply max-w-prose print:max-w-full mx-auto;
   }
 }
 

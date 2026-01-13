@@ -31,6 +31,8 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 <DNAChart/>
 
+### Результаты
+
 <DNATable />
 
 </article>

@@ -1,7 +1,7 @@
 @layer components {
   /* Colon Blocks (:::note, etc.) */
   .colon-block {
-    @apply rounded-sm px-4 py-3 border-l-4 border-default/50 bg-elevated/50 text-[0.875rem] my-4 print:break-inside-avoid;
+    @apply px-16 py-2 bg-elevated text-[0.875rem] my-6 -mx-16 print:break-inside-avoid;
 
     p,
     ul,
@@ -11,15 +11,11 @@
   }
 
   /* IPA Phonetic Charts */
-  .ipa-chart {
-    @apply my-4 -mx-6 sm:mx-0 px-6 sm:px-0 overflow-x-auto;
+  .ipa-chart table td {
+    @apply pt-2 whitespace-nowrap text-xs;
 
-    table td {
-      @apply pt-2 whitespace-nowrap text-xs text-default;
-
-      [lang="xdq"] {
-        @apply block text-[1.5em]/[1.15] text-highlighted;
-      }
+    [lang="xdq"] {
+      @apply block text-[1.5em]/[1.15] text-highlighted;
     }
   }
 

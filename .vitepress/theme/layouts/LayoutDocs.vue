@@ -79,7 +79,7 @@ watch(
   </NavBar>
 
   <div
-    class="grid grid-cols-1 lg:grid-cols-[1fr_calc(65ch+64px)_1fr] print:block"
+    class="grid gap-6 grid-cols-1 lg:grid-cols-[1fr_calc(65ch+64px)_1fr] lg:mx-2.5 print:block"
   >
     <aside>
       <SidebarNav class="ml-auto">
@@ -90,7 +90,7 @@ watch(
       </SidebarNav>
     </aside>
     <main
-      class="shadow bg-default border border-default/50 dark:bg-muted/50 w-full px-16 py-16 z-10"
+      class="shadow bg-default border border-default/50 dark:bg-muted/50 w-full px-16 py-16"
     >
       <article>
         <Content />
@@ -106,7 +106,8 @@ watch(
 @reference "@/theme/styles/index.css";
 
 aside {
-  @apply hidden lg:block px-6;
+  @apply hidden lg:block;
+
   > * {
     @apply sticky top-0 py-4 max-h-screen max-w-64 overflow-y-auto;
 

@@ -43,9 +43,10 @@ function onLetterLeave() {
 </script>
 
 <template>
-  <div class="bg-elevated my-12 text-center" data-pagefind-ignore>
+  <figure>
     <div
-      class="max-w-full md:max-w-screen-md mx-auto px-6 sm:px-8 py-4 sm:py-6 grid grid-cols-6 md:grid-cols-7"
+      class="max-w-full text-center grid grid-cols-6 md:grid-cols-7 group"
+      data-pagefind-ignore
     >
       <div
         v-for="l in letters"
@@ -57,24 +58,28 @@ function onLetterLeave() {
       >
         <span
           lang="xdq"
-          class="font-semibold select-none capitalize text-muted transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          class="select-none capitalize transition dation-200 urease-in-out group-hover:text-muted"
         >
           {{ l }}
         </span>
         <span
-          class="text-[0.875rem] pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
+          class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-in-out"
         >
-          <span lang="xdq" class="font-semibold leading-none">
+          <span lang="xdq" class="leading-none">
             {{ words[l] }}
           </span>
         </span>
       </div>
     </div>
-  </div>
+  </figure>
 </template>
 
 <style scoped>
 @reference "@/theme/styles/index.css";
+
+[lang="xdq"] {
+  @apply font-semibold;
+}
 
 .letter:hover > :nth-child(1),
 .letter.current > :nth-child(1) {
