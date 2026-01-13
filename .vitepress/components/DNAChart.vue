@@ -150,15 +150,15 @@ onMounted(() => {
   @apply font-bold pointer-events-none;
 
   &.hh-R1b {
-    @apply fill-(--color-amber-600) dark:fill-(--color-amber-400);
+    @apply fill-amber-600 dark:fill-amber-400;
   }
 
   &.hh-J1 {
-    @apply fill-(--color-sky-600) dark:fill-(--color-sky-400);
+    @apply fill-sky-600 dark:fill-sky-400;
   }
 
   &.hh-Q2 {
-    @apply fill-(--color-emerald-600) dark:fill-(--color-emerald-400);
+    @apply fill-emerald-600 dark:fill-emerald-400;
   }
 }
 

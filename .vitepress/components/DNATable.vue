@@ -37,14 +37,14 @@ function getYfullLink(k: (typeof kits)[0]) {
 
 <style scoped>
 .hh-R1b {
-  @apply text-(--color-amber-600) dark:text-(--color-amber-400);
+  @apply text-amber-600 dark:text-amber-400;
 }
 
 .hh-J1 {
-  @apply text-(--color-sky-600) dark:text-(--color-sky-400);
+  @apply text-sky-600 dark:text-sky-400;
 }
 
 .hh-Q2 {
-  @apply text-(--color-emerald-600) dark:text-(--color-emerald-400);
+  @apply text-emerald-600 dark:text-emerald-400;
 }
 </style>
