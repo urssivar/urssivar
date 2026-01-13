@@ -1,23 +1,23 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { useLayout, layouts } from "@/composables/layout";
 import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import Layout404 from "./layouts/Layout404.vue";
+import LayoutDocs from "./layouts/LayoutDocs.vue";
+import { useI18n } from "@/composables/i18n";
 
 const { page } = useData();
-const layout = useLayout();
 </script>
 
 <template>
   <UApp :tooltip="{ delayDuration: 300 }">
-    <div class="min-h-screen flex flex-col">
-      <Header />
+    <div class="min-h-screen flex flex-col bg-muted dark:bg-default">
+      <Header class="mt-12 mb-2.5" />
       <div class="grow">
         <Layout404 v-if="page.isNotFound" />
-        <component v-else :is="layouts[layout]" />
+        <LayoutDocs v-else />
       </div>
-      <Footer />
+      <Footer class="mt-12" />
     </div>
   </UApp>
 </template>

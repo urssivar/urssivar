@@ -1,4 +1,5 @@
 import { useData } from 'vitepress';
+import { computed } from 'vue';
 
 export type Lang = 'en' | 'ru';
 
@@ -60,12 +61,15 @@ const messages = {
 } as const;
 
 export function useI18n() {
-  const { lang } = useData();
+  const { lang: langRaw } = useData();
+
+  const lang = computed(() => {
+    return langRaw.value as Lang;
+  })
 
   function t(key: string): string {
-    const locale = lang.value as Lang;
     const keys = key.split('.');
-    let value: any = messages[locale];
+    let value: any = messages[lang.value];
 
     for (const k of keys) {
       value = value?.[k];
@@ -79,5 +83,5 @@ export function useI18n() {
     return [localePrefix, ...segments].filter(Boolean).join("");
   }
 
-  return { t, buildPath };
+  return { t, buildPath, lang };
 }

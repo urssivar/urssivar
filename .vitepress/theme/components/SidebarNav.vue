@@ -1,37 +1,56 @@
 <script setup lang="ts">
-import { useDocsNav } from "@/composables/nav";
+import { useNav } from "@/composables/nav";
+import { watchEffect } from "vue";
 
-const nav = useDocsNav();
+const nav = useNav();
 </script>
 
 <template>
-  <nav v-if="nav.module" class="navlinks text-sm flex flex-col">
-    <a :href="nav.module.href" class="mb-6">
+  <nav class="navlinks text-sm">
+    <a
+      v-if="nav.module"
+      :href="nav.module.url"
+      :class="{ active: nav.module == nav.article }"
+    >
       {{ nav.module.text }}
     </a>
-
-    <template v-if="nav.section">
-      <a :href="nav.section.href">
-        {{ nav.section.text }}
-      </a>
-      <div class="flex flex-col mb-6 ml-4">
-        <a
-          v-for="a in nav.allArticles"
-          :key="a.href"
-          :href="a.href"
-          :class="{
-            active: a.href === nav.article?.href,
-          }"
-        >
-          {{ a.text }}
+    <div class="ml-4" v-if="nav.module?.children">
+      <template v-for="s in nav.module.children" :key="s.url">
+        <a :href="s.url" :class="{ active: s == nav.article }">
+          {{ s.text }}
         </a>
+        <div class="ml-4" v-if="s == nav.section">
+          <a
+            v-for="a in nav.section.children"
+            :key="a.url"
+            :href="a.url"
+            :class="{ active: a == nav.article }"
+          >
+            {{ a.text }}
+          </a>
+          <slot />
+        </div>
+      </template>
+    </div>
 
-        <slot />
-      </div>
-    </template>
-
-    <a v-for="s in nav.otherSections" :key="s.href" :href="s.href">
-      {{ s.text }}
-    </a>
+    <div
+      v-if="(nav.home.children?.length ?? 0) > 1"
+      :class="{ 'mt-8': nav.module }"
+    >
+      <template v-for="m in nav.home.children" :key="m.url">
+        <a v-if="m != nav.module" :href="m.url">
+          {{ m.text }}
+        </a>
+      </template>
+    </div>
   </nav>
 </template>
+
+<style lang="css" scoped>
+@reference "@/theme/styles/index.css";
+
+nav,
+div {
+  @apply flex flex-col;
+}
+</style>

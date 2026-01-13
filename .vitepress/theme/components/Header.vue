@@ -3,18 +3,19 @@ import NavBar from "./NavBar.vue";
 import LocaleSwitch from "./LocaleSwitch.vue";
 import SearchButton from "./SearchButton.vue";
 import { useI18n } from "@/composables/i18n";
-import { useLayout } from "@/composables/layout";
 import { computed } from "vue";
+import { useNav } from "@/composables/nav";
 
 const { t, buildPath } = useI18n();
-const layout = useLayout();
 
 const homeLink = computed(() => {
   return buildPath("/");
 });
 
-const showBrand = computed(() => {
-  return layout.value !== "landing";
+const nav = useNav();
+
+const isHome = computed(() => {
+  return nav.article == nav.home;
 });
 </script>
 
@@ -24,16 +25,16 @@ const showBrand = computed(() => {
       <UTooltip :text="t('header.home')">
         <a
           :href="homeLink"
-          class="flex gap-1 items-center text-default decoration-transparent"
+          class="flex gap-1 items-center text-default decoration-transparent select-none"
           :aria-label="t('header.home')"
         >
           <img
             src="/favicon-dark.svg"
             alt=""
-            class="mx-1 size-6 invert-90 dark:invert-0 select-none pointer-events-none"
+            class="mx-1 size-6 invert-90 dark:invert-0"
           />
           <span
-            v-if="showBrand"
+            v-if="!isHome"
             aria-hidden="true"
             class="font-bold text-lg text-highlighted"
           >

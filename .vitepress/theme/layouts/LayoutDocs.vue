@@ -6,11 +6,10 @@ import SidebarNav from "../components/SidebarNav.vue";
 import NavBar from "../components/NavBar.vue";
 import DictionaryIndex from "@/components/DictionaryIndex.vue";
 import { useI18n } from "@/composables/i18n";
-import BaseLayout from "./BaseLayout.vue";
 import { useRoute } from "vitepress";
-import { useDocsNav } from "@/composables/nav";
+import { useNav } from "@/composables/nav";
 
-const nav = useDocsNav();
+const nav = useNav();
 const { t } = useI18n();
 const menuOpen = ref(false);
 
@@ -24,80 +23,81 @@ watch(
 </script>
 
 <template>
-  <BaseLayout>
-    <template #header>
-      <NavBar
-        class="lg:hidden print:hidden sticky top-0 z-10 border-default border-b bg-default/75 backdrop-blur-sm shadow-xs"
+  <NavBar
+    class="lg:hidden print:hidden sticky top-0 z-10 border-default border-b bg-default/75 backdrop-blur-sm shadow-xs"
+  >
+    <template #leading>
+      <UDrawer
+        direction="left"
+        :handle="false"
+        :ui="{
+          content: 'w-2/3 sm:w-80 rounded-none',
+          body: 'py-2',
+        }"
+        v-model:open="menuOpen"
       >
-        <template #leading>
-          <UDrawer
-            direction="left"
-            :handle="false"
-            :ui="{
-              content: 'w-2/3 sm:w-80 rounded-none',
-              body: 'py-2',
-            }"
-            v-model:open="menuOpen"
-          >
-            <UTooltip :text="t('nav.menu')">
-              <UButton
-                icon="i-material-symbols:menu-rounded"
-                :aria-label="t('nav.menu')"
-              />
-            </UTooltip>
-            <template #body>
-              <SidebarNav @navigate="menuOpen = false">
-                <DictionaryIndex
-                  v-if="nav.section?.path === 'dictionary'"
-                  variant="sidebar"
-                />
-              </SidebarNav>
-            </template>
-          </UDrawer>
-        </template>
-        <span class="font-semibold flex-1 text-center">
-          {{ nav.section?.text }}
-        </span>
-        <template #trailing>
-          <UDrawer
-            direction="right"
-            :handle="false"
-            inset
-            :ui="{
-              content: 'w-2/3 sm:w-80',
-              body: 'py-2',
-            }"
-          >
-            <UTooltip :text="t('nav.toc')">
-              <UButton
-                icon="i-material-symbols:toc-rounded"
-                :aria-label="t('nav.toc')"
-              />
-            </UTooltip>
-            <template #body>
-              <TableOfContents class="text-sm!" />
-            </template>
-          </UDrawer>
-        </template>
-      </NavBar>
-    </template>
-    <div
-      class="lg:px-4 lg:gap-4 grid grid-cols-1 lg:grid-cols-[1fr_65ch_1fr] print:block"
-    >
-      <aside class="hidden lg:block border-r border-default border-dashed pr-4">
-        <SidebarNav class="sticky top-0 aside-scroll py-4">
-          <DictionaryIndex
-            v-if="nav.section?.path === 'dictionary'"
-            variant="sidebar"
+        <UTooltip :text="t('nav.menu')">
+          <UButton
+            icon="i-material-symbols:menu-rounded"
+            :aria-label="t('nav.menu')"
           />
-        </SidebarNav>
-      </aside>
-      <article class="w-full">
+        </UTooltip>
+        <template #body>
+          <SidebarNav @navigate="menuOpen = false">
+            <DictionaryIndex
+              v-if="nav.section?.path === 'dictionary'"
+              variant="sidebar"
+            />
+          </SidebarNav>
+        </template>
+      </UDrawer>
+    </template>
+    <span class="font-semibold flex-1 text-center">
+      {{ nav.section?.text }}
+    </span>
+    <template #trailing>
+      <UDrawer
+        direction="right"
+        :handle="false"
+        inset
+        :ui="{
+          content: 'w-2/3 sm:w-80',
+          body: 'py-2',
+        }"
+      >
+        <UTooltip :text="t('nav.toc')">
+          <UButton
+            icon="i-material-symbols:toc-rounded"
+            :aria-label="t('nav.toc')"
+          />
+        </UTooltip>
+        <template #body>
+          <TableOfContents class="text-sm!" />
+        </template>
+      </UDrawer>
+    </template>
+  </NavBar>
+
+  <div
+    class="grid grid-cols-1 lg:grid-cols-[1fr_calc(65ch+64px)_1fr] print:block"
+  >
+    <aside class="hidden lg:block px-6">
+      <SidebarNav class="py-4 aside-scroll sticky top-0">
+        <DictionaryIndex
+          v-if="nav.section?.path === 'dictionary'"
+          variant="sidebar"
+        />
+      </SidebarNav>
+    </aside>
+    <main
+      class="shadow bg-default border border-default/50 dark:bg-muted/50 w-full px-16 py-16 z-10"
+    >
+      <article>
         <Content />
       </article>
-      <aside class="hidden lg:block">
-        <TableOfContents class="sticky top-0 aside-scroll py-4" />
-      </aside>
-    </div>
-  </BaseLayout>
+    </main>
+    <aside class="hidden lg:block px-6">
+      <TableOfContents class="sticky top-0 aside-scroll py-4" />
+    </aside>
+  </div>
 </template>
