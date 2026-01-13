@@ -72,7 +72,11 @@ function calculateIndent(level: number) {
       :href="`#${h.id}`"
       :class="{ active: observingId === h.id }"
     >
-      <span :data-numbering="h.numbering" :class="[calculateIndent(h.level)]">
+      <span
+        class="block"
+        :data-numbering="h.numbering"
+        :class="[calculateIndent(h.level)]"
+      >
         {{ h.text }}
       </span>
     </a>

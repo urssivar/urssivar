@@ -14,35 +14,39 @@ const nav = useNav();
     >
       {{ nav.module.text }}
     </a>
-    <div class="ml-4" v-if="nav.module?.children">
-      <template v-for="s in nav.module.children" :key="s.url">
-        <a :href="s.url" :class="{ active: s == nav.article }">
+
+    <template v-for="s in nav.module?.children" :key="s.url">
+      <a :href="s.url" :class="{ active: s == nav.article }">
+        <span class="block ml-4">
           {{ s.text }}
-        </a>
-        <div class="ml-4" v-if="s == nav.section">
-          <a
-            v-for="a in nav.section.children"
-            :key="a.url"
-            :href="a.url"
-            :class="{ active: a == nav.article }"
-          >
+        </span>
+      </a>
+
+      <template v-if="s == nav.section">
+        <a
+          v-for="a in nav.section.children"
+          :key="a.url"
+          :href="a.url"
+          :class="{ active: a == nav.article }"
+        >
+          <span class="block ml-8">
             {{ a.text }}
-          </a>
+          </span>
+        </a>
+        <div class="ml-8">
           <slot />
         </div>
       </template>
-    </div>
+    </template>
 
-    <div
-      v-if="(nav.home.children?.length ?? 0) > 1"
-      :class="{ 'mt-8': nav.module }"
-    >
+    <template v-if="(nav.home.children?.length ?? 0) > 1">
+      <div :class="{ 'mt-8': nav.module }" />
       <template v-for="m in nav.home.children" :key="m.url">
         <a v-if="m != nav.module" :href="m.url">
           {{ m.text }}
         </a>
       </template>
-    </div>
+    </template>
   </nav>
 </template>
 
