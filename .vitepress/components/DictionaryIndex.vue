@@ -18,10 +18,7 @@ const letter = computed(() => {
 </script>
 
 <template>
-  <nav
-    v-if="variant === 'sidebar'"
-    class="grid grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 border-default border-t border-dashed pt-1.5 mt-1.5"
-  >
+  <nav v-if="variant === 'sidebar'" class="grid grid-cols-4 xl:grid-cols-6">
     <a
       v-for="l in letters"
       :href="`./${l}`"
@@ -34,17 +31,20 @@ const letter = computed(() => {
   </nav>
   <nav
     v-else
-    class="my-6 grid gap-1 grid-cols-5 sm:grid-cols-9 print:break-inside-avoid"
+    class="my-6 grid grid-cols-5 sm:grid-cols-9 -mx-16 bg-elevated px-8 py-4 print:break-inside-avoid"
   >
     <a
       v-for="l in letters"
       :href="(variant === 'print' ? '#' : './') + l"
-      class="text-center rounded-md p-2 flex flex-col no-underline! bg-elevated hover:bg-accented/75"
+      class="text-center p-2 flex flex-col no-underline! group"
     >
-      <span lang="xdq" class="text-lg font-semibold leading-tight capitalize">
+      <span
+        lang="xdq"
+        class="text-lg font-semibold leading-tight capitalize group-hover:scale-125 transition"
+      >
         {{ l }}
       </span>
-      <span class="text-xs text-toned">
+      <span class="text-xs text-toned transition">
         {{ dict[l].length || "-" }}
       </span>
     </a>

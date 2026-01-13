@@ -46,7 +46,7 @@ onContentUpdated(observeHeaders);
 </script>
 
 <template>
-  <nav class="navlinks text-xs flex flex-col">
+  <nav class="navlinks text-sm flex flex-col">
     <a
       v-for="h in headers"
       ref="links"
@@ -57,8 +57,8 @@ onContentUpdated(observeHeaders);
       <span
         :data-numbering="h.numbering"
         :class="{
-          'ml-3': h.level === 3,
-          'ml-6': h.level === 4,
+          'ml-4': h.level === 3,
+          'ml-8': h.level === 4,
         }"
       >
         {{ h.text }}
