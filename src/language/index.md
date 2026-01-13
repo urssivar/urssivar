@@ -25,11 +25,11 @@ But what remains is worth the fight.
 
 <article>
 
-## [Grammar](./grammar/intro)
+## [Grammar](./grammar/)
 
 Codification of Kaitag grammar — a model for understanding how the language works.
 
-## [Dictionary](./dictionary/intro)
+## [Dictionary](./dictionary/)
 
 Lexical database with 5,000+ entries — a reference for standardizing Kaitag vocabulary.
 

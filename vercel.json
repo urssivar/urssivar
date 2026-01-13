@@ -1,5 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "trailingSlash": false,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:locale(en|ru)/dictionary/intro",
+      "destination": "/:locale/dictionary/",
+      "permanent": true
+    }
+  ]
 }

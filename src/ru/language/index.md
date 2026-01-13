@@ -25,11 +25,11 @@ import AlphabetGrid from "@/components/AlphabetGrid.vue";
 
 <article>
 
-## [Грамматика](./grammar/intro) {#grammar}
+## [Грамматика](./grammar/) {#grammar}
 
 Кодификация кайтагской грамматики — модель для понимания того, как работает язык.
 
-## [Словарь](./dictionary/intro) {#dictionary}
+## [Словарь](./dictionary/) {#dictionary}
 
 Лексическая база из 5000+ статей — справочник для стандартизации кайтагского словаря.
 
