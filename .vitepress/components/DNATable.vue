@@ -36,6 +36,8 @@ function getYfullLink(k: (typeof kits)[0]) {
 </template>
 
 <style scoped>
+@reference "@/theme/styles/index.css";
+
 .hh-R1b {
   @apply text-amber-600 dark:text-amber-400;
 }

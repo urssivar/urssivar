@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { Content } from "vitepress";
+import { useRoute } from "vitepress";
 import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
 import NavBar from "../components/NavBar.vue";
 import DictionaryIndex from "@/components/DictionaryIndex.vue";
 import { useI18n } from "@/composables/i18n";
-import { useRoute } from "vitepress";
 import { useNav } from "@/composables/nav";
 
 const nav = useNav();
