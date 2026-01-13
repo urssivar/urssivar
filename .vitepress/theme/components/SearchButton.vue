@@ -94,13 +94,14 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
     :content="{ onCloseAutoFocus: (e: Event) => e.preventDefault() }"
     :ui="{
       overlay: 'z-100',
-      content: 'z-100 h-[70vh] max-h-[70vh]',
+      content: 'z-100 h-[70vh] max-h-[70vh] rounded-none',
       header: 'm-0! p-0! min-h-14 font-medium',
       body: 'p-0! flex-1 flex flex-col',
     }"
   >
     <UTooltip :text="t('header.search')" :kbds="['.']">
       <UButton
+        class="hover:bg-accented/75"
         icon="i-material-symbols:search-rounded"
         :aria-label="t('header.search')"
       />
@@ -121,7 +122,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
       <UButton
         icon="i-material-symbols:close-rounded"
         @click="isOpen = false"
-        class="rounded-full mr-2"
+        class="rounded-full mr-3"
       />
     </template>
     <template #body>
@@ -154,6 +155,6 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
 @reference "@/theme/styles/index.css";
 
 :deep(mark) {
-  @apply bg-accented/75 rounded-sm px-1 no-underline!;
+  @apply bg-accented/75 px-1 no-underline!;
 }
 </style>

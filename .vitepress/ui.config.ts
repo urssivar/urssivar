@@ -13,11 +13,18 @@ export default <NuxtUIOptions>{
     defaultVariants: {
       color: 'neutral',
       variant: 'ghost',
-    }
+    },
+    compoundVariants: [
+      {
+        label: false,
+        square: true,
+        class: 'rounded-full'
+      }
+    ],
   },
   tooltip: {
     slots: {
-      content: 'print:hidden data-[state=instant-open]:animate-[scale-in_100ms_ease-out]'
+      content: 'print:hidden data-[state=instant-open]:animate-[scale-in_100ms_ease-out] rounded-none'
     },
   },
 };

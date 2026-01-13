@@ -25,14 +25,16 @@ const isHome = computed(() => {
       <UTooltip :text="t('header.home')">
         <a
           :href="homeLink"
-          class="flex gap-1 items-center text-default decoration-transparent select-none"
+          class="flex gap-1 items-center text-default decoration-transparent select-none group"
           :aria-label="t('header.home')"
         >
-          <img
-            src="/favicon-dark.svg"
-            alt=""
-            class="mx-1 size-6 invert-90 dark:invert-0"
-          />
+          <div class="transition group-hover:bg-accented/75 rounded-full py-1">
+            <img
+              src="/favicon-dark.svg"
+              alt=""
+              class="mx-1 size-6 invert-90 dark:invert-0"
+            />
+          </div>
           <span
             v-if="!isHome"
             aria-hidden="true"
