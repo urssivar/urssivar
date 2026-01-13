@@ -1,16 +1,17 @@
 import { useRouter } from "vitepress";
 import { Lang, useI18n } from "./i18n";
 import { computed, readonly } from "vue";
+import path from "path";
 
 export function useNav() {
   const router = useRouter();
-  const { buildPath } = useI18n();
+  const { baseUrl } = useI18n();
   const { lang } = useI18n();
 
-  function resolve(root: string, branch: NavPage, paths: string[]) {
+  function resolve(base: string, branch: NavPage, paths: string[]) {
     const page = <ResolvedNavPage>{
       text: branch.text[lang.value],
-      url: root + branch.path + "/",
+      url: base + (branch.path ? branch.path + "/" : ""),
       path: branch.path,
     }
     if (paths.length && page.path == paths[0]) {
@@ -22,19 +23,15 @@ export function useNav() {
   }
 
   const paths = computed(() => {
-    const root = buildPath("");
     const paths = router.route.path
-      .substring(root.length)
+      .substring(baseUrl.value.length)
       .split("/")
-
-    if (!paths[paths.length - 1]) {
-      paths.pop();
-    }
-    return paths;
+      .filter(Boolean)
+    return ["", ...paths];
   })
 
   const home = computed(() => {
-    return resolve('', navTree, paths.value);
+    return resolve(baseUrl.value, navTree, paths.value);
   });
 
   const module = computed(() => {

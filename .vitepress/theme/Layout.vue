@@ -4,7 +4,6 @@ import Footer from "./components/Footer.vue";
 import Header from "./components/Header.vue";
 import Layout404 from "./layouts/Layout404.vue";
 import LayoutDocs from "./layouts/LayoutDocs.vue";
-import { useI18n } from "@/composables/i18n";
 
 const { page } = useData();
 </script>

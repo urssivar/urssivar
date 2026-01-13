@@ -67,6 +67,10 @@ export function useI18n() {
     return langRaw.value as Lang;
   })
 
+  const baseUrl = computed(() => {
+    return lang.value === 'ru' ? '/ru/' : '/';
+  })
+
   function t(key: string): string {
     const keys = key.split('.');
     let value: any = messages[lang.value];
@@ -78,10 +82,5 @@ export function useI18n() {
     return value || key;
   }
 
-  function buildPath(...segments: string[]): string {
-    const localePrefix = lang.value === "ru" ? "/ru" : "";
-    return [localePrefix, ...segments].filter(Boolean).join("");
-  }
-
-  return { t, buildPath, lang };
+  return { t, lang, baseUrl };
 }

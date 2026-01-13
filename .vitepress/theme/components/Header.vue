@@ -6,16 +6,12 @@ import { useI18n } from "@/composables/i18n";
 import { computed, ref } from "vue";
 import { useNav } from "@/composables/nav";
 
-const { t, buildPath } = useI18n();
-
-const homeLink = computed(() => {
-  return buildPath("/");
-});
+const { t, baseUrl } = useI18n();
 
 const nav = useNav();
 
 const isHome = computed(() => {
-  return nav.article == nav.home;
+  return nav.article?.url == baseUrl.value;
 });
 
 const tooltipOpen = ref(false);
@@ -25,7 +21,7 @@ const tooltipOpen = ref(false);
   <NavBar>
     <template #leading>
       <a
-        :href="homeLink"
+        :href="baseUrl"
         class="flex gap-1 items-center text-default decoration-transparent select-none group"
         :aria-label="t('header.home')"
         @mouseover="tooltipOpen = true"
