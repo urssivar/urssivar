@@ -41,22 +41,4 @@
   .header-anchor {
     @apply print:hidden!;
   }
-
-  .aside-scroll {
-    @apply max-h-screen overflow-y-auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-padding-block: --spacing(16);
-    mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      black --spacing(6),
-      black calc(100% - --spacing(6)),
-      transparent
-    );
-
-    &::-webkit-scrollbar {
-      @apply hidden;
-    }
-  }
 }

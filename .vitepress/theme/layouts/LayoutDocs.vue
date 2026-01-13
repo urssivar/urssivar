@@ -81,8 +81,8 @@ watch(
   <div
     class="grid grid-cols-1 lg:grid-cols-[1fr_calc(65ch+64px)_1fr] print:block"
   >
-    <aside class="hidden lg:block px-6">
-      <SidebarNav class="py-4 aside-scroll sticky top-0">
+    <aside>
+      <SidebarNav class="ml-auto">
         <DictionaryIndex
           v-if="nav.section?.path === 'dictionary'"
           variant="sidebar"
@@ -96,8 +96,34 @@ watch(
         <Content />
       </article>
     </main>
-    <aside class="hidden lg:block px-6">
-      <TableOfContents class="sticky top-0 aside-scroll py-4" />
+    <aside>
+      <TableOfContents />
     </aside>
   </div>
 </template>
+
+<style lang="css" scoped>
+@reference "@/theme/styles/index.css";
+
+aside {
+  @apply hidden lg:block px-6;
+  > * {
+    @apply sticky top-0 py-4 max-h-screen max-w-64 overflow-y-auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-padding-block: --spacing(16);
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      black --spacing(6),
+      black calc(100% - --spacing(6)),
+      transparent
+    );
+
+    &::-webkit-scrollbar {
+      @apply hidden;
+    }
+  }
+}
+</style>
