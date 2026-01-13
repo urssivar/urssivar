@@ -38,12 +38,11 @@ const letter = computed(() => {
       :href="(variant === 'print' ? '#' : './') + l"
       class="text-center p-2 flex flex-col no-underline! group"
     >
-      <span
-        lang="xdq"
-        class="text-lg font-semibold leading-tight capitalize group-hover:scale-125 transition"
-      >
-        {{ l }}
-      </span>
+      <div class="group-hover:scale-125 transition">
+        <span lang="xdq" class="text-lg font-semibold leading-tight capitalize">
+          {{ l }}
+        </span>
+      </div>
       <span class="text-xs text-toned transition">
         {{ dict[l].length || "-" }}
       </span>

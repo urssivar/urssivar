@@ -11,7 +11,7 @@
     @apply font-medium text-muted;
 
     a {
-      @apply py-1.5 px-2.5 no-underline hover:text-highlighted!;
+      @apply py-1 px-2 no-underline hover:text-highlighted!;
 
       &.active {
         @apply text-highlighted!;

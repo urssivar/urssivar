@@ -3,6 +3,10 @@ import { ref, watch, onMounted, useTemplateRef } from "vue";
 import { onContentUpdated } from "vitepress";
 import { useElementIdObserver } from "@/composables/elementIdObserver";
 
+const props = defineProps<{
+  compact?: boolean;
+}>();
+
 interface HeaderElement {
   id: string;
   text: string;
@@ -43,10 +47,24 @@ const observeHeaders = () => {
 onMounted(observeHeaders);
 
 onContentUpdated(observeHeaders);
+
+function calculateIndent(level: number) {
+  switch (level) {
+    case 3:
+      return props.compact ? "ml-3" : "ml-4";
+    case 4:
+      return props.compact ? "ml-6" : "ml-8";
+    default:
+      return "";
+  }
+}
 </script>
 
 <template>
-  <nav class="navlinks text-sm flex flex-col">
+  <nav
+    class="navlinks flex flex-col"
+    :class="[compact ? 'text-xs' : 'text-sm']"
+  >
     <a
       v-for="h in headers"
       ref="links"
@@ -54,13 +72,7 @@ onContentUpdated(observeHeaders);
       :href="`#${h.id}`"
       :class="{ active: observingId === h.id }"
     >
-      <span
-        :data-numbering="h.numbering"
-        :class="{
-          'ml-4': h.level === 3,
-          'ml-8': h.level === 4,
-        }"
-      >
+      <span :data-numbering="h.numbering" :class="[calculateIndent(h.level)]">
         {{ h.text }}
       </span>
     </a>
