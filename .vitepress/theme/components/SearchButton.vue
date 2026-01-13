@@ -102,7 +102,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
     <UTooltip :text="t('header.search')" :kbds="['.']">
       <UButton
         class="hover:bg-accented/75"
-        icon="i-material-symbols:search-rounded"
+        icon="i-material-symbols:search"
         :aria-label="t('header.search')"
       />
     </UTooltip>

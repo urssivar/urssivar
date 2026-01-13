@@ -7,7 +7,7 @@ export default <NuxtUIOptions>{
   },
   button: {
     slots: {
-      base: 'cursor-pointer',
+      base: 'cursor-pointer rounded-none',
       leadingIcon: 'text-highlighted',
     },
     defaultVariants: {
