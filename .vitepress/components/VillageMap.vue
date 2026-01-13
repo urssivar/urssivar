@@ -85,69 +85,67 @@ function onVillageLeave() {
 </script>
 
 <template>
-  <figure class="p-0">
-    <UTooltip
-      :open="tooltipOpen"
-      :reference="markerElement"
-      :content="{ side: 'top', sideOffset: 10 }"
-      :ui="{ content: 'h-7' }"
+  <UTooltip
+    :open="tooltipOpen"
+    :reference="markerElement"
+    :content="{ side: 'top', sideOffset: 10 }"
+    :ui="{ content: 'h-7' }"
+  >
+    <template #content>
+      <span lang="xdq" class="font-bold text-base">
+        {{ selectedVillage }}
+      </span>
+    </template>
+  </UTooltip>
+  <div class="stripe p-0 relative h-60 sm:h-120 overflow-x-clip">
+    <div
+      class="navlinks absolute right-0 bottom-0 z-20 m-2.5 bg-elevated font-sans text-xs flex"
     >
-      <template #content>
-        <span lang="xdq" class="font-bold text-base">
-          {{ selectedVillage }}
-        </span>
-      </template>
-    </UTooltip>
-    <div class="relative h-60 sm:h-120 overflow-x-clip bg-elevated">
-      <div
-        class="navlinks absolute right-0 bottom-0 z-20 m-2.5 bg-elevated font-sans text-xs flex"
+      <a
+        href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
+        target="_blank"
+        rel="noopener"
       >
-        <a
-          href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
-          target="_blank"
-          rel="noopener"
-        >
-          {{ t("map.villageData") }}
-        </a>
-      </div>
-      <ClientOnly>
-        <Transition name="fade" appear>
-          <LMap
-            :options="mapOptions"
-            :use-global-leaflet="false"
-            class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
-            @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)"
-          >
-            <LImageOverlay
-              url="/assets/map.webp"
-              :bounds="imageBounds"
-              :opacity="1"
-              class-name="map-backdrop-image"
-            />
-            <LMarker
-              v-for="(village, i) in villages"
-              :key="village.name"
-              :lat-lng="[village.lat, village.lng]"
-              @ready="(marker: any) => markerRefs[i] = marker._icon"
-              @mouseover="onVillageEnter(i)"
-              @mouseout="onVillageLeave"
-              :z-index-offset="selectedVillage === village.name ? 1000 : 0"
-            >
-              <LIcon>
-                <div
-                  class="w-full h-full flex items-center justify-center relative"
-                >
-                  <div
-                    class="village-dot absolute rounded-full cursor-pointer transition-all duration-200 ease-out border-(--ui-bg-elevated) bg-primary"
-                  />
-                </div>
-              </LIcon>
-            </LMarker>
-          </LMap>
-        </Transition>
-      </ClientOnly>
+        {{ t("map.villageData") }}
+      </a>
     </div>
-  </figure>
+    <ClientOnly>
+      <Transition name="fade" appear>
+        <LMap
+          :options="mapOptions"
+          :use-global-leaflet="false"
+          class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
+          @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)"
+        >
+          <LImageOverlay
+            url="/assets/map.webp"
+            :bounds="imageBounds"
+            :opacity="1"
+            class-name="map-backdrop-image"
+          />
+          <LMarker
+            v-for="(village, i) in villages"
+            :key="village.name"
+            :lat-lng="[village.lat, village.lng]"
+            @ready="(marker: any) => markerRefs[i] = marker._icon"
+            @mouseover="onVillageEnter(i)"
+            @mouseout="onVillageLeave"
+            :z-index-offset="selectedVillage === village.name ? 1000 : 0"
+          >
+            <LIcon>
+              <div
+                class="w-full h-full flex items-center justify-center relative"
+              >
+                <div
+                  class="village-dot absolute rounded-full cursor-pointer transition-all duration-200 ease-out border-(--ui-bg-elevated) bg-primary"
+                />
+              </div>
+            </LIcon>
+          </LMarker>
+        </LMap>
+      </Transition>
+    </ClientOnly>
+  </div>
 </template>
 
 <style scoped>

@@ -24,4 +24,12 @@
     content: attr(data-numbering);
     @apply mr-[0.5em] select-none;
   }
+
+  .stripe {
+    @apply bg-elevated py-4 px-8 my-8 -mx-16! print:break-inside-avoid overflow-x-auto;
+
+    > * {
+      @apply m-0;
+    }
+  }
 }

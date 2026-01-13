@@ -43,35 +43,33 @@ function onLetterLeave() {
 </script>
 
 <template>
-  <figure>
+  <div
+    class="stripe text-center grid grid-cols-6 md:grid-cols-7 group"
+    data-pagefind-ignore
+  >
     <div
-      class="max-w-full text-center grid grid-cols-6 md:grid-cols-7 group"
-      data-pagefind-ignore
+      v-for="l in letters"
+      :key="l"
+      class="letter p-3 relative cursor-pointer"
+      :class="{ current: selectedLetter === l }"
+      @mouseenter="onLetterEnter(l)"
+      @mouseleave="onLetterLeave"
     >
-      <div
-        v-for="l in letters"
-        :key="l"
-        class="letter p-3 relative cursor-pointer"
-        :class="{ current: selectedLetter === l }"
-        @mouseenter="onLetterEnter(l)"
-        @mouseleave="onLetterLeave"
+      <span
+        lang="xdq"
+        class="select-none capitalize transition dation-200 urease-in-out group-hover:text-muted"
       >
-        <span
-          lang="xdq"
-          class="select-none capitalize transition dation-200 urease-in-out group-hover:text-muted"
-        >
-          {{ l }}
+        {{ l }}
+      </span>
+      <span
+        class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-in-out"
+      >
+        <span lang="xdq" class="leading-none">
+          {{ words[l] }}
         </span>
-        <span
-          class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-in-out"
-        >
-          <span lang="xdq" class="leading-none">
-            {{ words[l] }}
-          </span>
-        </span>
-      </div>
+      </span>
     </div>
-  </figure>
+  </div>
 </template>
 
 <style scoped>

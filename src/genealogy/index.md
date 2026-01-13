@@ -31,8 +31,6 @@ We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.co
 
 <DNAChart/>
 
-### Results
-
 <DNATable />
 
 </article>

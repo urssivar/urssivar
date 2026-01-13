@@ -107,12 +107,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <figure>
+  <div class="stripe">
     <svg
       ref="svgRef"
-      class="mx-auto my-4 h-64 sm:h-96 aspect-square overflow-visible"
+      class="mx-auto h-60 sm:h-80 aspect-square overflow-visible"
     ></svg>
-  </figure>
+  </div>
 </template>
 
 <style>

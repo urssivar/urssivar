@@ -42,7 +42,7 @@ The dictionary uses the modern [Kaitag alphabet](#alphabet). Below is an overvie
 
 ### Consonants
 
-<figure class="ipa-chart">
+<div class="stripe ipa-chart">
 
 |                    |
 | :----------------: | :--------------: | :--------------: | :--------------: | :-------------: | :------------: | :----------------: | :-------------: |
@@ -59,7 +59,7 @@ The dictionary uses the modern [Kaitag alphabet](#alphabet). Below is an overvie
 |                    |                  |  /r/ [ɾ] ++р++   |
 |                    | /l/ [l~lʲ] ++л++ |                  |                  |    /j/ ++й++    |
 
-</figure>
+</div>
 
 A glottal stop /ʔ/ ++ъ++ is implicitly present before word-initial vowels but is not written. The rare sound /ɸ/ ++ьв++ occurs in only one word: ++ьуьв++ /huɸ/ --'blow'--. Additionally, the phonemes /ħ/ ++хӏ++ and /ʡ/ ++гӏ++ appear in a small number of words from the _Sanchi_ variety, where they have not yet merged into /h/ ++ь++ and /ʔ/ ++ъ++, respectively.
 
@@ -100,7 +100,7 @@ For now, fricative gemination is not shown in the orthography (++ни́са [н�
 
 ### Vowels
 
-<figure class="ipa-chart">
+<div class="stripe ipa-chart">
 
 |                  |
 | :--------------: | :-------------: | :----------------: |
@@ -108,7 +108,7 @@ For now, fricative gemination is not shown in the orthography (++ни́са [н�
 |  /e/ [ɛ] ++е++   | /a/ [ɑ~ɐ] ++а++ | /o/ [ɔ~ʷɑ~œ] ++о++ |
 | /æ/ [æ~aˤ] ++я++ |
 
-</figure>
+</div>
 
 :::
 _Note: While /o/ is technically just a contextual realization of /ʷa/, treating it as a separate phoneme makes writing significantly more convenient._

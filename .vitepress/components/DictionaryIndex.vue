@@ -29,22 +29,20 @@ const letter = computed(() => {
       {{ l }}
     </a>
   </nav>
-  <figure v-else>
-    <nav class="grid grid-cols-5 sm:grid-cols-9 print:break-inside-avoid">
-      <a
-        v-for="l in letters"
-        :href="(variant === 'print' ? '#' : './') + l"
-        class="text-center p-2 flex flex-col no-underline! group"
-      >
-        <div class="group-hover:scale-125 transition duration-200">
-          <span lang="xdq" l class="font-semibold leading-tight capitalize">
-            {{ l }}
-          </span>
-        </div>
-        <span class="text-xs text-toned transition">
-          {{ dict[l].length || "–" }}
+  <nav v-else class="stripe grid grid-cols-5 sm:grid-cols-9">
+    <a
+      v-for="l in letters"
+      :href="(variant === 'print' ? '#' : './') + l"
+      class="text-center p-2 flex flex-col no-underline! group"
+    >
+      <div class="group-hover:scale-125 transition duration-200">
+        <span lang="xdq" l class="font-semibold leading-tight capitalize">
+          {{ l }}
         </span>
-      </a>
-    </nav>
-  </figure>
+      </div>
+      <span class="text-xs text-toned transition">
+        {{ dict[l].length || "–" }}
+      </span>
+    </a>
+  </nav>
 </template>
