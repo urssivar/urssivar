@@ -12,11 +12,7 @@ import { data as notes } from './notes.data';
 
 # Field Notes
 
-Findings, essays, and updates from documenting Kaitag language, history, and people.
-
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) · [GitHub](https://github.com/urssivar)
-
---- {.air}
+Findings, essays, and updates from our work. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
 
 <PostCard v-for="n in notes" :key="n.url" :page="n"/>
 

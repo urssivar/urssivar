@@ -52,12 +52,7 @@ To understand our origins and how Kaitag families connect, we trace lineages thr
 
 ## [Field Notes](./notes/)
 
-Findings, essays, and updates from our work.
-
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) ·
-[GitHub](https://github.com/urssivar)
-
---- {.air}
+Findings, essays, and updates from our work. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
 
 <PostCard v-for="n in notes.slice(0, 3)" :key="n.url" :page="n"/>
 

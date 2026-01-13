@@ -52,12 +52,7 @@ import { data as notes } from './notes/notes.data';
 
 ## [Полевые заметки](./notes/) {#field-notes}
 
-Находки, эссе и обновления о нашей работе.
-
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) ·
-[GitHub](https://github.com/urssivar)
-
---- {.air}
+Находки, эссе и обновления о нашей работе. Также в [Telegram](https://t.me/urssivar), на [YouTube](https://youtube.com/@urssivar) и [GitHub](https://github.com/urssivar)
 
 <PostCard v-for="n in notes.slice(0, 3)" :key="n.url" :page="n"/>
 

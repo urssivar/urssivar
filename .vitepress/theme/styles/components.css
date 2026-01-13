@@ -24,9 +24,4 @@
     content: attr(data-numbering);
     @apply mr-[0.5em] select-none;
   }
-
-  /* Spacer Utility */
-  .air {
-    @apply my-6 border-0;
-  }
 }
