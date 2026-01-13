@@ -4,7 +4,7 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/:locale(ru)?/dictionary/intro",
+      "source": "/dictionary/intro",
       "destination": "/dictionary/",
       "permanent": true
     }
