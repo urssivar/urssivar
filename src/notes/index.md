@@ -1,8 +1,6 @@
 ---
 title: "Urssivar: Field Notes"
 description: "Findings, essays, and updates from documenting Kaitag language, history, and people."
-
-layout: landing
 ---
 
 <script setup lang="ts">
@@ -12,7 +10,7 @@ import { data as notes } from './notes.data';
 
 <article>
 
-# [Urssivar](../index#field-notes): Field Notes
+# Field Notes
 
 Findings, essays, and updates from documenting Kaitag language, history, and people.
 

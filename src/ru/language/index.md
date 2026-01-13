@@ -1,8 +1,6 @@
 ---
 title: "Urssivar: Кайтагский язык"
 description: "Грамматика, словарь и документация кайтагского языка."
-
-layout: landing
 ---
 
 <script setup lang="ts">
@@ -11,7 +9,7 @@ import AlphabetGrid from "@/components/AlphabetGrid.vue";
 
 <article>
 
-# [Urssivar](../index#kaitag-language): Кайтагский язык
+# Кайтагский язык
 
 Кайтагский язык входит в даргинскую ветвь восточнокавказской семьи. В начале XX века на нём говорили в 56 горных селениях девяти исторических микрорегионов на юге Дагестана.
 

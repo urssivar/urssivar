@@ -1,8 +1,6 @@
 ---
 title: "Urssivar: Kaitag Genealogy"
 description: "Y-DNA distribution and family lineages of the Kaitags."
-
-layout: landing
 ---
 
 <script setup lang="ts">
@@ -15,7 +13,7 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 <article>
 
-# [Urssivar](../index#kaitag-genealogy): Kaitag Genealogy
+# Kaitag Genealogy
 
 The Kaitags are an indigenous ethnic group of Dagestan whose language belongs to the Dargwic branch of the Northeast Caucasian family. The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along the Ulluchay River in southern Dagestan. In the early 20th century, Kaitags inhabited 56 mountain villages forming nine historical microregions.
 

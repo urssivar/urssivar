@@ -1,8 +1,6 @@
 ---
 title: "Urssivar: Кайтагские исследования"
 description: "Сохранение и изучение кайтагского языка, культуры, истории и народа."
-
-layout: landing
 ---
 
 <script setup lang="ts">

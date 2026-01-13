@@ -1,8 +1,6 @@
 ---
 title: "Urssivar: Kaitag Language"
 description: "Grammar, dictionary, and documentation of the Kaitag language."
-
-layout: landing
 ---
 
 <script setup lang="ts">
@@ -11,7 +9,7 @@ import AlphabetGrid from "@/components/AlphabetGrid.vue";
 
 <article>
 
-# [Urssivar](../index#kaitag-language): Kaitag Language
+# Kaitag Language
 
 Kaitag language belongs to the Dargwic branch of the Northeast Caucasian family. In the early 20th century, it was spoken in 56 mountain villages across nine historical microregions in southern Dagestan.
 
