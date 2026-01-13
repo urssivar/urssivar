@@ -98,11 +98,23 @@
   }
 
   figure {
-    @apply bg-elevated p-3 mx-auto border border-dashed border-default/50;
+    @apply bg-elevated p-3 mx-auto my-8 border border-default/50;
+
+    &.sqr {
+      @apply sm:w-3/5;
+
+      img {
+        @apply object-cover object-top dark:opacity-90;
+      }
+
+      > :first-child {
+        @apply aspect-square;
+      }
+    }
   }
 
   figcaption {
-    @apply mt-3 italic text-center text-xs text-toned;
+    @apply mt-3 italic text-center text-xs text-default;
   }
 
   blockquote,
