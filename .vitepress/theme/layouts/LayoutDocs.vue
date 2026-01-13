@@ -97,7 +97,7 @@ watch(
       </article>
     </main>
     <aside>
-      <TableOfContents />
+      <TableOfContents compact />
     </aside>
   </div>
 </template>
