@@ -45,7 +45,7 @@ watch(
           <SidebarNav @navigate="menuOpen = false">
             <DictionaryIndex
               v-if="nav.section?.path === 'dictionary'"
-              variant="sidebar"
+              mode="sidebar"
             />
           </SidebarNav>
         </template>
@@ -84,7 +84,7 @@ watch(
       <SidebarNav class="ml-auto">
         <DictionaryIndex
           v-if="nav.section?.path === 'dictionary'"
-          variant="sidebar"
+          mode="sidebar"
         />
       </SidebarNav>
     </aside>
