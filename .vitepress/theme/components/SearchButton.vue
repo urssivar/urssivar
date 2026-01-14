@@ -101,7 +101,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
   >
     <UTooltip :text="t('header.search')" :kbds="['.']">
       <UButton
-        class="hover:bg-accented/75"
+        class="btn-outer"
         icon="i-material-symbols:search"
         :aria-label="t('header.search')"
       />
@@ -122,7 +122,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
       <UButton
         icon="i-material-symbols:close-rounded"
         @click="isOpen = false"
-        class="rounded-full mr-3"
+        class="mr-3"
       />
     </template>
     <template #body>

@@ -32,4 +32,8 @@
       @apply m-0;
     }
   }
+
+  .btn-outer {
+    @apply hover:bg-accented/50! active:bg-accented/50!;
+  }
 }
