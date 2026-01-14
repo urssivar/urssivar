@@ -19,10 +19,10 @@ const lang = computed(() => {
   return data.lang.value as Lang;
 });
 
-const { buildPath } = useI18n();
+const { baseUrl } = useI18n();
 
 function buildDictLink(link: string) {
-  return buildPath("/language/dictionary/", link);
+  return baseUrl.value + "/language/dictionary/" + link;
 }
 </script>
 
