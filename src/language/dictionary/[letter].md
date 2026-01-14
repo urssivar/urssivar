@@ -10,7 +10,14 @@ const letter = params.value.letter;
 
 const { dict } = useDictData();
 </script>
+<!--
+<div class="flex">
+<span><span lang="xdq">Hello there.</span>.Hello there</span>
+Hello there
+</div> -->
 
-<h1 lang="xdq" :id="letter" class="mb-4">{{ capitalize(letter) }}</h1>
+<h1 :id="letter" class="mb-4">
+  <span lang="xdq">{{ capitalize(letter) }}</span>
+</h1>
 
 <DictWord v-for="word in dict[letter]" :key="word.id" :word="word"/>

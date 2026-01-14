@@ -21,10 +21,6 @@
     @apply list-outside pl-5 my-4;
   }
 
-  li:has(span[lang="xdq"]) {
-    @apply leading-snug;
-  }
-
   h1,
   h2,
   h3,
