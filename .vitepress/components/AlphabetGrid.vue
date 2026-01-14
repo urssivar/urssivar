@@ -57,16 +57,14 @@ function onLetterLeave() {
     >
       <span
         lang="xdq"
-        class="select-none capitalize transition urease-in-out text-muted"
+        class="select-none capitalize transition ease-out text-muted"
       >
         {{ l }}
       </span>
       <span
-        class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-in-out text-shadow-xs"
+        class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-out text-shadow-xs"
       >
-        <span lang="xdq" class="leading-none">
-          {{ words[l] }}
-        </span>
+        <span lang="xdq">{{ words[l] }}</span>
       </span>
     </div>
   </div>
