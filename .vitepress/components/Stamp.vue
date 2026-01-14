@@ -7,7 +7,7 @@ const fixed = ref(false);
 <template>
   <div
     @mousedown="fixed = true"
-    class="mx-auto my-12 size-36 cursor-pointer relative select-none"
+    class="mx-auto my-20 size-36 cursor-pointer relative select-none"
   >
     <img
       src="/stamp-text.svg"
