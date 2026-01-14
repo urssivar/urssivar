@@ -10,13 +10,8 @@ const letter = params.value.letter;
 
 const { dict } = useDictData();
 </script>
-<!--
-<div class="flex">
-<span><span lang="xdq">Hello there.</span>.Hello there</span>
-Hello there
-</div> -->
 
-<h1 :id="letter" class="mb-4">
+<h1 :id="letter">
   <span lang="xdq">{{ capitalize(letter) }}</span>
 </h1>
 

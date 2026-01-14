@@ -8,8 +8,8 @@
     }
   }
 
-  .gloss {
-    @apply text-default text-[0.875em];
+  :is(h1, h2, h3, h4, h5, h6) [lang="xdq"] {
+    @apply leading-[0.88] font-bold;
   }
 
   mark {

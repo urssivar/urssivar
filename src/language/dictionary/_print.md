@@ -15,12 +15,12 @@ const { dict } = useDictData();
 <Intro indexMode="print" />
 
 <div class='columns-2 break-before-page'>
-    <template v-for="(words, letter) in dict">
-        <h2 :id="letter" lang="xdq" class="mb-4">
-            {{ capitalize(letter) }}
-        </h2>
-        <DictWord v-for="word in words" :key="word.id" :word="word"/>
-    </template>
+  <template v-for="(words, letter) in dict">
+    <h2 :id="letter" class="mb-4">
+      <span lang="xdq">{{ capitalize(letter) }}</span>
+    </h2>
+    <DictWord v-for="word in words" :key="word.id" :word="word"/>
+  </template>
 </div>
 
 <Stamp />
