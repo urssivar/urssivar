@@ -1,7 +1,6 @@
 import { useRouter } from "vitepress";
 import { Lang, useI18n } from "./i18n";
 import { computed, readonly } from "vue";
-import path from "path";
 
 export function useNav() {
   const router = useRouter();
