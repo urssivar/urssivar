@@ -24,7 +24,7 @@ export default <NuxtUIOptions>{
   },
   tooltip: {
     slots: {
-      content: 'print:hidden data-[state=instant-open]:animate-[scale-in_100ms_ease-out] rounded-none'
+      content: 'print:hidden data-[state=instant-open]:animate-[scale-in_100ms_ease-out] rounded-none ring-0 border border-accented/50'
     },
   },
 };

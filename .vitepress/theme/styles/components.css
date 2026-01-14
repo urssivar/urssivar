@@ -1,7 +1,7 @@
 @layer components {
   /* Colon Blocks (:::note, etc.) */
   .colon-block {
-    @apply px-16 py-2 bg-elevated text-[0.875rem] my-6 -mx-16 print:break-inside-avoid;
+    @apply px-16 py-2 bg-elevated text-[0.875rem] my-6 -mx-16 print:break-inside-avoid border-y border-muted/25;
 
     p,
     ul,
@@ -26,7 +26,7 @@
   }
 
   .stripe {
-    @apply bg-elevated py-4 px-8 my-8 -mx-16! print:break-inside-avoid overflow-x-auto;
+    @apply bg-elevated py-4 px-8 my-8 -mx-16! print:break-inside-avoid overflow-x-auto border-y border-muted/25;
 
     > * {
       @apply m-0;

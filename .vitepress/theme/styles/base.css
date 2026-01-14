@@ -85,7 +85,7 @@
 
   tbody {
     tr {
-      @apply border-b border-dashed border-accented/50 print:break-inside-avoid;
+      @apply border-b border-dashed border-muted print:break-inside-avoid;
 
       &:last-child {
         @apply border-b-0;
@@ -98,7 +98,7 @@
   }
 
   figure {
-    @apply bg-elevated p-3 mx-auto my-8 border border-default/50;
+    @apply bg-elevated p-3 mx-auto my-8 border border-accented/25 shadow-xs;
 
     &.sqr {
       @apply sm:w-3/5;
