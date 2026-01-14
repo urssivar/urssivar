@@ -35,10 +35,12 @@ const letter = computed(() => {
       :href="(variant === 'print' ? '#' : './') + l"
       class="text-center p-2 flex flex-col no-underline! group"
     >
-      <div class="group-hover:scale-125 transition duration-200 ease-out">
+      <div
+        class="group-hover:scale-125 group-hover:-translate-y-px transition duration-200 ease-out"
+      >
         <span
           lang="xdq"
-          class="font-semibold leading-tight capitalize group-hover:text-shadow-sm transition-all"
+          class="font-semibold leading-tight capitalize group-hover:text-shadow-xs transition-all"
         >
           {{ l }}
         </span>
