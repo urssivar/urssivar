@@ -5,7 +5,6 @@ import { useData } from "vitepress";
 import { computed } from "vue";
 import MarkdownIt from "markdown-it";
 import { cleanHeadword } from "@/utils";
-import { useI18n } from "@/composables/i18n";
 
 const md = new MarkdownIt();
 
@@ -18,12 +17,6 @@ const data = useData();
 const lang = computed(() => {
   return data.lang.value as Lang;
 });
-
-const { baseUrl } = useI18n();
-
-function buildDictLink(link: string) {
-  return baseUrl.value + "/language/dictionary/" + link;
-}
 </script>
 
 <template>
@@ -111,13 +104,13 @@ function buildDictLink(link: string) {
           lang="xdq"
           class="italic"
         >
-          <a :href="buildDictLink(w.link)"> {{ w.headword }} </a
+          <a :href="w.link"> {{ w.headword }} </a
           >{{ i < word.derived_from.length - 1 ? ", " : "" }}
         </span>
       </span>
       <span v-if="word.see_also?.length" class="ml-2">
         »&nbsp;<span v-for="(w, i) in word.see_also" lang="xdq" class="italic">
-          <a :href="buildDictLink(w.link)"> {{ w.headword }} </a
+          <a :href="w.link"> {{ w.headword }} </a
           >{{ i < word.see_also.length - 1 ? ", " : "" }}
         </span>
       </span>

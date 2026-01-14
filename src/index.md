@@ -45,6 +45,6 @@ To understand our origins and how Kaitag families connect, we trace lineages thr
 
 </article>
 
-<Notes home />
+<Notes sub />
 
 <Stamp />

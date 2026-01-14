@@ -9,19 +9,19 @@ import { data as notesData } from './notes.data';
 import { computed } from "vue";
 
 const props = defineProps<{
-  home?: boolean;
+  sub?: boolean;
 }>();
 
 const notes = computed(() => {
-  return props.home ? notesData.slice(0, 3) : notesData;
+  return props.sub ? notesData.slice(0, 3) : notesData;
 })
 </script>
 
 <article>
 
-<template v-if="home">
+<template v-if="sub">
 
-## [Полевые заметки](./notes/)
+## <a href="notes/">Полевые заметки</a>
 
 </template>
 <template v-else>

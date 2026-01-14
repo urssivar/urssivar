@@ -20,7 +20,7 @@ const letter = computed(() => {
 });
 
 function getUrl(letter: string) {
-  return (mode === "print" ? "#" : "./") + letter;
+  return (mode === "print" ? "#" : "") + letter;
 }
 </script>
 
