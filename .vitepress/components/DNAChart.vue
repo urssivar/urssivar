@@ -110,7 +110,7 @@ onMounted(() => {
   <div class="stripe">
     <svg
       ref="svgRef"
-      class="mx-auto h-60 sm:h-80 aspect-square overflow-visible"
+      class="mx-auto my-2 h-60 sm:h-80 aspect-square overflow-visible"
     ></svg>
   </div>
 </template>
@@ -147,7 +147,7 @@ onMounted(() => {
 }
 
 .dna-label {
-  @apply font-bold pointer-events-none;
+  @apply font-bold pointer-events-none text-shadow-xs;
 
   &.hh-R1b {
     @apply fill-amber-600 dark:fill-amber-400;

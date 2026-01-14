@@ -44,20 +44,20 @@ function onLetterLeave() {
 
 <template>
   <div
-    class="stripe text-center grid grid-cols-6 md:grid-cols-7 group"
+    class="stripe text-center grid grid-cols-6 md:grid-cols-7"
     data-pagefind-ignore
   >
     <div
       v-for="l in letters"
       :key="l"
-      class="letter p-3 relative cursor-pointer"
+      class="letter p-3 relative cursor-pointer text-shadow-xs"
       :class="{ current: selectedLetter === l }"
       @mouseenter="onLetterEnter(l)"
       @mouseleave="onLetterLeave"
     >
       <span
         lang="xdq"
-        class="select-none capitalize transition dation-200 urease-in-out group-hover:text-muted"
+        class="select-none capitalize transition dation-200 urease-in-out"
       >
         {{ l }}
       </span>

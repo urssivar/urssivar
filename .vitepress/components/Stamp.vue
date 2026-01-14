@@ -12,7 +12,7 @@ const fixed = ref(false);
     <img
       src="/stamp-text.svg"
       alt="Urssivar: Kaitag Studies"
-      class="block w-full invert-90 dark:invert-0 pointer-events-none animate-[spin_20s_linear_infinite] print:animate-none"
+      class="block w-full invert-90 dark:invert-0 pointer-events-none animate-[spin_60s_linear_infinite] print:animate-none"
     />
     <img
       src="/stamp-logo.svg"
