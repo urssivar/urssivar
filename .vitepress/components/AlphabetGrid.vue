@@ -57,7 +57,7 @@ function onLetterLeave() {
     >
       <span
         lang="xdq"
-        class="select-none capitalize transition dation-200 urease-in-out text-muted"
+        class="select-none capitalize transition urease-in-out text-muted"
       >
         {{ l }}
       </span>
