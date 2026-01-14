@@ -139,11 +139,14 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
             <div class="line-clamp-2" v-html="result.excerpt" />
           </a>
         </template>
-        <div v-else class="flex-1 flex items-center justify-center">
+        <div
+          v-else
+          class="flex-1 flex items-center justify-center select-none pointer-events-none"
+        >
           <img
             src="/stamp-logo.svg"
             alt="Urssivar logo"
-            class="size-80 invert-90 dark:invert-0 opacity-30 pointer-events-none"
+            class="size-80 invert-90 dark:invert-0 opacity-30"
           />
         </div>
       </div>
