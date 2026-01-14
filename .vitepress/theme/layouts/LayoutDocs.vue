@@ -89,9 +89,9 @@ watch(
       </SidebarNav>
     </aside>
     <main
-      class="shadow bg-default border border-accented/50 dark:bg-muted/50 w-full px-16 py-16"
+      class="shadow bg-default border border-accented/50 dark:bg-muted/50 w-full"
     >
-      <article>
+      <article class="mx-16 my-20">
         <Content />
       </article>
     </main>

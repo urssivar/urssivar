@@ -45,6 +45,6 @@ import Notes from "./notes/index.md";
 
 </article>
 
-<Stamp />
-
 <Notes home />
+
+<Stamp />
