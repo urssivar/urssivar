@@ -50,19 +50,19 @@ function onLetterLeave() {
     <div
       v-for="l in letters"
       :key="l"
-      class="letter p-3 relative cursor-pointer text-shadow-xs"
+      class="letter p-3 relative cursor-pointer"
       :class="{ current: selectedLetter === l }"
       @mouseenter="onLetterEnter(l)"
       @mouseleave="onLetterLeave"
     >
       <span
         lang="xdq"
-        class="select-none capitalize transition dation-200 urease-in-out"
+        class="select-none capitalize transition dation-200 urease-in-out text-muted"
       >
         {{ l }}
       </span>
       <span
-        class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-in-out"
+        class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-in-out text-shadow-xs"
       >
         <span lang="xdq" class="leading-none">
           {{ words[l] }}
