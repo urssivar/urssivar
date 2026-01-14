@@ -3,6 +3,10 @@
     @apply isolate;
   }
 
+  a {
+    @apply transition-colors duration-200 underline underline-offset-[0.2em] decoration-(--ui-text-muted) hover:decoration-(--ui-text-highlighted);
+  }
+
   .navbar {
     @apply max-w-prose print:max-w-full mx-auto px-4 sm:px-6;
   }
