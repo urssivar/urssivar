@@ -119,7 +119,7 @@ onMounted(() => {
 @reference "@/theme/styles/index.css";
 
 .dna-slice {
-  @apply stroke-4 stroke-(--ui-bg) transition duration-200;
+  @apply stroke-4 stroke-(--ui-bg) transition-colors duration-200;
 
   &.hh-R1b {
     @apply fill-amber-200/60 dark:fill-amber-800/60;

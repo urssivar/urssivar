@@ -23,7 +23,7 @@
     @apply relative;
 
     > .header-anchor {
-      @apply absolute font-sans left-0 -translate-x-full text-muted select-none hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
+      @apply absolute font-sans left-0 -translate-x-full text-muted select-none hover:text-highlighted! transition-opacity opacity-0 duration-200 no-underline pr-[0.375em];
     }
 
     &:hover > .header-anchor {

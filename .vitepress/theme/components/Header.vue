@@ -29,7 +29,7 @@ const tooltipOpen = ref(false);
       >
         <UTooltip :text="t('header.home')" v-model:open="tooltipOpen">
           <div
-            class="transition group-hover:bg-accented/50 group-active:bg-accented/50 rounded-full py-1"
+            class="transition-colors group-hover:bg-accented/50 group-active:bg-accented/50 rounded-full py-1"
           >
             <img
               src="/favicon-dark.svg"

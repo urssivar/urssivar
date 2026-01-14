@@ -43,7 +43,7 @@ function getUrl(letter: string) {
       class="text-center p-2 flex flex-col no-underline! group"
     >
       <div
-        class="group-hover:scale-125 group-hover:-translate-y-px transition-all duration-200 ease-out"
+        class="group-hover:scale-125 group-hover:-translate-y-px transition-transform duration-200 ease-out"
       >
         <span
           lang="xdq"

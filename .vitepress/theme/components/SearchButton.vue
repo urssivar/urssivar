@@ -132,7 +132,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
             v-for="result in results"
             :key="result.url"
             :href="result.url"
-            class="py-3 px-6 hover:bg-elevated transition-colors no-underline block text-sm"
+            class="py-3 px-6 transition-colors hover:bg-elevated no-underline block text-sm"
             @click="isOpen = false"
           >
             <div class="font-semibold mb-0.5">{{ result.title }}</div>

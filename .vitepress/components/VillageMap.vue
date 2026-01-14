@@ -137,7 +137,7 @@ function onVillageLeave() {
                 class="w-full h-full flex items-center justify-center relative"
               >
                 <div
-                  class="village-dot absolute rounded-full cursor-pointer transition-all duration-200 ease-out border-2 sm:border-3 border-(--ui-bg-elevated) bg-primary shadow-xs"
+                  class="village-dot absolute rounded-full cursor-pointer border-2 sm:border-3 border-(--ui-bg-elevated) bg-primary shadow-xs"
                 />
               </div>
             </LIcon>
@@ -165,7 +165,7 @@ function onVillageLeave() {
 }
 
 .village-dot {
-  @apply size-3 sm:size-3.5;
+  @apply size-3 sm:size-3.5 transition-[width,height] duration-200 ease-out;
 
   &.hover {
     @apply size-5;
