@@ -36,11 +36,14 @@ const letter = computed(() => {
       class="text-center p-2 flex flex-col no-underline! group"
     >
       <div class="group-hover:scale-125 transition duration-200 ease-out">
-        <span lang="xdq" l class="font-semibold leading-tight capitalize">
+        <span
+          lang="xdq"
+          class="font-semibold leading-tight capitalize group-hover:text-shadow-sm transition-all"
+        >
           {{ l }}
         </span>
       </div>
-      <span class="text-xs text-toned transition">
+      <span class="text-xs text-toned">
         {{ dict[l].length || "–" }}
       </span>
     </a>
