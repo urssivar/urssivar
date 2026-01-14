@@ -12,6 +12,10 @@
     @apply leading-[0.88] font-bold;
   }
 
+  .gloss {
+    @apply text-default text-[0.875em];
+  }
+
   mark {
     @apply bg-transparent underline underline-offset-[0.1em] decoration-[0.15em] decoration-(--ui-border-accented) text-inherit;
     text-decoration-skip-ink: none;
