@@ -6,8 +6,7 @@ description: "Preserving and studying Kaitag language, culture, history, and peo
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
-import PostCard from "@/components/PostCard.vue";
-import { data as notes } from './notes/notes.data';
+import Notes from "./notes/index.md";
 </script>
 
 <article>
@@ -48,12 +47,4 @@ To understand our origins and how Kaitag families connect, we trace lineages thr
 
 <Stamp />
 
-<article>
-
-## [Field Notes](./notes/)
-
-Findings, essays, and updates from our work. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
-
-<PostCard v-for="n in notes.slice(0, 3)" :key="n.url" :page="n"/>
-
-</article>
+<Notes home />

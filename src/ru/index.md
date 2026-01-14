@@ -6,8 +6,7 @@ description: "Сохранение и изучение кайтагского я
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
-import PostCard from "@/components/PostCard.vue";
-import { data as notes } from './notes/notes.data';
+import Notes from "./notes/index.md";
 </script>
 
 <article>
@@ -48,12 +47,4 @@ import { data as notes } from './notes/notes.data';
 
 <Stamp />
 
-<article>
-
-## [Полевые заметки](./notes/) {#field-notes}
-
-Находки, эссе и обновления о нашей работе. Также в [Telegram](https://t.me/urssivar), на [YouTube](https://youtube.com/@urssivar) и [GitHub](https://github.com/urssivar)
-
-<PostCard v-for="n in notes.slice(0, 3)" :key="n.url" :page="n"/>
-
-</article>
+<Notes home />
