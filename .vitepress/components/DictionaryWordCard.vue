@@ -143,6 +143,6 @@ span {
 }
 
 a {
-  @apply decoration-dotted;
+  @apply decoration-dotted hover:text-highlighted;
 }
 </style>
