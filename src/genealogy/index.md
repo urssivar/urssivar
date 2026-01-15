@@ -11,8 +11,6 @@ import { useDNAData } from "@/composables/dna";
 const { kits, villages, haplogroupMap } = useDNAData();
 </script>
 
-<article>
-
 # Kaitag Genealogy
 
 The Kaitags are an indigenous ethnic group of Dagestan whose language belongs to the Dargwic branch of the Northeast Caucasian family. The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along the Ulluchay River in southern Dagestan. In the early 20th century, Kaitags inhabited 56 mountain villages forming nine historical microregions.
@@ -32,5 +30,3 @@ We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.co
 Current **{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups:
 
 <DNATable />
-
-</article>

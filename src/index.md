@@ -9,19 +9,13 @@ import VillageMap from "@/components/VillageMap.vue";
 import Notes from "./notes/index.md";
 </script>
 
-<article>
-
 # Urssivar: Kaitag Studies
 
 ++_Наллара дел да. Ьам ра бел._++
 
 Reclaiming the legacy of the Kaitag people of Dagestan. The race against time to preserve what remains before it vanishes forever.
 
-</article>
-
 <VillageMap />
-
-<article>
 
 This data becomes the foundation for understanding Kaitag. With sufficient volume, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people.
 
@@ -42,8 +36,6 @@ To understand our origins and how Kaitag families connect, we trace lineages thr
 **Family trees:** Recording names, lifespans, migrations, and kinship networks. Every family story adds to the larger picture.
 
 **DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA. Verifying oral traditions, revealing ancestral connections, and reconstructing our past.
-
-</article>
 
 <Notes sub />
 

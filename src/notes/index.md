@@ -17,8 +17,6 @@ const notes = computed(() => {
 })
 </script>
 
-<article>
-
 <template v-if="sub">
 
 ## <a href="notes/">Field Notes</a>
@@ -33,5 +31,3 @@ const notes = computed(() => {
 Findings, essays, and updates from our work. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
 
 <PostCard v-for="n in notes" :key="n.url" :page="n"/>
-
-</article>

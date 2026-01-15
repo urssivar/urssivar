@@ -58,10 +58,9 @@ Absolutive case is the basic form of a word, used in the following contexts:
      --the ==cat== left--
    - ++==атта== улшу++  
      --==father== works--
-   - ++==машин== би++  
-     --there's a ==car==--
+   - ++==машин== би++ --— there's a ==car==--
 
-2. Patient of transitive verbs:
+1. Patient of transitive verbs:
 
    - ++дярьял ==бизи== чибажив++  
      --a child saw a ==cat==--

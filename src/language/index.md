@@ -7,8 +7,6 @@ description: "Grammar, dictionary, and documentation of the Kaitag language."
 import AlphabetGrid from "@/components/AlphabetGrid.vue";
 </script>
 
-<article>
-
 # Kaitag Language
 
 Kaitag language belongs to the Dargwic branch of the Northeast Caucasian family. In the early 20th century, it was spoken in 56 mountain villages across nine historical microregions in southern Dagestan.
@@ -19,11 +17,7 @@ By the end of the 20th century, Russian had become the dominant language of educ
 
 But what remains is worth the fight.
 
-</article>
-
 <AlphabetGrid />
-
-<article>
 
 ## [Grammar](./grammar/)
 
@@ -40,5 +34,3 @@ In the future, there will be a Kaitag phrasebook here.
 ## Texts
 
 In the future, there will be texts in Kaitag here.
-
-</article>
