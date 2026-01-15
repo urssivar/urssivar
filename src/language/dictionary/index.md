@@ -84,7 +84,7 @@ A glottal stop /ʔ/ ++ъ++ is implicitly present before word-initial vowels but 
 
 The phoneme /l/ ++л++ assimilates to adjacent /n/ ++н++, and /n/ ++н++ assimilates to adjacent /b/ ++б++. To keep the orthography transparent, these assimilations are not reflected in writing. Examples:
 
-- ++у́ле:eye++, ++уле́н++- (OBL) → ++уле́нла [уленна] бира́ра:to jinx++--
+- ++у́ле:eye++, ++уле́н-++ (OBL) → ++уле́нла [уленна] бира́ра:to jinx++--
 - ++шин:water++ → ++шинбе́ [шимбе]:waters++
 
 Some varieties lose consonant gemination in syllable-final position. However, gemination is restored when followed by a vowel, so it is consistently preserved in the orthography:
