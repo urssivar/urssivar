@@ -32,8 +32,10 @@ export default function kaitagGlossShortcut(md: MarkdownIt) {
     let token = state.push('kaitag_open', 'span', 1);
     token.attrSet('lang', 'xdq');
 
-    token = state.push('text', '', 0);
-    token.content = kaitag;
+    // Parse kaitag content for nested markdown (==, **, etc.)
+    const kaitagTokens: any[] = [];
+    state.md.inline.parse(kaitag, state.md, state.env, kaitagTokens);
+    kaitagTokens.forEach(t => state.tokens.push(t));
 
     state.push('kaitag_close', 'span', -1);
 
@@ -45,8 +47,10 @@ export default function kaitagGlossShortcut(md: MarkdownIt) {
     token = state.push('gloss_open', 'span', 1);
     token.attrSet('class', 'gloss');
 
-    token = state.push('text', '', 0);
-    token.content = `"${gloss}"`;
+    // Parse gloss content with quotes for nested markdown
+    const glossTokens: any[] = [];
+    state.md.inline.parse(`"${gloss}"`, state.md, state.env, glossTokens);
+    glossTokens.forEach(t => state.tokens.push(t));
 
     state.push('gloss_close', 'span', -1);
 
