@@ -3,11 +3,19 @@
     @apply bg-elevated px-8 py-4 -mx-16 my-8 print:break-inside-avoid border-y border-muted/25;
 
     &.note {
-      @apply px-16 py-0 my-4 text-sm;
+      @apply px-16 py-2 my-6 text-sm;
+
+      :is(p, table, ol, ul) {
+        @apply my-2;
+      }
+
+      table {
+        @apply -mx-3 w-[calc(100%+var(--spacing)*6)];
+      }
     }
 
     &.ipa-chart {
-      @apply my-6 overflow-x-auto;
+      @apply my-6 px-6 overflow-x-auto;
 
       table {
         @apply m-0;

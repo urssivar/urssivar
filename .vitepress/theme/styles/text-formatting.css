@@ -17,8 +17,14 @@
   }
 
   mark {
-    @apply bg-transparent underline underline-offset-[0.1em] decoration-[0.15em] decoration-(--ui-border-accented) text-inherit;
+    @apply bg-transparent underline underline-offset-2 decoration-3 decoration-(--ui-border-accented)/75 text-inherit;
     text-decoration-skip-ink: none;
+  }
+
+  .band.note {
+    ul {
+      list-style-type: "– ";
+    }
   }
 
   strong {
