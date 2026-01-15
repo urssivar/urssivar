@@ -1,19 +1,19 @@
 @layer components {
   [lang="xdq"] {
-    @apply font-serif font-medium align-baseline text-[1.25em]/[1.2];
-
-    &:is(strong),
-    strong {
-      @apply font-bold;
-    }
+    @apply font-serif;
+    font-variation-settings: "GRAD" 50;
   }
 
   :is(h1, h2, h3, h4, h5, h6) [lang="xdq"] {
-    @apply leading-[0.88] font-bold;
+    font-variation-settings: "GRAD" 0;
+  }
+
+  strong {
+    @apply font-semibold;
   }
 
   .gloss {
-    @apply text-default text-[0.875em];
+    @apply text-default;
   }
 
   mark {
@@ -24,14 +24,6 @@
   .band.note {
     ul {
       list-style-type: "– ";
-    }
-  }
-
-  strong {
-    @apply font-semibold;
-
-    [lang="xdq"] {
-      @apply font-bold;
     }
   }
 }

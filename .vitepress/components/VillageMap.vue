@@ -89,10 +89,9 @@ function onVillageLeave() {
     :open="tooltipOpen"
     :reference="markerElement"
     :content="{ side: 'top', sideOffset: 10 }"
-    :ui="{ content: 'h-7' }"
   >
     <template #content>
-      <span lang="xdq" class="font-bold text-base">
+      <span lang="xdq" class="font-medium">
         {{ selectedVillage }}
       </span>
     </template>

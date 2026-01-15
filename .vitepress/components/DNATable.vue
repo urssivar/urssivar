@@ -14,7 +14,7 @@ function getYfullLink(k: (typeof kits)[0]) {
 <template>
   <ol>
     <li v-for="k in kits" :key="k.id" :id="k.id">
-      <p class="flex flex-col sm:flex-row gap-2 sm:items-center">
+      <p class="flex flex-col sm:flex-row gap-1 sm:gap-2 sm:items-center">
         <span lang="xdq">
           {{ k.village && k.region ? `${k.village}, ${k.region}` : "???" }}
         </span>

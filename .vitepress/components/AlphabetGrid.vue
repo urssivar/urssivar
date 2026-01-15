@@ -44,7 +44,7 @@ function onLetterLeave() {
 
 <template>
   <div
-    class="band text-center grid grid-cols-6 md:grid-cols-7"
+    class="band text-center grid grid-cols-6 md:grid-cols-7 font-medium"
     data-pagefind-ignore
   >
     <div
@@ -57,25 +57,22 @@ function onLetterLeave() {
     >
       <span
         lang="xdq"
-        class="select-none capitalize transition-opacity ease-out text-muted"
+        class="text-lg select-none capitalize transition-opacity ease-out text-muted"
       >
         {{ l }}
       </span>
-      <div
-        class="text-sm md:text-base opacity-0 pointer-events-none top-1/2 -translate-y-1/2 absolute transition-opacity duration-200 ease-out text-shadow-xs"
+      <span
+        lang="xdq"
+        class="opacity-0 pointer-events-none top-1/2 -translate-y-1/2 absolute transition-opacity duration-200 ease-out leading-tight text-sm text-shadow-xs"
       >
-        <span lang="xdq">{{ words[l] }}</span>
-      </div>
+        {{ words[l] }}
+      </span>
     </div>
   </div>
 </template>
 
 <style scoped>
 @reference "@/theme/styles/index.css";
-
-[lang="xdq"] {
-  @apply font-semibold;
-}
 
 .letter:hover > :nth-child(1),
 .letter.current > :nth-child(1) {

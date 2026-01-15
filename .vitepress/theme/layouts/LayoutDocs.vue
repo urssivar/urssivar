@@ -89,7 +89,7 @@ watch(
       </SidebarNav>
     </aside>
     <main
-      class="shadow bg-default border border-accented/50 dark:bg-muted/50 w-full"
+      class="shadow-sm bg-default border border-accented/50 dark:bg-muted/50 w-full"
     >
       <article class="mx-16 my-20">
         <Content />

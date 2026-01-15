@@ -21,10 +21,10 @@
         @apply m-0;
 
         td {
-          @apply pt-2 whitespace-nowrap text-xs;
+          @apply pt-2 whitespace-nowrap;
 
           [lang="xdq"] {
-            @apply block text-[1.5em]/[1.15] text-highlighted;
+            @apply block font-medium;
           }
         }
       }

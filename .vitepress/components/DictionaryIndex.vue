@@ -45,10 +45,7 @@ function getUrl(letter: string) {
       <div
         class="group-hover:scale-125 group-hover:-translate-y-px transition-transform duration-200 ease-out"
       >
-        <span
-          lang="xdq"
-          class="font-semibold text-shadow-xs leading-tight capitalize"
-        >
+        <span lang="xdq" class="text-lg font-medium text-shadow-xs capitalize">
           {{ l }}
         </span>
       </div>
