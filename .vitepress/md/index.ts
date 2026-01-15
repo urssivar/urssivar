@@ -3,6 +3,7 @@ import anchor from "markdown-it-anchor";
 import multimdTable from "markdown-it-multimd-table";
 
 import numbering from "./plugins/numbering";
+import kaitagGlossShortcut from "./plugins/kaitag-gloss-shortcut";
 import inlineDelimiters from "./plugins/inline-delimiters";
 import bands from "./plugins/bands";
 
@@ -24,6 +25,7 @@ export default <MarkdownOptions>{
       levels: [2, 3, 4]
     });
 
+    md.use(kaitagGlossShortcut);
     md.use(inlineDelimiters, [
       {
         delimiter: '++',
