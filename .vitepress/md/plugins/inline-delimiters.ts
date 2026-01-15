@@ -24,46 +24,88 @@ export default function inlineDelimiters(
       if (silent) return false;
       if (!src.startsWith(delimiter, start)) return false;
 
-      const scanned = state.scanDelims(start, true);
-      let len = scanned.length;
+      // Custom delimiter scanning without punctuation restrictions
+      let pos = start;
+      let count = 0;
 
+      // Count consecutive delimiter sequences
+      while (pos < src.length && src.slice(pos, pos + delimiterLen) === delimiter) {
+        count++;
+        pos += delimiterLen;
+      }
+
+      const len = count * delimiterLen;
       if (len < delimiterLen) return false;
 
+      // Determine can_open and can_close based on adjacent characters
+      const charBefore = start > 0 ? src.charCodeAt(start - 1) : 0x20;
+      const charAfter = pos < src.length ? src.charCodeAt(pos) : 0x20;
+
+      // Can open if not preceded by same delimiter character
+      const can_open = charBefore !== delimiterCode;
+      // Can close if not followed by same delimiter character
+      const can_close = charAfter !== delimiterCode;
+
       // Handle odd-length sequences
+      let actualLen = len;
       if (len % delimiterLen) {
         const token = state.push('text', '', 0);
         token.content = delimiter.slice(0, len % delimiterLen);
-        len -= len % delimiterLen;
+        actualLen -= len % delimiterLen;
       }
 
-      for (let i = 0; i < len; i += delimiterLen) {
+      for (let i = 0; i < actualLen; i += delimiterLen) {
         const token = state.push('text', '', 0);
         token.content = delimiter;
 
-        if (!scanned.can_open && !scanned.can_close) continue;
+        if (!can_open && !can_close) continue;
 
         state.delimiters.push({
           marker: delimiterCode,
           length: 0,
           token: state.tokens.length - 1,
           end: -1,
-          open: scanned.can_open,
-          close: scanned.can_close
+          open: can_open,
+          close: can_close
         } as any);
       }
 
-      state.pos += scanned.length;
+      state.pos += len;
       return true;
     }
 
     function postProcess(state: StateInline, delimiters: any[]) {
-      const max = delimiters.length;
+      // Phase 1: Match opening and closing delimiters
+      for (let closingIdx = delimiters.length - 1; closingIdx >= 0; closingIdx--) {
+        const closingDelim = delimiters[closingIdx];
 
+        if (closingDelim.marker !== delimiterCode) continue;
+        if (!closingDelim.close) continue;
+        if (closingDelim.end !== -1) continue; // Already matched
+
+        // Search backwards for matching opening delimiter
+        for (let openingIdx = closingIdx - 1; openingIdx >= 0; openingIdx--) {
+          const openingDelim = delimiters[openingIdx];
+
+          if (openingDelim.marker !== delimiterCode) continue;
+          if (!openingDelim.open) continue;
+          if (openingDelim.end !== -1) continue; // Already matched
+
+          // Found a match - pair them
+          openingDelim.end = closingIdx;
+          closingDelim.end = openingIdx;
+          break;
+        }
+      }
+
+      // Phase 2: Render matched pairs
+      const max = delimiters.length;
       for (let i = 0; i < max; i++) {
         const startDelim = delimiters[i];
 
         if (startDelim.marker !== delimiterCode) continue;
         if (startDelim.end === -1) continue;
+        if (startDelim.end < i) continue; // Only process opening delimiters
 
         const endDelim = delimiters[startDelim.end];
 

@@ -1,5 +1,14 @@
 import type MarkdownIt from 'markdown-it';
 
+/**
+ * Custom block container plugin for markdown-it
+ * Syntax: :::classname ... :::
+ *
+ * Generates: <div class="band classname">...</div>
+ *
+ * Note: Nested blocks of the same type are not supported.
+ * The first closing ::: will match the first opening :::.
+ */
 export default function blockContainer(md: MarkdownIt) {
   // We only need one rule now because it handles all ::: cases dynamically
   md.block.ruler.before('fence', 'custom_block', (state, startLine, endLine, silent) => {
@@ -28,7 +37,7 @@ export default function blockContainer(md: MarkdownIt) {
         state.eMarks[closingLine]
       ).trim();
 
-      if (lineText === ':::') {
+      if (lineText.trim() === ':::') {
         found = true;
         break;
       }

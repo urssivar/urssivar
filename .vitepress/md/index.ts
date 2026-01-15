@@ -1,7 +1,5 @@
 import type { MarkdownOptions } from "vitepress";
 import anchor from "markdown-it-anchor";
-// @ts-expect-error - markdown-it-mark has no type definitions
-import mark from "markdown-it-mark";
 import multimdTable from "markdown-it-multimd-table";
 
 import numbering from "./plugins/numbering";
@@ -17,7 +15,6 @@ export default <MarkdownOptions>{
     })
   },
   config: (md) => {
-    md.use(mark);
     md.use(multimdTable, {
       multibody: false,
       autolabel: false,
@@ -39,6 +36,11 @@ export default <MarkdownOptions>{
         tokenName: 'gloss',
         tag: 'span',
         attrs: { class: 'gloss' }
+      },
+      {
+        delimiter: '==',
+        tokenName: 'highlight',
+        tag: 'mark'
       }
     ]);
     md.use(bands);
