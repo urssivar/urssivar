@@ -107,7 +107,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="stripe">
+  <div class="band">
     <svg
       ref="svgRef"
       class="mx-auto my-2 h-60 sm:h-80 aspect-square overflow-visible"

@@ -44,13 +44,13 @@ function onLetterLeave() {
 
 <template>
   <div
-    class="stripe text-center grid grid-cols-6 md:grid-cols-7"
+    class="band text-center grid grid-cols-6 md:grid-cols-7"
     data-pagefind-ignore
   >
     <div
       v-for="l in letters"
       :key="l"
-      class="letter p-3 relative cursor-pointer"
+      class="letter p-3 relative cursor-pointer flex justify-center"
       :class="{ current: selectedLetter === l }"
       @mouseenter="onLetterEnter(l)"
       @mouseleave="onLetterLeave"
@@ -61,11 +61,11 @@ function onLetterLeave() {
       >
         {{ l }}
       </span>
-      <span
-        class="text-sm pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-out text-shadow-xs"
+      <div
+        class="text-sm md:text-base opacity-0 pointer-events-none top-1/2 -translate-y-1/2 absolute transition-opacity duration-200 ease-out text-shadow-xs"
       >
         <span lang="xdq">{{ words[l] }}</span>
-      </span>
+      </div>
     </div>
   </div>
 </template>

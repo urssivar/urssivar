@@ -27,9 +27,9 @@ The position at the crossroads of civilizations, access to Caspian trade routes,
 
 We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) and [YFull](https://www.yfull.com/groups/kaitag/).
 
-**{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups.
-
 <DNAChart/>
+
+Current **{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups:
 
 <DNATable />
 

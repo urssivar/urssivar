@@ -6,7 +6,7 @@ import multimdTable from "markdown-it-multimd-table";
 
 import numbering from "./plugins/numbering";
 import inlineDelimiters from "./plugins/inline-delimiters";
-import blockDelimiters from "./plugins/block-delimiters";
+import bands from "./plugins/bands";
 
 export default <MarkdownOptions>{
   anchor: {
@@ -41,14 +41,6 @@ export default <MarkdownOptions>{
         attrs: { class: 'gloss' }
       }
     ]);
-
-    md.use(blockDelimiters, [
-      {
-        delimiter: ':::',
-        tokenName: 'colon_container',
-        tag: 'div',
-        attrs: { class: 'colon-block' }
-      }
-    ]);
+    md.use(bands);
   },
 };

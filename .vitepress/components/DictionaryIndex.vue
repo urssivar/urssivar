@@ -36,7 +36,7 @@ function getUrl(letter: string) {
       {{ l }}
     </a>
   </nav>
-  <nav v-else class="stripe grid grid-cols-5 sm:grid-cols-9">
+  <nav v-else class="band grid grid-cols-5 sm:grid-cols-9">
     <a
       v-for="l in letters"
       :href="getUrl(l)"

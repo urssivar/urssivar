@@ -27,9 +27,9 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 Мы собираем данные Y-ДНК через [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) и [YFull](https://www.yfull.com/groups/kaitag/).
 
-**{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ haplogroupMap.size }}** гаплогрупп.
-
 <DNAChart/>
+
+Текущие **{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ haplogroupMap.size }}** гаплогрупп:
 
 <DNATable />
 

@@ -1,21 +1,25 @@
 @layer components {
-  /* Colon Blocks (:::note, etc.) */
-  .colon-block {
-    @apply px-16 py-2 bg-elevated text-[0.875rem] my-6 -mx-16 print:break-inside-avoid border-y border-muted/25;
+  .band {
+    @apply bg-elevated px-8 py-4 -mx-16 my-8 print:break-inside-avoid border-y border-muted/25;
 
-    p,
-    ul,
-    ol {
-      @apply my-2;
+    &.note {
+      @apply px-16 py-0 my-4 text-sm;
     }
-  }
 
-  /* IPA Phonetic Charts */
-  .ipa-chart table td {
-    @apply pt-2 whitespace-nowrap text-xs;
+    &.ipa-chart {
+      @apply my-6 overflow-x-auto;
 
-    [lang="xdq"] {
-      @apply block text-[1.5em]/[1.15] text-highlighted;
+      table {
+        @apply m-0;
+
+        td {
+          @apply pt-2 whitespace-nowrap text-xs;
+
+          [lang="xdq"] {
+            @apply block text-[1.5em]/[1.15] text-highlighted;
+          }
+        }
+      }
     }
   }
 
@@ -23,14 +27,6 @@
   [data-numbering]::before {
     content: attr(data-numbering);
     @apply mr-[0.5em] select-none;
-  }
-
-  .stripe {
-    @apply bg-elevated py-4 px-8 my-8 -mx-16! print:break-inside-avoid overflow-x-auto border-y border-muted/25;
-
-    > * {
-      @apply m-0;
-    }
   }
 
   .btn-outer {

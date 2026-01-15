@@ -1,10 +1,16 @@
 import type MarkdownIt from 'markdown-it';
 import type StateInline from 'markdown-it/lib/rules_inline/state_inline.mjs';
-import type { DelimiterRule } from './types';
+
+export interface InlineRule {
+  delimiter: string;
+  tokenName: string;
+  tag: string;
+  attrs?: Record<string, string>;
+}
 
 export default function inlineDelimiters(
   md: MarkdownIt,
-  rules: DelimiterRule[]
+  rules: InlineRule[]
 ) {
   rules.forEach((rule) => {
     const { delimiter, tokenName, tag, attrs } = rule;
