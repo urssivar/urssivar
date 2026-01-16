@@ -18,7 +18,7 @@ function getYfullLink(k: (typeof kits)[0]) {
         <span lang="xdq">
           {{ k.village && k.region ? `${k.village}, ${k.region}` : "???" }}
         </span>
-        <a :href="getYfullLink(k)">
+        <a :href="getYfullLink(k)" class="-translate-y-px">
           <UButton variant="soft" size="xs">
             <span
               :class="[k.yfullId ? `hh-${k.haplogroup}` : 'text-muted']"

@@ -78,7 +78,7 @@ watch(
   </NavBar>
 
   <div
-    class="grid gap-6 grid-cols-1 lg:grid-cols-[1fr_auto_1fr] lg:mx-4 print:block"
+    class="grid gap-4 grid-cols-1 lg:grid-cols-[1fr_auto_1fr] lg:mx-2 print:block"
   >
     <aside>
       <SidebarNav class="ml-auto">
@@ -105,10 +105,10 @@ watch(
 @reference "@/theme/styles/index.css";
 
 main {
-  @apply mx-auto w-full md:w-[calc(65ch+var(--spacing)*32)];
+  @apply mx-auto w-full md:w-[calc(65ch+var(--spacing)*32)] print:w-full;
 
   article {
-    @apply my-20 print:w-full;
+    @apply my-20;
 
     :deep(> div > :not(.breakout)) {
       @apply mx-6 sm:mx-12 md:mx-16;

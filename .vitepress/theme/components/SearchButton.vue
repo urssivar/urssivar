@@ -95,7 +95,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
     :ui="{
       overlay: 'z-100',
       content: 'z-100 h-[70vh] max-h-[70vh] rounded-none',
-      header: 'm-0! p-0! min-h-14 font-medium',
+      header: 'm-0! p-0! min-h-12 font-medium',
       body: 'p-0! flex-1 flex flex-col',
     }"
   >
@@ -115,14 +115,14 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
         class="w-full"
         size="xl"
         :ui="{
-          base: 'ml-3 py-4',
+          base: 'ml-3 py-3',
         }"
         variant="none"
       />
       <UButton
         icon="i-material-symbols:close-rounded"
         @click="isOpen = false"
-        class="mr-3"
+        class="mr-2"
       />
     </template>
     <template #body>

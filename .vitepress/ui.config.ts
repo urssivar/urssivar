@@ -7,20 +7,13 @@ export default <NuxtUIOptions>{
   },
   button: {
     slots: {
-      base: 'cursor-pointer rounded-none',
+      base: 'cursor-pointer rounded-full',
       leadingIcon: 'text-highlighted',
     },
     defaultVariants: {
       color: 'neutral',
       variant: 'ghost',
     },
-    compoundVariants: [
-      {
-        label: false,
-        square: true,
-        class: 'rounded-full'
-      }
-    ],
   },
   tooltip: {
     slots: {
