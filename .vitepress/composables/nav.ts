@@ -44,10 +44,15 @@ export function useNav() {
   });
 
   const article = computed(() => {
+    let path = router.route.path;
+    if (!path.endsWith("/")) {
+      path += "/"
+    }
+
     return [
       home.value, module.value, section.value,
       ...section.value?.children ?? []
-    ]?.find((c) => c?.url === router.route.path)
+    ].find((c) => c?.url === path)
   })
 
   return readonly({

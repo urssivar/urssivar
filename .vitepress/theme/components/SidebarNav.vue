@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useNav } from "@/composables/nav";
-import { watchEffect } from "vue";
 
 const nav = useNav();
 </script>
