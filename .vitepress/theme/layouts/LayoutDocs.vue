@@ -23,7 +23,7 @@ watch(
 
 <template>
   <NavBar
-    class="lg:hidden print:hidden sticky top-0 z-10 border-default border-b bg-default/75 backdrop-blur-sm shadow-xs"
+    class="lg:hidden print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-muted/50 shadow-xs"
   >
     <template #leading>
       <UDrawer
