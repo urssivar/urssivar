@@ -39,14 +39,14 @@ function getYfullLink(k: (typeof kits)[0]) {
 @reference "@/theme/styles/index.css";
 
 .hh-R1b {
-  @apply text-amber-600 dark:text-amber-400;
+  @apply text-amber-700 dark:text-amber-400;
 }
 
 .hh-J1 {
-  @apply text-sky-600 dark:text-sky-400;
+  @apply text-sky-700 dark:text-sky-400;
 }
 
 .hh-Q2 {
-  @apply text-emerald-600 dark:text-emerald-400;
+  @apply text-emerald-700 dark:text-emerald-400;
 }
 </style>
