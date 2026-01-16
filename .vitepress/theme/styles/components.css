@@ -52,8 +52,4 @@
     content: attr(data-numbering);
     @apply mr-[0.5em] select-none;
   }
-
-  .btn-outer {
-    @apply hover:bg-accented/50! active:bg-accented/50!;
-  }
 }

@@ -21,7 +21,7 @@ function getYfullLink(k: (typeof kits)[0]) {
         <a :href="getYfullLink(k)" class="-translate-y-px">
           <UButton variant="soft" size="xs">
             <span
-              :class="[k.yfullId ? `hh-${k.haplogroup}` : 'text-muted']"
+              :class="[k.yfullId ? `hh-${k.haplogroup}` : 'text-toned']"
               class="font-semibold"
             >
               {{ k.haplogroup }}

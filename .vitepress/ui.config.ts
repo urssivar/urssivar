@@ -14,6 +14,11 @@ export default <NuxtUIOptions>{
       color: 'neutral',
       variant: 'ghost',
     },
+    compoundVariants: {
+      color: 'neutral',
+      variant: 'ghost',
+      class: 'hover:bg-accented/50 active:bg-accented/50'
+    },
   },
   tooltip: {
     slots: {

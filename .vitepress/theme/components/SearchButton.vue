@@ -50,7 +50,7 @@ async function search(q: string) {
   if (!search || q !== query.value) return;
 
   const pages = await Promise.all(
-    search.results.slice(0, 25).map((r) => r.data())
+    search.results.slice(0, 25).map((r) => r.data()),
   );
   results.value = pages
     .flatMap((p) =>
@@ -69,7 +69,7 @@ async function search(q: string) {
           url,
           title,
         };
-      })
+      }),
     )
     .slice(0, 50);
   loading.value = false;
@@ -101,7 +101,6 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
   >
     <UTooltip :text="t('header.search')" :kbds="['.']">
       <UButton
-        class="btn-outer"
         icon="i-material-symbols:search"
         :aria-label="t('header.search')"
       />
