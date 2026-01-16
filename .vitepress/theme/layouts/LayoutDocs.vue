@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, useTemplateRef, watch } from "vue";
 import { useRoute } from "vitepress";
+import { useMediaQuery } from "@vueuse/core";
 import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
 import NavBar from "../components/NavBar.vue";
@@ -19,11 +20,15 @@ watch(
     menuOpen.value = false;
   },
 );
+
+const isWide = useMediaQuery("(width >= 1024px)");
+const tocRef = useTemplateRef("toc");
 </script>
 
 <template>
   <NavBar
-    class="lg:hidden print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-[#1e1e1e] shadow-xs"
+    v-if="!isWide"
+    class="print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-[#1e1e1e] shadow-xs"
   >
     <template #leading>
       <UDrawer
@@ -56,6 +61,7 @@ watch(
     </span>
     <template #trailing>
       <UDrawer
+        v-if="tocRef?.isVisible"
         direction="right"
         :handle="false"
         inset
@@ -96,7 +102,7 @@ watch(
       </article>
     </main>
     <aside>
-      <TableOfContents compact />
+      <TableOfContents ref="toc" compact />
     </aside>
   </div>
 </template>

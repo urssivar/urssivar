@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, useTemplateRef } from "vue";
+import { ref, watch, onMounted, useTemplateRef, computed } from "vue";
 import { onContentUpdated } from "vitepress";
 import { useElementIdObserver } from "@/composables/elementIdObserver";
 
@@ -15,6 +15,11 @@ interface HeaderElement {
 }
 
 const headers = ref<HeaderElement[]>([]);
+const isVisible = computed(() => {
+  return headers.value.length > 1;
+});
+defineExpose({ isVisible });
+
 const { observingId, observer } = useElementIdObserver();
 const links = useTemplateRef<HTMLAnchorElement[]>("links");
 
@@ -26,7 +31,7 @@ watch(observingId, (id) => {
 const observeHeaders = () => {
   observer.value?.disconnect();
   const elements = document.querySelectorAll(
-    "article :is(h1, h2, h3, h4, h5, h6)[id]"
+    "article :is(h1, h2, h3, h4, h5, h6)[id]",
   );
 
   headers.value = [];
@@ -45,7 +50,6 @@ const observeHeaders = () => {
 };
 
 onMounted(observeHeaders);
-
 onContentUpdated(observeHeaders);
 
 function calculateIndent(level: number) {
@@ -62,6 +66,7 @@ function calculateIndent(level: number) {
 
 <template>
   <nav
+    v-if="isVisible"
     class="navlinks flex flex-col"
     :class="[compact ? 'text-xs' : 'text-sm']"
   >
