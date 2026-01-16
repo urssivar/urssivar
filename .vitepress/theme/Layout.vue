@@ -11,7 +11,7 @@ const { page } = useData();
 <template>
   <UApp :tooltip="{ delayDuration: 300 }">
     <div class="min-h-screen flex flex-col bg-muted dark:bg-default">
-      <Header class="mt-12 mb-0.5" />
+      <Header class="mt-12 mb-1.5" />
       <div class="grow">
         <Layout404 v-if="page.isNotFound" />
         <LayoutDocs v-else />
