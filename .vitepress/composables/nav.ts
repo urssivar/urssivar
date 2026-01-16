@@ -93,6 +93,12 @@ const navTree = <NavPage>{
     {
       text: { en: "Notes", ru: "Заметки", },
       path: "notes",
+      children: [
+        {
+          text: { en: "Lost Heritage", ru: "Потерянное насление", },
+          path: "lost-heritage",
+        },
+      ]
     }
   ]
 };
