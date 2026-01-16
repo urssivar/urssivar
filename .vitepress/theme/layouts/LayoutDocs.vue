@@ -17,13 +17,13 @@ watch(
   () => route.path,
   () => {
     menuOpen.value = false;
-  }
+  },
 );
 </script>
 
 <template>
   <NavBar
-    class="lg:hidden print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-muted/50 shadow-xs"
+    class="lg:hidden print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-[#1a1a1a] shadow-xs"
   >
     <template #leading>
       <UDrawer
@@ -89,7 +89,7 @@ watch(
       </SidebarNav>
     </aside>
     <main
-      class="md:shadow-sm md:border border-accented/50 bg-default dark:bg-muted/50"
+      class="md:shadow-sm md:border border-accented/50 bg-default dark:bg-[#1e1e1e]"
     >
       <article>
         <Content />
