@@ -36,11 +36,14 @@ function getUrl(letter: string) {
       {{ l }}
     </a>
   </nav>
-  <nav v-else class="band grid grid-cols-5 sm:grid-cols-9">
+  <nav
+    v-else
+    class="breakout py-4 px-6 md:px-10 grid grid-cols-7 sm:grid-cols-9"
+  >
     <a
       v-for="l in letters"
       :href="getUrl(l)"
-      class="text-center p-2 flex flex-col no-underline! group"
+      class="text-center py-2 flex flex-col no-underline! group"
     >
       <div
         class="group-hover:scale-125 group-hover:-translate-y-px transition-transform duration-200 ease-out"

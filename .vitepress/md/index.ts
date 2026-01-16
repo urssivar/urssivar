@@ -4,8 +4,8 @@ import multimdTable from "markdown-it-multimd-table";
 
 import numbering from "./plugins/numbering";
 import kaitagGlossShortcut from "./plugins/kaitag-gloss-shortcut";
-import inlineDelimiters from "./plugins/inline-delimiters";
-import bands from "./plugins/bands";
+import inlineRules from "./plugins/inline-rules";
+import breakouts from "./plugins/breakout";
 
 export default <MarkdownOptions>{
   anchor: {
@@ -26,7 +26,7 @@ export default <MarkdownOptions>{
     });
 
     md.use(kaitagGlossShortcut);
-    md.use(inlineDelimiters, [
+    md.use(inlineRules, [
       {
         delimiter: '++',
         tokenName: 'kaitag',
@@ -45,6 +45,6 @@ export default <MarkdownOptions>{
         tag: 'mark'
       }
     ]);
-    md.use(bands);
+    md.use(breakouts);
   },
 };

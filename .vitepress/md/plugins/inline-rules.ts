@@ -8,7 +8,7 @@ export interface InlineRule {
   attrs?: Record<string, string>;
 }
 
-export default function inlineDelimiters(
+export default function inlineRules(
   md: MarkdownIt,
   rules: InlineRule[]
 ) {

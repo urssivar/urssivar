@@ -93,10 +93,6 @@
   pre {
     @apply print:break-inside-avoid;
   }
-
-  article {
-    @apply max-w-prose print:max-w-full mx-auto;
-  }
 }
 
 @page {

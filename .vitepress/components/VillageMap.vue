@@ -96,7 +96,7 @@ function onVillageLeave() {
       </span>
     </template>
   </UTooltip>
-  <div class="band p-0 relative h-60 sm:h-120 overflow-x-clip">
+  <div class="breakout relative h-60 sm:h-120 overflow-x-clip">
     <div
       class="navlinks absolute right-0 bottom-0 z-20 m-2.5 bg-elevated font-sans text-xs flex"
     >

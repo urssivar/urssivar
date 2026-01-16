@@ -44,13 +44,13 @@ function onLetterLeave() {
 
 <template>
   <div
-    class="band text-center grid grid-cols-6 md:grid-cols-7 font-medium"
+    class="breakout py-4 px-6 md:px-8 text-center grid grid-cols-6 sm:grid-cols-7 font-medium"
     data-pagefind-ignore
   >
     <div
       v-for="l in letters"
       :key="l"
-      class="letter p-3 relative cursor-pointer flex justify-center"
+      class="letter px-4 py-2 relative cursor-pointer flex justify-center"
       :class="{ current: selectedLetter === l }"
       @mouseenter="onLetterEnter(l)"
       @mouseleave="onLetterLeave"

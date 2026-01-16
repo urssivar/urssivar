@@ -64,7 +64,7 @@ export default function blockContainer(md: MarkdownIt) {
   md.renderer.rules['custom_block_open'] = (tokens, idx) => {
     const token = tokens[idx];
     const subClass = token.info ? ` ${token.info}` : '';
-    return `<div class="band${subClass}">\n`;
+    return `<div class="breakout${subClass}">\n`;
   };
 
   md.renderer.rules['custom_block_close'] = () => `</div>\n`;

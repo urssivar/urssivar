@@ -107,10 +107,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="band">
+  <div class="my-8">
     <svg
       ref="svgRef"
-      class="mx-auto my-2 h-60 sm:h-80 aspect-square overflow-visible"
+      class="mx-auto h-60 sm:h-80 aspect-square overflow-visible"
     ></svg>
   </div>
 </template>
@@ -119,29 +119,29 @@ onMounted(() => {
 @reference "@/theme/styles/index.css";
 
 .dna-slice {
-  @apply stroke-4 stroke-(--ui-bg) transition-colors duration-200;
+  @apply stroke-4 stroke-(--ui-bg-elevated) transition-colors duration-200;
 
   &.hh-R1b {
-    @apply fill-amber-200/60 dark:fill-amber-800/60;
+    @apply fill-amber-300/60 dark:fill-amber-800/60;
 
     &:hover {
-      @apply fill-amber-200/90 dark:fill-amber-800/90;
+      @apply fill-amber-300/90 dark:fill-amber-800/90;
     }
   }
 
   &.hh-J1 {
-    @apply fill-sky-200/60 dark:fill-sky-800/60;
+    @apply fill-sky-300/60 dark:fill-sky-800/60;
 
     &:hover {
-      @apply fill-sky-200/90 dark:fill-sky-800/90;
+      @apply fill-sky-300/90 dark:fill-sky-800/90;
     }
   }
 
   &.hh-Q2 {
-    @apply fill-emerald-200/60 dark:fill-emerald-800/60;
+    @apply fill-emerald-300/60 dark:fill-emerald-800/60;
 
     &:hover {
-      @apply fill-emerald-200/90 dark:fill-emerald-800/90;
+      @apply fill-emerald-300/90 dark:fill-emerald-800/90;
     }
   }
 }
