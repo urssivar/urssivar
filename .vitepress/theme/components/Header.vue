@@ -28,13 +28,14 @@ const tooltipOpen = ref(false);
         @mouseleave="tooltipOpen = false"
       >
         <UTooltip :text="t('header.home')" v-model:open="tooltipOpen">
-          <div
-            class="transition-colors group-hover:bg-accented/50 group-active:bg-accented/50 rounded-full py-1"
-          >
+          <div class="relative">
+            <div
+              class="absolute -translate-0.5 size-[calc(100%+var(--spacing)*1)] transition-colors group-hover:bg-accented/50 group-active:bg-accented/50 rounded-full"
+            />
             <img
               src="/favicon-dark.svg"
               alt=""
-              class="mx-1 size-6 invert-90 dark:invert-0"
+              class="m-1 size-6 invert-90 dark:invert-0"
             />
           </div>
         </UTooltip>
