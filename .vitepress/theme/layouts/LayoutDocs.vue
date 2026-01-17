@@ -63,7 +63,7 @@ const tocRef = useTemplateRef("toc");
                   <LocaleSwitch />
                 </template>
               </Toolbar>
-              <SidebarNav @navigate="menuOpen = false">
+              <SidebarNav>
                 <DictionaryIndex
                   v-if="nav.section?.path === 'dictionary'"
                   mode="sidebar"
