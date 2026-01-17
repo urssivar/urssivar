@@ -23,10 +23,14 @@ defineExpose({ isVisible });
 const { activeId, observer, isInZone } = useScrollSpy();
 const links = useTemplateRef<HTMLAnchorElement[]>("links");
 
-watch(activeId, (id) => {
-  const link = links.value?.find((el) => el.hash === `#${id}`);
-  link?.scrollIntoView({ block: "nearest" });
-});
+watch(
+  activeId,
+  (id) => {
+    const link = links.value?.find((el) => el.hash === `#${id}`);
+    link?.scrollIntoView({ block: "nearest" });
+  },
+  { flush: "post" },
+);
 
 function init() {
   observer.value?.disconnect();
