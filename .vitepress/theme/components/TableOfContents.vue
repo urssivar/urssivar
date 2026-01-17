@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, useTemplateRef, computed } from "vue";
 import { onContentUpdated } from "vitepress";
-import { useElementIdObserver } from "@/composables/elementIdObserver";
+import { useScrollSpy } from "@/composables/elementIdObserver";
 
 const props = defineProps<{
   compact?: boolean;
@@ -20,21 +20,22 @@ const isVisible = computed(() => {
 });
 defineExpose({ isVisible });
 
-const { observingId, observer } = useElementIdObserver();
+const { activeId, observer, isInZone } = useScrollSpy();
 const links = useTemplateRef<HTMLAnchorElement[]>("links");
 
-watch(observingId, (id) => {
+watch(activeId, (id) => {
   const link = links.value?.find((el) => el.hash === `#${id}`);
   link?.scrollIntoView({ block: "nearest" });
 });
 
-const observeHeaders = () => {
+function init() {
   observer.value?.disconnect();
   const elements = document.querySelectorAll(
     "article :is(h1, h2, h3, h4, h5, h6)[id]",
   );
 
   headers.value = [];
+  activeId.value = "";
   elements.forEach((el) => {
     const h = el.cloneNode(true) as HTMLElement;
     h.querySelector(".header-anchor")?.remove();
@@ -46,11 +47,15 @@ const observeHeaders = () => {
       numbering: h.dataset.numbering,
     });
     observer.value?.observe(el);
-  });
-};
 
-onMounted(observeHeaders);
-onContentUpdated(observeHeaders);
+    if (!activeId.value || isInZone(el)) {
+      activeId.value = h.id;
+    }
+  });
+}
+
+onMounted(init);
+onContentUpdated(init);
 
 function calculateIndent(level: number) {
   switch (level) {
@@ -75,7 +80,7 @@ function calculateIndent(level: number) {
       ref="links"
       :key="h.id"
       :href="`#${h.id}`"
-      :class="{ active: observingId === h.id }"
+      :class="{ active: activeId === h.id }"
     >
       <span
         class="block"
