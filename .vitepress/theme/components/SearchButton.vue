@@ -119,7 +119,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
         variant="none"
       />
       <UButton
-        icon="i-material-symbols:close-rounded"
+        icon="i-material-symbols:close"
         @click="isOpen = false"
         class="mr-2"
       />

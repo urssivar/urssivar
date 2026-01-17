@@ -41,10 +41,7 @@ const tocRef = useTemplateRef("toc");
         v-model:open="menuOpen"
       >
         <UTooltip :text="t('nav.menu')">
-          <UButton
-            icon="i-material-symbols:menu-rounded"
-            :aria-label="t('nav.menu')"
-          />
+          <UButton icon="i-material-symbols:menu" :aria-label="t('nav.menu')" />
         </UTooltip>
         <template #body>
           <SidebarNav @navigate="menuOpen = false">
@@ -71,10 +68,7 @@ const tocRef = useTemplateRef("toc");
         }"
       >
         <UTooltip :text="t('nav.toc')">
-          <UButton
-            icon="i-material-symbols:toc-rounded"
-            :aria-label="t('nav.toc')"
-          />
+          <UButton icon="i-material-symbols:toc" :aria-label="t('nav.toc')" />
         </UTooltip>
         <template #body>
           <TableOfContents class="text-sm!" />
