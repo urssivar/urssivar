@@ -4,10 +4,16 @@ import { useRoute } from "vitepress";
 import { useMediaQuery } from "@vueuse/core";
 import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
-import NavBar from "../components/NavBar.vue";
+import Toolbar from "../components/Toolbar.vue";
+import Prose from "../components/Prose.vue";
 import DictionaryIndex from "@/components/DictionaryIndex.vue";
 import { useI18n } from "@/composables/i18n";
 import { useNav } from "@/composables/nav";
+import LayoutBase from "./LayoutBase.vue";
+import Home from "../components/Home.vue";
+import SearchButton from "../components/SearchButton.vue";
+import LocaleSwitch from "../components/LocaleSwitch.vue";
+import Footer from "../components/Footer.vue";
 
 const nav = useNav();
 const { t } = useI18n();
@@ -22,83 +28,97 @@ watch(
 );
 
 const isWide = useMediaQuery("(width >= 1024px)");
+const isSheet = useMediaQuery("(width >= 768px)");
 const tocRef = useTemplateRef("toc");
 </script>
 
 <template>
-  <NavBar
+  <div
     v-if="!isWide"
     class="print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-[#1e1e1e] shadow-xs"
   >
-    <template #leading>
-      <UDrawer
-        direction="left"
-        :handle="false"
-        :ui="{
-          content: 'w-2/3 sm:w-80 rounded-none',
-          body: 'py-2',
-        }"
-        v-model:open="menuOpen"
-      >
-        <UTooltip :text="t('nav.menu')">
-          <UButton icon="i-material-symbols:menu" :aria-label="t('nav.menu')" />
-        </UTooltip>
-        <template #body>
-          <SidebarNav @navigate="menuOpen = false">
-            <DictionaryIndex
-              v-if="nav.section?.path === 'dictionary'"
-              mode="sidebar"
-            />
-          </SidebarNav>
+    <Prose>
+      <Toolbar class="h-12! -ml-1.5">
+        <template #leading>
+          <UDrawer direction="left" :handle="false" v-model:open="menuOpen">
+            <UTooltip :text="t('nav.menu')">
+              <UButton
+                icon="i-material-symbols:menu"
+                :aria-label="t('nav.menu')"
+              />
+            </UTooltip>
+            <template #body>
+              <Toolbar class="mx-1.5">
+                <template #leading>
+                  <Home />
+                </template>
+                <template #trailing>
+                  <LocaleSwitch />
+                </template>
+              </Toolbar>
+              <SidebarNav @navigate="menuOpen = false">
+                <DictionaryIndex
+                  v-if="nav.section?.path === 'dictionary'"
+                  mode="sidebar"
+                />
+              </SidebarNav>
+              <div class="mt-auto">
+                <Footer class="mt-8" />
+              </div>
+            </template>
+          </UDrawer>
         </template>
-      </UDrawer>
-    </template>
-    <span class="font-semibold flex-1 text-center">
-      {{ nav.section?.text }}
-    </span>
-    <template #trailing>
-      <UDrawer
-        v-if="tocRef?.isVisible"
-        direction="right"
-        :handle="false"
-        inset
-        :ui="{
-          content: 'w-2/3 sm:w-80',
-          body: 'py-2',
-        }"
-      >
-        <UTooltip :text="t('nav.toc')">
-          <UButton icon="i-material-symbols:toc" :aria-label="t('nav.toc')" />
-        </UTooltip>
-        <template #body>
-          <TableOfContents class="text-sm!" />
+        <span class="font-semibold flex-1 text-center">
+          {{ nav.section?.text }}
+        </span>
+        <template #trailing>
+          <UDrawer v-if="tocRef?.isVisible" direction="right" :handle="false">
+            <UTooltip :text="t('nav.toc')">
+              <UButton
+                icon="i-material-symbols:toc"
+                :aria-label="t('nav.toc')"
+              />
+            </UTooltip>
+            <template #body>
+              <TableOfContents class="text-sm!" />
+            </template>
+          </UDrawer>
+          <SearchButton />
         </template>
-      </UDrawer>
-    </template>
-  </NavBar>
-
-  <div
-    class="grid gap-4 grid-cols-1 lg:grid-cols-[1fr_auto_1fr] lg:mx-2 print:block"
-  >
-    <aside>
-      <SidebarNav class="ml-auto">
-        <DictionaryIndex
-          v-if="nav.section?.path === 'dictionary'"
-          mode="sidebar"
-        />
-      </SidebarNav>
-    </aside>
-    <main
-      class="md:shadow-sm md:border border-accented/50 bg-default dark:bg-[#1e1e1e]"
-    >
-      <article>
-        <Content />
-      </article>
-    </main>
-    <aside>
-      <TableOfContents ref="toc" compact />
-    </aside>
+      </Toolbar>
+    </Prose>
   </div>
+
+  <LayoutBase>
+    <template #header v-if="!isWide">
+      <div />
+    </template>
+    <div
+      class="grid md:mt-16 lg:mt-5.5 lg:mx-2 gap-4 grid-cols-1 lg:grid-cols-[1fr_auto_1fr] print:block"
+    >
+      <aside>
+        <SidebarNav class="ml-auto">
+          <DictionaryIndex
+            v-if="nav.section?.path === 'dictionary'"
+            mode="sidebar"
+          />
+        </SidebarNav>
+      </aside>
+      <main
+        class="md:shadow-sm md:border border-accented/50 bg-default dark:bg-[#1e1e1e]"
+      >
+        <article>
+          <Content />
+        </article>
+      </main>
+      <aside>
+        <TableOfContents ref="toc" compact />
+      </aside>
+    </div>
+    <template #footer v-if="!isSheet">
+      <div />
+    </template>
+  </LayoutBase>
 </template>
 
 <style lang="css" scoped>

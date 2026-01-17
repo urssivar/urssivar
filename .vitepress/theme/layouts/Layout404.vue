@@ -1,16 +1,19 @@
 <script setup lang="ts">
 import { useI18n } from "@/composables/i18n";
+import LayoutBase from "./LayoutBase.vue";
 
 const { t, baseUrl } = useI18n();
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center gap-4 my-16 mx-6">
-    <h5>{{ t("notFound.title") }}</h5>
-    <a :href="baseUrl">
-      <UButton>
-        {{ t("notFound.home") }}
-      </UButton>
-    </a>
-  </div>
+  <LayoutBase>
+    <div class="flex flex-col items-center justify-center gap-4 my-16 mx-6">
+      <h5>{{ t("notFound.title") }}</h5>
+      <a :href="baseUrl">
+        <UButton>
+          {{ t("notFound.home") }}
+        </UButton>
+      </a>
+    </div>
+  </LayoutBase>
 </template>
