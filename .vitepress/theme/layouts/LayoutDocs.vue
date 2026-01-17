@@ -40,7 +40,7 @@ const tocRef = useTemplateRef("toc");
     class="print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-[#1e1e1e] shadow-xs"
   >
     <Prose>
-      <Toolbar class="h-12! -ml-1.5">
+      <Toolbar class="h-16! -ml-1.5">
         <template #leading>
           <USlideover :close="false" side="left" v-model:open="menuOpen">
             <UTooltip :text="t('nav.menu')">
