@@ -2,22 +2,29 @@
 
 This project uses a dual-licensing model:
 
-## Content License: CC BY 4.0
+## Content License: CC BY-SA 4.0
 
-All **content** (documentation, data, media, etc.) is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode).
+All **content** (articles, media, data, PDFs, etc.) is licensed under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
 
 **Attribution:**
 
 ```
-Urssivar (2026). Licensed under CC BY 4.0.
-https://github.com/urssivar/urssivar
+Magomedov, M. (2026). Urssivar Project. 
+Licensed under CC BY-SA 4.0. https://github.com/urssivar/urssivar
 ```
+
+**What this means:**
+
+- You can use, modify, and redistribute this content
+- You must give appropriate credit
+- Derivatives must use the same CC BY-SA 4.0 license
+- For alternative licensing arrangements, contact the author
 
 ## Code License: MIT
 
-All **code** (`.ts`, `.vue` files, etc.) is licensed under the MIT License.
+All **code** (`.ts`, `.vue`, etc.) is licensed under the MIT License.
 
-Copyright (c) 2026 Urssivar
+Copyright (c) 2026 Magomed Magomedov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
