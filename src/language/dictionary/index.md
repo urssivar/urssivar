@@ -16,12 +16,10 @@ defineProps<{
 :::note
 Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>  
 Uzlipat Gasanova, +7 960 408-99-18, <uzlipat066@mail.ru>  
-5,171 lexemes · DB 20.05.2025 · doc 14.01.2026 · license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) {.text-xs .italic}
+5,171 lexemes · [database](https://github.com/urssivar/dictionary/releases/latest) 20.05.2025 · doc 14.01.2026 · license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) {.text-xs .italic}
 :::
 
 This work primarily draws on the speech of the villages **Turaga** (Irchamul microregion) and **Shilyagi** (Lower Kattagan microregion). The core of the lexical database is from the dissertation of **Gasanova U. U. (2012)**, with whom we spent countless hours refining the material. Additional resources include the works of **Temirbulatova S. M. (2004, 2008, 2021)** and **Gabibova K. M. (2009)**.
-
-<DictIndex :mode="indexMode" />
 
 The dictionary is available in three formats:
 
@@ -30,6 +28,8 @@ The dictionary is available in three formats:
 - The [Google Sheets](https://docs.google.com/spreadsheets/d/1TAvQAMAw0jDdStvq2Z1E-m1mz3UWkCMGQBgLCnPQgJs) table for data analysis and linguistic research
 
 Plus a short commentary: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA) on YouTube.
+
+<DictIndex :mode="indexMode" />
 
 ## Entry Structure
 
@@ -102,16 +102,13 @@ Syllable-final /l/ ++л++ becomes palatalized after vowels /e/ ++е++, /i/ ++и+
 The four voiceless fricatives /s/ ++с++, /ʃ/ ++ш++, /x/ ++ҳ++, and /χ/ ++х++ can geminate, although whether this gemination is phonemic remains unclear:
 
 1. Unlike geminated affricates and stops, their realization varies between villages without altering the meaning:
-
    - ++атта́сса:by father++ (Sanchi) → ++атта́са++ (Shilyagi)
    - ++баҳҳа́ра:to walk++ → ++баҳа́ра++
 
 2. It is clearly audible only between vowels:
-
    - ++ччими́сси:quince++ (Shilyagi) → ++ччи́мсе++ (Turaga)
 
 3. It consistently appears in plural forms with ++-е++:
-
    - ++яру́с:Russian++ → ++яруссе́:Russians++
    - but ++яру́си:to [a] Russian++
 
