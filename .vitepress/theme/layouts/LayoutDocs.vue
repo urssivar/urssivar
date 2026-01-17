@@ -40,7 +40,7 @@ const tocRef = useTemplateRef("toc");
     <Prose>
       <Toolbar class="h-12! -ml-1.5">
         <template #leading>
-          <UDrawer direction="left" :handle="false" v-model:open="menuOpen">
+          <USlideover side="left" v-model:open="menuOpen">
             <UTooltip :text="t('nav.menu')">
               <UButton
                 icon="i-material-symbols:menu"
@@ -62,17 +62,15 @@ const tocRef = useTemplateRef("toc");
                   mode="sidebar"
                 />
               </SidebarNav>
-              <div class="mt-auto">
-                <Footer class="mt-8" />
-              </div>
+              <Footer class="mt-auto" />
             </template>
-          </UDrawer>
+          </USlideover>
         </template>
         <span class="font-semibold flex-1 text-center">
           {{ nav.section?.text }}
         </span>
         <template #trailing>
-          <UDrawer v-if="tocRef?.isVisible" direction="right" :handle="false">
+          <USlideover v-if="tocRef?.isVisible" side="right">
             <UTooltip :text="t('nav.toc')">
               <UButton
                 icon="i-material-symbols:toc"
@@ -82,7 +80,7 @@ const tocRef = useTemplateRef("toc");
             <template #body>
               <TableOfContents class="text-sm!" />
             </template>
-          </UDrawer>
+          </USlideover>
           <SearchButton />
         </template>
       </Toolbar>

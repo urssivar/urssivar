@@ -20,11 +20,12 @@ export default <NuxtUIOptions>{
       class: "hover:bg-accented/50 active:bg-accented/50"
     },
   },
-  drawer: {
+  slideover: {
     slots: {
       container: "p-0",
-      content: "w-2/3 sm:w-80 rounded-none!",
-      body: "mx-2 my-4 flex flex-col gap-8",
+      content: "rounded-none data-[state=open]:animate-[slide-in_100ms_ease-out] data-[state=closed]:animate-[slide-out_100ms_ease-in]",
+      body: "px-2! py-4! h-full flex flex-col gap-8",
+      overlay: "data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]",
     }
   },
   modal: {

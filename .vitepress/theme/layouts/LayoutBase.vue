@@ -8,7 +8,7 @@ import Footer from "../components/Footer.vue";
 </script>
 
 <template>
-  <div class="h-screen flex flex-col bg-muted dark:bg-default">
+  <div class="min-h-screen flex flex-col bg-muted dark:bg-default">
     <slot name="header">
       <Prose class="mt-16 z-20 print:hidden">
         <Toolbar class="-ml-1.5">
