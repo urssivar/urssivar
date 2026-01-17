@@ -23,10 +23,28 @@ export default <NuxtUIOptions>{
   slideover: {
     slots: {
       container: "p-0",
-      content: "rounded-none data-[state=open]:animate-[slide-in_100ms_ease-out] data-[state=closed]:animate-[slide-out_100ms_ease-in]",
+      content: [
+        "data-[state=open]:animate-[slide-in_100ms_ease-out] data-[state=closed]:animate-[slide-out_100ms_ease-in]",
+        "w-[calc(100%-var(--spacing)*16)]! ring-0 shadow-md! divide-none"
+      ],
       body: "px-2! py-4! h-full flex flex-col gap-8",
       overlay: "data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]",
-    }
+    },
+    compoundVariants: [
+      {
+        side: 'left',
+        inset: false,
+        class: {
+          content: 'border-r border-accented/50'
+        }
+      }, {
+        side: 'right',
+        inset: false,
+        class: {
+          content: 'border-l border-accented/50'
+        }
+      },
+    ],
   },
   modal: {
     slots: {

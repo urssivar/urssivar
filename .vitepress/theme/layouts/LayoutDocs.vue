@@ -18,12 +18,14 @@ import Footer from "../components/Footer.vue";
 const nav = useNav();
 const { t } = useI18n();
 const menuOpen = ref(false);
+const tocOpen = ref(false);
 
 const route = useRoute();
 watch(
   () => route.path,
   () => {
     menuOpen.value = false;
+    tocOpen.value = false;
   },
 );
 
@@ -40,7 +42,7 @@ const tocRef = useTemplateRef("toc");
     <Prose>
       <Toolbar class="h-12! -ml-1.5">
         <template #leading>
-          <USlideover side="left" v-model:open="menuOpen">
+          <USlideover :close="false" side="left" v-model:open="menuOpen">
             <UTooltip :text="t('nav.menu')">
               <UButton
                 icon="i-material-symbols:menu"
@@ -48,6 +50,11 @@ const tocRef = useTemplateRef("toc");
               />
             </UTooltip>
             <template #body>
+              <UButton
+                icon="i-material-symbols:close"
+                @click="menuOpen = false"
+                class="absolute -right-12 top-4 shadow-md border border-accented/50 bg-default dark:bg-[#1e1e1e]"
+              />
               <Toolbar class="mx-1.5">
                 <template #leading>
                   <Home />
@@ -70,7 +77,12 @@ const tocRef = useTemplateRef("toc");
           {{ nav.section?.text }}
         </span>
         <template #trailing>
-          <USlideover v-if="tocRef?.isVisible" side="right">
+          <USlideover
+            :close="false"
+            v-if="tocRef?.isVisible"
+            side="right"
+            v-model:open="tocOpen"
+          >
             <UTooltip :text="t('nav.toc')">
               <UButton
                 icon="i-material-symbols:toc"
@@ -78,6 +90,11 @@ const tocRef = useTemplateRef("toc");
               />
             </UTooltip>
             <template #body>
+              <UButton
+                icon="i-material-symbols:close"
+                @click="tocOpen = false"
+                class="absolute -left-12 top-4 shadow-md bg-default dark:bg-[#1e1e1e] border border-accented/50"
+              />
               <TableOfContents class="text-sm!" />
             </template>
           </USlideover>

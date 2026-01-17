@@ -25,7 +25,10 @@ function getUrl(letter: string) {
 </script>
 
 <template>
-  <nav v-if="mode === 'sidebar'" class="grid grid-cols-4 xl:grid-cols-6">
+  <nav
+    v-if="mode === 'sidebar'"
+    class="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-4 xl:grid-cols-6"
+  >
     <a
       v-for="l in letters"
       :href="getUrl(l)"
