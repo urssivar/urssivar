@@ -53,7 +53,7 @@ const tocRef = useTemplateRef("toc");
               <UButton
                 icon="i-material-symbols:close"
                 @click="menuOpen = false"
-                class="absolute -right-12 top-4 shadow-md border border-accented/50 bg-default dark:bg-[#1e1e1e]"
+                class="absolute -right-12 top-4 shadow-md border border-accented/50 bg-default"
               />
               <Toolbar class="mx-1.5">
                 <template #leading>
@@ -93,7 +93,7 @@ const tocRef = useTemplateRef("toc");
               <UButton
                 icon="i-material-symbols:close"
                 @click="tocOpen = false"
-                class="absolute -left-12 top-4 shadow-md bg-default dark:bg-[#1e1e1e] border border-accented/50"
+                class="absolute -left-12 top-4 shadow-md bg-default border border-accented/50"
               />
               <TableOfContents class="text-sm!" />
             </template>
