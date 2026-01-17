@@ -109,7 +109,7 @@ const tocRef = useTemplateRef("toc");
       <div />
     </template>
     <div
-      class="grid md:mt-16 lg:mt-5.5 lg:mx-2 gap-4 grid-cols-1 lg:grid-cols-[1fr_auto_1fr] print:block"
+      class="grid md:mt-16 lg:mt-5.5 lg:mx-2 print:m-0 gap-4 grid-cols-1 lg:grid-cols-[1fr_auto_1fr] print:block"
     >
       <aside>
         <SidebarNav class="ml-auto">
@@ -120,9 +120,14 @@ const tocRef = useTemplateRef("toc");
         </SidebarNav>
       </aside>
       <main
-        class="md:shadow-sm md:border border-accented/50 bg-default dark:bg-[#1e1e1e]"
+        class="md:shadow-sm md:border print:border-none print:py-px border-accented/50 bg-default dark:bg-[#1e1e1e]"
       >
         <article>
+          <div class="hidden print:block">
+            <div class="-ml-1.5 mb-16">
+              <Home />
+            </div>
+          </div>
           <Content />
         </article>
       </main>
@@ -144,11 +149,11 @@ main {
 
   article {
     @apply my-20;
-
-    :deep(> div > :not(.breakout)) {
-      @apply mx-6 sm:mx-12 md:mx-16;
-    }
   }
+}
+
+:deep(article > div > div > :not(.breakout)) {
+  @apply mx-6 sm:mx-12 md:mx-16;
 }
 
 aside {

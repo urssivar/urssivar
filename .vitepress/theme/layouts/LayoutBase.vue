@@ -11,7 +11,7 @@ import Footer from "../components/Footer.vue";
   <div class="min-h-screen flex flex-col bg-muted dark:bg-default">
     <slot name="header">
       <Prose class="mt-16 z-20 print:hidden">
-        <Toolbar class="-ml-1.5">
+        <Toolbar class="-mx-1.5">
           <template #leading>
             <Home />
           </template>
