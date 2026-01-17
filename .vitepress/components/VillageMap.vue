@@ -98,7 +98,7 @@ function onVillageLeave() {
   </UTooltip>
   <div class="breakout relative h-60 sm:h-120 overflow-x-clip">
     <div
-      class="navlinks absolute right-0 bottom-0 z-20 m-2 bg-elevated font-sans text-xs flex"
+      class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex"
     >
       <a
         href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
@@ -126,7 +126,7 @@ function onVillageLeave() {
             v-for="(village, i) in villages"
             :key="village.name"
             :lat-lng="[village.lat, village.lng]"
-            @ready="(marker: any) => markerRefs[i] = marker._icon"
+            @ready="(marker: any) => (markerRefs[i] = marker._icon)"
             @mouseover="onVillageEnter(i)"
             @mouseout="onVillageLeave"
             :z-index-offset="selectedVillage === village.name ? 1000 : 0"
