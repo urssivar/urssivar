@@ -13,7 +13,7 @@ defineProps<{
 
 # Kaitag Dictionary
 
-:::note
+:::callout
 Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>  
 Uzlipat Gasanova, +7 960 408-99-18, <uzlipat066@mail.ru>  
 5,171 lexemes · [database](https://github.com/urssivar/dictionary/releases/latest) 20.05.2025 · doc 14.01.2026 · license [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) {.text-xs .italic}

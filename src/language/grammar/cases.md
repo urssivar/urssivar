@@ -2,7 +2,7 @@
 
 Kaitag has five main abstract cases.
 
-:::note
+:::callout
 
 ||
 |

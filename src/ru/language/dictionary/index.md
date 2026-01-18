@@ -13,7 +13,7 @@ defineProps<{
 
 # Кайтагский словарь
 
-:::note
+:::callout
 Магомед Магомедов, +7 999 533-93-50, <alkaitagi@outlook.com>  
 Узлипат Гасанова, +7 960 408-99-18, <uzlipat066@mail.ru>  
 5,171 лексем · [база данных](https://github.com/urssivar/dictionary/releases/latest) 20.05.2025 · документ 14.01.2026 · лицензия [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ru) {.text-xs .italic}
