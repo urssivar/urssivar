@@ -2,7 +2,23 @@
   .breakout {
     @apply max-w-full bg-elevated my-8 print:break-inside-avoid;
 
+    ul {
+      list-style-type: "– ";
+    }
+
     &.note {
+      @apply mx-6 sm:mx-12 md:mx-16 my-6 pl-4 bg-transparent border-l-4 border-muted text-sm;
+
+      :is(p, table, ol, ul) {
+        @apply my-2;
+      }
+
+      table {
+        @apply -mx-3;
+      }
+    }
+
+    &.callout {
       @apply px-6 sm:px-12 md:px-16 py-2 text-sm;
 
       :is(p, table, ol, ul) {
@@ -31,7 +47,7 @@
     }
 
     &.img {
-      @apply bg-transparent border-none;
+      @apply bg-transparent;
 
       > :nth-child(1) {
         @apply m-0 overflow-hidden;

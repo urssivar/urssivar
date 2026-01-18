@@ -152,11 +152,3 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
     </template>
   </UModal>
 </template>
-
-<style scoped>
-@reference "@/theme/styles/index.css";
-
-:deep(mark) {
-  @apply bg-accented/75 px-1 no-underline!;
-}
-</style>

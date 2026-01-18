@@ -1,11 +1,15 @@
 @layer components {
   [lang="xdq"] {
     @apply font-serif;
-    font-variation-settings: "GRAD" 75, "wdth" 87.5;
+    font-variation-settings:
+      "GRAD" 75,
+      "wdth" 87.5;
   }
 
   :is(h1, h2, h3, h4, h5, h6) [lang="xdq"] {
-    font-variation-settings: "GRAD" 0, "wdth" 87.5;
+    font-variation-settings:
+      "GRAD" 0,
+      "wdth" 87.5;
   }
 
   strong {
@@ -17,7 +21,7 @@
   }
 
   mark {
-    @apply bg-transparent underline underline-offset-2 decoration-3 decoration-(--ui-border-accented)/75 text-inherit;
+    @apply bg-transparent underline -underline-offset-[0.125em] decoration-[0.375em] decoration-(--ui-bg-accented) text-inherit;
     text-decoration-skip-ink: none;
   }
 
