@@ -21,7 +21,7 @@
   }
 
   mark {
-    @apply bg-transparent underline -underline-offset-[0.125em] decoration-[0.375em] decoration-(--ui-bg-accented) text-inherit;
+    @apply bg-transparent underline underline-offset-0 decoration-[0.25em] decoration-(--ui-bg-accented) text-inherit;
     text-decoration-skip-ink: none;
   }
 
