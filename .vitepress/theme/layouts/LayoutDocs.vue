@@ -160,7 +160,7 @@ aside {
   @apply hidden lg:block;
 
   > * {
-    @apply sticky top-0 py-4 max-h-screen max-w-64 overflow-y-auto;
+    @apply sticky top-0 py-4 my-16 max-h-screen max-w-64 overflow-y-auto;
 
     scrollbar-width: none;
     -ms-overflow-style: none;

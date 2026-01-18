@@ -1,6 +1,6 @@
 @layer components {
   .breakout {
-    @apply max-w-full bg-elevated border-y border-muted/25 my-8 print:break-inside-avoid;
+    @apply max-w-full bg-elevated my-8 print:break-inside-avoid;
 
     &.note {
       @apply px-6 sm:px-12 md:px-16 py-2 text-sm;
