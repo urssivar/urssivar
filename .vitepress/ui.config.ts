@@ -22,39 +22,45 @@ export default <NuxtUIOptions>{
   },
   slideover: {
     slots: {
+      overlay: "data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]",
       container: "p-0",
       content: [
         "data-[state=open]:animate-[slide-in_100ms_ease-out] data-[state=closed]:animate-[slide-out_100ms_ease-in]",
-        "w-[calc(100%-var(--spacing)*16)]! ring-0 shadow-md! divide-none"
+        "w-[calc(100%-var(--spacing)*16)]! ring-0! border-default shadow-md!"
       ],
       body: "px-2! py-4! h-full flex flex-col gap-8",
-      overlay: "data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]",
     },
     compoundVariants: [
       {
         side: 'left',
         inset: false,
         class: {
-          content: 'border-r border-accented/50'
+          content: 'border-r'
         }
       }, {
         side: 'right',
         inset: false,
         class: {
-          content: 'border-l border-accented/50'
+          content: 'border-l'
         }
       },
     ],
   },
   modal: {
     slots: {
-      overlay: 'data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]',
-      content: 'data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]'
+      overlay: "data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]",
+      content: [
+        "data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]",
+        "rounded-none! ring-0! border border-default shadow-md!"
+      ]
     }
   },
   tooltip: {
     slots: {
-      content: "print:hidden data-[state=instant-open]:animate-[scale-in_100ms_ease-out] rounded-none ring-0 border border-accented/50"
+      content: [
+        "data-[state=instant-open]:animate-[scale-in_100ms_ease-out]",
+        "print:hidden rounded-none! ring-0! border border-default"
+      ]
     },
   },
 };

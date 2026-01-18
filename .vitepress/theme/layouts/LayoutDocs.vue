@@ -35,10 +35,7 @@ const tocRef = useTemplateRef("toc");
 </script>
 
 <template>
-  <div
-    v-if="!isWide"
-    class="print:hidden sticky top-0 z-10 border-accented/50 border-b bg-default dark:bg-[#1e1e1e] shadow-xs"
-  >
+  <div v-if="!isWide" class="print:hidden border-b sticky top-0 z-10 sheet">
     <Prose>
       <Toolbar class="h-16! -ml-1.5">
         <template #leading>
@@ -53,7 +50,7 @@ const tocRef = useTemplateRef("toc");
               <UButton
                 icon="i-material-symbols:close"
                 @click="menuOpen = false"
-                class="absolute -right-12 top-4 shadow-md border border-accented/50 bg-default"
+                class="absolute -right-12 top-4 shadow-sm border border-default bg-default"
               />
               <Toolbar class="mx-1.5">
                 <template #leading>
@@ -93,7 +90,7 @@ const tocRef = useTemplateRef("toc");
               <UButton
                 icon="i-material-symbols:close"
                 @click="tocOpen = false"
-                class="absolute -left-12 top-4 shadow-md bg-default border border-accented/50"
+                class="absolute -left-12 top-4 shadow-sm border border-default bg-default"
               />
               <TableOfContents class="text-sm!" />
             </template>
@@ -119,9 +116,7 @@ const tocRef = useTemplateRef("toc");
           />
         </SidebarNav>
       </aside>
-      <main
-        class="md:shadow-sm md:border print:border-none print:py-px border-accented/50 bg-default dark:bg-[#1e1e1e]"
-      >
+      <main class="print:py-px sheet border">
         <article>
           <div class="hidden print:block">
             <div class="-ml-1.5 mb-16">
@@ -143,6 +138,10 @@ const tocRef = useTemplateRef("toc");
 
 <style lang="css" scoped>
 @reference "@/theme/styles/index.css";
+
+.sheet {
+  @apply shadow-sm print:shadow-none border-default print:border-none bg-default dark:bg-[#1e1e1e];
+}
 
 main {
   @apply mx-auto w-full md:w-[calc(65ch+var(--spacing)*32)] print:w-full;

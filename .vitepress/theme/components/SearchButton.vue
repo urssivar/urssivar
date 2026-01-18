@@ -94,7 +94,7 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
     :content="{ onCloseAutoFocus: (e: Event) => e.preventDefault() }"
     :ui="{
       overlay: 'z-100',
-      content: 'z-100 h-[70vh] max-h-[70vh] rounded-none',
+      content: 'z-100 h-[70vh] max-h-[70vh]',
       header: 'm-0! p-0! min-h-12 font-medium',
       body: 'p-0! flex-1 flex flex-col',
     }"
