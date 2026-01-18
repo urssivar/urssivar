@@ -16,8 +16,7 @@
     @apply list-decimal;
   }
 
-  ol,
-  ul {
+  :is(ul, ol) {
     @apply list-outside pl-5 my-4;
   }
 
@@ -65,6 +64,10 @@
 
   p {
     @apply my-4;
+  }
+
+  p + :is(ul, ol) {
+    @apply -mt-3;
   }
 
   hr {
