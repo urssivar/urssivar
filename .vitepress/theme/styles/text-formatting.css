@@ -24,10 +24,4 @@
     @apply bg-transparent underline underline-offset-0 decoration-[0.25em] decoration-(--ui-bg-accented) text-inherit;
     text-decoration-skip-ink: none;
   }
-
-  .band.note {
-    ul {
-      list-style-type: "– ";
-    }
-  }
 }
