@@ -156,7 +156,7 @@ function onVillageLeave() {
 }
 
 :deep(.map-backdrop-image) {
-  @apply invert-10 dark:invert-100 select-none;
+  @apply opacity-70 dark:invert dark:opacity-85 select-none;
 }
 
 :deep(.leaflet-marker-icon) {
