@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, useTemplateRef, watch } from "vue";
 import { useRoute } from "vitepress";
-import { useMediaQuery } from "@vueuse/core";
 import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
 import Toolbar from "../components/Toolbar.vue";
@@ -28,14 +27,12 @@ watch(
   },
 );
 
-const isWide = useMediaQuery("(width >= 1024px)");
-const isSheet = useMediaQuery("(width >= 768px)");
 const tocRef = useTemplateRef("toc");
 </script>
 
 <template>
   <div class="min-h-screen flex flex-col bg-muted dark:bg-default">
-    <div v-if="!isWide" class="print:hidden border-b sticky top-0 z-10 sheet">
+    <div class="lg:hidden print:hidden border-b sticky top-0 z-10 sheet">
       <Prose>
         <Toolbar class="h-16! -ml-1.5">
           <template #leading>
@@ -100,7 +97,7 @@ const tocRef = useTemplateRef("toc");
         </Toolbar>
       </Prose>
     </div>
-    <Prose v-else class="mt-16 z-20 print:hidden">
+    <Prose class="hidden lg:block mt-16 z-20 print:hidden">
       <Toolbar class="-mx-1.5">
         <template #leading>
           <Home />
@@ -138,7 +135,7 @@ const tocRef = useTemplateRef("toc");
       </aside>
     </div>
 
-    <Prose v-if="isSheet" class="print:hidden mt-auto">
+    <Prose class="hidden md:block print:hidden mt-auto">
       <Footer class="mt-16 mb-4" />
     </Prose>
   </div>
