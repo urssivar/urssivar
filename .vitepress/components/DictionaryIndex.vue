@@ -1,30 +1,37 @@
+<script lang="ts">
+export type DictionaryIndexMode = "default" | "print" | "sidebar";
+</script>
+
 <script setup lang="ts">
 import { useDictData } from "@/composables/dictionary";
 import { useData } from "vitepress";
 import { computed } from "vue";
 
-defineProps<{
-  variant: "print" | "intro" | "sidebar";
+const { mode = "default" } = defineProps<{
+  mode?: DictionaryIndexMode;
 }>();
 
 const { letters, dict } = useDictData();
-
 const { params } = useData();
 
 const letter = computed(() => {
   const l = params.value?.letter;
   return letters.value.includes(l) ? l : "";
 });
+
+function getUrl(letter: string) {
+  return (mode === "print" ? "#" : "") + letter;
+}
 </script>
 
 <template>
   <nav
-    v-if="variant === 'sidebar'"
-    class="grid grid-cols-4 lg:grid-cols-4 xl:grid-cols-6 border-default border-t border-dashed pt-1.5 mt-1.5"
+    v-if="mode === 'sidebar'"
+    class="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-4 xl:grid-cols-6"
   >
     <a
       v-for="l in letters"
-      :href="`./${l}`"
+      :href="getUrl(l)"
       :key="l"
       class="capitalize text-center"
       :class="{ active: l === letter }"
@@ -34,18 +41,22 @@ const letter = computed(() => {
   </nav>
   <nav
     v-else
-    class="my-6 grid gap-1 grid-cols-5 sm:grid-cols-9 print:break-inside-avoid"
+    class="breakout py-4 px-6 md:px-10 grid grid-cols-7 sm:grid-cols-9"
   >
     <a
       v-for="l in letters"
-      :href="(variant === 'print' ? '#' : './') + l"
-      class="text-center rounded-md p-2 flex flex-col no-underline! bg-elevated hover:bg-accented/75"
+      :href="getUrl(l)"
+      class="text-center py-2 flex flex-col no-underline! group"
     >
-      <span lang="xdq" class="text-lg font-semibold leading-tight capitalize">
-        {{ l }}
-      </span>
+      <div
+        class="group-hover:scale-125 group-hover:-translate-y-px transition-transform duration-200 ease-out"
+      >
+        <span lang="xdq" class="text-lg font-medium text-shadow-xs capitalize">
+          {{ l }}
+        </span>
+      </div>
       <span class="text-xs text-toned">
-        {{ dict[l].length || "-" }}
+        {{ dict[l].length || "–" }}
       </span>
     </a>
   </nav>

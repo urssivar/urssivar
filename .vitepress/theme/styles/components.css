@@ -1,24 +1,64 @@
 @layer components {
-  /* Colon Blocks (:::note, etc.) */
-  .colon-block {
-    @apply rounded-sm px-4 py-3 border-l-4 border-default/50 bg-elevated/50 text-[0.875rem] my-4 print:break-inside-avoid;
+  .breakout {
+    @apply max-w-full bg-elevated my-8 print:break-inside-avoid;
 
-    p,
-    ul,
-    ol {
-      @apply my-2;
+    ul {
+      list-style-type: "– ";
     }
-  }
 
-  /* IPA Phonetic Charts */
-  .ipa-chart {
-    @apply my-4 -mx-6 sm:mx-0 px-6 sm:px-0 overflow-x-auto;
+    &.note {
+      @apply mx-6 sm:mx-12 md:mx-16 my-6 pl-4 bg-transparent border-l-4 border-muted text-sm;
 
-    table td {
-      @apply pt-2 whitespace-nowrap text-xs text-default;
+      :is(p, table, ol, ul) {
+        @apply my-2;
+      }
 
-      [lang="xdq"] {
-        @apply block text-[1.5em]/[1.15] text-highlighted;
+      table {
+        @apply -mx-3;
+      }
+    }
+
+    &.callout {
+      @apply px-6 sm:px-12 md:px-16 py-2 text-sm;
+
+      :is(p, table, ol, ul) {
+        @apply my-2;
+      }
+
+      table {
+        @apply -mx-3;
+      }
+    }
+
+    &.ipa-chart {
+      @apply px-6 py-4 overflow-x-auto;
+
+      table {
+        @apply m-0;
+
+        td {
+          @apply pt-2 whitespace-nowrap;
+
+          [lang="xdq"] {
+            @apply block font-medium;
+          }
+        }
+      }
+    }
+
+    &.img {
+      @apply bg-transparent;
+
+      > :nth-child(1) {
+        @apply m-0 overflow-hidden;
+
+        > img {
+          @apply object-cover object-center;
+        }
+      }
+
+      > :nth-child(2) {
+        @apply mt-3 mx-16 text-center text-xs text-default;
       }
     }
   }
@@ -27,10 +67,5 @@
   [data-numbering]::before {
     content: attr(data-numbering);
     @apply mr-[0.5em] select-none;
-  }
-
-  /* Spacer Utility */
-  .air {
-    @apply my-6 border-0;
   }
 }

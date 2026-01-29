@@ -1,12 +1,11 @@
 import type { MarkdownOptions } from "vitepress";
 import anchor from "markdown-it-anchor";
-// @ts-expect-error - markdown-it-mark has no type definitions
-import mark from "markdown-it-mark";
 import multimdTable from "markdown-it-multimd-table";
 
 import numbering from "./plugins/numbering";
-import inlineDelimiters from "./plugins/inline-delimiters";
-import blockDelimiters from "./plugins/block-delimiters";
+import kaitagGlossShortcut from "./plugins/kaitag-gloss-shortcut";
+import inlineRules from "./plugins/inline-rules";
+import breakouts from "./plugins/breakout";
 
 export default <MarkdownOptions>{
   anchor: {
@@ -17,7 +16,6 @@ export default <MarkdownOptions>{
     })
   },
   config: (md) => {
-    md.use(mark);
     md.use(multimdTable, {
       multibody: false,
       autolabel: false,
@@ -27,7 +25,8 @@ export default <MarkdownOptions>{
       levels: [2, 3, 4]
     });
 
-    md.use(inlineDelimiters, [
+    md.use(kaitagGlossShortcut);
+    md.use(inlineRules, [
       {
         delimiter: '++',
         tokenName: 'kaitag',
@@ -39,16 +38,13 @@ export default <MarkdownOptions>{
         tokenName: 'gloss',
         tag: 'span',
         attrs: { class: 'gloss' }
-      }
-    ]);
-
-    md.use(blockDelimiters, [
+      },
       {
-        delimiter: ':::',
-        tokenName: 'colon_container',
-        tag: 'div',
-        attrs: { class: 'colon-block' }
+        delimiter: '==',
+        tokenName: 'highlight',
+        tag: 'mark'
       }
     ]);
+    md.use(breakouts);
   },
 };

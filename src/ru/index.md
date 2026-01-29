@@ -1,18 +1,13 @@
 ---
 title: "Urssivar: Кайтагские исследования"
 description: "Сохранение и изучение кайтагского языка, культуры, истории и народа."
-
-layout: landing
 ---
 
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
-import PostCard from "@/components/PostCard.vue";
-import { data as notes } from './notes/notes.data';
+import Notes from "./notes/index.md";
 </script>
-
-<article>
 
 # Urssivar: Кайтагские исследования
 
@@ -20,11 +15,7 @@ import { data as notes } from './notes/notes.data';
 
 Возрождение наследия кайтагов Дагестана. Гонка со временем, чтобы сохранить то, что ещё осталось, пока оно не исчезло навсегда.
 
-</article>
-
 <VillageMap />
-
-<article>
 
 Эти данные становятся основой для понимания Кайтага. При их достаточном объеме лингвисты смогут классифицировать диалекты и проследить развитие языка, а генетики могут проверить легенды происхождения и реконструировать древнюю историю народа.
 
@@ -46,21 +37,6 @@ import { data as notes } from './notes/notes.data';
 
 **ДНК-анализ:** Y-хромосомное и аутосомное тестирование через FamilyTreeDNA (США). Проверяем легенды, раскрываем древние связи и реконструируем наше прошлое.
 
-</article>
+<Notes sub />
 
 <Stamp />
-
-<article>
-
-## [Полевые заметки](./notes/) {#field-notes}
-
-Находки, эссе и обновления о нашей работе.
-
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) ·
-[GitHub](https://github.com/urssivar)
-
---- {.air}
-
-<PostCard v-for="n in notes.slice(0, 3)" :key="n.url" :page="n"/>
-
-</article>

@@ -1,25 +1,33 @@
 ---
 title: "Urssivar: Полевые Заметки"
 description: "Находки, эссе и обновления о документировании кайтагского языка, истории и народа."
-
-layout: landing
 ---
 
 <script setup lang="ts">
 import PostCard from "@/components/PostCard.vue";
-import { data as notes } from './notes.data';
+import { data as notesData } from './notes.data';
+import { computed } from "vue";
+
+const props = defineProps<{
+  sub?: boolean;
+}>();
+
+const notes = computed(() => {
+  return props.sub ? notesData.slice(0, 3) : notesData;
+})
 </script>
 
-<article>
+<template v-if="sub">
 
-# [Urssivar](../index#полевые-заметки): Полевые заметки
+## <a href="notes/">Полевые заметки</a>
 
-Находки, эссе и обновления о документировании кайтагского языка, истории и народа.
+</template>
+<template v-else>
 
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) · [GitHub](https://github.com/urssivar)
+# Полевые заметки
 
---- {.air}
+</template>
+
+Находки, эссе и обновления о нашей работе. Также в [Telegram](https://t.me/urssivar), на [YouTube](https://youtube.com/@urssivar) и [GitHub](https://github.com/urssivar)
 
 <PostCard v-for="n in notes" :key="n.url" :page="n"/>
-
-</article>

@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, useTemplateRef } from "vue";
+import { ref, watch, onMounted, useTemplateRef, computed } from "vue";
 import { onContentUpdated } from "vitepress";
-import { useElementIdObserver } from "@/composables/elementIdObserver";
+import { useScrollSpy } from "@/composables/elementIdObserver";
+
+const props = defineProps<{
+  compact?: boolean;
+}>();
 
 interface HeaderElement {
   id: string;
@@ -11,21 +15,31 @@ interface HeaderElement {
 }
 
 const headers = ref<HeaderElement[]>([]);
-const { observingId, observer } = useElementIdObserver();
+const isVisible = computed(() => {
+  return headers.value.length > 1;
+});
+defineExpose({ isVisible });
+
+const { activeId, observer, isInZone } = useScrollSpy();
 const links = useTemplateRef<HTMLAnchorElement[]>("links");
 
-watch(observingId, (id) => {
-  const link = links.value?.find((el) => el.hash === `#${id}`);
-  link?.scrollIntoView({ block: "nearest" });
-});
+watch(
+  activeId,
+  (id) => {
+    const link = links.value?.find((el) => el.hash === `#${id}`);
+    link?.scrollIntoView({ block: "nearest" });
+  },
+  { flush: "post" },
+);
 
-const observeHeaders = () => {
+function init() {
   observer.value?.disconnect();
   const elements = document.querySelectorAll(
-    "article :is(h1, h2, h3, h4, h5, h6)[id]"
+    "article :is(h1, h2, h3, h4, h5, h6)[id]",
   );
 
   headers.value = [];
+  activeId.value = "";
   elements.forEach((el) => {
     const h = el.cloneNode(true) as HTMLElement;
     h.querySelector(".header-anchor")?.remove();
@@ -37,29 +51,45 @@ const observeHeaders = () => {
       numbering: h.dataset.numbering,
     });
     observer.value?.observe(el);
+
+    if (!activeId.value || isInZone(el)) {
+      activeId.value = h.id;
+    }
   });
-};
+}
 
-onMounted(observeHeaders);
+onMounted(init);
+onContentUpdated(init);
 
-onContentUpdated(observeHeaders);
+function calculateIndent(level: number) {
+  switch (level) {
+    case 3:
+      return props.compact ? "ml-3" : "ml-4";
+    case 4:
+      return props.compact ? "ml-6" : "ml-8";
+    default:
+      return "";
+  }
+}
 </script>
 
 <template>
-  <nav class="navlinks text-xs flex flex-col">
+  <nav
+    v-if="isVisible"
+    class="navlinks flex flex-col"
+    :class="[compact ? 'text-xs' : 'text-sm']"
+  >
     <a
       v-for="h in headers"
       ref="links"
       :key="h.id"
       :href="`#${h.id}`"
-      :class="{ active: observingId === h.id }"
+      :class="{ active: activeId === h.id }"
     >
       <span
+        class="block"
         :data-numbering="h.numbering"
-        :class="{
-          'ml-3': h.level === 3,
-          'ml-6': h.level === 4,
-        }"
+        :class="[calculateIndent(h.level)]"
       >
         {{ h.text }}
       </span>

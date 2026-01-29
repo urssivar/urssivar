@@ -1,8 +1,6 @@
 ---
 title: "Urssivar: Kaitag Genealogy"
 description: "Y-DNA distribution and family lineages of the Kaitags."
-
-layout: landing
 ---
 
 <script setup lang="ts">
@@ -13,9 +11,7 @@ import { useDNAData } from "@/composables/dna";
 const { kits, villages, haplogroupMap } = useDNAData();
 </script>
 
-<article>
-
-# [Urssivar](../index#kaitag-genealogy): Kaitag Genealogy
+# Kaitag Genealogy
 
 The Kaitags are an indigenous ethnic group of Dagestan whose language belongs to the Dargwic branch of the Northeast Caucasian family. The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along the Ulluchay River in southern Dagestan. In the early 20th century, Kaitags inhabited 56 mountain villages forming nine historical microregions.
 
@@ -29,10 +25,8 @@ The position at the crossroads of civilizations, access to Caspian trade routes,
 
 We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) and [YFull](https://www.yfull.com/groups/kaitag/).
 
-**{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups.
-
 <DNAChart/>
 
-<DNATable />
+Current **{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups:
 
-</article>
+<DNATable />

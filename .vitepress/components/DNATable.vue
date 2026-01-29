@@ -12,16 +12,16 @@ function getYfullLink(k: (typeof kits)[0]) {
 </script>
 
 <template>
-  <ol>
+  <ol class="my-4">
     <li v-for="k in kits" :key="k.id" :id="k.id">
-      <p class="flex flex-col sm:flex-row gap-2 sm:items-center">
+      <p class="flex flex-col sm:flex-row gap-1 sm:gap-2 sm:items-center">
         <span lang="xdq">
           {{ k.village && k.region ? `${k.village}, ${k.region}` : "???" }}
         </span>
-        <a :href="getYfullLink(k)">
+        <a :href="getYfullLink(k)" class="-translate-y-px">
           <UButton variant="soft" size="xs">
             <span
-              :class="[k.yfullId ? `hh-${k.haplogroup}` : 'text-muted']"
+              :class="[k.yfullId ? `hh-${k.haplogroup}` : 'text-toned']"
               class="font-semibold"
             >
               {{ k.haplogroup }}
@@ -36,15 +36,17 @@ function getYfullLink(k: (typeof kits)[0]) {
 </template>
 
 <style scoped>
+@reference "@/theme/styles/index.css";
+
 .hh-R1b {
-  @apply text-(--color-amber-600) dark:text-(--color-amber-400);
+  @apply text-amber-700 dark:text-amber-400;
 }
 
 .hh-J1 {
-  @apply text-(--color-sky-600) dark:text-(--color-sky-400);
+  @apply text-sky-700 dark:text-sky-400;
 }
 
 .hh-Q2 {
-  @apply text-(--color-emerald-600) dark:text-(--color-emerald-400);
+  @apply text-emerald-700 dark:text-emerald-400;
 }
 </style>

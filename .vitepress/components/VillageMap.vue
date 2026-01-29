@@ -89,17 +89,16 @@ function onVillageLeave() {
     :open="tooltipOpen"
     :reference="markerElement"
     :content="{ side: 'top', sideOffset: 10 }"
-    :ui="{ content: 'h-7' }"
   >
     <template #content>
-      <span lang="xdq" class="font-bold text-base">
+      <span lang="xdq" class="font-medium">
         {{ selectedVillage }}
       </span>
     </template>
   </UTooltip>
-  <div class="my-12 relative h-60 sm:h-120 overflow-x-clip">
+  <div class="breakout relative h-60 sm:h-120 overflow-x-clip">
     <div
-      class="navlinks absolute right-0 bottom-0 z-20 m-2 bg-default rounded-sm font-sans text-xs flex"
+      class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex"
     >
       <a
         href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
@@ -127,7 +126,7 @@ function onVillageLeave() {
             v-for="(village, i) in villages"
             :key="village.name"
             :lat-lng="[village.lat, village.lng]"
-            @ready="(marker: any) => markerRefs[i] = marker._icon"
+            @ready="(marker: any) => (markerRefs[i] = marker._icon)"
             @mouseover="onVillageEnter(i)"
             @mouseout="onVillageLeave"
             :z-index-offset="selectedVillage === village.name ? 1000 : 0"
@@ -137,7 +136,7 @@ function onVillageLeave() {
                 class="w-full h-full flex items-center justify-center relative"
               >
                 <div
-                  class="village-dot absolute rounded-full cursor-pointer transition-all duration-200 ease-out border-bg bg-primary"
+                  class="village-dot absolute rounded-full cursor-pointer border-2 sm:border-3 border-(--ui-bg-elevated) bg-primary shadow-xs"
                 />
               </div>
             </LIcon>
@@ -165,7 +164,7 @@ function onVillageLeave() {
 }
 
 .village-dot {
-  @apply size-3 sm:size-3.5 border-2 sm:border-3;
+  @apply size-3 sm:size-3.5 transition-[width,height] duration-200 ease-out;
 
   &.hover {
     @apply size-5;

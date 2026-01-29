@@ -1,17 +1,13 @@
 ---
 title: "Urssivar: Кайтагский язык"
 description: "Грамматика, словарь и документация кайтагского языка."
-
-layout: landing
 ---
 
 <script setup lang="ts">
 import AlphabetGrid from "@/components/AlphabetGrid.vue";
 </script>
 
-<article>
-
-# [Urssivar](../index#kaitag-language): Кайтагский язык
+# Кайтагский язык
 
 Кайтагский язык входит в даргинскую ветвь восточнокавказской семьи. В начале XX века на нём говорили в 56 горных селениях девяти исторических микрорегионов на юге Дагестана.
 
@@ -21,17 +17,13 @@ import AlphabetGrid from "@/components/AlphabetGrid.vue";
 
 Но то, что осталось, стоит борьбы.
 
-</article>
-
 <AlphabetGrid />
 
-<article>
-
-## [Грамматика](./grammar/intro) {#grammar}
+## [Грамматика](./grammar/) {#grammar}
 
 Кодификация кайтагской грамматики — модель для понимания того, как работает язык.
 
-## [Словарь](./dictionary/intro) {#dictionary}
+## [Словарь](./dictionary/) {#dictionary}
 
 Лексическая база из 5000+ статей — справочник для стандартизации кайтагского словаря.
 
@@ -42,5 +34,3 @@ import AlphabetGrid from "@/components/AlphabetGrid.vue";
 ## Тексты {#texts}
 
 В будущем здесь будут тексты на кайтагском.
-
-</article>

@@ -3,15 +3,15 @@
     @apply isolate;
   }
 
-  .navbar {
-    @apply max-w-prose print:max-w-full mx-auto px-4 sm:px-6;
+  a {
+    @apply transition-colors duration-200 underline underline-offset-[0.15em] decoration-(--ui-text-muted) hover:decoration-(--ui-text-highlighted);
   }
 
   .navlinks {
     @apply font-medium text-muted;
 
     a {
-      @apply py-1.5 px-2.5 no-underline hover:text-highlighted!;
+      @apply py-1.5 px-3 no-underline hover:text-highlighted!;
 
       &.active {
         @apply text-highlighted!;
@@ -23,7 +23,7 @@
     @apply relative;
 
     > .header-anchor {
-      @apply absolute font-sans left-0 -translate-x-full text-muted select-none hover:text-highlighted! opacity-0 transition duration-200 no-underline pr-[0.375em];
+      @apply absolute font-sans left-0 -translate-x-full -translate-y-0.5 text-muted select-none transition-[opacity,color] duration-200 hover:text-highlighted! opacity-0 no-underline pr-[0.375em];
     }
 
     &:hover > .header-anchor {
@@ -33,30 +33,5 @@
 
   h1 .header-anchor {
     @apply hidden;
-  }
-
-  aside,
-  button,
-  [role="button"],
-  .header-anchor {
-    @apply print:hidden!;
-  }
-
-  .aside-scroll {
-    @apply max-h-screen overflow-y-auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    scroll-padding-block: --spacing(16);
-    mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      black --spacing(6),
-      black calc(100% - --spacing(6)),
-      transparent
-    );
-
-    &::-webkit-scrollbar {
-      @apply hidden;
-    }
   }
 }

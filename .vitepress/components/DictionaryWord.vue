@@ -16,13 +16,15 @@ const lang = computed(() => {
 </script>
 
 <template>
-  <p :id="word.id" class="pl-3 -indent-3 m-0 leading-snug">
-    <span lang="xdq" class="font-semibold">
-      {{ word.headword }}
-    </span>
+  <p :id="word.id" class="pl-3 -indent-3 m-0 leading-tight">
+    <h5 class="inline">
+      <span lang="xdq">
+        {{ word.headword }}
+      </span>
+    </h5>
 
     {{ " " }}
-    <span v-if="word.tags?.length" class="text-xs text-toned italic">
+    <span v-if="word.tags?.length" class="text-xs text-toned italic ml-0.5">
       {{ word.tags.map((t) => t[lang]).join(" ") }}
     </span>
 
@@ -33,27 +35,24 @@ const lang = computed(() => {
       >
       <span>{{ d.translation[lang] }}</span>
 
-      <template v-for="e in d.examples ?? []">
+      <span v-for="e in d.examples ?? []">
         <span class="ws">{{ " " }}</span>
-        <span class="text-sm text-default">
-          <span class="text-xs">•&nbsp;</span>
-          <span lang="xdq">{{ e.text }}</span>
-          <template v-if="e.translation?.[lang]">
-            {{ " " }}
-            <template v-if="!/[.!?]$/.test(e.text)">–&nbsp;</template
-            >{{ e.translation[lang] }}
-          </template>
+        •&nbsp;<span lang="xdq" class="text-sm">{{ e.text }}</span>
+        <span class="gloss text-sm" v-if="e.translation?.[lang]">
+          {{ " " }}
+          <template v-if="!/[.!?]$/.test(e.text)">–&nbsp;</template
+          >{{ e.translation[lang] }}
         </span>
-      </template>
+      </span>
     </template>
 
-    <span v-if="word.forms?.length" class="text-sm">
+    <span v-if="word.forms?.length" class="text-xs text-default">
       <span class="ws">{{ " " }}</span>
       …&nbsp;<span lang="xdq" class="italic">
         {{ word.forms.join(", ") }}
       </span>
     </span>
-    <span v-if="word.variants?.length" class="text-sm">
+    <span v-if="word.variants?.length" class="text-xs text-default">
       <span class="ws">{{ " " }}</span>
       ~&nbsp;<span lang="xdq" class="italic">
         {{ word.variants.join(", ") }}
@@ -67,9 +66,5 @@ const lang = computed(() => {
 
 .ws {
   @apply text-base! font-normal! font-sans! ml-2;
-}
-
-span {
-  @apply leading-0!;
 }
 </style>

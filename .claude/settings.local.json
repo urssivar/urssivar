@@ -17,7 +17,8 @@
       "mcp__ide__getDiagnostics",
       "Bash(curl:*)",
       "WebFetch(domain:vitepress.dev)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []

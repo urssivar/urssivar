@@ -1,8 +1,6 @@
 ---
 title: "Urssivar: Кайтагская генеалогия"
 description: "Y-ДНК распределение и родословные кайтагов."
-
-layout: landing
 ---
 
 <script setup lang="ts">
@@ -13,9 +11,7 @@ import { useDNAData } from "@/composables/dna";
 const { kits, villages, haplogroupMap } = useDNAData();
 </script>
 
-<article>
-
-# [Urssivar](../index#kaitag-genealogy): Кайтагская генеалогия
+# Кайтагская генеалогия
 
 Кайтаги — коренной этнос Дагестана, язык которого относится к даргинской ветви нахско-дагестанской семьи. Кайтагская этническая зона простирается от прикаспийской низменности до гор вдоль реки Уллучай на юге Дагестана. В начале XX века кайтаги населяли 56 горных сёл, образовывавших девять исторических микрорегионов.
 
@@ -29,10 +25,8 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 Мы собираем данные Y-ДНК через [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) и [YFull](https://www.yfull.com/groups/kaitag/).
 
-**{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ haplogroupMap.size }}** гаплогрупп.
-
 <DNAChart/>
 
-<DNATable />
+Текущие **{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, представляющих **{{ haplogroupMap.size }}** гаплогрупп:
 
-</article>
+<DNATable />

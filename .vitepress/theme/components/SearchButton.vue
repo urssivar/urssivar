@@ -50,7 +50,7 @@ async function search(q: string) {
   if (!search || q !== query.value) return;
 
   const pages = await Promise.all(
-    search.results.slice(0, 25).map((r) => r.data())
+    search.results.slice(0, 25).map((r) => r.data()),
   );
   results.value = pages
     .flatMap((p) =>
@@ -69,7 +69,7 @@ async function search(q: string) {
           url,
           title,
         };
-      })
+      }),
     )
     .slice(0, 50);
   loading.value = false;
@@ -95,13 +95,13 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
     :ui="{
       overlay: 'z-100',
       content: 'z-100 h-[70vh] max-h-[70vh]',
-      header: 'm-0! p-0! min-h-14 font-medium',
+      header: 'm-0! p-0! min-h-12 font-medium',
       body: 'p-0! flex-1 flex flex-col',
     }"
   >
     <UTooltip :text="t('header.search')" :kbds="['.']">
       <UButton
-        icon="i-material-symbols:search-rounded"
+        icon="i-material-symbols:search"
         :aria-label="t('header.search')"
       />
     </UTooltip>
@@ -114,14 +114,14 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
         class="w-full"
         size="xl"
         :ui="{
-          base: 'ml-3 py-4',
+          base: 'ml-3 py-3',
         }"
         variant="none"
       />
       <UButton
-        icon="i-material-symbols:close-rounded"
+        icon="i-material-symbols:close"
         @click="isOpen = false"
-        class="rounded-full mr-2"
+        class="mr-2"
       />
     </template>
     <template #body>
@@ -131,29 +131,24 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
             v-for="result in results"
             :key="result.url"
             :href="result.url"
-            class="py-3 px-6 hover:bg-elevated transition-colors no-underline block text-sm"
+            class="py-3 px-6 transition-colors hover:bg-elevated no-underline block text-sm"
             @click="isOpen = false"
           >
             <div class="font-semibold mb-0.5">{{ result.title }}</div>
             <div class="line-clamp-2" v-html="result.excerpt" />
           </a>
         </template>
-        <div v-else class="flex-1 flex items-center justify-center">
+        <div
+          v-else
+          class="flex-1 flex items-center justify-center select-none pointer-events-none"
+        >
           <img
             src="/stamp-logo.svg"
             alt="Urssivar logo"
-            class="size-80 invert-90 dark:invert-0 opacity-30 pointer-events-none"
+            class="size-80 invert-90 dark:invert-0 opacity-30"
           />
         </div>
       </div>
     </template>
   </UModal>
 </template>
-
-<style scoped>
-@reference "@/theme/styles/index.css";
-
-:deep(mark) {
-  @apply bg-accented/75 rounded-sm px-1 no-underline!;
-}
-</style>

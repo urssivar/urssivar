@@ -43,32 +43,30 @@ function onLetterLeave() {
 </script>
 
 <template>
-  <div class="bg-elevated my-12 text-center" data-pagefind-ignore>
+  <div
+    class="breakout py-4 px-6 md:px-8 text-center grid grid-cols-6 sm:grid-cols-7 font-medium"
+    data-pagefind-ignore
+  >
     <div
-      class="max-w-full md:max-w-screen-md mx-auto px-6 sm:px-8 py-4 sm:py-6 grid grid-cols-6 md:grid-cols-7"
+      v-for="l in letters"
+      :key="l"
+      class="letter px-4 py-2 relative cursor-pointer flex justify-center"
+      :class="{ current: selectedLetter === l }"
+      @mouseenter="onLetterEnter(l)"
+      @mouseleave="onLetterLeave"
     >
-      <div
-        v-for="l in letters"
-        :key="l"
-        class="letter p-3 relative cursor-pointer"
-        :class="{ current: selectedLetter === l }"
-        @mouseenter="onLetterEnter(l)"
-        @mouseleave="onLetterLeave"
+      <span
+        lang="xdq"
+        class="text-lg select-none capitalize transition-opacity ease-out text-muted"
       >
-        <span
-          lang="xdq"
-          class="font-semibold select-none capitalize text-muted transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
-        >
-          {{ l }}
-        </span>
-        <span
-          class="text-[0.875rem] pointer-events-none md:text-base leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-200 ease-[cubic-bezier(0.4,0,0.2,1)]"
-        >
-          <span lang="xdq" class="font-semibold leading-none">
-            {{ words[l] }}
-          </span>
-        </span>
-      </div>
+        {{ l }}
+      </span>
+      <span
+        lang="xdq"
+        class="opacity-0 pointer-events-none top-1/2 -translate-y-1/2 absolute transition-opacity duration-200 ease-out leading-tight text-sm text-shadow-xs"
+      >
+        {{ words[l] }}
+      </span>
     </div>
   </div>
 </template>

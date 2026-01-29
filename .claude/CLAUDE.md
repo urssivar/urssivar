@@ -1,9 +1,9 @@
 # Urssivar Documentation Site - Project Guide
 
-**Last Updated:** 2025-12-31
+**Last Updated:** 2026-01-29
 **Project:** Kaitag language documentation site
 **Tech Stack:** VitePress v1 + Nuxt UI
-**Current Phase:** UI clean up & Content audit
+**Current Phase:** Content creation
 
 ---
 
@@ -100,19 +100,19 @@ Russian pages use manually-specified English anchors to ensure consistency acros
 
 **Core:** VitePress, Nuxt UI, Tailwind CSS, Vue 3
 
-**Layouts:** 4 types (BaseLayout, LayoutDocs, LayoutLanding, LayoutArticle) selected via `useLayout()` composable
+**Layouts:** 3 layouts - LayoutBase (foundation wrapper with header/footer slots), LayoutDocs (three-column with responsive mobile drawers), Layout404 (error page)
 
-**Components:** Header, Footer, SidebarNav, TableOfContents, NavBar, SearchButton, DNAChart (D3.js), VillageMap (Leaflet), DictionaryIndex, DictionaryWord, AlphabetGrid
+**Theme Components:** Home (logo/title), Toolbar, Prose (content wrapper), Footer, LocaleSwitch, SearchButton, SidebarNav, TableOfContents
 
-**Markdown Plugins:**
-- markdown-it-anchor, -mark, -multimd-table
-- Custom: inline delimiters (++/--), block delimiters (:::), auto-numbering
+**Content Components:** DNAChart/DNATable (D3.js), VillageMap (Leaflet), DictionaryIndex/DictionaryWord/DictionaryWordCard, AlphabetGrid, PostCard, Stamp
+
+**Markdown Plugins:** markdown-it-anchor, -mark, -multimd-table. Custom: inline delimiters (++/--), block delimiters (:::), auto-numbering
 
 **Data:** dictionary.json (2.2MB), dna.json, villages.json
 
-**Styling:** 5 CSS files (234 lines): base, components, text-formatting, navigation, index
+**Styling:** 5 CSS files (280 lines): index, base, components, text-formatting, navigation
 
-**Composables:** useLayout, useDocsNav, useDictData, useDNAData, t (i18n), buildPath, useElementIdObserver
+**Composables:** nav (useNav), i18n (t, baseUrl), dictionary, dna, elementIdObserver, autoCycle
 
 ---
 
@@ -120,19 +120,21 @@ Russian pages use manually-specified English anchors to ensure consistency acros
 
 ### Layout System
 
-4 layouts controlled by frontmatter or nav config:
-- **BaseLayout**: Foundation wrapper
-- **LayoutDocs**: Three-column (Sidebar | Content 65ch | ToC), mobile drawers, print linearized
-- **LayoutLanding**: Simple content wrapper
-- **LayoutArticle**: Minimal article wrapper
+**LayoutBase:** Foundation with header/footer slots, uses Toolbar component with Home/SearchButton/LocaleSwitch
+
+**LayoutDocs:** Three-column responsive (sidebar | content 65ch | ToC). Mobile: sticky top toolbar with slideout drawers. Desktop: grid layout with sticky sidebars (max-h-screen, overflow-y-auto, masked edges). Print: linearized with logo header, hidden nav/footer
+
+**Layout404:** Simple error page
+
+Root Layout.vue wraps everything in UApp, routes to Layout404 or LayoutDocs based on page.isNotFound
 
 ### Styling
 
-5 CSS files (234 lines): index, base, components, text-formatting, navigation
+5 CSS files (280 lines): index, base, components, text-formatting, navigation
 
 **Typography:** Inter (body), EB Garamond (Kaitag text), Noto Sans Math
 
-**Colors:** Primary blue, neutral gray, semantic tokens (text-muted → text-highlighted)
+**Colors:** Nuxt UI tokens - primary (blue), neutral (gray), semantic (text-muted/highlighted/accented, bg-muted/default)
 
 ### Print Styles
 
@@ -146,7 +148,7 @@ Three nav trees in `.vitepress/navs/index.ts`: languageNav, notesNav, genealogyN
 
 Structure: Module → Section → Articles (en/ru localized)
 
-`useDocsNav()` provides: module, section, article, allArticles, otherSections
+`useNav()` provides: module, section, article, allArticles, otherSections
 
 ### i18n
 
@@ -161,17 +163,16 @@ EN: `/` | RU: `/ru`
 ### ✅ Completed
 
 - Planning & structure definition
-- Navigation implementation (responsive layout, sidebars, drawers)
-- Notes section (bilingual, grid layout, social links)
-- Layout system refactoring (4 layouts: Base, Docs, Landing, Article)
-- Navbar & navigation components (Header, Footer, SidebarNav, ToC)
-- Print styles (headings, tables, nav/footer hidden, layout linearized)
-- Decouple auto-numbers from anchors
-- English anchors for /ru pages
-- Genealogy landing (intro, table, HH pie chart with d3.js)
+- Layout system (LayoutBase/LayoutDocs/Layout404, responsive three-column, mobile drawers)
+- Theme components (Toolbar, Home, Prose, Footer, LocaleSwitch, SearchButton, SidebarNav, TableOfContents)
+- Print styles (linearized layout, hidden nav/footer, break-inside-avoid, orphans/widows)
+- Navigation (three nav trees, useNav composable, hierarchical structure)
+- Notes section (bilingual, grid layout, PostCard components)
+- Genealogy landing (intro, DNATable, DNAChart with D3.js)
 - Language landing (intro, grammar/dictionary/phrasebook previews)
-- Dictionary (intro, dynamic letter pages, custom sidebar nav)
-- Full-text search (Pagefind, modal with fixed height, centered logo on empty)
+- Dictionary (intro, DictionaryIndex/Word/WordCard, dynamic letter pages, custom sidebar)
+- Search (Pagefind integration, SearchButton modal)
+- English anchors for /ru pages (decouple visual auto-numbering from semantic anchors)
 
 ### Current: Content Creation
 

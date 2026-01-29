@@ -107,56 +107,58 @@ onMounted(() => {
 </script>
 
 <template>
-  <svg
-    ref="svgRef"
-    class="mx-auto my-12 h-64 sm:h-96 aspect-square overflow-visible"
-  ></svg>
+  <div class="my-8">
+    <svg
+      ref="svgRef"
+      class="mx-auto h-60 sm:h-80 aspect-square overflow-visible"
+    ></svg>
+  </div>
 </template>
 
 <style>
 @reference "@/theme/styles/index.css";
 
 .dna-slice {
-  @apply stroke-4 stroke-(--ui-bg) transition duration-200;
+  @apply stroke-4 stroke-(--ui-bg-elevated) transition-colors duration-200;
 
   &.hh-R1b {
-    @apply fill-amber-200/60 dark:fill-amber-800/60;
+    @apply fill-amber-300/60 dark:fill-amber-800/60;
 
     &:hover {
-      @apply fill-amber-200/90 dark:fill-amber-800/90;
+      @apply fill-amber-300/90 dark:fill-amber-800/90;
     }
   }
 
   &.hh-J1 {
-    @apply fill-sky-200/60 dark:fill-sky-800/60;
+    @apply fill-sky-300/60 dark:fill-sky-800/60;
 
     &:hover {
-      @apply fill-sky-200/90 dark:fill-sky-800/90;
+      @apply fill-sky-300/90 dark:fill-sky-800/90;
     }
   }
 
   &.hh-Q2 {
-    @apply fill-emerald-200/60 dark:fill-emerald-800/60;
+    @apply fill-emerald-300/60 dark:fill-emerald-800/60;
 
     &:hover {
-      @apply fill-emerald-200/90 dark:fill-emerald-800/90;
+      @apply fill-emerald-300/90 dark:fill-emerald-800/90;
     }
   }
 }
 
 .dna-label {
-  @apply font-bold pointer-events-none;
+  @apply font-bold pointer-events-none text-shadow-xs;
 
   &.hh-R1b {
-    @apply fill-(--color-amber-600) dark:fill-(--color-amber-400);
+    @apply fill-amber-700 dark:fill-amber-400;
   }
 
   &.hh-J1 {
-    @apply fill-(--color-sky-600) dark:fill-(--color-sky-400);
+    @apply fill-sky-700 dark:fill-sky-400;
   }
 
   &.hh-Q2 {
-    @apply fill-(--color-emerald-600) dark:fill-(--color-emerald-400);
+    @apply fill-emerald-700 dark:fill-emerald-400;
   }
 }
 

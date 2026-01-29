@@ -17,7 +17,7 @@ const langLink = computed(() => {
   <UTooltip :text="t('header.localeSwitch')">
     <a :href="langLink">
       <UButton
-        icon="i-material-symbols:translate-rounded"
+        icon="i-material-symbols:translate"
         :aria-label="t('header.localeSwitch')"
       />
     </a>

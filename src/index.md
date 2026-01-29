@@ -1,18 +1,13 @@
 ---
 title: "Urssivar: Kaitag Studies"
 description: "Preserving and studying Kaitag language, culture, history, and people."
-
-layout: landing
 ---
 
 <script setup lang="ts">
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
-import PostCard from "@/components/PostCard.vue";
-import { data as notes } from './notes/notes.data';
+import Notes from "./notes/index.md";
 </script>
-
-<article>
 
 # Urssivar: Kaitag Studies
 
@@ -20,11 +15,7 @@ import { data as notes } from './notes/notes.data';
 
 Reclaiming the legacy of the Kaitag people of Dagestan. The race against time to preserve what remains before it vanishes forever.
 
-</article>
-
 <VillageMap />
-
-<article>
 
 This data becomes the foundation for understanding Kaitag. With sufficient volume, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people.
 
@@ -46,21 +37,6 @@ To understand our origins and how Kaitag families connect, we trace lineages thr
 
 **DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA. Verifying oral traditions, revealing ancestral connections, and reconstructing our past.
 
-</article>
+<Notes sub />
 
 <Stamp />
-
-<article>
-
-## [Field Notes](./notes/)
-
-Findings, essays, and updates from our work.
-
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) ·
-[GitHub](https://github.com/urssivar)
-
---- {.air}
-
-<PostCard v-for="n in notes.slice(0, 3)" :key="n.url" :page="n"/>
-
-</article>

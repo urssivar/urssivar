@@ -12,10 +12,10 @@ description: "Межпоколенческая утрата культурных
 
 Теперь уже села нет, и больше некого спросить, как, например, у нас называлось то растение?
 
-<figure>
-  <img src="/assets/images/notes/lost-heritage/bidens-tripartita.jpg" alt="Bidens tripartita" class="h-96">
-  <figcaption>
-    <em>Череда трёхраздельная (Bidens tripartita)<br>
-    Фото: Fornax, Wikimedia Commons, CC BY-SA 3.0</em>
-  </figcaption>
-</figure>
+:::img
+![Череда трёхраздельная](/assets/images/notes/lost-heritage/bidens-tripartita.jpg)
+{.h-80}
+
+Череда трёхраздельная (Bidens tripartita)  
+Фото: Fornax, Wikimedia Commons, CC BY-SA 3.0
+:::

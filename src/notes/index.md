@@ -1,25 +1,33 @@
 ---
 title: "Urssivar: Field Notes"
 description: "Findings, essays, and updates from documenting Kaitag language, history, and people."
-
-layout: landing
 ---
 
 <script setup lang="ts">
 import PostCard from "@/components/PostCard.vue";
-import { data as notes } from './notes.data';
+import { data as notesData } from './notes.data';
+import { computed } from "vue";
+
+const props = defineProps<{
+  sub?: boolean;
+}>();
+
+const notes = computed(() => {
+  return props.sub ? notesData.slice(0, 3) : notesData;
+})
 </script>
 
-<article>
+<template v-if="sub">
 
-# [Urssivar](../index#field-notes): Field Notes
+## <a href="notes/">Field Notes</a>
 
-Findings, essays, and updates from documenting Kaitag language, history, and people.
+</template>
+<template v-else>
 
-[Telegram](https://t.me/urssivar) · [YouTube](https://youtube.com/@urssivar) · [GitHub](https://github.com/urssivar)
+# Field Notes
 
---- {.air}
+</template>
+
+Findings, essays, and updates from our work. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
 
 <PostCard v-for="n in notes" :key="n.url" :page="n"/>
-
-</article>

@@ -1,81 +1,109 @@
-import { useData, useRouter } from "vitepress";
+import { useRouter } from "vitepress";
 import { Lang, useI18n } from "./i18n";
 import { computed, readonly } from "vue";
-import { navModules, type NavNode } from "@/navs";
 
-export function useNavModule() {
-  const { lang } = useData();
+export function useNav() {
   const router = useRouter();
-  const { buildPath } = useI18n();
+  const { baseUrl } = useI18n();
+  const { lang } = useI18n();
 
-  return computed(() => {
-    const modulePath = router.route.path
-      .substring(buildPath('/').length)
-      .split('/')[0];
-    const tree = navModules
-      .find(m => m['en'].path === modulePath);
-
-    const locale = lang.value as Lang;
-    return tree && (tree[locale] || tree.en);
-  });
-}
-
-export function useDocsNav() {
-  const router = useRouter();
-  const { buildPath } = useI18n();
-
-  const module = useNavModule();
-
-  function buildLink(
-    node: NavNode | undefined,
-    paths: (NavNode | undefined)[] = []
-  ) {
-    return node && {
-      ...node, href: buildPath('/',
-        [module.value, ...paths]
-          .filter(i => !!i)
-          .map(i => i.path)
-          .join('/')
-      )
-    };
+  function resolve(base: string, branch: NavPage, paths: string[]) {
+    const page = <ResolvedNavPage>{
+      text: branch.text[lang.value],
+      url: base + (branch.path ? branch.path + "/" : ""),
+      path: branch.path,
+    }
+    if (paths.length && page.path == paths[0]) {
+      page.children = branch.children
+        ?.map(c => resolve(page.url, c, paths.slice(1)))
+        ?? [];
+    }
+    return page;
   }
 
-  const section = computed(() => {
-    const base = buildLink(module.value)?.href;
-    if (!base) return;
+  const paths = computed(() => {
+    const paths = router.route.path
+      .substring(baseUrl.value.length)
+      .split("/")
+      .filter(Boolean)
+    return ["", ...paths];
+  })
 
-    const sectionPath = router.route.path
-      .substring(base.length + 1)
-      .split('/')[0];
-    return module.value?.sections
-      ?.find(s => s.path === sectionPath);
+  const home = computed(() => {
+    return resolve(baseUrl.value, navTree, paths.value);
+  });
+
+  const module = computed(() => {
+    return home.value?.children
+      ?.find((c) => c.path === paths.value[1]);
+  });
+
+  const section = computed(() => {
+    return module.value?.children
+      ?.find((c) => c.path === paths.value[2]);
   });
 
   const article = computed(() => {
-    if (!section.value) return;
+    let path = router.route.path;
+    if (!path.endsWith("/")) {
+      path += "/"
+    }
 
-    const pathItems = router.route.path.split('/');
-    const articlePath = pathItems[pathItems.length - 1];
-    return section.value.articles
-      .find(a => a.path === articlePath)
-  });
+    return [
+      home.value, module.value, section.value,
+      ...section.value?.children ?? []
+    ].find((c) => c?.url === path)
+  })
 
   return readonly({
-    module: computed(() => buildLink(module.value)),
-    section: computed(() => buildLink(section.value, [
-      section.value, section.value?.articles[0]
-    ])),
-    article: computed(() => buildLink(article.value, [
-      section.value, article.value
-    ])),
-    allArticles: computed(() => section.value?.articles
-      .map(a => buildLink(a, [section.value, a]))
-      .filter(l => !!l)
-    ) ?? [],
-    otherSections: computed(() => module.value?.sections
-      ?.filter(s => s.path !== section.value?.path)
-      .map(s => buildLink(s, [s, s.articles[0]]))
-      .filter(l => !!l)
-    ) ?? [],
+    home, module, section, article
   });
 }
+
+interface ResolvedNavPage {
+  text: string,
+  url: string,
+  path: string,
+  children?: ResolvedNavPage[]
+};
+
+interface NavPage {
+  text: Record<Lang, string>,
+  path: string,
+  children?: NavPage[]
+};
+
+const navTree = <NavPage>{
+  text: { en: "Urssivar", ru: "Urssivar", },
+  path: "",
+  children: [
+    {
+      text: { en: "Language", ru: "Язык", },
+      path: "language",
+      children: [
+        {
+          text: { en: "Grammar", ru: "Грамматика", },
+          path: "grammar",
+        },
+        {
+          text: { en: "Dictionary", ru: "Словарь", },
+          path: "dictionary",
+        },
+      ]
+    },
+    {
+      text: { en: "Genealogy", ru: "Генеалогия", },
+      path: "genealogy",
+    },
+    {
+      text: { en: "Notes", ru: "Заметки", },
+      path: "notes",
+      children: [
+        {
+          text: { en: "Lost Heritage", ru: "Потерянное насление", },
+          path: "lost-heritage",
+        },
+      ]
+    }
+  ]
+};

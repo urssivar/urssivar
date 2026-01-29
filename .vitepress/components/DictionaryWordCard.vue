@@ -5,7 +5,6 @@ import { useData } from "vitepress";
 import { computed } from "vue";
 import MarkdownIt from "markdown-it";
 import { cleanHeadword } from "@/utils";
-import { useI18n } from "@/composables/i18n";
 
 const md = new MarkdownIt();
 
@@ -18,33 +17,34 @@ const data = useData();
 const lang = computed(() => {
   return data.lang.value as Lang;
 });
-
-const { buildPath } = useI18n();
-
-function buildDictLink(link: string) {
-  return buildPath("/language/dictionary/", link);
-}
 </script>
 
 <template>
   <div class="my-6">
-    <a class="header-anchor" :href="`#${word.id}`" data-pagefind-ignore>§</a>
+    <a
+      class="header-anchor font-medium"
+      :href="`#${word.id}`"
+      data-pagefind-ignore
+    >
+      §
+    </a>
     <div class="pl-3 -indent-3 m-0 my-1">
-      <h2
+      <h5
         :id="word.id"
         :data-toc-text="cleanHeadword(word.headword)"
-        lang="xdq"
-        class="font-semibold inline text-xl"
+        class="inline"
       >
-        {{ word.headword }}
-      </h2>
+        <span lang="xdq">
+          {{ word.headword }}
+        </span>
+      </h5>
 
       {{ " " }}
-      <span v-if="word.tags?.length" class="text-xs text-toned italic">
+      <span v-if="word.tags?.length" class="text-xs text-toned italic pl-0.5">
         {{ word.tags.map((t) => t[lang]).join(" ") }}
       </span>
 
-      <span v-if="word.forms?.length" class="text-sm pl-2">
+      <span v-if="word.forms?.length" class="text-xs text-default pl-2">
         …&nbsp;<span lang="xdq" class="italic">
           {{ word.forms.join(", ") }}
         </span>
@@ -57,7 +57,7 @@ function buildDictLink(link: string) {
         'p-0': word.definitions.length == 1,
       }"
     >
-      <li v-for="d in word.definitions" class="leading-normal my-1">
+      <li v-for="d in word.definitions" class="my-1">
         <p>
           {{ d.translation[lang]
           }}<span v-if="d.aliases?.[lang]?.length" class="sr-only">
@@ -71,12 +71,12 @@ function buildDictLink(link: string) {
             />
           </template>
         </p>
-        <ul class="text-sm text-default m-0" v-if="d.examples?.length">
+        <ul class="text-sm m-0" v-if="d.examples?.length">
           <li v-for="e in d.examples" class="my-1">
             <span lang="xdq">{{ e.text }}</span>
-            <template v-if="e.translation?.[lang]">
+            <span class="gloss" v-if="e.translation?.[lang]">
               —&nbsp;{{ e.translation[lang] }}
-            </template>
+            </span>
           </li>
         </ul>
       </li>
@@ -84,12 +84,12 @@ function buildDictLink(link: string) {
 
     <p
       v-if="word.etymology?.[lang]"
-      class="text-default text-sm my-2!"
+      class="text-sm my-2!"
       v-html="md.renderInline(word.etymology[lang]!)"
     />
     <p
       v-if="word.note?.[lang]"
-      class="text-default text-sm my-2!"
+      class="text-sm my-2!"
       v-html="md.renderInline(word.note[lang]!)"
     />
 
@@ -105,13 +105,13 @@ function buildDictLink(link: string) {
           lang="xdq"
           class="italic"
         >
-          <a :href="buildDictLink(w.link)"> {{ w.headword }} </a
+          <a :href="w.link"> {{ w.headword }} </a
           >{{ i < word.derived_from.length - 1 ? ", " : "" }}
         </span>
       </span>
       <span v-if="word.see_also?.length" class="ml-2">
         »&nbsp;<span v-for="(w, i) in word.see_also" lang="xdq" class="italic">
-          <a :href="buildDictLink(w.link)"> {{ w.headword }} </a
+          <a :href="w.link"> {{ w.headword }} </a
           >{{ i < word.see_also.length - 1 ? ", " : "" }}
         </span>
       </span>
@@ -138,11 +138,7 @@ p {
   @apply m-0 leading-tight;
 }
 
-span {
-  @apply leading-0!;
-}
-
 a {
-  @apply decoration-dotted;
+  @apply decoration-[0.75px] hover:text-highlighted;
 }
 </style>
