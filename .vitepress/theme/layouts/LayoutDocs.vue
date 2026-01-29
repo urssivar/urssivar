@@ -71,7 +71,7 @@ const tocRef = useTemplateRef("toc");
             </USlideover>
           </template>
           <span class="font-semibold flex-1 text-center">
-            {{ nav.section?.text }}
+            {{ (nav.section ?? nav.module ?? nav.home)?.text }}
           </span>
           <template #trailing>
             <USlideover
