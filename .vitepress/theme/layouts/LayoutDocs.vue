@@ -90,7 +90,7 @@ const tocRef = useTemplateRef("toc");
                 <UButton
                   icon="i-material-symbols:close"
                   @click="tocOpen = false"
-                  class="absolute -left-12 top-4 shadow-sm border border-default bg-default"
+                  class="absolute -left-12.5 top-4 shadow-sm border border-default bg-default"
                 />
                 <TableOfContents class="text-sm!" />
               </template>

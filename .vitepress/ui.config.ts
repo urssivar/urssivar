@@ -26,7 +26,7 @@ export default <NuxtUIOptions>{
       container: "p-0",
       content: [
         "data-[state=open]:animate-[slide-in_100ms_ease-out] data-[state=closed]:animate-[slide-out_100ms_ease-in]",
-        "w-[calc(100%-var(--spacing)*16)]! ring-0! border-default shadow-md!"
+        "w-[calc(100%-var(--spacing)*16.5)]! ring-0! border-default shadow-md!"
       ],
       body: "px-2! py-4! h-full flex flex-col gap-8",
     },
