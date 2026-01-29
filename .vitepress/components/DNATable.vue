@@ -12,7 +12,7 @@ function getYfullLink(k: (typeof kits)[0]) {
 </script>
 
 <template>
-  <ol>
+  <ol class="my-4">
     <li v-for="k in kits" :key="k.id" :id="k.id">
       <p class="flex flex-col sm:flex-row gap-1 sm:gap-2 sm:items-center">
         <span lang="xdq">
