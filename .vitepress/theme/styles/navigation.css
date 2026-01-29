@@ -4,7 +4,7 @@
   }
 
   a {
-    @apply transition-colors duration-200 underline underline-offset-[0.15em] decoration-(--ui-text-muted) hover:decoration-current hover:text-highlighted;
+    @apply transition-colors duration-200 underline underline-offset-[0.15em] decoration-(--ui-text-muted) hover:decoration-(--ui-text-highlighted);
   }
 
   .navlinks {

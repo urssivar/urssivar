@@ -17,11 +17,11 @@ const id = computed(() => {
   <div class="my-8">
     <h4 class="title mt-0">
       <a :id :href="page.url">{{ page.frontmatter.title }}</a>
-      <span class="text-xs whitespace-nowrap">
-        / {{ dateString(page.frontmatter.date) }}
-      </span>
     </h4>
     <p>
+      <span class="mr-[0.5em]">
+        {{ dateString(page.frontmatter.date) }}
+      </span>
       {{ page.frontmatter.description }}
     </p>
   </div>

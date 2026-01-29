@@ -4,7 +4,7 @@ description: "Findings, essays, and updates from documenting Kaitag language, hi
 ---
 
 <script setup lang="ts">
-import NoteCard from "@/components/NoteCard.vue";
+import PostCard from "@/components/PostCard.vue";
 import { data as notesData } from './notes.data';
 import { computed } from "vue";
 
@@ -30,4 +30,4 @@ const notes = computed(() => {
 
 Findings, essays, and updates from our work. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
 
-<NoteCard v-for="n in notes" :key="n.url" :page="n"/>
+<PostCard v-for="n in notes" :key="n.url" :page="n"/>

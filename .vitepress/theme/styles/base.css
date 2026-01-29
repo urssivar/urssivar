@@ -5,7 +5,7 @@
   }
 
   body {
-    @apply font-sans leading-relaxed;
+    @apply font-sans leading-relaxed text-highlighted;
   }
 
   ul {

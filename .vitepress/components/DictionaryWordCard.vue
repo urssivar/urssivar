@@ -139,6 +139,6 @@ p {
 }
 
 a {
-  @apply decoration-[0.75px];
+  @apply decoration-[0.75px] hover:text-highlighted;
 }
 </style>

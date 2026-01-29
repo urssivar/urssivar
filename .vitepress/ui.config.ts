@@ -8,6 +8,7 @@ export default <NuxtUIOptions>{
   button: {
     slots: {
       base: "cursor-pointer rounded-full",
+      leadingIcon: "text-highlighted",
     },
     defaultVariants: {
       color: "neutral",

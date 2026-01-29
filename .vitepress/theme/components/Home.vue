@@ -17,7 +17,7 @@ const tooltipOpen = ref(false);
 <template>
   <a
     :href="baseUrl"
-    class="flex gap-1 items-center decoration-transparent select-none group"
+    class="flex gap-1 items-center text-default decoration-transparent select-none group"
     :aria-label="t('header.home')"
     @mouseover="tooltipOpen = true"
     @mouseleave="tooltipOpen = false"
@@ -30,11 +30,15 @@ const tooltipOpen = ref(false);
         <img
           src="/favicon-dark.svg"
           alt=""
-          class="m-1 size-6 invert-100 opacity-70 dark:invert-0 dark:opacity-85"
+          class="m-1 size-6 invert-90 dark:invert-0"
         />
       </div>
     </UTooltip>
-    <span v-if="!isHome" aria-hidden="true" class="font-bold text-lg">
+    <span
+      v-if="!isHome"
+      aria-hidden="true"
+      class="font-bold text-lg text-highlighted"
+    >
       Urssivar
     </span>
   </a>

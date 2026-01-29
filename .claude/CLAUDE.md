@@ -104,7 +104,7 @@ Russian pages use manually-specified English anchors to ensure consistency acros
 
 **Theme Components:** Home (logo/title), Toolbar, Prose (content wrapper), Footer, LocaleSwitch, SearchButton, SidebarNav, TableOfContents
 
-**Content Components:** DNAChart/DNATable (D3.js), VillageMap (Leaflet), DictionaryIndex/DictionaryWord/DictionaryWordCard, AlphabetGrid, NoteCard, Stamp
+**Content Components:** DNAChart/DNATable (D3.js), VillageMap (Leaflet), DictionaryIndex/DictionaryWord/DictionaryWordCard, AlphabetGrid, PostCard, Stamp
 
 **Markdown Plugins:** markdown-it-anchor, -mark, -multimd-table. Custom: inline delimiters (++/--), block delimiters (:::), auto-numbering
 
@@ -167,7 +167,7 @@ EN: `/` | RU: `/ru`
 - Theme components (Toolbar, Home, Prose, Footer, LocaleSwitch, SearchButton, SidebarNav, TableOfContents)
 - Print styles (linearized layout, hidden nav/footer, break-inside-avoid, orphans/widows)
 - Navigation (three nav trees, useNav composable, hierarchical structure)
-- Notes section (bilingual, grid layout, NoteCard components)
+- Notes section (bilingual, grid layout, PostCard components)
 - Genealogy landing (intro, DNATable, DNAChart with D3.js)
 - Language landing (intro, grammar/dictionary/phrasebook previews)
 - Dictionary (intro, DictionaryIndex/Word/WordCard, dynamic letter pages, custom sidebar)

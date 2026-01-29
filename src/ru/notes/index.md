@@ -4,7 +4,7 @@ description: "Находки, эссе и обновления о докумен
 ---
 
 <script setup lang="ts">
-import NoteCard from "@/components/NoteCard.vue";
+import PostCard from "@/components/PostCard.vue";
 import { data as notesData } from './notes.data';
 import { computed } from "vue";
 
@@ -30,4 +30,4 @@ const notes = computed(() => {
 
 Находки, эссе и обновления о нашей работе. Также в [Telegram](https://t.me/urssivar), на [YouTube](https://youtube.com/@urssivar) и [GitHub](https://github.com/urssivar)
 
-<NoteCard v-for="n in notes" :key="n.url" :page="n"/>
+<PostCard v-for="n in notes" :key="n.url" :page="n"/>
