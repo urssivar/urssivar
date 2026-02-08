@@ -9,7 +9,7 @@ import VillageMap from "@/components/VillageMap.vue";
 import Notes from "./notes/index.md";
 </script>
 
-# Urssivar: Кайтагские исследования
+# Кайтагские исследования
 
 ++_Наллара дел да. Ьам ра бел._++
 

@@ -1,15 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from "@/composables/i18n";
-import { computed, ref } from "vue";
-import { useNav } from "@/composables/nav";
+import { ref } from "vue";
 
 const { t, baseUrl } = useI18n();
-
-const nav = useNav();
-
-const isHome = computed(() => {
-  return nav.article?.url == baseUrl.value;
-});
 
 const tooltipOpen = ref(false);
 </script>
@@ -34,12 +27,6 @@ const tooltipOpen = ref(false);
         />
       </div>
     </UTooltip>
-    <span
-      v-if="!isHome"
-      aria-hidden="true"
-      class="font-bold text-lg text-highlighted"
-    >
-      Urssivar
-    </span>
+    <span class="font-semibold text-lg text-highlighted">Urssivar</span>
   </a>
 </template>
