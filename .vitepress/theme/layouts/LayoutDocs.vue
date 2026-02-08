@@ -120,7 +120,7 @@ const tocRef = useTemplateRef("toc");
           />
         </SidebarNav>
       </aside>
-      <main class="print:py-px sheet border">
+      <main class="print:py-px sheet md:border">
         <article>
           <div class="hidden print:block">
             <div class="-ml-1.5 mb-16">
