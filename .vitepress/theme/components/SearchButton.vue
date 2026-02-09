@@ -152,3 +152,10 @@ function findClosestAnchor(anchors: PagefindSearchAnchor[], location: number) {
     </template>
   </UModal>
 </template>
+
+<style scoped>
+:deep(mark) {
+  text-decoration-thickness: revert;
+  @apply decoration-inherit underline-offset-[0.15em];
+}
+</style>
