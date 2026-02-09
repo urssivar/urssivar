@@ -4,6 +4,23 @@
     @apply print:wrap-break-word;
   }
 
+  /* Typography */
+
+  body {
+    @apply font-sans leading-relaxed text-highlighted;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  mark {
+    @apply bg-transparent underline underline-offset-0 decoration-[0.25em] decoration-(--ui-bg-accented) text-inherit;
+    text-decoration-skip-ink: none;
+  }
+
+  /* Headings */
+
   h1,
   h2,
   h3,
@@ -11,15 +28,6 @@
   h5,
   h6 {
     @apply font-semibold leading-tight print:break-inside-avoid print:break-after-avoid;
-  }
-
-  h1,
-  h2,
-  h3 {
-    @media print {
-      orphans: 3;
-      widows: 3;
-    }
   }
 
   h1 {
@@ -46,6 +54,17 @@
     @apply text-sm mt-4;
   }
 
+  h1,
+  h2,
+  h3 {
+    @media print {
+      orphans: 3;
+      widows: 3;
+    }
+  }
+
+  /* Prose */
+
   :not(li) > p {
     @apply my-4;
 
@@ -62,9 +81,12 @@
     @apply list-decimal;
   }
 
-  :is(ul, ol) {
+  ul,
+  ol {
     @apply list-outside pl-5 my-1;
   }
+
+  /* Blocks */
 
   hr {
     @apply border-default;
@@ -93,6 +115,15 @@
         @apply pr-0;
       }
     }
+  }
+
+  blockquote {
+    @apply my-4 pl-4 bg-transparent border-l-3 border-muted text-sm text-toned;
+  }
+
+  /* Compact blockquote within list items */
+  li > blockquote {
+    @apply my-1;
   }
 
   blockquote,

@@ -1,3 +1,7 @@
+@theme {
+  --font-sans: "IBM Plex Sans", "Noto Sans Math", sans-serif;
+}
+
 @import "tailwindcss";
 @source "../../**/*.vue";
 @source "../../../src/**/*.md";
@@ -6,5 +10,3 @@
 
 @import "./base.css";
 @import "./components.css";
-@import "./text-formatting.css";
-@import "./navigation.css";
