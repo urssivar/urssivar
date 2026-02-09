@@ -3,6 +3,10 @@
     @apply my-4 pl-4 bg-transparent border-l-3 border-muted text-sm text-toned;
   }
 
+  li > blockquote {
+    @apply my-1;
+  }
+
   .breakout {
     @apply max-w-full bg-elevated px-6 sm:px-12 md:px-16 py-2 my-8 print:break-inside-avoid overflow-x-auto;
 
