@@ -21,13 +21,7 @@ const lang = computed(() => {
 
 <template>
   <div class="my-6">
-    <a
-      class="header-anchor font-semibold"
-      :href="`#${word.id}`"
-      data-pagefind-ignore
-    >
-      §
-    </a>
+    <a class="header-anchor" :href="`#${word.id}`" data-pagefind-ignore> § </a>
     <div class="pl-3 -indent-3 m-0 my-1">
       <h5
         :id="word.id"
