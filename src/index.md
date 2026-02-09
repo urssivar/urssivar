@@ -11,7 +11,7 @@ import Notes from "./notes/index.md";
 
 # Kaitag Studies
 
-++_Наллара дел да. Ьам ра бел._++
+_Наллара дел да. Ьам ра бел._
 
 Reclaiming the legacy of the Kaitag people of Dagestan. The race against time to preserve what remains before it vanishes forever.
 

@@ -4,22 +4,6 @@
     @apply print:wrap-break-word;
   }
 
-  body {
-    @apply font-sans leading-relaxed text-highlighted;
-  }
-
-  ul {
-    @apply list-disc;
-  }
-
-  ol {
-    @apply list-decimal;
-  }
-
-  :is(ul, ol) {
-    @apply list-outside pl-5 my-4;
-  }
-
   h1,
   h2,
   h3,
@@ -62,12 +46,24 @@
     @apply text-sm mt-4;
   }
 
-  p {
+  :not(li) > p {
     @apply my-4;
+
+    &:has(+ :is(ul, ol)) {
+      @apply mb-0;
+    }
   }
 
-  p + :is(ul, ol) {
-    @apply -mt-3;
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  :is(ul, ol) {
+    @apply list-outside pl-5 my-1;
   }
 
   hr {
@@ -88,7 +84,14 @@
     }
 
     td {
-      @apply px-3 py-1.5 align-text-top leading-tight;
+      @apply p-1.5 align-text-top leading-tight;
+
+      &:first-child {
+        @apply pl-0;
+      }
+      &:last-child {
+        @apply pr-0;
+      }
     }
   }
 

@@ -1,53 +1,17 @@
 @layer components {
+  blockquote {
+    @apply my-4 pl-4 bg-transparent border-l-3 border-muted text-sm text-toned;
+  }
+
   .breakout {
-    @apply max-w-full bg-elevated my-8 print:break-inside-avoid;
+    @apply max-w-full bg-elevated px-6 sm:px-12 md:px-16 py-2 my-8 print:break-inside-avoid overflow-x-auto;
 
-    ul {
-      list-style-type: "– ";
-    }
-
-    &.note {
-      @apply mx-6 sm:mx-12 md:mx-16 my-6 pl-4 bg-transparent border-l-4 border-muted text-sm;
-
-      :is(p, table, ol, ul) {
-        @apply my-2;
-      }
-
-      table {
-        @apply -mx-3;
-      }
-    }
-
-    &.callout {
-      @apply px-6 sm:px-12 md:px-16 py-2 text-sm;
-
-      :is(p, table, ol, ul) {
-        @apply my-2;
-      }
-
-      table {
-        @apply -mx-3;
-      }
-    }
-
-    &.ipa-chart {
-      @apply px-6 py-4 overflow-x-auto;
-
-      table {
-        @apply m-0;
-
-        td {
-          @apply pt-2 whitespace-nowrap;
-
-          [lang="xdq"] {
-            @apply block font-medium;
-          }
-        }
-      }
+    td {
+      @apply text-nowrap;
     }
 
     &.img {
-      @apply bg-transparent;
+      @apply bg-transparent p-0;
 
       > :nth-child(1) {
         @apply m-0 overflow-hidden;
@@ -58,8 +22,17 @@
       }
 
       > :nth-child(2) {
-        @apply mt-3 mx-16 text-center text-xs text-default;
+        @apply mt-3 mx-16 text-center text-xs text-toned;
       }
+    }
+  }
+
+  :is(blockquote, .breakout) {
+    :is(p, table, ol, ul) {
+      @apply my-2;
+    }
+    ul {
+      list-style-type: "– ";
     }
   }
 

@@ -1,23 +1,14 @@
-@layer components {
-  [lang="xdq"] {
-    @apply font-serif;
-    font-variation-settings:
-      "GRAD" 75,
-      "wdth" 87.5;
-  }
+@theme {
+  --font-sans: "IBM Plex Sans", "Noto Sans Math", sans-serif;
+}
 
-  :is(h1, h2, h3, h4, h5, h6) [lang="xdq"] {
-    font-variation-settings:
-      "GRAD" 0,
-      "wdth" 87.5;
+@layer base {
+  body {
+    @apply font-sans leading-relaxed text-highlighted;
   }
 
   strong {
     @apply font-semibold;
-  }
-
-  .gloss {
-    @apply text-default;
   }
 
   mark {

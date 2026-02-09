@@ -17,7 +17,7 @@ const chartData = computed(() => {
           name,
           value,
         })).sort((a, b) => a.name.localeCompare(b.name)),
-      })
+      }),
     ).sort((a, b) => a.name.localeCompare(b.name)),
   };
 });
@@ -79,7 +79,7 @@ onMounted(() => {
       (d: any) =>
         `dna-label ${
           d.depth === 1 ? "dna-label-haplogroup" : "dna-label-subclade"
-        } hh-${getHaplogroup(d)}`
+        } hh-${getHaplogroup(d)}`,
     )
     .attr("transform", (d: any) => {
       const a = (d.x0 + d.x1) / 2;
@@ -147,7 +147,7 @@ onMounted(() => {
 }
 
 .dna-label {
-  @apply font-bold pointer-events-none text-shadow-xs;
+  @apply font-semibold pointer-events-none text-shadow-xs;
 
   &.hh-R1b {
     @apply fill-amber-700 dark:fill-amber-400;
@@ -163,7 +163,7 @@ onMounted(() => {
 }
 
 .dna-label-subclade {
-  @apply text-xs;
+  @apply text-sm;
 }
 
 .dna-label-haplogroup {

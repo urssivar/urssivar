@@ -10,7 +10,7 @@ const tooltipOpen = ref(false);
 <template>
   <a
     :href="baseUrl"
-    class="flex gap-1 items-center text-default decoration-transparent select-none group"
+    class="flex gap-1 items-center decoration-transparent select-none group"
     :aria-label="t('header.home')"
     @mouseover="tooltipOpen = true"
     @mouseleave="tooltipOpen = false"

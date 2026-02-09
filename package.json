@@ -20,6 +20,7 @@
     "@types/leaflet": "^1.9.20",
     "@types/node": "^24.7.2",
     "markdown-it-anchor": "^9.2.0",
+    "markdown-it-mark": "^4.0.0",
     "markdown-it-multimd-table": "^4.2.3",
     "pagefind": "^1.4.0",
     "vitepress": "^1.6.4"

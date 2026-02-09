@@ -2,7 +2,7 @@
   {
     "id": "BP69872",
     "village": "Тураға",
-    "region": "Ирчьамул",
+    "region": "Ирчӏамул",
     "haplogroup": "R1b",
     "subclade": "R-Z2103",
     "branch": "R-Y341045",
@@ -10,7 +10,7 @@
   },
   {
     "id": "MI79738",
-    "village": "Риҡьо",
+    "village": "Риҡӏо",
     "region": "Явше",
     "haplogroup": "J1",
     "subclade": "J-Z1842",
@@ -19,7 +19,7 @@
   },
   {
     "id": "MI79740",
-    "village": "Жирбачьи",
+    "village": "Жирбачӏи",
     "region": "Шурккант",
     "haplogroup": "J1",
     "subclade": "J-Z1842"
@@ -27,7 +27,7 @@
   {
     "id": "BP90378",
     "village": "Тураға",
-    "region": "Ирчьамул",
+    "region": "Ирчӏамул",
     "haplogroup": "R1b",
     "subclade": "R-Z2103",
     "branch": "R-Y341045"
@@ -35,7 +35,7 @@
   {
     "id": "BP90379",
     "village": "Тураға",
-    "region": "Ирчьамул",
+    "region": "Ирчӏамул",
     "haplogroup": "R1b",
     "subclade": "R-Z2103",
     "branch": "R-Y341045"
@@ -43,7 +43,7 @@
   {
     "id": "BP90377",
     "village": "Чидажа",
-    "region": "Ирчьамул",
+    "region": "Ирчӏамул",
     "haplogroup": "R1b",
     "subclade": "R-Z2103",
     "branch": "R-Y341045"
@@ -71,8 +71,8 @@
   },
   {
     "id": "BP83660",
-    "village": "Ғярацьан",
-    "region": "Ҡҡара-Хайдаҡь",
+    "village": "Ғярацӏан",
+    "region": "Ҡҡара-Хайдаҡӏ",
     "haplogroup": "J1",
     "subclade": "J-Z1842"
   }

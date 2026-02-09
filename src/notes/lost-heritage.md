@@ -6,7 +6,7 @@ description: "The intergenerational loss of Kaitag cultural knowledge that disap
 
 # Lost Heritage
 
-My grandmother was from ++Ҡерҡай++. She was raised by her own grandmother who lived over 100 years and who the people of ++Ирчьамул++ called _"great mother"_. That's why, my mother told me, my grandmother knew so much.
+My grandmother was from **Ҡерҡай**. She was raised by her own grandmother who lived over 100 years and who the people of **Ирчӏамул** called _"great mother"_. That's why, my mother told me, my grandmother knew so much.
 
 It has been 19 years since my grandmother died, may God forgive her sins. We preserved nothing of her: no stories, no proverbs, no songs. My people ate and drank, and we lost everything in vain.
 

@@ -91,12 +91,12 @@ function onVillageLeave() {
     :content="{ side: 'top', sideOffset: 10 }"
   >
     <template #content>
-      <span lang="xdq" class="font-medium">
+      <span class="font-semibold">
         {{ selectedVillage }}
       </span>
     </template>
   </UTooltip>
-  <div class="breakout relative h-60 sm:h-120 overflow-x-clip">
+  <div class="breakout p-0 relative h-60 sm:h-120 overflow-x-clip">
     <div
       class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex"
     >
@@ -136,7 +136,7 @@ function onVillageLeave() {
                 class="w-full h-full flex items-center justify-center relative"
               >
                 <div
-                  class="village-dot absolute rounded-full cursor-pointer border-2 sm:border-3 border-(--ui-bg-elevated) bg-primary shadow-xs"
+                  class="village-dot absolute rounded-full cursor-pointer bg-primary shadow-xs"
                 />
               </div>
             </LIcon>
@@ -164,10 +164,10 @@ function onVillageLeave() {
 }
 
 .village-dot {
-  @apply size-3 sm:size-3.5 transition-[width,height] duration-200 ease-out;
+  @apply size-3 sm:size-4 ring-3 ring-inset ring-(--ui-bg-elevated) transition-all duration-200 ease-out;
 
   &.hover {
-    @apply size-5;
+    @apply scale-150 ring-2;
   }
 }
 

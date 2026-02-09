@@ -8,7 +8,7 @@
   }
 
   .navlinks {
-    @apply font-medium text-muted;
+    @apply text-muted font-medium;
 
     a {
       @apply py-1.5 px-3 no-underline hover:text-highlighted!;
@@ -23,7 +23,7 @@
     @apply relative;
 
     > .header-anchor {
-      @apply absolute font-sans left-0 -translate-x-full -translate-y-0.5 text-muted select-none transition-[opacity,color] duration-200 hover:text-highlighted! opacity-0 no-underline pr-[0.375em];
+      @apply absolute font-sans left-0 -translate-x-full text-muted select-none transition-[opacity,color] duration-200 hover:text-highlighted! opacity-0 no-underline pr-[0.375em];
     }
 
     &:hover > .header-anchor {

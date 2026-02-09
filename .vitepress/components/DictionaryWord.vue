@@ -18,9 +18,7 @@ const lang = computed(() => {
 <template>
   <p :id="word.id" class="pl-3 -indent-3 m-0 leading-tight">
     <h5 class="inline">
-      <span lang="xdq">
-        {{ word.headword }}
-      </span>
+      {{ word.headword }}
     </h5>
 
     {{ " " }}
@@ -37,7 +35,7 @@ const lang = computed(() => {
 
       <span v-for="e in d.examples ?? []">
         <span class="ws">{{ " " }}</span>
-        •&nbsp;<span lang="xdq" class="text-sm">{{ e.text }}</span>
+        •&nbsp;<strong class="text-sm">{{ e.text }}</strong>
         <span class="gloss text-sm" v-if="e.translation?.[lang]">
           {{ " " }}
           <template v-if="!/[.!?]$/.test(e.text)">–&nbsp;</template
@@ -46,17 +44,17 @@ const lang = computed(() => {
       </span>
     </template>
 
-    <span v-if="word.forms?.length" class="text-xs text-default">
+    <span v-if="word.forms?.length" class="text-xs text-toned">
       <span class="ws">{{ " " }}</span>
-      …&nbsp;<span lang="xdq" class="italic">
+      …&nbsp;<em>
         {{ word.forms.join(", ") }}
-      </span>
+      </em>
     </span>
-    <span v-if="word.variants?.length" class="text-xs text-default">
+    <span v-if="word.variants?.length" class="text-xs text-toned">
       <span class="ws">{{ " " }}</span>
-      ~&nbsp;<span lang="xdq" class="italic">
+      ~&nbsp;<em>
         {{ word.variants.join(", ") }}
-      </span>
+      </em>
     </span>
   </p>
 </template>

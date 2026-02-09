@@ -4,11 +4,6 @@
 @source "../../ui.config.ts";
 @import "@nuxt/ui";
 
-@theme {
-  --font-sans: "Roboto", "Noto Sans Math", sans-serif;
-  --font-serif: "Roboto Serif", serif;
-}
-
 @import "./base.css";
 @import "./components.css";
 @import "./text-formatting.css";

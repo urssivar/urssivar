@@ -39,10 +39,7 @@ function getUrl(letter: string) {
       {{ l }}
     </a>
   </nav>
-  <nav
-    v-else
-    class="breakout py-4 px-6 md:px-10 grid grid-cols-7 sm:grid-cols-9"
-  >
+  <nav v-else class="breakout grid grid-cols-7 sm:grid-cols-9">
     <a
       v-for="l in letters"
       :href="getUrl(l)"
@@ -51,7 +48,7 @@ function getUrl(letter: string) {
       <div
         class="group-hover:scale-125 group-hover:-translate-y-px transition-transform duration-200 ease-out"
       >
-        <span lang="xdq" class="text-lg font-medium text-shadow-xs capitalize">
+        <span class="text-lg font-semibold text-shadow-xs capitalize">
           {{ l }}
         </span>
       </div>

@@ -1,10 +1,9 @@
 import type { MarkdownOptions } from "vitepress";
 import anchor from "markdown-it-anchor";
 import multimdTable from "markdown-it-multimd-table";
+import mark from "markdown-it-mark";
 
 import numbering from "./plugins/numbering";
-import kaitagGlossShortcut from "./plugins/kaitag-gloss-shortcut";
-import inlineRules from "./plugins/inline-rules";
 import breakouts from "./plugins/breakout";
 
 export default <MarkdownOptions>{
@@ -25,26 +24,7 @@ export default <MarkdownOptions>{
       levels: [2, 3, 4]
     });
 
-    md.use(kaitagGlossShortcut);
-    md.use(inlineRules, [
-      {
-        delimiter: '++',
-        tokenName: 'kaitag',
-        tag: 'span',
-        attrs: { lang: 'xdq' }
-      },
-      {
-        delimiter: '--',
-        tokenName: 'gloss',
-        tag: 'span',
-        attrs: { class: 'gloss' }
-      },
-      {
-        delimiter: '==',
-        tokenName: 'highlight',
-        tag: 'mark'
-      }
-    ]);
+    md.use(mark);
     md.use(breakouts);
   },
 };

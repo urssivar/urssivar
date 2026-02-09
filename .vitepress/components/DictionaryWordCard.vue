@@ -22,7 +22,7 @@ const lang = computed(() => {
 <template>
   <div class="my-6">
     <a
-      class="header-anchor font-medium"
+      class="header-anchor font-semibold"
       :href="`#${word.id}`"
       data-pagefind-ignore
     >
@@ -34,9 +34,7 @@ const lang = computed(() => {
         :data-toc-text="cleanHeadword(word.headword)"
         class="inline"
       >
-        <span lang="xdq">
-          {{ word.headword }}
-        </span>
+        {{ word.headword }}
       </h5>
 
       {{ " " }}
@@ -44,15 +42,15 @@ const lang = computed(() => {
         {{ word.tags.map((t) => t[lang]).join(" ") }}
       </span>
 
-      <span v-if="word.forms?.length" class="text-xs text-default pl-2">
-        …&nbsp;<span lang="xdq" class="italic">
+      <span v-if="word.forms?.length" class="text-sm text-toned pl-2">
+        …&nbsp;<em>
           {{ word.forms.join(", ") }}
-        </span>
+        </em>
       </span>
     </div>
 
     <ol
-      class="m-0 ml-5"
+      class="ml-5"
       :class="{
         'p-0': word.definitions.length == 1,
       }"
@@ -66,14 +64,14 @@ const lang = computed(() => {
             >;
             <span
               v-if="d.note?.[lang]"
-              class="text-default text-sm"
+              class="text-sm text-toned"
               v-html="md.renderInline(d.note[lang]!)"
             />
           </template>
         </p>
-        <ul class="text-sm m-0" v-if="d.examples?.length">
-          <li v-for="e in d.examples" class="my-1">
-            <span lang="xdq">{{ e.text }}</span>
+        <ul class="text-sm" v-if="d.examples?.length">
+          <li v-for="e in d.examples">
+            <strong>{{ e.text }}</strong>
             <span class="gloss" v-if="e.translation?.[lang]">
               —&nbsp;{{ e.translation[lang] }}
             </span>
@@ -93,24 +91,20 @@ const lang = computed(() => {
       v-html="md.renderInline(word.note[lang]!)"
     />
 
-    <p class="text-xs text-default -indent-2 my-2!">
+    <p class="text-xs text-toned -indent-2 my-2!">
       <span v-if="word.variants?.length" class="ml-2">
-        ~&nbsp;<span lang="xdq" class="italic">
+        ~&nbsp;<em>
           {{ word.variants.join(", ") }}
-        </span>
+        </em>
       </span>
       <span v-if="word.derived_from?.length" class="ml-2">
-        «&nbsp;<span
-          v-for="(w, i) in word.derived_from"
-          lang="xdq"
-          class="italic"
-        >
+        «&nbsp;<span v-for="(w, i) in word.derived_from" class="italic">
           <a :href="w.link"> {{ w.headword }} </a
           >{{ i < word.derived_from.length - 1 ? ", " : "" }}
         </span>
       </span>
       <span v-if="word.see_also?.length" class="ml-2">
-        »&nbsp;<span v-for="(w, i) in word.see_also" lang="xdq" class="italic">
+        »&nbsp;<span v-for="(w, i) in word.see_also" class="italic">
           <a :href="w.link"> {{ w.headword }} </a
           >{{ i < word.see_also.length - 1 ? ", " : "" }}
         </span>

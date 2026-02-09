@@ -44,7 +44,7 @@ function onLetterLeave() {
 
 <template>
   <div
-    class="breakout py-4 px-6 md:px-8 text-center grid grid-cols-6 sm:grid-cols-7 font-medium"
+    class="breakout text-center grid grid-cols-6 sm:grid-cols-7 font-semibold"
     data-pagefind-ignore
   >
     <div
@@ -56,13 +56,11 @@ function onLetterLeave() {
       @mouseleave="onLetterLeave"
     >
       <span
-        lang="xdq"
-        class="text-lg select-none capitalize transition-opacity ease-out text-muted"
+        class="text-lg select-none capitalize transition-opacity ease-out text-toned"
       >
-        {{ l }}
+        ·
       </span>
       <span
-        lang="xdq"
         class="opacity-0 pointer-events-none top-1/2 -translate-y-1/2 absolute transition-opacity duration-200 ease-out leading-tight text-sm text-shadow-xs"
       >
         {{ words[l] }}
