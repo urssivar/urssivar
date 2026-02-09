@@ -8,7 +8,7 @@
   }
 
   .navlinks {
-    @apply text-muted;
+    @apply text-muted font-medium;
 
     a {
       @apply py-1.5 px-3 no-underline hover:text-highlighted!;
