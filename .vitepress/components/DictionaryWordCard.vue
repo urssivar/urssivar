@@ -49,7 +49,7 @@ const lang = computed(() => {
         'p-0': word.definitions.length == 1,
       }"
     >
-      <li v-for="d in word.definitions" class="my-1">
+      <li v-for="d in word.definitions">
         <p>
           {{ d.translation[lang]
           }}<span v-if="d.aliases?.[lang]?.length" class="sr-only">
@@ -120,6 +120,10 @@ ol > li::marker {
 
 ul > li::marker {
   @apply text-xs;
+}
+
+li {
+  @apply my-1;
 }
 
 p {
