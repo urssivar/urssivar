@@ -3,7 +3,7 @@ export type DictionaryIndexMode = "default" | "print" | "sidebar";
 </script>
 
 <script setup lang="ts">
-import { useDictData } from "@/composables/dictionary";
+import { type Letter, useDictData } from "@/composables/dictionary";
 import { useData } from "vitepress";
 import { computed } from "vue";
 
@@ -19,7 +19,8 @@ const letter = computed(() => {
   return letters.value.includes(l) ? l : "";
 });
 
-function getUrl(letter: string) {
+function getUrl(letter: Letter) {
+  if (!dict[letter].length) return undefined;
   return (mode === "print" ? "#" : "") + letter;
 }
 </script>
