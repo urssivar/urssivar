@@ -4,13 +4,13 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/dictionary/intro",
-      "destination": "/dictionary/",
+      "source": "/language/dictionary/intro",
+      "destination": "/language/dictionary/",
       "permanent": true
     },
     {
-      "source": "/ru/dictionary/intro",
-      "destination": "/ru/dictionary/",
+      "source": "/ru/language/dictionary/intro",
+      "destination": "/ru/language/dictionary/",
       "permanent": true
     }
   ]
