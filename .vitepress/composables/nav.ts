@@ -96,6 +96,10 @@ const navTree = <NavPage>{
       path: "genealogy",
     },
     {
+      text: { en: "Flag", ru: "Флаг", },
+      path: "flag",
+    },
+    {
       text: { en: "Notes", ru: "Заметки", },
       path: "notes",
       children: [
