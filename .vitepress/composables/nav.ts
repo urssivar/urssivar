@@ -7,15 +7,15 @@ export function useNav() {
   const { baseUrl } = useI18n();
   const { lang } = useI18n();
 
-  function resolve(base: string, branch: NavPage, paths: string[]) {
+  function resolve(base: string, branch: NavPage) {
     const page = <ResolvedNavPage>{
       text: branch.text[lang.value],
       url: base + (branch.path ? branch.path + "/" : ""),
       path: branch.path,
     }
-    if (paths.length && page.path == paths[0]) {
+    if (branch.children) {
       page.children = branch.children
-        ?.map(c => resolve(page.url, c, paths.slice(1)))
+        ?.map(c => resolve(page.url, c))
         ?? [];
     }
     return page;
@@ -30,7 +30,7 @@ export function useNav() {
   })
 
   const home = computed(() => {
-    return resolve(baseUrl.value, navTree, paths.value);
+    return resolve(baseUrl.value, navTree);
   });
 
   const module = computed(() => {
