@@ -22,11 +22,9 @@ export default <NuxtUIOptions>{
   },
   slideover: {
     slots: {
-      overlay: "data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]",
       container: "p-0",
       content: [
-        "data-[state=open]:animate-[slide-in_100ms_ease-out] data-[state=closed]:animate-[slide-out_100ms_ease-in]",
-        "w-[calc(100%-var(--spacing)*16.5)]! ring-0! border-default shadow-md!"
+        "w-[calc(100%-var(--spacing)*16.5)]! max-w-xs! ring-0! border-default shadow-md!"
       ],
       body: "px-2! py-4! h-full flex flex-col gap-8",
     },
@@ -48,9 +46,7 @@ export default <NuxtUIOptions>{
   },
   modal: {
     slots: {
-      overlay: "data-[state=open]:animate-[fade-in_100ms_ease-out] data-[state=closed]:animate-[fade-out_100ms_ease-in]",
       content: [
-        "data-[state=open]:animate-[scale-in_100ms_ease-out] data-[state=closed]:animate-[scale-out_100ms_ease-in]",
         "rounded-none! ring-0! border border-default shadow-md!"
       ]
     }
