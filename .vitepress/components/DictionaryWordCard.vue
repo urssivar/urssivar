@@ -98,7 +98,7 @@ const lang = computed(() => {
         </span>
       </span>
       <span v-if="word.see_also?.length" class="ml-2">
-        »&nbsp;<span v-for="(w, i) in word.see_also" class="italic">
+        +&nbsp;<span v-for="(w, i) in word.see_also" class="italic">
           <a :href="w.link"> {{ w.headword }} </a
           >{{ i < word.see_also.length - 1 ? ", " : "" }}
         </span>
