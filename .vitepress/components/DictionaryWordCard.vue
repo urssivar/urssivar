@@ -76,12 +76,12 @@ const lang = computed(() => {
 
     <p
       v-if="word.etymology?.[lang]"
-      class="text-sm my-2!"
+      class="text-sm text-toned my-2!"
       v-html="md.renderInline(word.etymology[lang]!)"
     />
     <p
       v-if="word.note?.[lang]"
-      class="text-sm my-2!"
+      class="text-sm text-toned my-2!"
       v-html="md.renderInline(word.note[lang]!)"
     />
 
