@@ -23,24 +23,13 @@ void main() {
   vec3 color = tex.rgb;
   color *= clamp(0.95 + vFold * 0.3, 0.6, 1.35);
 
-  // Fabric weave — sparse, irregular threads
-  float rowBase = vUV.y * 150.0;
-  float colBase = vUV.x * 150.0;
-  float row = floor(rowBase);
-  float col = floor(colBase);
-  float h1 = fract(sin(row * 12.9898) * 43758.5453);
-  float h2 = fract(sin(col * 78.233) * 23421.631);
-  // Only show ~40% of threads — the rest are invisible
-  float showRow = step(0.6, h1);
-  float showCol = step(0.6, h2);
-  float sx = colBase + h2 * 0.8 + sin(rowBase * 0.37) * 0.5;
-  float sy = rowBase + h1 * 0.8 + sin(colBase * 0.41) * 0.5;
-  float warp = sin(sy * 3.14159 * (0.6 + h1 * 0.6)) * 0.5 + 0.5;
-  float weft = sin(sx * 3.14159 * (0.6 + h2 * 0.6)) * 0.5 + 0.5;
-  float pat = step(0.5, fract(sx * 0.5 + sy * 0.5));
-  if (fract(sin(row * 127.1 + col * 311.7) * 43758.5453) < 0.2) pat = 1.0 - pat;
-  float weave = mix(warp * showRow, weft * showCol, pat);
-  color *= 0.97 + weave * 0.03 + ((h1 + h2) * 0.5 - 0.5) * 0.015;
+  // Fabric grain — organic noise texture
+  vec2 gp = vUV * 200.0;
+  float g1 = fract(sin(dot(floor(gp), vec2(127.1, 311.7))) * 43758.5453);
+  float g2 = fract(sin(dot(floor(gp * 0.7 + 3.1), vec2(269.5, 183.3))) * 43758.5453);
+  float g3 = fract(sin(dot(floor(gp * 1.3 + 7.9), vec2(419.2, 371.9))) * 43758.5453);
+  float grain = (g1 + g2 + g3) / 3.0 - 0.5;
+  color *= 1.0 + grain * 0.06;
 
   gl_FragColor = vec4(color, a);
 }
