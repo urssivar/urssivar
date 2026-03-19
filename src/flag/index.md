@@ -26,7 +26,7 @@ A stylized Kufic monogram drawn from a 13th-century sarcophagus of a ruler of Ka
 
 :::img
 ![Sarcophagus](/assets/images/flag/sarcophagus.png){.w-full .-translate-y-1/10}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 The main sarcophagus. Kalakoreish, Dagestan.
 :::
@@ -41,7 +41,7 @@ A four-petal madder flower (_Rubia tinctorum_), a key dye crop of Kaitag, positi
 
 :::img
 ![Rose Madder](/assets/images/flag/madder.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 _Rubia tinctorum._ Franz Eugen Köhler, 1887. _Köhler’s Medizinal-Pflanzen_
 :::
@@ -56,7 +56,7 @@ Deep blue is the canonical ground of Kaitag embroidery, documented by ethnograph
 
 :::img
 ![Three-lobe beggarticks](/assets/images/flag/embroidery.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 "Spiraling Horns." R. Chenciner, 1993. _Kaitag: Textile Art from Daghestan_
 :::
@@ -71,7 +71,7 @@ Two-tailed banners were common during the Caucasian War — among them the flag 
 
 :::img
 ![Banners](/assets/images/flag/banners.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 Banners of the mountain warriors. M. Korkmasov, G. Baliev, Z. Arukhov.
 :::
