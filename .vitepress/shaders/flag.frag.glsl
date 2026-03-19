@@ -12,10 +12,13 @@ void main() {
   if (rel > 1.0) { c.y *= rel; } else { c.x /= rel; }
   vec2 texUV = c + 0.5;
 
-  // Sample texture; discard fragments outside bounds
-  if (texUV.x < 0.0 || texUV.x > 1.0 || texUV.y < 0.0 || texUV.y > 1.0) discard;
-  vec4 tex = texture2D(uTexture, texUV);
-  if (tex.a < 0.01) discard;
+  // Soft edges — fade alpha near texture bounds
+  if (texUV.x < -0.01 || texUV.x > 1.01 || texUV.y < -0.01 || texUV.y > 1.01) discard;
+  float edge = smoothstep(0.0, 0.005, texUV.x) * smoothstep(0.0, 0.005, texUV.y)
+             * smoothstep(0.0, 0.005, 1.0 - texUV.x) * smoothstep(0.0, 0.005, 1.0 - texUV.y);
+  vec4 tex = texture2D(uTexture, clamp(texUV, 0.0, 1.0));
+  float a = tex.a * edge;
+  if (a < 0.001) discard;
 
   vec3 color = tex.rgb;
 
@@ -35,5 +38,5 @@ void main() {
   if (fract(sin(row * 127.1 + col * 311.7) * 43758.5453) < 0.15) pat = 1.0 - pat;
   color *= 0.96 + mix(warp, weft, pat) * 0.03 + ((h1 + h2) * 0.5 - 0.5) * 0.02;
 
-  gl_FragColor = vec4(color, tex.a);
+  gl_FragColor = vec4(color, a);
 }
