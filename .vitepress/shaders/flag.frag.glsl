@@ -7,10 +7,8 @@ uniform float uCanvasAspect;
 uniform vec2 uScale;
 
 void main() {
-  // Scale UVs — adapt zoom to canvas aspect so texture stays visible on mobile
+  vec2 c = (vUV - 0.5) * uScale;
   float rel = uTexAspect / uCanvasAspect;
-  float zoom = 1.5 / max(rel, 1.0);
-  vec2 c = (vUV - 0.5) * uScale * zoom;
   if (rel > 1.0) { c.y *= rel; } else { c.x /= rel; }
   // Looking up perspective — top narrows, bottom widens
   float perspective = 0.15;

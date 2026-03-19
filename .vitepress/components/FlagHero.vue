@@ -80,7 +80,7 @@ onMounted(async () => {
       uTexAspect: { value: 1.5 },
       uCanvasAspect: { value: 1.0 },
       uWind: { value: 1.0 },
-      uScale: { value: [1.2, 2.0] },
+      uScale: { value: [1.8, 3.0] },
     },
   });
 
