@@ -108,10 +108,8 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
-    ref="containerRef"
-    class="breakout bg-transparent p-0 relative h-60 overflow-hidden"
-  >
+  <div class="breakout bg-transparent py-6 overflow-hidden">
+    <div ref="containerRef" class="h-60 w-full relative" />
   </div>
 </template>
 
