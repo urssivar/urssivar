@@ -6,7 +6,7 @@ import FlagHero from "@/components/FlagHero.vue"
 
 Флаг **кайтагского** народа (**Хайдаҡӏла**) — синее полотнище с белой печатью в центре.
 
-<FlagHero texture="/assets/images/flag/swallowtail.png" />
+<FlagHero texture="/assets/images/flag/texture.png" />
 
 Стилизованная [куфическая монограмма](#monogram) из пантеона правителей Кайтага символизирует многовековую государственность.
 

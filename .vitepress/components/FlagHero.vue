@@ -59,7 +59,7 @@ onMounted(async () => {
 
   renderer = new WebGLRenderer({ antialias: true, alpha: true });
   renderer.setClearColor(0x000000, 0);
-  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   containerRef.value.appendChild(renderer.domElement);
   renderer.domElement.classList.add("absolute", "inset-0", "w-full", "h-full");
 
@@ -79,10 +79,14 @@ onMounted(async () => {
       uTexture: { value: tex },
       uTexAspect: { value: 1.5 },
       uCanvasAspect: { value: 1.0 },
+      uWind: { value: 1.0 },
+      uScale: { value: [1.2, 2.0] },
     },
   });
 
-  const mesh = new Mesh(new PlaneGeometry(2, 2, 80, 60), material);
+  const mesh = new Mesh(new PlaneGeometry(2, 2, 40, 30), material);
+  mesh.scale.set(1.2, 2.0, 1);
+  mesh.rotation.z = 0.09;
   scene.add(mesh);
 
   clock = new Clock();
