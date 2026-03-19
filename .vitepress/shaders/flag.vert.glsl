@@ -28,12 +28,18 @@ float snoise(vec2 v) {
 }
 
 float displace(vec2 uv, float t) {
-  float windPhase = uv.x * 2.9 + uv.y * 0.8 - t * 1.1;
   float gust = 0.85 + 0.15 * sin(t * 0.5);
+
+  // Variable propagation speed — prevents treadmill effect
+  float tWarp = t * 1.1 + 0.3 * sin(t * 0.37) + 0.15 * sin(t * 0.83 + 2.0);
+  float windPhase = uv.x * 2.9 + uv.y * 1.06 - tWarp;
+
   float warp = snoise(vec2(uv.x * 1.2 + t * 0.1, uv.y * 0.8)) * 0.4;
+
   float big = sin(windPhase + warp) + 0.5 * sin(windPhase * 2.3 + warp + 1.0);
   float med = sin(windPhase * 3.5 + warp * 1.5) + 0.4 * sin(windPhase * 5.1 + warp * 1.5 + 2.0);
   float small = sin(windPhase * 8.0 + warp * 2.0);
+
   float texLeft = 0.5 - 1.0 / (1.8 * 2.0);
   float hoist = smoothstep(texLeft - 0.05, texLeft + 0.2, uv.x);
   return (big * 0.03 + med * 0.045 + small * 0.018) * gust * hoist;

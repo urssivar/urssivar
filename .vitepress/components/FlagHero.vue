@@ -78,7 +78,7 @@ onMounted(async () => {
       uTexture: { value: tex },
       uTexAspect: { value: 1.5 },
       uCanvasAspect: { value: 1.0 },
-      uScale: { value: [1.8, 3.0] },
+      uScale: { value: [2.8, 4.5] },
     },
   });
 
@@ -108,9 +108,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="breakout bg-transparent py-6 overflow-hidden">
-    <div ref="containerRef" class="h-60 w-full relative" />
-  </div>
+  <div ref="containerRef" class="breakout overflow-hidden h-60 sm:h-80 relative" />
 </template>
 
 <style scoped>
