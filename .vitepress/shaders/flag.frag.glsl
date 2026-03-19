@@ -20,7 +20,7 @@ void main() {
   vec3 color = tex.rgb;
 
   // Fold lighting
-  color *= clamp(0.82 + vFold * 0.18, 0.5, 1.2);
+  color *= clamp(0.95 + vFold * 0.3, 0.6, 1.35);
 
   // Fabric weave with irregular threads and skips
   float row = floor(vUV.y * 300.0);
