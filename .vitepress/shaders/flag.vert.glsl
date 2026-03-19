@@ -1,5 +1,4 @@
 uniform float uTime;
-uniform float uWind;
 varying vec2 vUV;
 varying float vFold;
 
@@ -35,9 +34,9 @@ float displace(vec2 uv, float t) {
   float big = sin(windPhase + warp) + 0.5 * sin(windPhase * 2.3 + warp + 1.0);
   float med = sin(windPhase * 3.5 + warp * 1.5) + 0.4 * sin(windPhase * 5.1 + warp * 1.5 + 2.0);
   float small = sin(windPhase * 8.0 + warp * 2.0);
-  float texLeft = 0.5 - 1.0 / (1.2 * 1.5 * 2.0);
+  float texLeft = 0.5 - 1.0 / (1.8 * 2.0);
   float hoist = smoothstep(texLeft - 0.05, texLeft + 0.2, uv.x);
-  return (big * 0.03 + med * 0.045 + small * 0.018) * gust * hoist * uWind;
+  return (big * 0.03 + med * 0.045 + small * 0.018) * gust * hoist;
 }
 
 void main() {
