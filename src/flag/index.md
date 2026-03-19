@@ -28,7 +28,7 @@ The central element from a 13th-century ruler's sarcophagus:
 ![Sarcophagus](/assets/images/flag/sarcophagus.png){.w-full .-translate-y-1/10}
 {.h-60 .bg-elevated}
 
-The main sarcophagus. Kalakoreish, Dagestan.
+The main sarcophagus. M. G. Magomedov, A. R. Shikhsaidov, 2000. _Kalakoreish (The Fortress of the Quraishites)_
 :::
 
 ## Madder Flower {#madder}

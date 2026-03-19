@@ -28,7 +28,7 @@ import FlagHero from "@/components/FlagHero.vue"
 ![Sarcophagus](/assets/images/flag/sarcophagus.png){.w-full .-translate-y-1/10}
 {.h-60 .bg-elevated}
 
-Главный саркофаг. Калакорейш, Дагестан.
+Главный саркофаг. М. Г. Магомедов, А. Р. Шихсаидов, 2000. _Калакорейш (Крепость курейшитов)_
 :::
 
 ## Цветок марены {#madder}
