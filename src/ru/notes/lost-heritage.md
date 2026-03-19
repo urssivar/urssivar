@@ -14,8 +14,7 @@ description: "Межпоколенческая утрата культурных
 
 :::img
 ![Череда трёхраздельная](/assets/images/notes/lost-heritage/bidens-tripartita.jpg)
-{.h-80}
 
-Череда трёхраздельная  
+Череда трёхраздельная
 Фото: Fornax, Wikimedia Commons, CC BY-SA 3.0
 :::

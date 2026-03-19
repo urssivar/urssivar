@@ -25,8 +25,7 @@ The central element from a 13th-century ruler's sarcophagus:
 > — M. M. Mammaev, 2014. _Art of Zirikhgeran-Kubachi of the 13th–15th Centuries and Its Place in the System of Artistic Cultures of East and West_
 
 :::img
-![Sarcophagus](/assets/images/flag/sarcophagus.png){.w-full .-translate-y-1/10}
-{.h-60 .bg-elevated}
+![Sarcophagus](/assets/images/flag/sarcophagus.png){.-translate-y-1/10}
 
 The main sarcophagus. M. G. Magomedov, A. R. Shikhsaidov, 2000. _Kalakoreish (The Fortress of the Quraishites)_
 :::
@@ -40,8 +39,7 @@ A four-petal flower of Kaitag's key dye crop:
 > — Z. I. Gasanova, F. A. Gadzhalova, 2022. _Kaitag Embroidery: from its origins to the future_
 
 :::img
-![Rose Madder](/assets/images/flag/madder.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .bg-elevated}
+![Rose Madder](/assets/images/flag/madder.png){.self-center .rotate-25 .sm:scale-75}
 
 _Rubia tinctorum._ Franz Eugen Köhler, 1887. _Köhler’s Medizinal-Pflanzen_
 :::
@@ -55,8 +53,7 @@ The traditional ground of Kaitag embroidery:
 > — Z. I. Gasanova, F. A. Gadzhalova, 2022. _Kaitag Embroidery: from its origins to the future_
 
 :::img
-![Three-lobe beggarticks](/assets/images/flag/embroidery.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .bg-elevated}
+![Three-lobe beggarticks](/assets/images/flag/embroidery.png){.self-center .rotate-25 .sm:scale-75}
 
 "Spiraling Horns." R. Chenciner, 1993. _Kaitag: Textile Art from Daghestan_
 :::
@@ -70,8 +67,7 @@ The two-tailed shape of the Caucasian War epoch:
 > — Yu. U. Dadaev, 2009. _The Naibs and Mudirs of Shamil_
 
 :::img
-![Banners](/assets/images/flag/banners.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .bg-elevated}
+![Banners](/assets/images/flag/banners.png){.self-center .rotate-25 .sm:scale-75}
 
 Banners of the mountain warriors. M. Korkmasov, G. Baliev, Z. Arukhov.
 :::

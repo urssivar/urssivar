@@ -25,8 +25,7 @@ import FlagHero from "@/components/FlagHero.vue"
 > — М. М. Маммаев, 2014. _Искусство Зирихгерана-Кубачи ХIII–XV вв. и его место в системе художественных культур Востока и Запада_
 
 :::img
-![Sarcophagus](/assets/images/flag/sarcophagus.png){.w-full .-translate-y-1/10}
-{.h-60 .bg-elevated}
+![Sarcophagus](/assets/images/flag/sarcophagus.png){.-translate-y-1/10}
 
 Главный саркофаг. М. Г. Магомедов, А. Р. Шихсаидов, 2000. _Калакорейш (Крепость курейшитов)_
 :::
@@ -40,8 +39,7 @@ import FlagHero from "@/components/FlagHero.vue"
 > — З. И. Гасанова, Ф. А. Гаджалова, 2022. _Кайтагская вышивка: от истоков в будущее_
 
 :::img
-![Rose Madder](/assets/images/flag/madder.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .bg-elevated}
+![Rose Madder](/assets/images/flag/madder.png){.self-center .rotate-25 .sm:scale-75}
 
 _Rubia tinctorum._ Франц Ойген Кёлер, 1887. _Köhler's Medizinal-Pflanzen_
 :::
@@ -55,8 +53,7 @@ _Rubia tinctorum._ Франц Ойген Кёлер, 1887. _Köhler's Medizinal-
 > — З. И. Гасанова, Ф. А. Гаджалова, 2022. _Кайтагская вышивка: от истоков в будущее_
 
 :::img
-![Three-lobe beggarticks](/assets/images/flag/embroidery.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .bg-elevated}
+![Three-lobe beggarticks](/assets/images/flag/embroidery.png){.self-center .rotate-25 .sm:scale-75}
 
 «Спиральные рога». Р. Ченсинер, 1993. _Kaitag: Textile Art from Daghestan_
 :::
@@ -70,8 +67,7 @@ _Rubia tinctorum._ Франц Ойген Кёлер, 1887. _Köhler's Medizinal-
 > — Ю. У. Дадаев, 2009. _Наибы и мудиры Шамиля_
 
 :::img
-![Banners](/assets/images/flag/banners.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .bg-elevated}
+![Banners](/assets/images/flag/banners.png){.self-center .rotate-25 .sm:scale-75}
 
 Знамёна горских воинов. М. Коркмасов, Г. Балиев, З. Арухов.
 :::

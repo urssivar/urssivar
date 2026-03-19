@@ -14,8 +14,7 @@ Now the village is gone, and no one left to ask, like, what was our name for tha
 
 :::img
 ![Three-lobe beggarticks](/assets/images/notes/lost-heritage/bidens-tripartita.jpg)
-{.h-80}
 
-Three-lobe beggarticks  
+Three-lobe beggarticks
 Photo: Fornax, Wikimedia Commons, CC BY-SA 3.0
 :::

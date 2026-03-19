@@ -44,20 +44,20 @@
       @apply text-nowrap;
     }
 
-    /* Image variant: no background, full-width with caption */
+    /* Image variant: full-width with caption */
     &.img {
       @apply bg-transparent p-0;
 
-      > :nth-child(1) {
-        @apply m-0 overflow-hidden;
+      > :first-child {
+        @apply bg-elevated m-0 h-60 sm:h-80 overflow-hidden flex items-start justify-center;
 
         > img {
-          @apply object-cover object-center;
+          @apply w-full;
         }
       }
 
-      > :nth-child(2) {
-        @apply mt-3 mx-16 text-center text-xs text-toned;
+      > :first-child + p {
+        @apply mt-3 px-6 sm:px-12 md:px-16 text-center text-xs text-toned;
       }
     }
   }
