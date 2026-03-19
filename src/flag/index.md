@@ -14,7 +14,7 @@ Above and to the right — a white four-leaf [madder flower](#madder), once abun
 
 [Deep blue](#blue) — the traditional ground of Kaitag embroidery.
 
-Proportions 2:3 ([swallowtail](#swallowtail) 1:2). Color #0047AB / PMS 300 C. [Spec & files](https://github.com/urssivar/flag).
+Proportions 2:3 ([swallowtail](#swallowtail) 1:2). Color #0047AB / PMS 300 C.
 
 ## Monogram {#monogram}
 
@@ -82,9 +82,9 @@ The two-tailed form recalls the banner tradition of the Caucasian War.
 >
 > — Yu. U. Dadaev, 2009. _The Naibs and Mudirs of Shamil_
 
---- {.my-20}
+## [Spec & files](https://github.com/urssivar/flag)
 
-<div class="flex flex-col sm:flex-row gap-4 justify-around">
+<div class="flex flex-col sm:flex-row gap-4 justify-around my-6">
 
 ![Flag 2:3](/assets/images/flag/flag.png)
 [Flag 2:3](/assets/images/flag/flag.png)
@@ -95,3 +95,4 @@ The two-tailed form recalls the banner tradition of the Caucasian War.
 {.items-center .m-0 .flex .flex-col .gap-2}
 
 </div>
+

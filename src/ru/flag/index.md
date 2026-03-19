@@ -14,7 +14,7 @@ import FlagHero from "@/components/FlagHero.vue"
 
 [Глубокий синий](#blue) — традиционный фон кайтагской вышивки.
 
-Пропорции 2:3 ([ласточкин хвост](#swallowtail) 1:2). Цвет #0047AB / PMS 300 C. [Спецификация и файлы](https://github.com/urssivar/flag).
+Пропорции 2:3 ([ласточкин хвост](#swallowtail) 1:2). Цвет #0047AB / PMS 300 C.
 
 ## Монограмма {#monogram}
 
@@ -82,9 +82,9 @@ _Rubia tinctorum._ Франц Ойген Кёлер, 1887. _Köhler's Medizinal-
 >
 > — Ю. У. Дадаев, 2009. _Наибы и мудиры Шамиля_
 
---- {.my-20}
+## [Спецификация и файлы](https://github.com/urssivar/flag)
 
-<div class="flex flex-col sm:flex-row gap-4 justify-around">
+<div class="flex flex-col sm:flex-row gap-4 justify-around my-6">
 
 ![Флаг 2:3](/assets/images/flag/flag.png)
 [Флаг 2:3](/assets/images/flag/flag.png)
