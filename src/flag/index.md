@@ -76,7 +76,7 @@ The two-tailed shape of the Caucasian War epoch:
 Banners of the mountain warriors. M. Korkmasov, G. Baliev, Z. Arukhov.
 :::
 
-## [Spec & files](https://github.com/urssivar/flag)
+## [Spec & Files](https://github.com/urssivar/flag)
 
 <div class="flex flex-col sm:flex-row gap-4 justify-around my-6">
 
