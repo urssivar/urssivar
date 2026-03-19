@@ -86,7 +86,7 @@ onMounted(async () => {
 
   const mesh = new Mesh(new PlaneGeometry(2, 2, 40, 30), material);
   mesh.scale.set(1.2, 2.0, 1);
-  mesh.rotation.z = 0.09;
+  mesh.rotation.z = 0.0;
   scene.add(mesh);
 
   clock = new Clock();

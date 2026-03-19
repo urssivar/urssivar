@@ -8,6 +8,10 @@ uniform vec2 uScale;
 
 void main() {
   vec2 c = (vUV - 0.5) * uScale * 1.5;
+  // Looking up perspective — top narrows, bottom widens
+  float perspective = 0.15;
+  float yNorm = c.y + 0.5;
+  c.x *= 1.0 + perspective * (yNorm - 0.5);
   float rel = uTexAspect / uCanvasAspect;
   if (rel > 1.0) { c.y *= rel; } else { c.x /= rel; }
   vec2 texUV = c + 0.5;
