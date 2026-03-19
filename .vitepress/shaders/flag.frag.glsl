@@ -1,4 +1,4 @@
-precision mediump float;
+precision highp float;
 varying vec2 vUV;
 varying float vFold;
 uniform sampler2D uTexture;
@@ -7,13 +7,15 @@ uniform float uCanvasAspect;
 uniform vec2 uScale;
 
 void main() {
-  vec2 c = (vUV - 0.5) * uScale * 1.5;
+  // Scale UVs — adapt zoom to canvas aspect so texture stays visible on mobile
+  float rel = uTexAspect / uCanvasAspect;
+  float zoom = 1.5 / max(rel, 1.0);
+  vec2 c = (vUV - 0.5) * uScale * zoom;
+  if (rel > 1.0) { c.y *= rel; } else { c.x /= rel; }
   // Looking up perspective — top narrows, bottom widens
   float perspective = 0.15;
   float yNorm = c.y + 0.5;
   c.x *= 1.0 + perspective * (yNorm - 0.5);
-  float rel = uTexAspect / uCanvasAspect;
-  if (rel > 1.0) { c.y *= rel; } else { c.x /= rel; }
   vec2 texUV = c + 0.5;
 
   if (texUV.x < -0.01 || texUV.x > 1.01 || texUV.y < -0.01 || texUV.y > 1.01) discard;
