@@ -55,7 +55,7 @@ void main() {
   vec3 pos = position;
   pos.y += d;
   pos.x *= 1.2;
-  pos.y *= 1.4;
+  pos.y *= 1.6;
 
   float a = 0.09;
   vec2 r = vec2(pos.x * cos(a) - pos.y * sin(a), pos.x * sin(a) + pos.y * cos(a));
