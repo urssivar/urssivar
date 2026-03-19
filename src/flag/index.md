@@ -65,7 +65,7 @@ Dark blue is the traditional ground of Kaitag embroidery, documented by ethnogra
 
 > The term "Kaitag embroidery" was introduced into scholarly use by the prominent ethnographer and Caucasus specialist E. M. Shilling. [...] he wrote of the "cottage production" of "cushion embroideries" among the Kaitags: "The cushion embroideries are large rectangular pieces of homespun fabric (of linen, hemp, or cotton), dyed dark blue and embroidered in large satin stitch."
 >
-> — Z. I. Gasanova, F. A. Gadzhalieva, 2022. _Kaitag Embroidery: from its origins to the future_
+> — Z. I. Gasanova, F. A. Gadzhalova, 2022. _Kaitag Embroidery: from its origins to the future_
 
 ## Swallowtail {#swallowtail}
 
