@@ -26,7 +26,7 @@ import FlagHero from "@/components/FlagHero.vue"
 
 :::img
 ![Sarcophagus](/assets/images/flag/sarcophagus.png){.w-full .-translate-y-1/10}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 Главный саркофаг. Калакорейш, Дагестан.
 :::
@@ -41,14 +41,14 @@ import FlagHero from "@/components/FlagHero.vue"
 
 :::img
 ![Rose Madder](/assets/images/flag/madder.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 _Rubia tinctorum._ Франц Ойген Кёлер, 1887. _Köhler's Medizinal-Pflanzen_
 :::
 
 ## Глубокий синий {#blue}
 
-Глубокий синий — канонический фон кайтагской вышивки, зафиксированный этнографом Е. М. Шиллингом.
+Цвет полотнища — традиционный фон кайтагской вышивки.
 
 > Термин «Кайтагская вышивка» в научный оборот ввел известный этнограф-кавказовед Е. М. Шиллинг. [...] он писал о «кустарном производстве» «подушечных вышивок» у кайтагцев: «Подушечные вышивки представляют собой большие прямоугольные куски домотканой материи (из льна, конопли или хлопка), крашенные в темно-синий цвет и вышитые крупной гладью».
 >
@@ -56,14 +56,14 @@ _Rubia tinctorum._ Франц Ойген Кёлер, 1887. _Köhler's Medizinal-
 
 :::img
 ![Three-lobe beggarticks](/assets/images/flag/embroidery.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 «Спиральные рога». Р. Ченсинер, 1993. _Kaitag: Textile Art from Daghestan_
 :::
 
 ## Ласточкин хвост {#swallowtail}
 
-Двухконцевые знамёна были распространены в Кавказскую войну — среди них знамя Эльдар-Бека Кара-Кайтагского, захваченное под Дербентом в 1831 году.
+Форма «ласточкин хвост» восходит к двухконцевым знамёнам Кавказской войны.
 
 > №3. Знамя Эльдар-Бека Кара-Кайтагского. Белое, двухконцевое, без надписи. Отбито в бою 24 августа 1831 г. Бой происходил на мусульманском кладбище близ Дербента, где знамя развевалось на одном из передовых склепов.
 >
@@ -71,7 +71,7 @@ _Rubia tinctorum._ Франц Ойген Кёлер, 1887. _Köhler's Medizinal-
 
 :::img
 ![Banners](/assets/images/flag/banners.png){.rotate-25 .sm:scale-75 .-translate-y-1/4 .sm:-translate-y-1/3}
-{.h-60 .sm:h-80 .bg-elevated}
+{.h-60 .bg-elevated}
 
 Знамёна горских воинов. М. Коркмасов, Г. Балиев, З. Арухов.
 :::

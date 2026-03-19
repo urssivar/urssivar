@@ -48,7 +48,7 @@ _Rubia tinctorum._ Franz Eugen Köhler, 1887. _Köhler’s Medizinal-Pflanzen_
 
 ## Deep Blue {#blue}
 
-Deep blue is the canonical ground of Kaitag embroidery, documented by ethnographer E. M. Shilling.
+The field color is the traditional ground of Kaitag embroidery.
 
 > The term "Kaitag embroidery" was introduced into scholarly use by the prominent ethnographer and Caucasus specialist E. M. Shilling. [...] he wrote of the "cottage production" of "cushion embroideries" among the Kaitags: "The cushion embroideries are large rectangular pieces of homespun fabric (of linen, hemp, or cotton), dyed dark blue and embroidered in large satin stitch."
 >
@@ -63,7 +63,7 @@ Deep blue is the canonical ground of Kaitag embroidery, documented by ethnograph
 
 ## Swallowtail {#swallowtail}
 
-Two-tailed banners were common during the Caucasian War — among them the flag of Eldar-Bek of Kara-Kaitag, captured near Derbent in 1831.
+The swallowtail shape draws on the two-tailed banners of the Caucasian War.
 
 > No. 3. Banner of Eldar-Bek of Kara-Kaitag. White, two-tailed, without inscription. Captured in battle on August 24, 1831. The battle took place at a Muslim cemetery near Derbent, where the banner flew atop one of the forward tombs.
 >
