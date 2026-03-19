@@ -18,7 +18,7 @@ Proportions 2:3 ([swallowtail](#swallowtail) 1:2). Color #0047AB / PMS 300 C.
 
 ## Monogram {#monogram}
 
-A stylized Kufic monogram drawn from a 13th-century sarcophagus of a ruler of Kaitag — one of the earliest known monuments of Kaitag statehood.
+The central element from a 13th-century ruler's sarcophagus:
 
 > On the end face of the sarcophagus, shaped as a pointed arch, a multi-figured relief composition is carved: on either side of a highly stylized tree stand two lions. [...] The top of the tree is crowned by a medallion figure with a pointed tip and a scalloped inner edge. Enclosed within the medallion is a relief sign in the form of a monogram, likewise inspired by Arabic letters.
 >
@@ -33,7 +33,7 @@ The main sarcophagus. Kalakoreish, Dagestan.
 
 ## Madder Flower {#madder}
 
-A four-petal madder flower (_Rubia tinctorum_), a key dye crop of Kaitag, positioned upper-right to balance the monogram’s asymmetry.
+A four-petal flower of Kaitag's key dye crop:
 
 > Madder grew in abundance in Kaitag: many had whole plantations of it, from which they earned more income than from growing wheat. Other dye plants also grew here and were used as colorants for silk threads. All these factors contributed to Kaitag becoming the center of Kaitag embroidery production.
 >
@@ -48,7 +48,7 @@ _Rubia tinctorum._ Franz Eugen Köhler, 1887. _Köhler’s Medizinal-Pflanzen_
 
 ## Deep Blue {#blue}
 
-The field color is the traditional ground of Kaitag embroidery.
+The traditional ground of Kaitag embroidery:
 
 > The term "Kaitag embroidery" was introduced into scholarly use by the prominent ethnographer and Caucasus specialist E. M. Shilling. [...] he wrote of the "cottage production" of "cushion embroideries" among the Kaitags: "The cushion embroideries are large rectangular pieces of homespun fabric (of linen, hemp, or cotton), dyed dark blue and embroidered in large satin stitch."
 >
@@ -63,7 +63,7 @@ The field color is the traditional ground of Kaitag embroidery.
 
 ## Swallowtail {#swallowtail}
 
-The swallowtail shape draws on the two-tailed banners of the Caucasian War.
+The two-tailed banners of the Caucasian War:
 
 > No. 3. Banner of Eldar-Bek of Kara-Kaitag. White, two-tailed, without inscription. Captured in battle on August 24, 1831. The battle took place at a Muslim cemetery near Derbent, where the banner flew atop one of the forward tombs.
 >
