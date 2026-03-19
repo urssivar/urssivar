@@ -12,6 +12,7 @@
     "@vue-leaflet/vue-leaflet": "^0.10.1",
     "d3": "^7.9.0",
     "leaflet": "^1.9.4",
+    "three": "^0.183.2",
     "vue": "^3.5.18"
   },
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@types/d3": "^7.4.3",
     "@types/leaflet": "^1.9.20",
     "@types/node": "^24.7.2",
+    "@types/three": "^0.183.1",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-mark": "^4.0.0",
     "markdown-it-multimd-table": "^4.2.3",
