@@ -63,7 +63,7 @@ The traditional ground of Kaitag embroidery:
 
 ## Swallowtail {#swallowtail}
 
-The two-tailed banners of the Caucasian War:
+The two-tailed shape of the Caucasian War epoch:
 
 > No. 3. Banner of Eldar-Bek of Kara-Kaitag. White, two-tailed, without inscription. Captured in battle on August 24, 1831. The battle took place at a Muslim cemetery near Derbent, where the banner flew atop one of the forward tombs.
 >
