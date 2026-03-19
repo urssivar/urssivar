@@ -106,7 +106,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="containerRef" class="breakout bg-transparent p-0 relative h-60 sm:h-60 overflow-hidden">
+  <div
+    ref="containerRef"
+    class="breakout bg-transparent p-0 relative h-60 overflow-hidden"
+  >
     <div v-if="!ready" class="absolute inset-0" />
   </div>
 </template>
@@ -115,6 +118,17 @@ onUnmounted(() => {
 :deep(canvas) {
   animation: fadeIn 500ms ease-out forwards;
 }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@media print { :deep(canvas) { display: none; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media print {
+  :deep(canvas) {
+    display: none;
+  }
+}
 </style>
