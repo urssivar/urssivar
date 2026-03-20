@@ -48,8 +48,8 @@ void main() {
 
   // Pole — behind flag
   if (pole > 0.01 && a < 0.5) {
-    float side = clamp((texUV.x - poleX + w) / (2.0 * w), 0.0, 1.0);
-    color = vec3(0.28, 0.28, 0.30) * (0.75 + 0.25 * side);
+    float grad = clamp((texUV.x - poleX + w) / (2.0 * w), 0.0, 1.0);
+    color = vec3(0.42, 0.40, 0.38) * (0.75 + 0.25 * grad);
   }
 
   gl_FragColor = vec4(color, totalAlpha);
