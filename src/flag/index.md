@@ -4,7 +4,7 @@ import FlagHero from "@/components/FlagHero.vue"
 
 # Kaitag Flag
 
-The flag of the **Kaitag** people (**Хайдаҡӏла**) is a blue field with a white seal at its center.
+The flag of the **Kaitag** (**Хайдаҡӏла**) is a blue field with a white seal at its center.
 
 <FlagHero texture="/assets/images/flag/texture.png" />
 
