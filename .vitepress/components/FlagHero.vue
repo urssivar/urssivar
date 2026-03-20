@@ -10,6 +10,7 @@ import {
   TextureLoader,
   LinearMipMapLinearFilter,
   LinearFilter,
+  Vector2,
 } from "three";
 import vertexShader from "@/shaders/flag.vert.glsl?raw";
 import fragmentShader from "@/shaders/flag.frag.glsl?raw";
@@ -33,7 +34,10 @@ function render() {
   if (!renderer || !material || !scene || !camera || paused) return;
   material.uniforms.uTime.value = (performance.now() - startTime) / 1000;
   renderer.render(scene, camera);
-  if (!reducedMotion) animationId = requestAnimationFrame(render);
+  if (!reducedMotion) {
+    cancelAnimationFrame(animationId);
+    animationId = requestAnimationFrame(render);
+  }
 }
 
 function handleResize() {
@@ -42,6 +46,19 @@ function handleResize() {
   if (w === 0 || h === 0) return;
   renderer.setSize(w, h);
   material.uniforms.uCanvasAspect.value = w / h;
+  if (reducedMotion) render();
+}
+
+function onContextLost(e: Event) {
+  e.preventDefault();
+  cancelAnimationFrame(animationId);
+  paused = true;
+}
+
+function onContextRestored() {
+  paused = false;
+  startTime = performance.now();
+  render();
 }
 
 function onVisibilityChange() {
@@ -64,9 +81,16 @@ onMounted(async () => {
   containerRef.value.appendChild(renderer.domElement);
   renderer.domElement.classList.add("absolute", "inset-0", "w-full", "h-full");
 
-  const tex = new TextureLoader().load(props.texture, (t) => {
-    material!.uniforms.uTexAspect.value = t.image.width / t.image.height;
-  });
+  const tex = new TextureLoader().load(
+    props.texture,
+    (t) => {
+      material!.uniforms.uTexAspect.value = t.image.width / t.image.height;
+    },
+    undefined,
+    () => {
+      if (renderer) renderer.domElement.style.display = "none";
+    },
+  );
   tex.minFilter = LinearMipMapLinearFilter;
   tex.magFilter = LinearFilter;
   tex.generateMipmaps = true;
@@ -78,13 +102,13 @@ onMounted(async () => {
     uniforms: {
       uTime: { value: 0 },
       uTexture: { value: tex },
-      uTexAspect: { value: 1.5 },
+      uTexAspect: { value: 2.0 },
       uCanvasAspect: { value: 1.0 },
-      uScale: { value: [2.8, 4.5] },
+      uScale: { value: new Vector2(2.8, 4.5) },
     },
   });
 
-  geometry = new PlaneGeometry(2, 2, 60, 60);
+  geometry = new PlaneGeometry(2, 2, 50, 50);
   const mesh = new Mesh(geometry, material);
   mesh.scale.set(1.2, 2.0, 1);
   scene!.add(mesh);
@@ -96,12 +120,16 @@ onMounted(async () => {
   resizeObserver = new ResizeObserver(handleResize);
   resizeObserver.observe(containerRef.value);
   document.addEventListener("visibilitychange", onVisibilityChange);
+  renderer.domElement.addEventListener("webglcontextlost", onContextLost);
+  renderer.domElement.addEventListener("webglcontextrestored", onContextRestored);
 });
 
 onUnmounted(() => {
   cancelAnimationFrame(animationId);
   resizeObserver?.disconnect();
   document.removeEventListener("visibilitychange", onVisibilityChange);
+  renderer?.domElement.removeEventListener("webglcontextlost", onContextLost);
+  renderer?.domElement.removeEventListener("webglcontextrestored", onContextRestored);
   material?.uniforms.uTexture.value?.dispose();
   renderer?.dispose();
   material?.dispose();
