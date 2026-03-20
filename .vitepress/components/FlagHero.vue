@@ -24,14 +24,13 @@ let resizeObserver: ResizeObserver | null = null;
 let startTime = 0;
 let material: ShaderMaterial | null = null;
 let geometry: PlaneGeometry | null = null;
+let scene: Scene | null = null;
+let camera: OrthographicCamera | null = null;
 let reducedMotion = false;
 let paused = false;
 
-const scene = new Scene();
-const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
-
 function render() {
-  if (!renderer || !material || paused) return;
+  if (!renderer || !material || !scene || !camera || paused) return;
   material.uniforms.uTime.value = (performance.now() - startTime) / 1000;
   renderer.render(scene, camera);
   if (!reducedMotion) animationId = requestAnimationFrame(render);
@@ -55,6 +54,9 @@ onMounted(async () => {
   if (!containerRef.value) return;
 
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  scene = new Scene();
+  camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
 
   renderer = new WebGLRenderer({ antialias: false, alpha: true });
   renderer.setClearColor(0x000000, 0);
@@ -85,7 +87,7 @@ onMounted(async () => {
   geometry = new PlaneGeometry(2, 2, 60, 60);
   const mesh = new Mesh(geometry, material);
   mesh.scale.set(1.2, 2.0, 1);
-  scene.add(mesh);
+  scene!.add(mesh);
 
   startTime = performance.now();
   handleResize();
@@ -100,10 +102,15 @@ onUnmounted(() => {
   cancelAnimationFrame(animationId);
   resizeObserver?.disconnect();
   document.removeEventListener("visibilitychange", onVisibilityChange);
+  material?.uniforms.uTexture.value?.dispose();
   renderer?.dispose();
   material?.dispose();
   geometry?.dispose();
   renderer = null;
+  material = null;
+  geometry = null;
+  scene = null;
+  camera = null;
 });
 </script>
 
