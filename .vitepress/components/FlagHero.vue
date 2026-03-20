@@ -56,7 +56,7 @@ onMounted(async () => {
 
   reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  renderer = new WebGLRenderer({ antialias: true, alpha: true });
+  renderer = new WebGLRenderer({ antialias: false, alpha: true });
   renderer.setClearColor(0x000000, 0);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   containerRef.value.appendChild(renderer.domElement);
@@ -82,7 +82,7 @@ onMounted(async () => {
     },
   });
 
-  geometry = new PlaneGeometry(2, 2, 40, 30);
+  geometry = new PlaneGeometry(2, 2, 60, 60);
   const mesh = new Mesh(geometry, material);
   mesh.scale.set(1.2, 2.0, 1);
   scene.add(mesh);

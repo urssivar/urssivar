@@ -27,31 +27,33 @@ float snoise(vec2 v) {
   return 130.0 * dot(m, g);
 }
 
-float displace(vec2 uv, float t) {
-  float gust = 0.85 + 0.15 * sin(t * 0.5);
+void main() {
+  vUV = uv;
+  float t = uTime;
 
-  // Variable propagation speed — prevents treadmill effect
+  float gust = 0.85 + 0.15 * sin(t * 0.5);
   float tWarp = t * 1.1 + 0.3 * sin(t * 0.37) + 0.15 * sin(t * 0.83 + 2.0);
   float windPhase = uv.x * 2.9 + uv.y * 1.06 - tWarp;
-
   float warp = snoise(vec2(uv.x * 1.2 + t * 0.1, uv.y * 0.8)) * 0.4;
 
   float big = sin(windPhase + warp) + 0.5 * sin(windPhase * 2.3 + warp + 1.0);
   float med = sin(windPhase * 3.5 + warp * 1.5) + 0.4 * sin(windPhase * 5.1 + warp * 1.5 + 2.0);
   float small = sin(windPhase * 8.0 + warp * 2.0);
 
-  float texLeft = 0.5 - 1.0 / (1.8 * 2.0);
-  float hoist = smoothstep(texLeft - 0.05, texLeft + 0.2, uv.x);
-  return (big * 0.03 + med * 0.045 + small * 0.018) * gust * hoist;
-}
+  float hoist = smoothstep(0.321, 0.471, uv.x);
 
-void main() {
-  vUV = uv;
-  float t = uTime;
-  float d = displace(uv, t);
-  float eps = 0.015;
-  vFold = (displace(uv + vec2(eps, 0.0), t) - displace(uv - vec2(eps, 0.0), t)) / (2.0 * eps);
+  float d = (big * 0.03 + med * 0.045 + small * 0.018) * gust * hoist;
+
+  // Analytical fold derivative (pre-computed coefficients, 2.5x for shimmer)
+  vFold = (cos(windPhase + warp) * 0.2175        // 2.9 * 0.03 * 2.5
+         + cos(windPhase * 2.3 + warp + 1.0) * 0.08625  // 2.3 * 0.5 * 0.03 * 2.5
+         + cos(windPhase * 3.5 + warp * 1.5) * 0.39375  // 3.5 * 0.045 * 2.5
+         + cos(windPhase * 5.1 + warp * 1.5 + 2.0) * 0.2295  // 5.1 * 0.4 * 0.045 * 2.5
+         + cos(windPhase * 8.0 + warp * 2.0) * 0.36     // 8.0 * 0.018 * 2.5
+         ) * gust * hoist;
+
   vec3 pos = position;
   pos.y += d;
+
   gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
 }
