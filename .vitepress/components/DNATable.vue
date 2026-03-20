@@ -14,7 +14,9 @@ function getYfullLink(k: (typeof kits)[0]) {
 <template>
   <ol class="my-4">
     <li v-for="k in kits" :key="k.id" :id="k.id">
-      <p class="flex flex-col sm:flex-row gap-1 sm:gap-2 sm:items-center">
+      <p
+        class="flex flex-col sm:flex-row my-2 gap-0.5 sm:gap-2.5 sm:items-center"
+      >
         {{ k.village && k.region ? `${k.village}, ${k.region}` : "???" }}
         <a :href="getYfullLink(k)" class="-translate-y-px">
           <UButton variant="soft" size="xs">
