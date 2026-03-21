@@ -42,7 +42,7 @@ void main() {
   if (totalAlpha < 0.001) discard;
 
   vec3 color = tex.rgb;
-  color *= clamp(0.95 + vFold * 0.3, 0.6, 1.35);
+  color *= clamp(0.95 - vFold * 0.3, 0.6, 1.35);
   color *= 0.85 + 0.15 * smoothstep(0.0, 0.025, texUV.x); // wrap shadow
   color *= 1.0 + (fract(sin(dot(floor(vUV * 200.0), vec2(127.1, 311.7))) * 43758.5453) - 0.5) * 0.03; // grain
 

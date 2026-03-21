@@ -31,8 +31,8 @@ void main() {
   vUV = uv;
   float t = uTime;
 
-  float gust = 0.93 + 0.07 * sin(t * 0.5);
-  float tWarp = t * 1.1 + 0.3 * sin(t * 0.37) + 0.15 * sin(t * 0.83 + 2.0);
+  float gust = 0.95 + 0.05 * sin(t * 0.41);
+  float tWarp = t * 1.1 + 0.12 * sin(t * 0.31) + 0.08 * sin(t * 0.97 + 2.0);
   float windPhase = uv.x * 2.9 + uv.y * 1.06 - tWarp;
   float warp = snoise(vec2(uv.x * 1.2 + t * 0.1, uv.y * 0.8)) * 0.4;
 
