@@ -42,17 +42,17 @@ void main() {
 
   // Hoist threshold follows pole's UV-space position across perspective skew
   // Pole at uv.x ≈ 0.288 (bottom) to 0.378 (top), i.e. 0.333 + 0.09*(uv.y-0.5)
-  float hoistEdge = 0.355 + 0.09 * (uv.y - 0.5);
+  float hoistEdge = 0.3525 + 0.09 * (uv.y - 0.5);
   float hoist = smoothstep(hoistEdge, hoistEdge + 0.13, uv.x);
 
-  float d = (big * 0.03 + med * 0.045 + small * 0.018) * gust * hoist;
+  float d = (big * 0.015 + med * 0.05 + small * 0.03) * gust * hoist;
 
   // Analytical fold derivative (pre-computed coefficients, 2.5x for shimmer)
-  vFold = (cos(windPhase + warp) * 0.2175        // 2.9 * 0.03 * 2.5
-         + cos(windPhase * 2.3 + warp + 1.0) * 0.08625  // 2.3 * 0.5 * 0.03 * 2.5
-         + cos(windPhase * 3.5 + warp * 1.5) * 0.39375  // 3.5 * 0.045 * 2.5
-         + cos(windPhase * 5.1 + warp * 1.5 + 2.0) * 0.2295  // 5.1 * 0.4 * 0.045 * 2.5
-         + cos(windPhase * 8.0 + warp * 2.0) * 0.36     // 8.0 * 0.018 * 2.5
+  vFold = (cos(windPhase + warp) * 0.10875       // 2.9 * 0.015 * 2.5
+         + cos(windPhase * 2.3 + warp + 1.0) * 0.043125 // 2.3 * 0.5 * 0.015 * 2.5
+         + cos(windPhase * 3.5 + warp * 1.5) * 0.4375   // 3.5 * 0.05 * 2.5
+         + cos(windPhase * 5.1 + warp * 1.5 + 2.0) * 0.255 // 5.1 * 0.4 * 0.05 * 2.5
+         + cos(windPhase * 8.0 + warp * 2.0) * 0.6      // 8.0 * 0.03 * 2.5
          ) * gust * hoist;
 
   vec3 pos = position;
