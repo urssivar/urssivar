@@ -40,7 +40,10 @@ void main() {
   float med = sin(windPhase * 3.5 + warp * 1.5) + 0.4 * sin(windPhase * 5.1 + warp * 1.5 + 2.0);
   float small = sin(windPhase * 8.0 + warp * 2.0);
 
-  float hoist = smoothstep(0.321, 0.471, uv.x);
+  // Hoist threshold follows pole's UV-space position across perspective skew
+  // Pole at uv.x ≈ 0.288 (bottom) to 0.378 (top), i.e. 0.333 + 0.09*(uv.y-0.5)
+  float hoistEdge = 0.355 + 0.09 * (uv.y - 0.5);
+  float hoist = smoothstep(hoistEdge, hoistEdge + 0.13, uv.x);
 
   float d = (big * 0.03 + med * 0.045 + small * 0.018) * gust * hoist;
 

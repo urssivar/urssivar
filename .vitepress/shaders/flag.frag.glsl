@@ -11,12 +11,12 @@ void main() {
   float rel = uTexAspect / uCanvasAspect;
   if (rel > 1.0) { c.y *= rel; } else { c.x /= rel; }
   c.x *= 1.0 + 0.12 * c.y; // perspective — top narrows
-  vec2 texUV = c + 0.5;
+  vec2 texUV = c + 0.45;
 
   // Unified pole + finial
-  float poleX = 0.012;
+  float poleX = 0.016;
   float poleDist = abs(texUV.x - poleX);
-  float baseWidth = 0.0096;
+  float baseWidth = 0.013;
 
   float finialCenter = 1.16;
   float finialHalf = 0.115;
