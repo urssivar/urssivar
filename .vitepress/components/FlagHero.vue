@@ -41,11 +41,25 @@ function render() {
 }
 
 function handleResize() {
-  if (!renderer || !containerRef.value || !material) return;
+  if (!renderer || !containerRef.value || !material || !camera) return;
   const { clientWidth: w, clientHeight: h } = containerRef.value;
   if (w === 0 || h === 0) return;
   renderer.setSize(w, h);
-  material.uniforms.uCanvasAspect.value = w / h;
+  const aspect = w / h;
+  // Keep horizontal fixed, crop vertical
+  const refAspect = 2.0;
+  if (aspect > refAspect) {
+    camera.left = -aspect / refAspect;
+    camera.right = aspect / refAspect;
+    camera.top = 1;
+    camera.bottom = -1;
+  } else {
+    camera.left = -1;
+    camera.right = 1;
+    camera.top = refAspect / aspect;
+    camera.bottom = -refAspect / aspect;
+  }
+  camera.updateProjectionMatrix();
   if (reducedMotion) render();
 }
 
@@ -83,9 +97,7 @@ onMounted(async () => {
 
   const tex = new TextureLoader().load(
     props.texture,
-    (t) => {
-      material!.uniforms.uTexAspect.value = t.image.width / t.image.height;
-    },
+    undefined,
     undefined,
     () => {
       if (renderer) renderer.domElement.style.display = "none";
@@ -102,15 +114,13 @@ onMounted(async () => {
     uniforms: {
       uTime: { value: 0 },
       uTexture: { value: tex },
-      uTexAspect: { value: 2.0 },
-      uCanvasAspect: { value: 1.0 },
-      uScale: { value: new Vector2(2.8, 4.5) },
+      uScale: { value: new Vector2(3.1, 5.0) },
     },
   });
 
-  geometry = new PlaneGeometry(2, 2, 50, 50);
+  geometry = new PlaneGeometry(2, 2, 60, 60);
   const mesh = new Mesh(geometry, material);
-  mesh.scale.set(1.2, 2.0, 1);
+  mesh.scale.set(1.4, 2.0, 1);
   scene!.add(mesh);
 
   startTime = performance.now();

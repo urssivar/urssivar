@@ -1,4 +1,5 @@
 uniform float uTime;
+uniform vec2 uScale;
 varying vec2 vUV;
 varying float vFold;
 
@@ -31,28 +32,31 @@ void main() {
   vUV = uv;
   float t = uTime;
 
-  float gust = 0.95 + 0.05 * sin(t * 0.41);
+  float gust = 0.97 + 0.03 * sin(t * 0.41);
   float tWarp = t * 1.1 + 0.12 * sin(t * 0.31) + 0.08 * sin(t * 0.97 + 2.0);
   float windPhase = uv.x * 2.9 + uv.y * 1.06 - tWarp;
   float warp = snoise(vec2(uv.x * 1.2 + t * 0.1, uv.y * 0.8)) * 0.4;
 
-  float big = sin(windPhase + warp) + 0.5 * sin(windPhase * 2.3 + warp + 1.0);
-  float med = sin(windPhase * 3.5 + warp * 1.5) + 0.4 * sin(windPhase * 5.1 + warp * 1.5 + 2.0);
-  float small = sin(windPhase * 8.0 + warp * 2.0);
+  float big = sin(windPhase + warp) + 0.5 * sin(windPhase * 2.7 + warp + 1.0);
+  float med = sin(windPhase * 4.5 + warp * 1.5) + 0.4 * sin(windPhase * 6.8 + warp * 1.5 + 2.0);
+  float small = sin(windPhase * 11.0 + warp * 2.0);
 
-  // Hoist threshold follows pole's UV-space position across perspective skew
-  // Pole at uv.x ≈ 0.288 (bottom) to 0.378 (top), i.e. 0.333 + 0.09*(uv.y-0.5)
-  float hoistEdge = 0.3525 + 0.09 * (uv.y - 0.5);
-  float hoist = smoothstep(hoistEdge, hoistEdge + 0.13, uv.x);
+  // Compute hoist edge by inverse-mapping poleX (0.018) from texUV back to uv.x
+  // Matches fragment shader: c = (uv-0.5)*uScale, c.x *= perspective
+  float cy = (uv.y - 0.5) * uScale.y;
+  float persp = 1.0 + 0.12 * cy;
+  float hoistEdge = (0.018 - 0.45) / (uScale.x * persp) + 0.5;
+  // Sharp at pole, gradual ramp to full amplitude
+  float hoist = smoothstep(hoistEdge - 0.005, hoistEdge + 0.13, uv.x);
 
-  float d = (big * 0.015 + med * 0.05 + small * 0.03) * gust * hoist;
+  float d = (big * 0.008 + med * 0.03 + small * 0.03) * gust * hoist;
 
-  // Analytical fold derivative (pre-computed coefficients, 2.5x for shimmer)
-  vFold = (cos(windPhase + warp) * 0.10875       // 2.9 * 0.015 * 2.5
-         + cos(windPhase * 2.3 + warp + 1.0) * 0.043125 // 2.3 * 0.5 * 0.015 * 2.5
-         + cos(windPhase * 3.5 + warp * 1.5) * 0.4375   // 3.5 * 0.05 * 2.5
-         + cos(windPhase * 5.1 + warp * 1.5 + 2.0) * 0.255 // 5.1 * 0.4 * 0.05 * 2.5
-         + cos(windPhase * 8.0 + warp * 2.0) * 0.6      // 8.0 * 0.03 * 2.5
+  // Analytical fold derivative (freq * amp * 2.5 shimmer)
+  vFold = (cos(windPhase + warp) * 0.058           // 2.9 * 0.008 * 2.5
+         + cos(windPhase * 2.7 + warp + 1.0) * 0.027  // 2.7 * 0.5 * 0.008 * 2.5
+         + cos(windPhase * 4.5 + warp * 1.5) * 0.3375 // 4.5 * 0.03 * 2.5
+         + cos(windPhase * 6.8 + warp * 1.5 + 2.0) * 0.204 // 6.8 * 0.4 * 0.03 * 2.5
+         + cos(windPhase * 11.0 + warp * 2.0) * 0.825 // 11.0 * 0.03 * 2.5
          ) * gust * hoist;
 
   vec3 pos = position;

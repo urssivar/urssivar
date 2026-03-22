@@ -2,29 +2,25 @@ precision highp float;
 varying vec2 vUV;
 varying float vFold;
 uniform sampler2D uTexture;
-uniform float uTexAspect;
-uniform float uCanvasAspect;
 uniform vec2 uScale;
 
 void main() {
   vec2 c = (vUV - 0.5) * uScale;
-  float rel = uTexAspect / uCanvasAspect;
-  if (rel > 1.0) { c.y *= rel; } else { c.x /= rel; }
   c.x *= 1.0 + 0.12 * c.y; // perspective — top narrows
   vec2 texUV = c + 0.45;
 
   // Unified pole + finial
-  float poleX = 0.016;
+  float poleX = 0.018;
   float poleDist = abs(texUV.x - poleX);
-  float baseWidth = 0.013;
+  float baseWidth = 0.015;
 
-  float finialCenter = 1.16;
-  float finialHalf = 0.115;
+  float finialCenter = 1.2;
+  float finialHalf = 0.15;
   float finialY = clamp((texUV.y - finialCenter) / finialHalf, -1.0, 1.0);
   float finialInZone = step(finialCenter - finialHalf, texUV.y) * step(texUV.y, finialCenter + finialHalf);
   float widestAt = -0.4;
   float shape = 1.0 - abs(finialY - widestAt) / (finialY > widestAt ? (1.0 - widestAt) : (1.0 + widestAt));
-  float finialExtra = 0.013 * clamp(shape, 0.0, 1.0) * finialInZone;
+  float finialExtra = 0.010 * clamp(shape, 0.0, 1.0) * finialInZone;
 
   float aboveCenter = step(finialCenter, texUV.y) * finialInZone;
   float taper = baseWidth * (1.0 - clamp((texUV.y - finialCenter) / finialHalf, 0.0, 1.0)) * aboveCenter;
