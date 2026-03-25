@@ -13,7 +13,7 @@ import Notes from "./notes/index.md";
 
 _Наллара дел да. Ьам ра бел._
 
-Reclaiming the legacy of the Kaitag people of Dagestan. The race against time to preserve what remains before it vanishes forever.
+Reclaiming the legacy of the Kaitag of Dagestan. The race against time to preserve what remains before it vanishes forever.
 
 <VillageMap />
 
