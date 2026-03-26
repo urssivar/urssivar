@@ -16,7 +16,7 @@ defineProps<{
 :::
 Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>  
 Uzlipat Gasanova, +7 960 408-99-18, <uzlipat066@mail.ru>  
-5,171 entries · [database](https://github.com/urssivar/dictionary/releases/latest) 25.03.2026 · [intro](https://urssivar.com/language/dictionary/) 25.03.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) {.text-xs .italic}
+5,171 entries · [database](https://github.com/urssivar/dictionary/releases/latest) 25.03.2026 · [document](https://urssivar.com/language/dictionary) 25.03.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) {.text-xs .italic}
 :::
 
 :::

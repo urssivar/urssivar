@@ -14,9 +14,9 @@ defineProps<{
 # Кайтагский словарь
 
 :::
-Магомед Магомедов, +7 999 533-93-50, <alkaitagi@outlook.com>
-Узлипат Гасанова, +7 960 408-99-18, <uzlipat066@mail.ru>
-5,171 статей · [база данных](https://github.com/urssivar/dictionary/releases/latest) 25.03.2026 · [введение](https://urssivar.com/ru/language/dictionary/) 25.03.2026 · лицензия [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ru) {.text-xs .italic}
+Магомед Магомедов, +7 999 533-93-50, <alkaitagi@outlook.com>  
+Узлипат Гасанова, +7 960 408-99-18, <uzlipat066@mail.ru>  
+5,171 статей · [база данных](https://github.com/urssivar/dictionary/releases/latest) 25.03.2026 · [документ](https://urssivar.com/ru/language/dictionary) 25.03.2026 · лицензия [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ru) {.text-xs .italic}
 :::
 
 :::
