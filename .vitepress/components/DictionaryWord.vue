@@ -22,7 +22,7 @@ const lang = computed(() => {
     </h5>
 
     {{ " " }}
-    <span v-if="word.tags?.length" class="text-xs text-toned italic ml-0.5">
+    <span v-if="word.tags?.length" class="text-xs text-toned italic">
       {{ word.tags.map((t) => t[lang]).join(" ") }}
     </span>
 
@@ -33,10 +33,10 @@ const lang = computed(() => {
       >
       <span>{{ d.translation[lang] }}</span>
 
-      <span v-for="e in d.examples ?? []">
+      <span v-for="e in d.examples ?? []" class="text-sm">
         <span class="ws">{{ " " }}</span>
-        •&nbsp;<strong class="text-sm">{{ e.text }}</strong>
-        <span class="gloss text-sm" v-if="e.translation?.[lang]">
+        •&nbsp;<strong>{{ e.text }}</strong>
+        <span v-if="e.translation?.[lang]">
           {{ " " }}
           <template v-if="!/[.!?]$/.test(e.text)">–&nbsp;</template
           >{{ e.translation[lang] }}
@@ -63,6 +63,6 @@ const lang = computed(() => {
 @reference "@/theme/styles/index.css";
 
 .ws {
-  @apply text-base! font-normal! font-sans! ml-2;
+  @apply text-base! font-normal! font-sans! ml-1;
 }
 </style>
