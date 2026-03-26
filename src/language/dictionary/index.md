@@ -87,12 +87,14 @@ Useful resources:
 
 The digraphs **пв** /ɸ/, **ву** /w/, and **гҳ** /ɣ/ appear in onomatopoeia only. The phonemes /ħ/ **хӏ**, /ʡ/ **гӏ**, and /uˤ/ **ю** appear in dialectal entries.
 
+Following a non-sonorant consonant, the letter **в** usually marks labialization rather than a separate sound: **чӏвел** /tʃʼʷel/ "two", **швел** /ʃʷel/ "five".
+
 Some varieties lose gemination syllable-finally, but it is restored before vowels and consistently preserved in spelling:
 
 - **миҡҡ [миҡ]** "wedding" → **ми́ҡҡи** "at wedding"
-- **уцци́** "brother" → **уццбе́ [уцбе]** "brothers"
+- **лукка́на** "to give" → **лу́ккне [лукне]** "giving (masd.)"
 
-Fricative gemination varies considerably between villages and requires further study. It is shown mainly intervocalically (**нишша** "you (pl.)"), and occasionally word-initially (**сса** "yesterday").
+Geminate fricatives are not listed in the alphabet as distinct letters. The phenomenon varies considerably between villages and requires further study. They are shown mainly intervocalically (**нишша** "you (pl.)"), and occasionally word-initially (**сса** "yesterday").
 
 ### Vowels
 
