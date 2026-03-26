@@ -85,7 +85,7 @@ Useful resources:
 
 > Plain stops and affricates are aspirated: /pʰ/ **п**, /tʰ/ **т**, /tsʰ/ **ц**, /tʃʰ/ **ч**, /kʰ/ **к**, /qʰ/ **ҡ**.
 
-The digraphs **пв** /ɸ/, **ву** /w/, and **гҳ** /ɣ/ appear in onomatopoeia only. The phonemes /ħ/ **хӏ**, /ʡ/ **гӏ**, and /uˤ/ **ю** appear in dialectal entries.
+The digraphs **пв** /ɸ/, **ву** /w/, and **гҳ** /ɣ/ appear in onomatopoeia only. The phonemes /ħ/ **хӏ**, /ʡ/ **гӏ**, and /uˤ/ **ю** appear in dialectal forms.
 
 Following a non-sonorant consonant, the letter **в** usually marks labialization rather than a separate sound: **чӏвел** /tʃʼʷel/ "two", **швел** /ʃʷel/ "five".
 
