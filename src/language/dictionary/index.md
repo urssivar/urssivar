@@ -108,7 +108,10 @@ Geminate fricatives vary considerably between villages and require further study
 
 :::
 
-> **о** is a convenience spelling for the underlying /ʷa/.
+The labialized segment **ва** /ʷa/ is spelled **о** for convenience:
+
+- **гон [гван]** "like"
+- **берко́на [берквана]** "to eat"
 
 Unlike Russian, **е** /e/ and **я** /æ/ are always pure vowels and **й** /j/ is always written explicitly:
 
