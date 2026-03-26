@@ -75,14 +75,14 @@ const lang = computed(() => {
     </ol>
 
     <p
-      v-if="word.etymology?.[lang]"
-      class="text-sm text-toned my-2!"
-      v-html="md.renderInline(word.etymology[lang]!)"
-    />
-    <p
       v-if="word.note?.[lang]"
       class="text-sm text-toned my-2!"
       v-html="md.renderInline(word.note[lang]!)"
+    />
+    <p
+      v-if="word.etymology?.[lang]"
+      class="text-sm text-toned my-2!"
+      v-html="md.renderInline(word.etymology[lang]!)"
     />
 
     <p class="text-xs text-toned -indent-2 my-2!">
