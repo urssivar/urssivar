@@ -94,7 +94,7 @@ Some varieties lose gemination syllable-finally, but it is restored before vowel
 - **миҡҡ [миҡ]** "wedding" → **ми́ҡҡи** "at wedding"
 - **лукка́на** "to give" → **лу́ккне [лукне]** "giving (masd.)"
 
-Geminate fricatives vary considerably between villages and require further study, and they are not listed in the alphabet as distinct letters. They are shown mainly intervocalically (**нишша** "you (pl.)"), and occasionally word-initially (**сса** "yesterday").
+Geminate fricatives vary considerably between villages and require further study, and they are not listed in the alphabet as distinct letters. They are shown mainly intervocalically (**нишша** "you (pl.)") and occasionally word-initially (**сса** "yesterday").
 
 ### Vowels
 
