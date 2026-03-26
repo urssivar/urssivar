@@ -112,8 +112,10 @@ Unlike Russian, **е** /e/ and **я** /æ/ are always pure vowels and **й** /j/
 
 - **йети́м** /jetim/ "orphan"
 - **йулға́н** /julˈʁan/ "quilt"
-- **ерга́** /eɾga/ "turn"
+- **е́тти** /etːi/ "to you"
+- **е́ркӏ** /eɾkʼ/ "river"
 - **я́тӏа** /ætʼa/ "frog"
+- **яххи́** /æχːi/ "good"
 
 Stress is contrastive and always marked on headwords: **ьана́** "currently" vs **ьа́на** "plate".
 
