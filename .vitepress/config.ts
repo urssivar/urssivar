@@ -8,8 +8,8 @@ import { pagefindDev } from "./plugins/pagefind-dev";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "Urssivar: Kaitag Studies",
-  titleTemplate: false,
+  title: "Kaitag Studies",
+  titleTemplate: ":title · Urssivar",
   description: "Preserving and studying Kaitag language, culture, history, and people.",
   srcDir: "src",
   srcExclude: ["**/_*.md"],
