@@ -1,5 +1,5 @@
 ---
-title: "Urssivar: Kaitag Language"
+title: "Kaitag Language"
 description: "Grammar, dictionary, and documentation of the Kaitag language."
 ---
 

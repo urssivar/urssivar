@@ -1,3 +1,8 @@
+---
+title: "Кайтагский флаг"
+description: "Флаг кайтагов: синее полотнище с белой печатью, его дизайн и символика."
+---
+
 <script setup>
 import FlagHero from "@/components/FlagHero.vue"
 </script>

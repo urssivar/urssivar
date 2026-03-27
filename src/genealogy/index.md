@@ -1,6 +1,6 @@
 ---
-title: "Urssivar: Kaitag Genealogy"
-description: "Y-DNA distribution and family lineages of the Kaitags."
+title: "Kaitag Genealogy"
+description: "Y-DNA distribution and family lineages of the Kaitag."
 ---
 
 <script setup lang="ts">

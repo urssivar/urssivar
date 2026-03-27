@@ -1,3 +1,8 @@
+---
+title: "Kaitag Flag"
+description: "The flag of the Kaitag: a blue field with a white seal, its design and symbolism."
+---
+
 <script setup>
 import FlagHero from "@/components/FlagHero.vue"
 </script>

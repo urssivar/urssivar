@@ -1,5 +1,5 @@
 ---
-title: "Urssivar: Field Notes"
+title: "Field Notes"
 description: "Findings, essays, and updates from documenting Kaitag language, history, and people."
 ---
 

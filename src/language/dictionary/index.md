@@ -1,5 +1,7 @@
 ---
 numbered: true
+title: "Kaitag Dictionary"
+description: "Bilingual Kaitag–English dictionary with forms, examples, and notes."
 ---
 
 <script setup lang="ts">

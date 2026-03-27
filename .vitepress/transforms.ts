@@ -54,8 +54,8 @@ function transformDictionaryPage(pageData: PageData) {
   };
 
   const descriptions = {
-    en: `Kaitag words starting with ${letter}`,
-    ru: `Слова кайтагского языка на букву ${letter}`
+    en: `Kaitag words starting with ${letter}.`,
+    ru: `Слова кайтагского языка на букву ${letter}.`
   };
 
   pageData.title = titles[lang];

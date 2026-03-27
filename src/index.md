@@ -1,6 +1,6 @@
 ---
-title: "Urssivar: Kaitag Studies"
-description: "Preserving and studying Kaitag language, culture, history, and people."
+title: "Kaitag Studies"
+description: "Preserving and studying Kaitag language, culture, and history."
 ---
 
 <script setup lang="ts">

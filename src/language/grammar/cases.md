@@ -1,5 +1,7 @@
 ---
 numbered: true
+title: "Cases · Kaitag Grammar"
+description: "The five abstract cases of the Kaitag language: absolutive, genitive, dative, instrumental, and comitative."
 ---
 
 # Cases
