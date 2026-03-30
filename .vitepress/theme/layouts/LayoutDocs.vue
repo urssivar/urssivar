@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, useTemplateRef, watch } from "vue";
-import { useRoute } from "vitepress";
+import { useData, useRoute } from "vitepress";
 import TableOfContents from "../components/TableOfContents.vue";
 import SidebarNav from "../components/SidebarNav.vue";
 import Toolbar from "../components/Toolbar.vue";
@@ -17,6 +17,8 @@ const nav = useNav();
 const { t } = useI18n();
 const menuOpen = ref(false);
 const tocOpen = ref(false);
+
+const { title } = useData();
 
 const route = useRoute();
 watch(
@@ -68,7 +70,7 @@ const tocRef = useTemplateRef("toc");
             </USlideover>
           </template>
           <span class="font-semibold flex-1 text-center">
-            {{ (nav.section ?? nav.module ?? nav.home)?.text }}
+            {{ title }}
           </span>
           <template #trailing>
             <USlideover
