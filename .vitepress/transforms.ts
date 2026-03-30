@@ -1,5 +1,4 @@
 import type { PageData } from "vitepress";
-import { capitalize } from "./utils";
 
 const HOSTNAME = "https://urssivar.com";
 
@@ -41,23 +40,7 @@ function addOgTags(pageData: PageData) {
 }
 
 function transformDictionaryPage(pageData: PageData) {
-  if (!pageData.params?.letter
-    || !pageData.relativePath.includes('/dictionary/'))
-    return;
-
-  const letter = capitalize(pageData.params.letter);
-  const lang = pageData.relativePath.startsWith('ru/') ? 'ru' : 'en';
-
-  const titles = {
-    en: `${letter} · Kaitag Dictionary`,
-    ru: `${letter} · Кайтагский словарь`
-  };
-
-  const descriptions = {
-    en: `Kaitag words beginning with ${letter}.`,
-    ru: `Слова кайтагского языка на букву ${letter}.`
-  };
-
-  pageData.title = titles[lang];
-  pageData.description = descriptions[lang];
+  if (!pageData.params?.title) return;
+  pageData.title = pageData.params.title;
+  pageData.description = pageData.params.description;
 }
