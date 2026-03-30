@@ -3,7 +3,7 @@ import type { PageData } from "vitepress";
 const HOSTNAME = "https://urssivar.com";
 
 export default async function transformPageData(pageData: PageData) {
-  transformDictionaryPage(pageData);
+  applyParamsMeta(pageData);
   addOgTags(pageData);
 }
 
@@ -39,8 +39,9 @@ function addOgTags(pageData: PageData) {
   }
 }
 
-function transformDictionaryPage(pageData: PageData) {
-  if (!pageData.params?.title) return;
-  pageData.title = pageData.params.title;
-  pageData.description = pageData.params.description;
+function applyParamsMeta(pageData: PageData) {
+  if (pageData.params?.title)
+    pageData.title = pageData.params.title;
+  if (pageData.params?.description)
+    pageData.description = pageData.params.description;
 }
