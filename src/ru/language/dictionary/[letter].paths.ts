@@ -3,14 +3,14 @@ import { capitalize } from "../../../../.vitepress/utils";
 
 export default {
   paths() {
-    return Object.keys(dict).map((letter) => {
+    return Object.entries(dict).map(([letter, words]) => {
       const cap = capitalize(letter);
       return {
         params: {
           letter,
-          words: dict[letter as keyof typeof dict],
+          words,
           title: `${cap} · Кайтагский словарь`,
-          description: `Слова кайтагского языка на букву ${cap}.`,
+          description: `${words.length} слов кайтагского языка на букву ${cap} — с определениями, формами и примерами.`,
         }
       };
     });

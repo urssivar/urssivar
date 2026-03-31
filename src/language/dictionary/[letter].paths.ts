@@ -3,14 +3,14 @@ import { capitalize } from "../../../.vitepress/utils";
 
 export default {
   paths() {
-    return Object.keys(dict).map((letter) => {
+    return Object.entries(dict).map(([letter, words]) => {
       const cap = capitalize(letter);
       return {
         params: {
           letter,
-          words: dict[letter as keyof typeof dict],
+          words,
           title: `${cap} · Kaitag Dictionary`,
-          description: `Kaitag words beginning with ${cap}.`,
+          description: `${words.length} Kaitag words beginning with ${cap}, with definitions, forms, and examples.`,
         }
       };
     });
