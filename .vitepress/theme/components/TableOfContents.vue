@@ -26,8 +26,9 @@ const links = useTemplateRef<HTMLAnchorElement[]>("links");
 watch(
   activeId,
   (id) => {
-    const link = links.value?.find((el) => el.hash === `#${id}`);
-    link?.scrollIntoView({ block: "nearest" });
+    links.value
+      ?.find((el) => el.getAttribute("href") === `#${id}`)
+      ?.scrollIntoView({ block: "nearest" });
   },
   { flush: "post" },
 );
