@@ -1,6 +1,6 @@
 ---
 title: "Kaitag Genealogy"
-description: "Y-DNA distribution and family lineages of the Kaitag."
+description: "Y-DNA haplogroup distribution and paternal lineages of the Kaitag of Dagestan."
 ---
 
 <script setup lang="ts">

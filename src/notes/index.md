@@ -1,5 +1,5 @@
 ---
-title: "Field Notes"
+title: "Kaitag Field Notes"
 description: "Findings, essays, and updates from documenting Kaitag language, history, and people."
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "Kaitag Studies"
-description: "Preserving and studying Kaitag language, culture, and history."
+title: "Kaitag Language & Culture"
+description: "Preserving and studying the Kaitag language, culture, and history of Dagestan."
 ---
 
 <script setup lang="ts">
