@@ -19,11 +19,9 @@ But what remains is worth the fight.
 
 <AlphabetGrid />
 
-## Grammar
+## [Grammar](./grammar/)
 
 Codification of Kaitag grammar — a model for understanding how the language works.
-
-_In development._
 
 ## [Dictionary](./dictionary/)
 
