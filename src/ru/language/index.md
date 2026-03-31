@@ -19,9 +19,11 @@ import AlphabetGrid from "@/components/AlphabetGrid.vue";
 
 <AlphabetGrid />
 
-## [Грамматика](./grammar/) {#grammar}
+## Грамматика {#grammar}
 
 Кодификация кайтагской грамматики — модель для понимания того, как работает язык.
+
+_В разработке._
 
 ## [Словарь](./dictionary/) {#dictionary}
 
