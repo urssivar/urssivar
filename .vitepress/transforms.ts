@@ -16,6 +16,20 @@ function addOgTags(pageData: PageData) {
 
   if (!frontmatter.head) frontmatter.head = [];
 
+  let urlPath = relativePath
+    .replace(/\.md$/, "")
+    .replace(/\/index$/, "/")
+    .replace(/^index$/, "");
+  if (pageData.params) {
+    for (const [key, value] of Object.entries(pageData.params)) {
+      if (typeof value === "string")
+        urlPath = urlPath.replace(`[${key}]`, value);
+    }
+  }
+  const canonicalUrl = `${HOSTNAME}/${urlPath}${urlPath && !urlPath.endsWith("/") ? "/" : ""}`;
+  frontmatter.head.push(["link", { rel: "canonical", href: canonicalUrl }]);
+  frontmatter.head.push(["meta", { property: "og:url", content: canonicalUrl }]);
+
   if (title)
     frontmatter.head.push(["meta", { property: "og:title", content: title }]);
   if (description)
