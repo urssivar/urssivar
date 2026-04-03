@@ -26,7 +26,7 @@ function addOgTags(pageData: PageData) {
         urlPath = urlPath.replace(`[${key}]`, value);
     }
   }
-  const canonicalUrl = `${HOSTNAME}/${urlPath}${urlPath && !urlPath.endsWith("/") ? "/" : ""}`;
+  const canonicalUrl = `${HOSTNAME}/${urlPath}`;
   frontmatter.head.push(["link", { rel: "canonical", href: canonicalUrl }]);
   frontmatter.head.push(["meta", { property: "og:url", content: canonicalUrl }]);
 
