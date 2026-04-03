@@ -4,8 +4,6 @@ Bilingual (EN/RU) documentation site for the Kaitag language and culture of Dage
 
 **Live site:** <https://urssivar.com>
 
----
-
 ## Running locally
 
 Node 24 required.
@@ -43,7 +41,7 @@ English content lives at the root (`src/`), Russian under `src/ru/`. Anchors use
 
 ## Tech
 
-[VitePress](https://vitepress.dev) + Vue 3 + [Nuxt UI](https://ui.nuxt.com). [Pagefind](https://pagefind.app) for static full-text search. D3, Leaflet, and Three.js for visualizations.
+[VitePress](https://vitepress.dev) + [Nuxt UI](https://ui.nuxt.com). [Pagefind](https://pagefind.app) for static full-text search. [D3](https://d3js.org/), [Leaflet](https://leafletjs.com/), and [Three.js](https://threejs.org/) for visualizations.
 
 ## Deployment
 
