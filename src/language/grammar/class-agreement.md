@@ -115,7 +115,8 @@ First and second person plural always take class **д-**, alongside a personal s
 
 ## In Practice
 
-**Атта цяун, машин бирцив, цӏил нисса дегурда аттаба чирагара.** "Father came, washed the car, then we went to see grandmother."
+**Атта цяун, машин бирцив, цӏил нисса дегурда аттаба чирагара.**  
+"Father came, washed the car, then we went to see grandmother."
 
 - **атта цяун** "father came"  
   _null masculine_
@@ -126,7 +127,8 @@ First and second person plural always take class **д-**, alongside a personal s
 - **аттаба чи==р==агара** "to see grandmother"  
   _female_
 
-**Ҡил шин дейччу ьинце дерцара, ьелей дяьне адеркун бужив.** "There was no water at home to wash the apples, so the kids ended up not eating them."
+**Ҡил шин дейччу ьинце дерцара, ьелей дяьне адеркун бужив.**  
+"There was no water at home to wash the apples, so the kids ended up not eating them."
 
 - **ҡил шин ==д==ейччу** "there was no water at home"  
   _substance noun, always **д-**_
