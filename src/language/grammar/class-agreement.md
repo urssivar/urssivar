@@ -51,7 +51,7 @@ For impersonal statements about weather or environment, the default **б-** is u
 Not all words have a class slot; when present, it appears at the beginning.
 
 - **ҡил ==б==уҡҡара** "to carry home"
-- **ҡил тта цаҡҡара** "to bring from home"
+- **ҡил тта цаҡҡара** "to bring from home"  
   _same root, but no class slot_
 - **==д==уцӏар бирме** "hot days"
 - **буххар бирме** "cold days"  
