@@ -3,7 +3,7 @@
 All Kaitag nouns belong to one of three classes — human male **в-**, human female **р-**, and neuter **б-** — and copulas, verbs, and adjectives must agree with them.
 
 - **урши ==в==и** "the boy is"
-- **ририси ==р==и** "the girl is"
+- **рирси ==р==и** "the girl is"
 - **бизи ==б==и** "the cat is"
 
 In the plural, the two human classes merge into **б-**, while neuter becomes **д-**.
@@ -52,6 +52,7 @@ The class slot appears at the beginning of the word in most cases.
 
 - **ҡил ==б==уҡҡара** "to carry home"
 - **ҡил тта цаҡҡара** "to bring from home"
+  _same root, no class_
 - **==д==уцӏар бирме** "hot days"
 - **буххар бирме** "cold days"  
   _the adjective is frozen and does not agree with class_
