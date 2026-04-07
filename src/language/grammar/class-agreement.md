@@ -40,7 +40,7 @@ For transitive verbs, agreement is with the object, not the actor.
 
 - **Рирсил атта чи==в==ажив.** "The girl saw her father _(him)_."
 - **Уршил уба чи==р==ажив.** "The boy saw his mother _(her)_."
-- **Убал бяъруме ==д==ирцив.** "Mother washed the walls _(objects)_."
+- **Убал бяъруме ==д==ирцив.** "Mother washed the walls."
 
 For impersonal statements about weather or environment, the default **б-** is used.
 
@@ -48,16 +48,16 @@ For impersonal statements about weather or environment, the default **б-** is u
 
 ## Class Slot Position
 
-The class slot appears at the beginning of the word in most cases.
+Not all words have a class slot; when present, it appears at the beginning.
 
 - **ҡил ==б==уҡҡара** "to carry home"
 - **ҡил тта цаҡҡара** "to bring from home"
-  _same root, no class_
+  _same root, but no class slot_
 - **==д==уцӏар бирме** "hot days"
 - **буххар бирме** "cold days"  
-  _the adjective is frozen and does not agree with class_
+  _the **б-** is frozen, does not agree_
 
-In verbs, directional prefixes like **ка-** can precede it.
+In verbs, some prefixes like **ка-**, **чи-**, and others can precede it.
 
 - **Марка ка==б==аҳул це.** "The rain is precipitating."
 - **Миркне ка==д==аҳул це.** "The rains are precipitating."
@@ -80,14 +80,14 @@ Second, when preceded by a directional prefix (**ка-**, **ьа-**, **ца-**),
 - **кижив** "he sat" _(not \***кавижив**)_
 - **ка==р==ижив** "she sat"
 
-Additionally, two verbs always take null masculine class: **бикӏора** "to speak" and **цянара** "to come" (with directional variants **ьянара** "to come up" and **кянара** "to come down"). This applies to their compound forms as well.
+Additionally, two verbs always take null masculine class: **бикӏора** "to speak" and **цянара** "to come" (with directional variants **ьянара** "to come up" and **кянара** "to come down"). This applies to compound verbs as well.
 
 - **уцци икӏор** "brother says" _(not \***викӏор**)_
 - **рицци ==р==икӏор** "sister says"
 - **Урши дуцӏ икӏул це.** "The boy runs." _(not \***викӏул**)_
 - **Бизи дуцӏ ==б==икӏул це.** "The cat runs."
-- **Цябе!** "Come! _(neut.)_"
 - **Ця!** "Come! _(masc.)_"
+- **Цябе!** "Come! _(neut.)_"
 - **рирси кя==р==ун** "the girl came down"
 - **урши кяун** "the boy came down"
 
@@ -97,7 +97,7 @@ The reflexive pronoun **цебе** "itself" also follows this pattern — its ma
 
 ## Special Cases
 
-The one non-human exception is "God", which uses the male class **в-**: **==в==иккан Аллаь** "beloved God".
+One non-human exception: "God" takes male class **в-** — **==в==иккан Аллаь** "beloved God".
 
 Some nouns — mostly fruits and berries — use neuter **б-** for singular and **д-** for plural while remaining morphologically singular. The class prefix is then the only way to tell them apart.
 
@@ -122,11 +122,11 @@ First and second person plural always take class **д-**, alongside a personal s
 - **атта цяун** "father came"  
   _null masculine_
 - **машин ==б==ирцив** "washed the car"  
-  _the object being affected_
+  _object agreement_
 - **цӏил нисса ==д==егурда** "then we went"  
   _1st person plural_
 - **аттаба чи==р==агара** "to see grandmother"  
-  _female_
+  _female target_
 
 **Ҡил шин дейччу ьинце дерцара, ьелей дяьне адеркун бужив.**  
 "There was no water at home to wash the apples, so the kids ended up not eating them."
