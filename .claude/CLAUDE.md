@@ -1,6 +1,6 @@
 # Urssivar Documentation Site - Project Guide
 
-**Last Updated:** 2026-02-09
+**Last Updated:** 2026-04-07
 **Project:** Kaitag language documentation site
 **Tech Stack:** VitePress + Nuxt UI
 **Current Phase:** Content creation
@@ -58,24 +58,76 @@ Documentation website for Kaitag language as part of Urssivar initiative (5-year
 
 ### Standard Patterns
 
-**Kaitag words:**
+**Kaitag words (inline and in lists):**
 
 ```markdown
-**тьу́пп** "finger"
-**атта** "father"
+**музи ҡяр** "sweet pear"
+- **атта** "father"
 ```
 
 **Grammatical highlighting:**
 
 ```markdown
-**атта́==ла==** "father's" (stress + case ending)
+**атта==ла==** "father's" (case ending highlighted)
 ```
+
+**Sentences vs phrases:**
+- Sentences: capital first letter, period inside bold — `**Урши икӏул це.**`
+- The period separates Kaitag from translation naturally; no dash needed
 
 **IPA reference tables:**
 
 ```markdown
 | /m/ м | /n/ н | (plain text, no emphasis)
 ```
+
+**Translations:**
+- Grammar prose & lists: quoted on same line — `**атта** "father"`
+- Long sentences (In Practice): translation on new line, still quoted
+- Dictionary word cards: em-dash separator, no quotes
+- Dictionary print: no quotes; dash omitted when Kaitag ends with punctuation
+
+**Inline annotations on examples:**
+
+```markdown
+- **кижив** "he sat" _(not \***кавижив**)_
+- **атта цяун** "father came"  
+  _null masculine_
+```
+
+- Short labels: `_(label)_` italic after translation on same line
+- Longer elaborations: new line with `_italic text_` (double-space line break)
+- Ungrammatical forms: `_(not \***form**)_`
+
+**Blockquotes — for detours only:**
+
+```markdown
+> Historical note, dialect variant, or exception that breaks the main flow.
+```
+
+Not used for annotations that are part of the teaching flow — use italic new line instead.
+
+**Prettier and merged table cells:**
+
+```markdown
+<!-- prettier-ignore -->
+| singular | **в-** | **р-** | **б-** |
+| plural   | **б-**          || **д-** |
+```
+
+Add `<!-- prettier-ignore -->` before any multimd table with merged cells (`||`).
+
+**Stress marks:** Not used in grammar articles — maintenance burden and stress shifts with morphology. Dictionary and orthography article are authoritative for pronunciation.
+
+**Ungrammatical asterisk:** Outside bold — `\***вуҡен**` not `**\*вуҡен**`.
+
+### Grammar Article Template
+
+1. H1 + 1–2 sentence intro
+2. Opening examples
+3. Summary table in breakout block
+4. Thematic sections
+5. **In Practice** section at end — 1–2 annotated sentences showing multiple concepts
 
 ### Special Blocks
 
@@ -121,7 +173,7 @@ Tables, components, etc. - extends to viewport edges
 
 **Infrastructure:** Layouts, navigation, search, print styles, bilingual system
 
-**Content:** Dictionary intro (EN/RU), grammar cases page, notes section, genealogy landing
+**Content:** Dictionary intro (EN/RU), grammar cases + class agreement pages, notes section, genealogy landing
 
 **Visual simplification:** Removed custom markdown delimiters (`++word++` → `**word**`), unified to IBM Plex Sans, simplified weight/color hierarchy
 
