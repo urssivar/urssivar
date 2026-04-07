@@ -12,7 +12,7 @@ In the plural, the two human classes merge into **б-**, while neuter becomes **
 - **дяьне ==б==и** "the children are"
 - **бизне ==д==и** "the cats are"
 
-Thus, a class may act as the sole morphological disambiguator:
+Thus, a class may be the only distinguishing marker:
 
 - **Ьелтти ==б==ярун.** "They _(humans)_ went."
 - **Ьелтти ==д==ярун.** "They _(non-humans)_ went."
@@ -28,7 +28,7 @@ Thus, a class may act as the sole morphological disambiguator:
 
 :::
 
-## Agreement Source
+## What Drives Agreement
 
 For intransitive verbs, copulas, and adjectives, agreement is with the subject.
 
@@ -64,11 +64,11 @@ In verbs, some prefixes like **ка-**, **чи-**, and others can precede it.
 
 > In fact, many words starting with **б-**, **д-**, or even **р-** contain historical fossilized classes that no longer change: **рицци** "sister", **дяьне** "kids", **биара** "to say".
 
-## Masculine Class Reduction
+## Dropping **в-**
 
-The masculine class **в-** is the default and is regularly dropped in two environments.
+The masculine class **в-** is regularly dropped in two environments.
 
-First, when the class slot is followed by **у**, since the sequence **ву** is not possible in Kaitag:
+First, when the class slot is followed by **у**, since **ву** generally does not occur in Kaitag:
 
 - **==б==уҡен** "long _(it)_"
 - **уҡен** "long _(he)_" (not \***вуҡен**)
@@ -80,7 +80,7 @@ Second, when preceded by a directional prefix (**ка-**, **ьа-**, **ца-**),
 - **кижив** "he sat" _(not \***кавижив**)_
 - **ка==р==ижив** "she sat"
 
-Additionally, two verbs always take null masculine class: **бикӏора** "to speak" and **цянара** "to come" (with directional variants **ьянара** "to come up" and **кянара** "to come down"). This applies to compound verbs as well.
+Additionally, two verbs never take **в-**: **бикӏора** "to speak" and **цянара** "to come" (with directional variants **ьянара** "to come up" and **кянара** "to come down"). This applies to compound verbs as well.
 
 - **уцци икӏор** "brother says" _(not \***викӏор**)_
 - **рицци ==р==икӏор** "sister says"
@@ -93,13 +93,13 @@ Additionally, two verbs always take null masculine class: **бикӏора** "to
 
 The reflexive pronoun **цебе** "itself" also follows this pattern — its masculine form is **цей** "himself".
 
-> Non-reduced masculine forms like **цяве** "come _(masc.)_", **кявъун** "he came down", or **цеве** "himself" are also used.
+> Forms with a pronounced **в-** like **цяве** "come _(masc.)_", **кявъун** "he came down", or **цеве** "himself" are also used.
 
 ## Special Cases
 
 One non-human exception: "God" takes male class **в-** — **==в==иккан Аллаь** "beloved God".
 
-Some nouns — mostly fruits and berries — use neuter **б-** for singular and **д-** for plural while remaining morphologically singular. The class prefix is then the only way to tell them apart.
+Some nouns — mostly fruits and berries — use neuter **б-** for singular and **д-** for plural while remaining singular in form. The class prefix is then the only way to tell them apart.
 
 - **ьинце ==б==еччив** "gave an apple"
 - **ьинце ==д==еччив** "gave apples"
@@ -122,7 +122,7 @@ First and second person plural always take class **д-**, alongside a personal s
 - **атта цяун** "father came"  
   _null masculine_
 - **машин ==б==ирцив** "washed the car"  
-  _object agreement_
+  _agrees with object_
 - **цӏил нисса ==д==егурда** "then we went"  
   _1st person plural_
 - **аттаба чи==р==агара** "to see grandmother"  
