@@ -15,8 +15,12 @@
   }
 
   mark {
-    @apply bg-transparent underline underline-offset-0 decoration-[0.25em] decoration-(--ui-border-accented) text-inherit;
+    @apply bg-transparent underline underline-offset-[-0.15em] decoration-[0.5em] decoration-current/15 text-inherit;
     text-decoration-skip-ink: none;
+  }
+
+  a {
+    @apply transition-colors duration-200 underline underline-offset-[0.15em] decoration-current/50 hover:decoration-current;
   }
 
   /* Headings */
