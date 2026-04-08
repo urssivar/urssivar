@@ -93,14 +93,14 @@ Additionally, two verbs never take **в-**: **бикӏора** "to speak" and **
 - **уцци икӏор** "brother says" _(not \***викӏор**)_
 - **Бизи дуцӏ ==б==икӏул це.** "The cat runs."
 - **Урши дуцӏ икӏул це.** "The boy runs." _(not \***викӏул**)_
-- **Рирси ця==р==ун, и ра ця==р==е!** "The girl came, you _(fem.)_ too come!"
-- **Урши цяун, и ра ця!** "The boy came, you _(masc.)_ to come!"
+- **Рирси ця==р==ун, и ра ця==р==е!** "The girl came, you _(fem.)_ come too!"
+- **Урши цяун, и ра ця!** "The boy came, you _(masc.)_ come too!"
 
 The reflexive pronoun **це==б==е** "itself" also follows this pattern — its masculine form is **цей** "himself".
 
 > Forms with a pronounced **в-** like **цяве** "come", **цявъун** "he came", or **цеве** "himself" are also used.
 
-## Special Cases
+## Special Classes
 
 One non-human exception: "God" takes male class **в-** — **==в==иккан Аллаь** "beloved God".
 
