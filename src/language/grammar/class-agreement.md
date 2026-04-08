@@ -45,6 +45,7 @@ For transitive verbs, agreement is with the object, not the actor.
 For impersonal statements about weather or environment, the default **б-** is used.
 
 - **Ттура ==б==уххал це.** "It's cold outside."
+- **Атта ҡил у дул а==б==арьид.** "I don't know if father is home."
 
 ## Class Slot Position
 
@@ -107,7 +108,7 @@ Some nouns — mostly fruits and berries — use neuter **б-** for singular and
 Some words — typically uncountable or abstract — take **д-** even in singular:
 
 - **шин ==д==и** "there's water"
-- **яра ==д==ейкку** "there's no mud"
+- **чирка ==д==еғив** "morning came"
 
 First and second person plural always take class **д-**, alongside a personal suffix:
 
@@ -116,24 +117,24 @@ First and second person plural always take class **д-**, alongside a personal s
 
 ## In Practice
 
-**Атта цяун, машин бирцив, цӏил нисса дегурда аттаба чирагара.**  
-"Father came, washed the car, then we went to see grandmother."
+**Атта цяун, машин давкк барив, цӏил нисса дегурда аттаба чирагара.**  
+"Father came, fixed the car, then we went to see grandmother."
 
 - **атта цяун** "father came"  
   _null masculine_
-- **машин ==б==ирцив** "washed the car"  
+- **машин давкк ==б==арив** "fixed the car"  
   _agrees with object_
 - **цӏил нисса ==д==егурда** "then we went"  
   _1st person plural_
 - **аттаба чи==р==агара** "to see grandmother"  
   _female target_
 
-**Ҡил шин дейччу ьинце дерцара, ьелей дяьне адеркун бужив.**  
+**Ҡил шин дейччу ьинце дирцара, ьелей дяьне адеркун бужив.**  
 "There was no water at home to wash the apples, so the kids ended up not eating them."
 
 - **ҡил шин ==д==ейччу** "there was no water at home"  
   _substance noun, always **д-**_
-- **ьинце ==д==ерцара** "to wash apples"  
+- **ьинце ==д==ирцара** "to wash apples"  
   _implied object plural_
 - **ьелей дяьне** "so the kids"  
   _**д-** is not a class prefix_
