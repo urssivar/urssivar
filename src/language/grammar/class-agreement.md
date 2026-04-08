@@ -38,8 +38,8 @@ For intransitive verbs, copulas, and adjectives, agreement is with the subject.
 
 For transitive verbs, agreement is with the object, not the actor.
 
-- **Рирсил атта чи==в==ажив.** "The girl saw her father _(him)_."
-- **Уршил уба чи==р==ажив.** "The boy saw his mother _(her)_."
+- **Рирсил атта чи==в==ажив.** "The girl saw _(masc.)_ her father."
+- **Уршил уба чи==р==ажив.** "The boy saw _(fem.)_ his mother."
 - **Убал бяъруме ==д==ирцив.** "Mother washed the walls."
 
 For impersonal statements about weather or environment, the default **б-** is used.
@@ -56,7 +56,7 @@ Not all words have a class slot; when present, it appears at the beginning.
   _same root, but no class slot_
 - **==д==уцӏар бирме** "hot days"
 - **буххар бирме** "cold days"  
-  _the **б-** is frozen, does not agree_
+  _**б-** is frozen, does not agree_
 
 In verbs, some prefixes like **ка-**, **чи-**, and others can precede it.
 
@@ -72,7 +72,7 @@ The masculine class **в-** is regularly dropped in two environments.
 First, when the class slot is followed by **у**, since **ву** generally does not occur in Kaitag:
 
 - **==б==уҡен** "long _(it)_"
-- **уҡен** "long _(he)_" (not \***вуҡен**)
+- **уҡен** "long _(he)_" _(not \***вуҡен**)_
 - **==р==уҡен** "long _(she)_"
 
 Second, when preceded by a directional prefix (**ка-**, **ьа-**, **ца-**), the masculine class is deleted along with the preceding vowel:
@@ -83,18 +83,16 @@ Second, when preceded by a directional prefix (**ка-**, **ьа-**, **ца-**),
 
 Additionally, two verbs never take **в-**: **бикӏора** "to speak" and **цянара** "to come" (with directional variants **ьянара** "to come up" and **кянара** "to come down"). This applies to compound verbs as well.
 
-- **уцци икӏор** "brother says" _(not \***викӏор**)_
 - **рицци ==р==икӏор** "sister says"
-- **Урши дуцӏ икӏул це.** "The boy runs." _(not \***викӏул**)_
+- **уцци икӏор** "brother says" _(not \***викӏор**)_
 - **Бизи дуцӏ ==б==икӏул це.** "The cat runs."
-- **Ця!** "Come! _(masc.)_"
-- **Цябе!** "Come! _(neut.)_"
-- **рирси кя==р==ун** "the girl came down"
-- **урши кяун** "the boy came down"
+- **Урши дуцӏ икӏул це.** "The boy runs." _(not \***викӏул**)_
+- **Рирси ця==р==ун, и ра ця==р==е!** "The girl came, you _(fem.)_ too come!"
+- **Урши цяун, и ра ця!** "The boy came, you _(masc.)_ to come!"
 
-The reflexive pronoun **цебе** "itself" also follows this pattern — its masculine form is **цей** "himself".
+The reflexive pronoun **це==б==е** "itself" also follows this pattern — its masculine form is **цей** "himself".
 
-> Forms with a pronounced **в-** like **цяве** "come _(masc.)_", **кявъун** "he came down", or **цеве** "himself" are also used.
+> Forms with a pronounced **в-** like **цяве** "come", **цявъун** "he came", or **цеве** "himself" are also used.
 
 ## Special Cases
 
@@ -121,9 +119,9 @@ First and second person plural always take class **д-**, alongside a personal s
 "Father came, fixed the car, then we went to see grandmother."
 
 - **атта цяун** "father came"  
-  _null masculine_
+  _dropped masculine_
 - **машин давкк ==б==арив** "fixed the car"  
-  _agrees with object_
+  _**б-** for an object (i.e. the car), **д-** is not a class prefix_
 - **цӏил нисса ==д==егурда** "then we went"  
   _1st person plural_
 - **аттаба чи==р==агара** "to see grandmother"  
