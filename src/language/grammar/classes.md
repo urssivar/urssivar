@@ -1,4 +1,10 @@
-# Class Agreement
+---
+numbered: true
+title: "Noun Classes · Kaitag Grammar"
+description: "How Kaitag nouns belong to classes — and how that shapes the words around them."
+---
+
+# Noun Classes
 
 All Kaitag nouns belong to one of three classes — human male **в-**, human female **р-**, and neuter **б-** — and copulas, verbs, and adjectives must agree with them.
 
@@ -75,7 +81,7 @@ First, when the class slot is followed by **у**, since **ву** generally does 
 - **уҡен** "long _(he)_" _(not \***вуҡен**)_
 - **==р==уҡен** "long _(she)_"
 
-Second, when preceded by a directional prefix (**ка-**, **ьа-**, **ца-**), the masculine class is deleted along with the preceding vowel:
+Second, when preceded by **ка-**, **ьа-**, or **ца-**, the masculine class is deleted along with the preceding vowel:
 
 - **ка==б==ижив** "it sat"
 - **кижив** "he sat" _(not \***кавижив**)_
