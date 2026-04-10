@@ -44,14 +44,15 @@ For intransitive verbs, copulas, and adjectives, agreement is with the subject.
 
 For transitive verbs, agreement is with the object, not the actor.
 
-- **Рирсил атта чи==в==ажив.** "The girl saw _(masc.)_ her father."
-- **Уршил уба чи==р==ажив.** "The boy saw _(fem.)_ his mother."
+- **Рирсил атта чи ==в==ажив.** "The girl saw _(masc.)_ her father."
+- **Уршил уба чи ==р==ажив.** "The boy saw _(fem.)_ his mother."
 - **Убал бяъруме ==д==ирцив.** "Mother washed the walls."
 
 For impersonal statements about weather or environment, the default **б-** is used.
 
-- **Ттура ==б==уххал це.** "It's cold outside."
+- **Ттура ==б==уцӏал це.** "It's hot outside."
 - **Атта ҡил у дул а==б==арьид.** "I don't know if father is home."
+- **Ьелин вянара ==б==ажил акку.** "No need to go there."
 
 ## Class Slot Position
 
@@ -64,7 +65,7 @@ Not all words have a class slot; when present, it appears at the beginning.
 - **буххар бирме** "cold days"  
   _**б-** is frozen, does not agree_
 
-In verbs, some prefixes like **ка-**, **чи-**, and others can precede it.
+In verbs, some prefixes can precede it.
 
 - **Марка ка==б==аҳул це.** "The rain is precipitating."
 - **Миркне ка==д==аҳул це.** "The rains are precipitating."
@@ -121,7 +122,7 @@ First and second person plural always take class **д-**, alongside a personal s
 
 ## In Practice
 
-**Атта цяун, машин давкк барив, цӏил нисса дегурда аттаба чирагара.**  
+**Атта цяун, машин давкк барив, цӏил нисса дегурда аттаба чи рагара.**  
 "Father came, fixed the car, then we went to see grandmother."
 
 - **атта цяун** "father came"  
@@ -130,7 +131,7 @@ First and second person plural always take class **д-**, alongside a personal s
   _**б-** for an object (i.e. the car), **д-** is not a class prefix_
 - **цӏил нисса ==д==егурда** "then we went"  
   _1st person plural_
-- **аттаба чи==р==агара** "to see grandmother"  
+- **аттаба чи ==р==агара** "to see grandmother"  
   _female target_
 
 **Ҡил шин дейччу ьинце дирцара, ьелей дяьне адеркун бужив.**  
