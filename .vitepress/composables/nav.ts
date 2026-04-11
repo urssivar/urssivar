@@ -84,6 +84,12 @@ const navTree = <NavPage>{
         {
           text: { en: "Grammar", ru: "Грамматика", },
           path: "grammar",
+          children: [
+            {
+              text: { en: "Noun Classes", },
+              path: "classes",
+            },
+          ]
         },
         {
           text: { en: "Dictionary", ru: "Словарь", },
