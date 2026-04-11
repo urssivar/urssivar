@@ -69,9 +69,9 @@ const tocRef = useTemplateRef("toc");
               </template>
             </USlideover>
           </template>
-          <span class="font-semibold flex-1 text-center">
+          <div class="font-semibold truncate">
             {{ title.substring(0, title.length - " — Urssivar".length) }}
-          </span>
+          </div>
           <template #trailing>
             <USlideover
               :close="false"
