@@ -12,12 +12,12 @@ const fixed = ref(false);
     <img
       src="/stamp-text.svg"
       alt="Urssivar: Kaitag Studies"
-      class="block w-full invert-90 dark:invert-0 pointer-events-none animate-[spin_60s_linear_infinite] print:animate-none"
+      class="block w-full invert-90 dark:invert-0 pointer-events-none animate-[spin_60s_linear_infinite] print:animate-none print:rotate-12"
     />
     <img
       src="/stamp-logo.svg"
       alt="Urssivar logo"
-      class="absolute top-0 left-0 block w-full invert-90 dark:invert-0 pointer-events-none rotate-12 print:rotate-none transition-transform ease-out"
+      class="absolute top-0 left-0 block w-full invert-90 dark:invert-0 pointer-events-none rotate-12 transition-transform ease-out"
       :class="{ 'rotate-none': fixed }"
     />
   </div>
