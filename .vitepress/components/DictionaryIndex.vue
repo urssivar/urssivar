@@ -1,9 +1,9 @@
 <script lang="ts">
-export type DictionaryIndexMode = "default" | "print" | "sidebar";
+export type DictionaryIndexMode = "default" | "sidebar";
 </script>
 
 <script setup lang="ts">
-import { type Letter, useDictData } from "@/composables/dictionary";
+import { useDictData } from "@/composables/dictionary";
 import { useData } from "vitepress";
 import { computed } from "vue";
 
@@ -14,15 +14,11 @@ const { mode = "default" } = defineProps<{
 const { letters, dict } = useDictData();
 const { params } = useData();
 
-const letter = computed(() => {
-  const l = params.value?.letter;
-  return letters.value.includes(l) ? l : "";
+const urls = computed(() => {
+  return Object.fromEntries(
+    letters.value.map((l) => [l, dict[l].length ? l : undefined]),
+  );
 });
-
-function getUrl(letter: Letter) {
-  if (!dict[letter].length) return undefined;
-  return (mode === "print" ? "#" : "") + letter;
-}
 </script>
 
 <template>
@@ -32,10 +28,10 @@ function getUrl(letter: Letter) {
   >
     <a
       v-for="l in letters"
-      :href="getUrl(l)"
+      :href="urls[l]"
       :key="l"
       class="capitalize text-center"
-      :class="{ active: l === letter }"
+      :class="{ active: l === params?.letter }"
     >
       {{ l }}
     </a>
@@ -43,7 +39,7 @@ function getUrl(letter: Letter) {
   <nav v-else class="breakout grid grid-cols-7 sm:grid-cols-9">
     <a
       v-for="l in letters"
-      :href="getUrl(l)"
+      :href="urls[l]"
       class="text-center py-2 flex flex-col no-underline! group"
     >
       <div
