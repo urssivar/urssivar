@@ -73,7 +73,7 @@ interface NavPage {
   children?: NavPage[]
 };
 
-const navTree = <NavPage>{
+export const navTree = <NavPage>{
   text: { en: "Urssivar", ru: "Urssivar", },
   path: "",
   children: [
@@ -86,8 +86,8 @@ const navTree = <NavPage>{
           path: "grammar",
           children: [
             {
-              text: { en: "Noun Classes", },
-              path: "classes",
+              text: { en: "Noun Classes", ru: "Классы существительных" },
+              path: "classes"
             },
           ]
         },
