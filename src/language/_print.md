@@ -11,8 +11,6 @@ import LangIntro from './index.md';
 import GrammarIntro from './grammar/index.md';
 import DictIntro from './dictionary/index.md';
 import DictionaryWord from '@/components/DictionaryWord.vue';
-import Home from '@/theme/components/Home.vue';
-import Stamp from '@/components/Stamp.vue';
 
 const grammarPages = import.meta.glob('./grammar/!(index).md', {
   eager: true
@@ -32,9 +30,7 @@ const grammarArticles = (grammar?.children ?? [])
   .filter(e => e.component);
 </script>
 
-<Home class="mb-16" />
-
-<PrintSection>
+<!-- <PrintSection>
   <LangIntro />
 </PrintSection>
 
@@ -44,7 +40,7 @@ const grammarArticles = (grammar?.children ?? [])
 
 <PrintSection v-for="entry in grammarArticles" :key="entry.path" :path="entry.path" :shift="1">
   <component :is="entry.component" />
-</PrintSection>
+</PrintSection> -->
 
 <PrintSection path="dictionary">
   <DictIntro />
@@ -58,5 +54,3 @@ const grammarArticles = (grammar?.children ?? [])
     </PrintSection>
   </template>
 </div>
-
-<Stamp />
