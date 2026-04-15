@@ -1,0 +1,23 @@
+@page {
+  margin: 1in 0;
+}
+
+@page :left {
+  @bottom-left {
+    content: counter(page);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.75rem;
+    color: var(--ui-color-neutral-400);
+    margin-inline: 0.75in;
+  }
+}
+
+@page :right {
+  @bottom-right {
+    content: counter(page);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.75rem;
+    color: var(--ui-color-neutral-400);
+    margin-inline: 0.75in;
+  }
+}

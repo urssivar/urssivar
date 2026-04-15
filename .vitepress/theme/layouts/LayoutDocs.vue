@@ -147,10 +147,10 @@ const tocRef = useTemplateRef("toc");
 @reference "@/theme/styles/index.css";
 
 main {
-  @apply mx-auto w-full md:w-[calc(65ch+var(--spacing)*32)] print:w-full print:px-[0.75in];
+  @apply mx-auto w-full md:w-[calc(65ch+var(--spacing)*32)];
 
   article {
-    @apply my-20;
+    @apply my-20 print:mt-0;
   }
 }
 
@@ -159,7 +159,7 @@ main {
 }
 
 :deep(.breakout) {
-  @apply print:max-w-none print:-mx-[0.75in] print:px-[0.75in];
+  @apply print:max-w-none print:-mx-18 print:px-18;
 }
 
 aside {
@@ -192,28 +192,6 @@ aside {
 
 <style lang="css">
 @reference "@/theme/styles/index.css";
-
-@page {
-  margin: 1in 0;
-}
-
-@page :first {
-  margin-top: 0;
-}
-
-@page :left {
-  @bottom-left {
-    content: counter(page);
-    @apply text-xs text-dimmed mx-[0.75in];
-  }
-}
-
-@page :right {
-  @bottom-right {
-    content: counter(page);
-    @apply text-xs text-dimmed mx-[0.75in];
-  }
-}
 
 aside,
 button,
