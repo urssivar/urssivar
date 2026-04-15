@@ -150,7 +150,7 @@ main {
   @apply mx-auto w-full md:w-[calc(65ch+var(--spacing)*32)];
 
   article {
-    @apply my-20 print:mt-0;
+    @apply my-20;
   }
 }
 

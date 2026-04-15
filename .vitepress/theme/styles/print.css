@@ -2,6 +2,10 @@
   margin: 1in 0;
 }
 
+@page :first {
+  margin-top: 0;
+}
+
 @page :left {
   @bottom-left {
     content: counter(page);
