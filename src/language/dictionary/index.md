@@ -21,7 +21,7 @@ Uzlipat Gasanova, +7 960 408-99-18, <uzlipat066@mail.ru>
 5,171 entries · [database](https://github.com/urssivar/dictionary/releases/latest) 25.03.2026 · [document](https://urssivar.com/language/dictionary) 25.03.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) {.text-xs .italic}
 :::
 
-:::
+::: {.print:hidden}
 The website is being updated toward v1.1. For a stable version, use the PDF or Google Sheets. {.text-xs .italic}
 :::
 
@@ -42,16 +42,16 @@ The dictionary is available in four formats:
 
 Each entry includes a headword, grammatical tags, and definitions. Grammatical forms are included where relevant. Definitions may carry usage notes and examples. Some entries also include a note and etymology. Where applicable, dialect variants (~) and derived-from/see-also links (« +, except PDF) are shown.
 
-The first tag always indicates *part of speech*, with forms listed accordingly:
+The first tag always indicates _part of speech_, with forms listed accordingly:
 
-- Nouns (*n*): absolutive headword (**тӏу́пп** "finger"), oblique (**тӏуппу́-**), plural (**тӏиппе́** "fingers"). May be inherently plural (*pl*) or include an irregular locative (**ья́жни** "on Hajj").
-- Verbs (*v*): imperfective infinitive (**кабирга́ра** "to be sitting"), optionally perfective (**кабига́ра** "to sit") and preterite (**ка́бижив** "sat").
-- Adjectives (*adj*): may include adverbial form with stress shift (**бухха́р** "cold" → **бу́ххал** "coldly").
-- Cardinal numerals (*num*): headword (**чӏвел** "two"), oblique (**чӏул-**), and stem (**чӏу-**).
+- Nouns (_n_): absolutive headword (**тӏу́пп** "finger"), oblique (**тӏуппу́-**), plural (**тӏиппе́** "fingers"). May be inherently plural (_pl_) or include an irregular locative (**ья́жни** "on Hajj").
+- Verbs (_v_): imperfective infinitive (**кабирга́ра** "to be sitting"), optionally perfective (**кабига́ра** "to sit") and preterite (**ка́бижив** "sat").
+- Adjectives (_adj_): may include adverbial form with stress shift (**бухха́р** "cold" → **бу́ххал** "coldly").
+- Cardinal numerals (_num_): headword (**чӏвел** "two"), oblique (**чӏул-**), and stem (**чӏу-**).
 
-Other parts of speech include adverbs (*adv*), conjunctions (*conj*), prepositions (*prep*), postpositions (*postp*), interjections (*interj*), pronouns (*pron*), copulas (*cop*), particles (*part*), and determiners (*det*). Some of these categories are assigned loosely and may not reflect precise grammatical classification.
+Other parts of speech include adverbs (_adv_), conjunctions (_conj_), prepositions (_prep_), postpositions (_postp_), interjections (_interj_), pronouns (_pron_), copulas (_cop_), particles (_part_), and determiners (_det_). Some of these categories are assigned loosely and may not reflect precise grammatical classification.
 
-Words may also carry a grammatical class (*cls*), labeled with the neuter **-б-** (**биҡна́** "old").
+Words may also carry a grammatical class (_cls_), labeled with the neuter **-б-** (**биҡна́** "old").
 
 ## Phonetics & Orthography
 
