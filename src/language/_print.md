@@ -49,7 +49,7 @@ const grammarArticles = (grammar?.children ?? [])
 <div class="columns-2 break-before-page">
   <template v-for="letter in letters" :key="letter">
     <PrintSection :path="`dictionary/${letter}`">
-      <h2>{{ capitalize(letter) }}</h2>
+      <h2 class="mb-4">{{ capitalize(letter) }}</h2>
       <DictionaryWord v-for="w in dict[letter]" :key="w.id" :word="w" />
     </PrintSection>
   </template>
