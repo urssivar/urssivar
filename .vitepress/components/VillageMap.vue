@@ -166,10 +166,18 @@ function onVillageLeave() {
 .village-dot {
   @apply size-3 sm:size-4 ring-3 ring-inset ring-(--ui-bg-elevated) transition-all duration-200 ease-out;
 
+  /* @media not print { */
   &.hover {
     @apply scale-150 ring-2;
   }
+  /* } */
 }
+
+/* @media print {
+  :deep(.leaflet-marker-icon) {
+    display: block !important;
+  }
+} */
 
 /* Fade transition */
 .fade-enter-active {
