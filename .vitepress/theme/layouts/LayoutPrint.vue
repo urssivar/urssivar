@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from "vue";
 import { transformPrintDom } from "../print/transform";
-import Home from "@/theme/components/Home.vue";
 import Stamp from "@/components/Stamp.vue";
 import VillageMap from "@/components/VillageMap.vue";
 import { useI18n } from "@/composables/i18n";
@@ -19,8 +18,7 @@ onMounted(async () => {
 
 <template>
   <main ref="rootEl">
-    <!-- <Home class="mb-16" /> -->
-    <VillageMap class="" />
+    <VillageMap class="mb-16" />
     <Content />
     <a :href="baseUrl">
       <Stamp />

@@ -86,17 +86,17 @@ function onVillageLeave() {
 
 <template>
   <div class="breakout p-0 relative h-60 sm:h-120 overflow-x-clip">
-    <div
-      class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex"
+    <UTooltip
+      :open="tooltipOpen"
+      :reference="markerElement"
+      :content="{ side: 'top', sideOffset: 10 }"
     >
-      <a
-        href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
-        target="_blank"
-        rel="noopener"
-      >
-        {{ t("map.villageData") }}
-      </a>
-    </div>
+      <template #content>
+        <span class="font-semibold">
+          {{ selectedVillage }}
+        </span>
+      </template>
+    </UTooltip>
     <ClientOnly>
       <Transition name="fade" appear>
         <LMap
@@ -133,18 +133,18 @@ function onVillageLeave() {
         </LMap>
       </Transition>
     </ClientOnly>
+    <div
+      class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex"
+    >
+      <a
+        href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
+        target="_blank"
+        rel="noopener"
+      >
+        {{ t("map.villageData") }}
+      </a>
+    </div>
   </div>
-  <UTooltip
-    :open="tooltipOpen"
-    :reference="markerElement"
-    :content="{ side: 'top', sideOffset: 10 }"
-  >
-    <template #content>
-      <span class="font-semibold">
-        {{ selectedVillage }}
-      </span>
-    </template>
-  </UTooltip>
 </template>
 
 <style scoped>
