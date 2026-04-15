@@ -3,7 +3,10 @@ import { ref, onMounted, nextTick } from "vue";
 import { transformPrintDom } from "../print/transform";
 import Home from "@/theme/components/Home.vue";
 import Stamp from "@/components/Stamp.vue";
-import "../styles/print.css";
+import VillageMap from "@/components/VillageMap.vue";
+import { useI18n } from "@/composables/i18n";
+
+const { baseUrl } = useI18n();
 
 const CANONICAL_ORIGIN = "https://urssivar.com";
 const rootEl = ref<HTMLElement>();
@@ -16,13 +19,12 @@ onMounted(async () => {
 
 <template>
   <main ref="rootEl">
-    <Home class="mb-16" />
+    <!-- <Home class="mb-16" /> -->
+    <VillageMap class="" />
     <Content />
-    <div
-      class="break-before-page flex items-center justify-center h-[calc(100vh-2in)]"
-    >
+    <a :href="baseUrl">
       <Stamp />
-    </div>
+    </a>
   </main>
 </template>
 
