@@ -34,7 +34,7 @@ const grammarArticles = (grammar?.children ?? [])
 
 <Home class="mb-16" />
 
-<PrintSection path="language">
+<PrintSection>
   <LangIntro />
 </PrintSection>
 
