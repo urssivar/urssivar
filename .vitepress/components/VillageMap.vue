@@ -85,17 +85,6 @@ function onVillageLeave() {
 </script>
 
 <template>
-  <UTooltip
-    :open="tooltipOpen"
-    :reference="markerElement"
-    :content="{ side: 'top', sideOffset: 10 }"
-  >
-    <template #content>
-      <span class="font-semibold">
-        {{ selectedVillage }}
-      </span>
-    </template>
-  </UTooltip>
   <div class="breakout p-0 relative h-60 sm:h-120 overflow-x-clip">
     <div
       class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex"
@@ -145,6 +134,17 @@ function onVillageLeave() {
       </Transition>
     </ClientOnly>
   </div>
+  <UTooltip
+    :open="tooltipOpen"
+    :reference="markerElement"
+    :content="{ side: 'top', sideOffset: 10 }"
+  >
+    <template #content>
+      <span class="font-semibold">
+        {{ selectedVillage }}
+      </span>
+    </template>
+  </UTooltip>
 </template>
 
 <style scoped>
