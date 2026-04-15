@@ -1,4 +1,4 @@
-export function transformPrintDom(root: HTMLElement) {
+export function transformPrintDom(root: HTMLElement, canonicalOrigin?: string) {
   const sections = Array.from(
     root.querySelectorAll<HTMLElement>(".print-section")
   );
@@ -32,12 +32,23 @@ export function transformPrintDom(root: HTMLElement) {
       const link = resolveLink(a.getAttribute("href")!, path, siteBase);
       if (link && sectionPaths.has(link.path)) {
         const slug = toSlug(link.path || rootSection);
-        a.href = link.fragment ? `#${slug}--${link.fragment}` : `#${slug}`;
+        a.setAttribute(
+          "href",
+          link.fragment ? `#${slug}--${link.fragment}` : `#${slug}`
+        );
       }
     }
   }
 
-  if (import.meta.env.DEV) warnUnresolvedFragments(root);
+  if (canonicalOrigin) {
+    for (const a of root.querySelectorAll<HTMLAnchorElement>("a[href]")) {
+      if (a.getAttribute("href")!.startsWith("#")) continue;
+      if (a.href.startsWith(location.origin)) {
+        a.href = canonicalOrigin + a.href.slice(location.origin.length);
+      }
+    }
+  }
+  warnUnresolvedFragments(root);
 }
 
 function resolveLink(href: string, sectionPath: string, siteBase: string) {

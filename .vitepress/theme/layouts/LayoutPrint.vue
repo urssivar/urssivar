@@ -5,11 +5,12 @@ import Home from "@/theme/components/Home.vue";
 import Stamp from "@/components/Stamp.vue";
 import "../styles/print.css";
 
+const CANONICAL_ORIGIN = "https://urssivar.com";
 const rootEl = ref<HTMLElement>();
 
 onMounted(async () => {
   await nextTick();
-  if (rootEl.value) transformPrintDom(rootEl.value);
+  if (rootEl.value) transformPrintDom(rootEl.value, CANONICAL_ORIGIN);
 });
 </script>
 
