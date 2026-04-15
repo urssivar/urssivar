@@ -18,7 +18,7 @@ onMounted(async () => {
 
 <template>
   <main ref="rootEl">
-    <VillageMap class="mb-16" />
+    <VillageMap class="mb-24!" />
     <Content />
     <a :href="baseUrl">
       <Stamp />
