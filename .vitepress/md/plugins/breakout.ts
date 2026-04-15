@@ -19,15 +19,12 @@ export default function blockContainer(md: MarkdownIt) {
     // 1. Must start with :::
     if (!text.startsWith(':::')) return false;
 
-    // 2. Extract the "word" immediately following :::
-    // Regex matches ::: followed by optional whitespace and then the first word
-    const match = text.match(/^:::\s*([a-zA-Z0-9_-]+)?/);
-    if (!match) return false;
-
-    const subClass = match[1] || ''; // 'fig', 'quote', etc.
+    // 2. Capture everything after ::: as the info string (e.g. "fig {.hidden}")
+    //    markdown-it-attrs will later strip any {.attrs} from it automatically.
+    const info = text.slice(3).trim();
     if (silent) return true;
 
-    // 3. Search for the closing ::: (must be an exact match to avoid confusion)
+    // 3. Search for the closing :::
     let closingLine = startLine;
     let found = false;
 
@@ -37,7 +34,7 @@ export default function blockContainer(md: MarkdownIt) {
         state.eMarks[closingLine]
       ).trim();
 
-      if (lineText.trim() === ':::') {
+      if (lineText === ':::') {
         found = true;
         break;
       }
@@ -45,26 +42,27 @@ export default function blockContainer(md: MarkdownIt) {
 
     if (!found) return false;
 
-    // 4. Push Tokens
+    // 4. Push tokens
     const openToken = state.push('custom_block_open', 'div', 1);
     openToken.map = [startLine, closingLine];
-    // Store the subclass on the token so the renderer can see it
-    openToken.info = subClass;
+    openToken.info = info;
 
     // Parse the inner content
     state.md.block.tokenize(state, startLine + 1, closingLine);
 
-    const closeToken = state.push('custom_block_close', 'div', -1);
+    state.push('custom_block_close', 'div', -1);
 
     state.line = closingLine + 1;
     return true;
   });
 
-  // 5. Renderer Logic
-  md.renderer.rules['custom_block_open'] = (tokens, idx) => {
+  // 6. Renderer Logic
+  md.renderer.rules['custom_block_open'] = (tokens, idx, _options, _env, self) => {
     const token = tokens[idx];
-    const subClass = token.info ? ` ${token.info}` : '';
-    return `<div class="breakout${subClass}">\n`;
+    const subClass = token.info.trim() ? ` ${token.info.trim()}` : '';
+    const extraClass = token.attrGet('class');
+    token.attrSet('class', `breakout${subClass}${extraClass ? ' ' + extraClass : ''}`);
+    return `<div${self.renderAttrs(token)}>\n`;
   };
 
   md.renderer.rules['custom_block_close'] = () => `</div>\n`;
