@@ -12,7 +12,6 @@ import PrintSection from '@/components/PrintSection.vue';
 import Intro from './_intro.md';
 import DictIntro from './dictionary/index.md';
 import DictionaryWord from '@/components/DictionaryWord.vue';
-import Stamp from "@/components/Stamp.vue";
 import Home from "@/theme/components/Home.vue";
 
 // const grammarPages = import.meta.glob('./grammar/!(index).md', {
@@ -33,7 +32,7 @@ const { dict, letters } = useDictData();
 //   .filter(e => e.component);
 </script>
 
-<PrintSection class="break-after-page">
+<PrintSection class="no-number">
   <div class="print:-mx-18 mb-16">
     <img class="w-full object-cover h-120 invert-10 dark:invert-100" src="/assets/map.webp" />
   </div>
@@ -52,18 +51,16 @@ const { dict, letters } = useDictData();
   <component :is="entry.component" />
 </PrintSection> -->
 
-<PrintSection path="dictionary">
+<PrintSection path="dictionary" class="break-after-page">
   <Home class="mb-16" />
   <DictIntro />
 </PrintSection>
 
-<div class="columns-2 break-before-page">
-  <template v-for="letter in letters.slice(0, 3)" :key="letter">
+<div class="columns-2">
+  <template v-for="l in letters" :key="l">
     <PrintSection :path="`dictionary/${letter}`">
-      <h2 class="mb-4">{{ capitalize(letter) }}</h2>
-      <DictionaryWord v-for="w in dict[letter]" :key="w.id" :word="w" />
+      <h2 class="mb-4">{{ capitalize(l) }}</h2>
+      <DictionaryWord v-for="w in dict[l]" :key="w.id" :word="w" />
     </PrintSection>
   </template>
 </div>
-
-<Stamp />
