@@ -25,3 +25,12 @@
     margin-inline: 0.75in;
   }
 }
+
+@page no-number {
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+.no-number {
+  page: no-number;
+}
