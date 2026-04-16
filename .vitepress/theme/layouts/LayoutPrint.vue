@@ -6,10 +6,13 @@ import Stamp from "../../components/Stamp.vue";
 const CANONICAL_ORIGIN = "https://urssivar.com";
 const rootEl = ref<HTMLElement>();
 
-onMounted(async () => {
-  await nextTick();
-  if (rootEl.value) transformPrintDom(rootEl.value, CANONICAL_ORIGIN);
-});
+onMounted(
+  nextTick(() => {
+    if (rootEl.value) {
+      transformPrintDom(rootEl.value, CANONICAL_ORIGIN);
+    }
+  }),
+);
 </script>
 
 <template>
