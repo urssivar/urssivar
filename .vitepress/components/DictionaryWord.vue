@@ -16,7 +16,7 @@ const lang = computed(() => {
 </script>
 
 <template> 
-  <p :id="word.id" class="pl-3 -indent-3 my-1 leading-0">
+  <p :id="word.id" class="pl-3 -indent-3 my-0 leading-0">
     <h5 class="inline">
       {{ word.headword }}
     </h5>
