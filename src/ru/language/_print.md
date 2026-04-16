@@ -58,7 +58,7 @@ const { dict, letters } = useDictData();
 
 <div class="columns-2">
   <template v-for="l in letters" :key="l">
-    <PrintSection :path="`dictionary/${letter}`">
+    <PrintSection :path="`dictionary/${l}`">
       <h2 class="mb-4">{{ capitalize(l) }}</h2>
       <DictionaryWord v-for="w in dict[l]" :key="w.id" :word="w" />
     </PrintSection>
