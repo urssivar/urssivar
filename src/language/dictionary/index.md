@@ -15,19 +15,13 @@ defineProps<{
 
 # Kaitag Dictionary
 
-:::
-Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>  
-Uzlipat Gasanova, +7 960 408-99-18, <uzlipat066@mail.ru>  
-5,171 entries · [database](https://github.com/urssivar/dictionary/releases/latest) 25.03.2026 · [document](https://urssivar.com/language/dictionary) 25.03.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) {.text-xs .italic}
-:::
+::: {.text-xs .italic}
+Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>
 
-::: {.print:hidden}
-The website is being updated toward v1.1. For a stable version, use the PDF or Google Sheets. {.text-xs .italic}
+5,171 entries · database 25.03.2026 · document 18.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
-The dictionary draws primarily on the speech of the villages **Turaga** (Irchamul microregion) and **Shilyagi** (Lower Kattagan microregion). Its core is the dissertation of **Gasanova U. U. (2012)**, with whom we spent long hours refining the material. Additional material comes from **Temirbulatova S. M. (2004, 2008, 2021)** and **Gabibova K. M. (2009)**.
-
-For a spoken introduction, see ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA) on YouTube.
+The dictionary draws primarily on the speech of the villages **Turaga** (Irchamul microregion) and **Shilyagi** (Lower Kattagan microregion). Kaitag is very little documented and the generation of native speakers is passing — this work is urgent.
 
 The dictionary is available in four formats:
 
@@ -36,11 +30,13 @@ The dictionary is available in four formats:
 - The [Google Sheets](https://docs.google.com/spreadsheets/d/1TAvQAMAw0jDdStvq2Z1E-m1mz3UWkCMGQBgLCnPQgJs) table for data analysis and linguistic research
 - The [GitHub repository](https://github.com/urssivar/dictionary) for full source data and the JSON export for computational use
 
+> **Note:** The dictionary is being updated toward v1.1. For a stable version, use the PDF or Google Sheets above.
+
 <DictIndex :mode="indexMode" />
 
 ## Entry Structure
 
-Each entry includes a headword, grammatical tags, and definitions. Grammatical forms are included where relevant. Definitions may carry usage notes and examples. Some entries also include a note and etymology. Where applicable, dialect variants (~) and derived-from/see-also links (« +, except PDF) are shown.
+Each entry includes a headword, grammatical tags, and definitions. Grammatical forms are included where relevant. Definitions may carry usage notes and examples. Some entries also include a note and etymology. Where applicable, dialect variants (~) and derived-from («) / see-also (+) links are shown.
 
 The first tag always indicates _part of speech_, with forms listed accordingly:
 
@@ -120,8 +116,6 @@ Unlike Russian, **е** /e/ and **я** /æ/ are always pure vowels and **й** /j/
 - **йети́м** /jetim/ "orphan"
 - **йулға́н** /julˈʁan/ "quilt"
 - **е́тти** /etːi/ "to you"
-- **е́ркӏ** /eɾkʼ/ "river"
-- **я́тӏа** /ætʼa/ "frog"
 - **яххи́** /æχːi/ "good"
 
 Stress is contrastive and always marked on headwords: **ьана́** "currently" vs **ьа́на** "plate".
@@ -137,7 +131,6 @@ Sonorant assimilation at morpheme boundaries is not reflected in spelling:
 Directional (**ка-**, **ьа-**, **ца-**) and negative (**а-**, **ма-**) prefixes shift to **я** /æ/ or **е** /e/ before roots with those vowels:
 
 - **бел** "still is" → **а́бел [ебел]** "no more"
-- **ц́яун** "came" → **ма́цяв [мяцяв]** "may he not come"
 - **бертта́ра** "to rip" → **цабертта́ра [цеберттара]** "to tear"
 - **бяҡа́ра** "to wound" → **ьабяҡа́ра [ьябяҡара]** "to kick"
 
@@ -147,11 +140,22 @@ The causative suffixes **-их**, **-ух**, **-ях** assimilate to the followi
 - **биьо́ра** "to be" → **биьуха́ра [биьахара]** "to let be, to make"
 - **бя́рғур** "dried" → **бя́рғяхур [бярғухур]** "made dry"
 
-## Further Work
+Morphologically separate words are written with spaces regardless of lexicalization degree:
 
-Three priorities lie ahead: gathering more material urgently — very little has been documented and the older generation is passing; expanding entries with usage examples and village variants; and thorough verification for accuracy and orthographic consistency.
+- **миг бяръи́в** "ice-cold"
+- **йяь акко́р** "unscrupulous"
+- **ча йел** "somebody"
 
-All of this will require crowdsourcing and collaboration.
+This extends to compound verbs as well. Though unexpected, it is supported by tests such as negation placement, stress, and short-answer behavior:
 
-Улбетай нишшала,  
-Мяьямад
+- **ул бета́ра** "to look" → **ул а́бетур** "didn't look"
+- **чи бага́ра** "to see" → **чи ва́живде у? ва́живда** "did you see? I did"
+- **чер цабирьо́ра** "to return" → **чер ма́цирьотте** "don't return"
+
+The conventions described in this section prioritize consistency and transparency — predictable rules that can serve as a foundation for future standardization, even where individual choices may seem arbitrary. A proper orthographic system for Kaitag remains an important work for the future.
+
+## Version History
+
+**v1.1 (2026, in progress):** Source organized as an open YAML repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes. With informants **Person 1** (Turaga village) and **Person 2** (Kirki village).
+
+**[v1.0 (May 2025)](https://github.com/urssivar/dictionary/releases/tag/v1.0):** Initial release. Co-authored with **Gasanova U. U.**, based on her dissertation wordlist of Shilyagi village, with additional input from author's Turaga village knowledge. Additional sources: **Temirbulatova S. M.** (2004, 2008, 2021), **Gabibova K. M.** (2009). Includes accented headwords, grammatical forms, POS tags, and dialectal variants. Spoken introduction: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA).
