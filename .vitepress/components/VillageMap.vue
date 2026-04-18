@@ -73,7 +73,7 @@ const cornerClasses = [
             <LIcon>
               <div class="relative size-full group font-sans">
                 <div
-                  class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3 bg-elevated rounded-full transition-shadow duration-200 ring-inset ring-(--ui-text-higlighted) ring-3 group-hover:ring-2"
+                  class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3 bg-primary rounded-full transition-shadow duration-200 ring-inset ring-(--ui-bg-elevated) ring-3 group-hover:ring-2"
                 />
                 <span
                   class="top-1/2 left-1/2 absolute inline-block sm:text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated transition-all duration-200 scale-75 group-hover:scale-100 opacity-0 pointer-events-none sm:opacity-100 sm:pointer-events-auto group-hover:opacity-100 group-hover:pointer-events-auto"
