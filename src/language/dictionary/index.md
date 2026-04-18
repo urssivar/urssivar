@@ -21,7 +21,9 @@ Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>
 5,171 entries · database 25.03.2026 · document 18.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
-The dictionary draws primarily on the speech of the villages **Turaga** (Irchamul microregion) and **Shilyagi** (Lower Kattagan microregion). Kaitag is very little documented and the generation of native speakers is passing — this work is urgent.
+Built on **Gasanova U. U.**'s Shilyagi village wordlist (2012) and drawn primarily from Turaga village speech, this dictionary lays groundwork for digitizing and standardizing Kaitag. Yet what is captured here is but a fraction of what needs to be documented — even within a single village, let alone all of Kaitag.
+
+The final generation of fluent speakers is passing, and time is short. Securing the language's future — through education, documentation, and modern digital infrastructure — will take both community effort and academic support. There's much to be done.
 
 The dictionary is available in four formats:
 
