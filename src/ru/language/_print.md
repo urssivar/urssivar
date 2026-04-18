@@ -33,7 +33,7 @@ const { dict, letters } = useDictData();
 </script>
 
 <PrintSection class="no-number">
-  <VillageMap class="mt-0" />
+  <VillageMap class="mt-0 mb-20"/>
   <Intro />
 </PrintSection>
 

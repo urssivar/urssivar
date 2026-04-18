@@ -33,7 +33,7 @@ const { dict, letters } = useDictData();
 </script>
 
 <PrintSection class="no-number">
-  <VillageMap class="mt-0" />
+  <VillageMap class="mt-0 mb-20" />
   <Intro />
 </PrintSection>
 
@@ -53,11 +53,11 @@ const { dict, letters } = useDictData();
   <DictIntro />
 </PrintSection>
 
-<div class="columns-2">
+<!-- <div class="columns-2">
   <template v-for="l in letters" :key="l">
     <PrintSection :path="`dictionary/${l}`">
       <h2 class="mb-4">{{ capitalize(l) }}</h2>
       <DictionaryWord v-for="w in dict[l]" :key="w.id" :word="w" />
     </PrintSection>
   </template>
-</div>
+</div> -->
