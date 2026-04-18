@@ -38,20 +38,12 @@ const mapOptions = {
 
 const hoveredIndex = ref(-1);
 
-// corner order: top-left, top-right, bottom-right, bottom-left
-type Corner = "tl" | "tr" | "br" | "bl";
-const CORNERS: Corner[] = ["tl", "tr", "br", "bl"];
-
-function cornerFor(i: number): Corner {
-  return CORNERS[i % 4]!;
-}
-
-const chipClass: Record<Corner, string> = {
-  tl: "rounded-tl-none",
-  tr: "rounded-tr-none -translate-x-full",
-  br: "rounded-br-none -translate-x-full -translate-y-full",
-  bl: "rounded-bl-none -translate-y-full",
-};
+const cornerClasses = [
+  "origin-bottom-right rounded-br-none -translate-x-full -translate-y-full",
+  "origin-bottom-left rounded-bl-none -translate-y-full",
+  "origin-top-left rounded-tl-none",
+  "origin-top-right rounded-tr-none -translate-x-full",
+];
 </script>
 
 <template>
@@ -79,10 +71,13 @@ const chipClass: Record<Corner, string> = {
             @mouseout="hoveredIndex = -1"
           >
             <LIcon>
-              <div class="relative w-full h-full group font-sans">
+              <div class="relative size-full group font-sans">
+                <div
+                  class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3 bg-elevated rounded-full transition-shadow duration-200 ring-inset ring-(--ui-text-higlighted) ring-3 group-hover:ring-2"
+                />
                 <span
-                  class="top-1/2 left-1/2 absolute inline-block sm:text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated transition-colors duration-200"
-                  :class="chipClass[cornerFor(i)]"
+                  class="top-1/2 left-1/2 absolute inline-block sm:text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated transition-all duration-200 scale-75 group-hover:scale-100 opacity-0 pointer-events-none sm:opacity-100 sm:pointer-events-auto group-hover:opacity-100 group-hover:pointer-events-auto"
+                  :class="cornerClasses[village.corner]"
                 >
                   {{ village.name }}
                 </span>
@@ -93,7 +88,7 @@ const chipClass: Record<Corner, string> = {
       </Transition>
     </ClientOnly>
     <div
-      class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex"
+      class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex print:hidden"
     >
       <a
         href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
@@ -119,6 +114,12 @@ const chipClass: Record<Corner, string> = {
 
 :deep(.leaflet-marker-icon) {
   @apply bg-transparent border-0;
+}
+
+@media print {
+  :deep(.leaflet-marker-icon) {
+    display: block !important;
+  }
 }
 
 .fade-enter-active {
