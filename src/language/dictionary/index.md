@@ -21,9 +21,9 @@ Magomed Magomedov, +7 999 533-93-50, <alkaitagi@outlook.com>
 5,171 entries · database 25.03.2026 · document 18.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
-Built on **Gasanova U. U.**'s Shilyagi village wordlist (2012) and drawn primarily from Turaga village speech, this dictionary lays groundwork for digitizing and standardizing Kaitag. Yet what is captured here is but a fraction of what needs to be documented — even within a single village, let alone all of Kaitag.
+Built on **Gasanova U. U.**'s dissertation's Shilyagi village wordlist (2012) and drawn primarily from Turaga village speech, this dictionary lays groundwork for digitizing and standardizing Kaitag. Yet what is captured here is but a fraction of what needs to be documented — even within a single village, let alone all of Kaitag.
 
-The final generation of fluent speakers is passing, and time is short. Securing the language's future — through education, documentation, and modern digital infrastructure — will take both community effort and academic support. There's much to be done.
+The final generation of fluent speakers is passing, and time is short. Securing the language's future — through documentation, education, and modern digital infrastructure — will take both community effort and academic support. There's much to be done.
 
 The dictionary is available in four formats:
 
@@ -94,7 +94,7 @@ Some varieties lose gemination syllable-finally, but it is restored before vowel
 - **миҡҡ [миҡ]** "wedding" → **ми́ҡҡи** "at wedding"
 - **лукка́на** "to give" → **лу́ккне [лукне]** "giving (masd.)"
 
-Geminate fricatives vary considerably between villages and require further study, and they are not listed in the alphabet as distinct letters. They are shown mainly intervocalically (**ни́шша** "you (pl.)") and occasionally word-initially (**сса** "yesterday").
+Geminate fricatives vary considerably between villages and require further study. They are not listed in the alphabet as distinct letters, but shown mainly intervocalically (**ни́шша** "you (pl.)") and word-initially (**сса** "yesterday").
 
 ### Vowels
 
@@ -148,16 +148,16 @@ Morphologically separate words are written with spaces regardless of lexicalizat
 - **йяь акко́р** "unscrupulous"
 - **ча йел** "somebody"
 
-This extends to compound verbs as well. Though unexpected, it is supported by tests such as negation placement, stress, and short-answer behavior:
+This extends to compound verbs as well. Though unexpected, it is supported by tests such as negation insertion, stress position, and short-answer behavior:
 
 - **ул бета́ра** "to look" → **ул а́бетур** "didn't look"
 - **чи бага́ра** "to see" → **чи ва́живде у? ва́живда** "did you see? I did"
 - **чер цабирьо́ра** "to return" → **чер ма́цирьотте** "don't return"
 
-The conventions described in this section prioritize consistency and transparency — predictable rules that can serve as a foundation for future standardization, even where individual choices may seem arbitrary. A proper orthographic system for Kaitag remains an important work for the future.
+The conventions described in this section prioritize consistency and transparency — predictable rules that can serve as a foundation for future standardization. A proper orthographic system for Kaitag remains an important work for the future.
 
 ## Version History
 
-**v1.1 (2026, in progress):** Source organized as an open YAML repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes. With informants **Person 1** (Turaga village) and **Person 2** (Kirki village).
+**v1.1 (2026, in progress):** Data organized as an open repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes. With informants **Person 1** (Turaga village) and **Person 2** (Kirki village).
 
-**[v1.0 (May 2025)](https://github.com/urssivar/dictionary/releases/tag/v1.0):** Initial release. Co-authored with **Gasanova U. U.**, based on her dissertation wordlist of Shilyagi village, with additional input from author's Turaga village knowledge. Additional sources: **Temirbulatova S. M.** (2004, 2008, 2021), **Gabibova K. M.** (2009). Includes accented headwords, grammatical forms, POS tags, and dialectal variants. Spoken introduction: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA).
+**[v1.0 (May 2025)](https://github.com/urssivar/dictionary/releases/tag/v1.0):** Initial release. Co-authored with **Gasanova U. U.**, based on her dissertation's Shilyagi village wordlist. Additional sources: **Temirbulatova S. M.** (2004, 2008, 2021), **Gabibova K. M.** (2009). Includes accented headwords, grammatical forms, POS tags, and dialectal variants. Spoken introduction: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA).
