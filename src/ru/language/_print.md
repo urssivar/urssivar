@@ -12,7 +12,6 @@ import PrintSection from '@/components/PrintSection.vue';
 import Intro from './_intro.md';
 import DictIntro from './dictionary/index.md';
 import DictionaryWord from '@/components/DictionaryWord.vue';
-import Home from "@/theme/components/Home.vue";
 
 // const grammarPages = import.meta.glob('./grammar/!(index).md', {
 //   eager: true
@@ -52,7 +51,6 @@ const { dict, letters } = useDictData();
 </PrintSection> -->
 
 <PrintSection path="dictionary" class="break-after-page">
-  <Home class="mb-16" />
   <DictIntro />
 </PrintSection>
 

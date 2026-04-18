@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from "vue";
 import { transformPrintDom } from "../print/transform";
+import { useI18n } from "@/composables/i18n";
 import Stamp from "../../components/Stamp.vue";
+
+const { baseUrl } = useI18n();
 
 const CANONICAL_ORIGIN = "https://urssivar.com";
 const rootEl = ref<HTMLElement>();
@@ -18,8 +21,12 @@ onMounted(
 <template>
   <main ref="rootEl">
     <Content />
-    <div class="no-number h-[calc(100vh-1in)]">
-      <Stamp class="m-0! absolute top-1/2 -translate-y-1/2" />
+    <div class="no-number h-[calc(100vh-1in)] relative">
+      <div class="absolute w-full top-1/2 -translate-y-1/2">
+        <a :href="baseUrl">
+          <Stamp class="m-0!" />
+        </a>
+      </div>
     </div>
   </main>
 </template>
