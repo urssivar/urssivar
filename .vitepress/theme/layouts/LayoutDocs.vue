@@ -147,7 +147,7 @@ const tocRef = useTemplateRef("toc");
 @reference "@/theme/styles/index.css";
 
 main {
-  @apply mx-auto w-full md:w-[calc(65ch+var(--spacing)*32)];
+  @apply mx-auto w-full print:px-18 print:w-full md:w-[calc(65ch+var(--spacing)*32)];
 
   article {
     @apply my-20;
