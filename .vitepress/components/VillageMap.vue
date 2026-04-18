@@ -4,7 +4,6 @@ import "leaflet/dist/leaflet.css";
 import villages from "@/data/villages.json";
 import type { LatLngBoundsExpression } from "leaflet";
 import { computed, ref } from "vue";
-import { useAutoCycle } from "@/composables/autoCycle";
 import { useI18n } from "@/composables/i18n";
 
 const { t } = useI18n();
@@ -37,66 +36,26 @@ const mapOptions = {
   attributionControl: false,
 };
 
-const tooltipOpen = ref(false);
-const selectedVillage = ref<string>("");
-const markerElement = ref<HTMLElement>();
-const markerRefs = ref<HTMLElement[]>([]);
+const hoveredIndex = ref(-1);
 
-function selectVillage(index: number) {
-  const marker = markerRefs.value[index];
-  if (!marker) return;
+// corner order: top-left, top-right, bottom-right, bottom-left
+type Corner = "tl" | "tr" | "br" | "bl";
+const CORNERS: Corner[] = ["tl", "tr", "br", "bl"];
 
-  deselectVillage();
-
-  selectedVillage.value = villages[index]!.name;
-  tooltipOpen.value = true;
-  markerElement.value = marker;
-
-  (marker.firstChild?.firstChild as HTMLElement)?.classList.add("hover");
+function cornerFor(i: number): Corner {
+  return CORNERS[i % 4]!;
 }
 
-function deselectVillage() {
-  tooltipOpen.value = false;
-  (
-    markerElement.value?.firstChild?.firstChild as HTMLElement
-  )?.classList.remove("hover");
-}
-
-const autoHover = useAutoCycle({
-  onEnter: () => {
-    const i = Math.floor(Math.random() * villages.length);
-    selectVillage(i);
-  },
-  onExit: deselectVillage,
-  duration: 2500,
-  gap: 500,
-  resumeDelay: 1000,
-});
-
-function onVillageEnter(i: number) {
-  autoHover.stop();
-  selectVillage(i);
-}
-
-function onVillageLeave() {
-  deselectVillage();
-  autoHover.resume();
-}
+const chipClass: Record<Corner, string> = {
+  tl: "rounded-tl-none",
+  tr: "rounded-tr-none -translate-x-full",
+  br: "rounded-br-none -translate-x-full -translate-y-full",
+  bl: "rounded-bl-none -translate-y-full",
+};
 </script>
 
 <template>
   <div class="breakout p-0 relative h-60 sm:h-120 overflow-x-clip">
-    <UTooltip
-      :open="tooltipOpen"
-      :reference="markerElement"
-      :content="{ side: 'top', sideOffset: 10 }"
-    >
-      <template #content>
-        <span class="font-semibold">
-          {{ selectedVillage }}
-        </span>
-      </template>
-    </UTooltip>
     <ClientOnly>
       <Transition name="fade" appear>
         <LMap
@@ -115,18 +74,18 @@ function onVillageLeave() {
             v-for="(village, i) in villages"
             :key="village.name"
             :lat-lng="[village.lat, village.lng]"
-            @ready="(marker: any) => (markerRefs[i] = marker._icon)"
-            @mouseover="onVillageEnter(i)"
-            @mouseout="onVillageLeave"
-            :z-index-offset="selectedVillage === village.name ? 1000 : 0"
+            :z-index-offset="hoveredIndex === i ? 1000 : 0"
+            @mouseover="hoveredIndex = i"
+            @mouseout="hoveredIndex = -1"
           >
             <LIcon>
-              <div
-                class="w-full h-full flex items-center justify-center relative"
-              >
-                <div
-                  class="village-dot absolute rounded-full cursor-pointer bg-primary shadow-xs"
-                />
+              <div class="relative w-full h-full group font-sans">
+                <span
+                  class="top-1/2 left-1/2 absolute inline-block sm:text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated transition-colors duration-200"
+                  :class="chipClass[cornerFor(i)]"
+                >
+                  {{ village.name }}
+                </span>
               </div>
             </LIcon>
           </LMarker>
@@ -150,7 +109,6 @@ function onVillageLeave() {
 <style scoped>
 @reference "@/theme/styles/index.css";
 
-/* Override Leaflet default styles */
 :deep(.leaflet-container) {
   @apply bg-transparent;
 }
@@ -163,23 +121,6 @@ function onVillageLeave() {
   @apply bg-transparent border-0;
 }
 
-.village-dot {
-  @apply size-3 sm:size-4 ring-3 ring-inset ring-(--ui-bg-elevated) transition-all duration-200 ease-out;
-
-  /* @media not print { */
-  &.hover {
-    @apply scale-150 ring-2;
-  }
-  /* } */
-}
-
-/* @media print {
-  :deep(.leaflet-marker-icon) {
-    display: block !important;
-  }
-} */
-
-/* Fade transition */
 .fade-enter-active {
   transition: opacity 500ms ease-out;
 }
