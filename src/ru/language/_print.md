@@ -6,6 +6,7 @@ layout: print
 import { useDictData } from '@/composables/dictionary';
 // import { navTree } from '@/composables/nav';
 import { capitalize } from '@/utils';
+import VillageMap from '@/components/VillageMap.vue';
 import PrintSection from '@/components/PrintSection.vue';
 // import LangIntro from './index.md';
 // import GrammarIntro from './grammar/index.md';
@@ -32,9 +33,7 @@ const { dict, letters } = useDictData();
 </script>
 
 <PrintSection class="no-number">
-  <div class="print:-mx-18 mb-16">
-    <img class="w-full object-cover h-120 invert-10 dark:invert-100" src="/assets/map.webp" />
-  </div>
+  <VillageMap />
   <Intro />
 </PrintSection>
 

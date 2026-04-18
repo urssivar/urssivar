@@ -9,7 +9,7 @@ const { baseUrl } = useI18n();
 const CANONICAL_ORIGIN = "https://urssivar.com";
 const rootEl = ref<HTMLElement>();
 
-onMounted(
+onMounted(() =>
   nextTick(() => {
     if (rootEl.value) {
       transformPrintDom(rootEl.value, CANONICAL_ORIGIN);
