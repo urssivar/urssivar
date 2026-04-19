@@ -61,7 +61,7 @@ function onLetterLeave() {
         ·
       </span>
       <span
-        class="opacity-0 pointer-events-none top-1/2 -translate-y-1/2 absolute transition-opacity duration-200 ease-out leading-tight text-sm text-shadow-xs"
+        class="opacity-0 pointer-events-none top-1/2 -translate-y-1/2 absolute transition-opacity ease-out leading-tight text-sm text-shadow-xs"
       >
         {{ words[l] }}
       </span>

@@ -42,13 +42,11 @@ const urls = computed(() => {
       :href="urls[l]"
       class="text-center py-2 flex flex-col no-underline! group"
     >
-      <div
-        class="group-hover:scale-125 group-hover:-translate-y-px transition-transform duration-200 ease-out"
+      <span
+        class="text-lg font-semibold text-shadow-xs capitalize group-hover:text-primary transition-colors"
       >
-        <span class="text-lg font-semibold text-shadow-xs capitalize">
-          {{ l }}
-        </span>
-      </div>
+        {{ l }}
+      </span>
       <span class="text-xs text-toned">
         {{ dict[l].length || "–" }}
       </span>

@@ -81,10 +81,10 @@ const cornerClasses = [
             <LIcon>
               <div class="relative size-full group font-sans">
                 <div
-                  class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3.5 bg-primary rounded-full transition-shadow duration-200 ring-inset ring-(--ui-bg-elevated) ring-4 group-hover:ring-2"
+                  class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3.5 bg-primary rounded-full transition-shadow ring-inset ring-(--ui-bg-elevated) ring-4 group-hover:ring-2"
                 />
                 <span
-                  class="top-1/2 left-1/2 absolute inline-block text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated border border-default transition-color duration-200 opacity-0 sm:opacity-100 group-hover:opacity-100 shadow-sm"
+                  class="top-1/2 left-1/2 absolute inline-block text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated border border-default transition-colors max-sm:hidden shadow-sm"
                   :class="cornerClasses[village.corner]"
                 >
                   {{ village.name }}
