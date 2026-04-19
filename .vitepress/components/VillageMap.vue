@@ -54,7 +54,7 @@ const cornerClasses = [
         <LMap
           :options="mapOptions"
           :use-global-leaflet="false"
-          class="size-full"
+          class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
           @ready="
             (mapInstance: any) => {
               mapInstance.fitBounds(villageBounds);
