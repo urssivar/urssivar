@@ -34,6 +34,7 @@ const mapOptions = {
   boxZoom: false,
   keyboard: false,
   attributionControl: false,
+  zoomSnap: 0.1,
 };
 
 const hoveredIndex = ref(-1);
@@ -47,14 +48,21 @@ const cornerClasses = [
 </script>
 
 <template>
-  <div class="breakout p-0 relative h-60 sm:h-120 overflow-x-clip">
+  <div class="breakout p-0 relative h-72 sm:h-144 overflow-clip isolate">
     <ClientOnly>
       <Transition name="fade" appear>
         <LMap
           :options="mapOptions"
           :use-global-leaflet="false"
-          class="absolute left-1/2 -translate-x-1/2 w-screen h-full"
-          @ready="(mapInstance: any) => mapInstance.fitBounds(villageBounds)"
+          class="size-full"
+          @ready="
+            (mapInstance: any) => {
+              mapInstance.fitBounds(villageBounds);
+              mapInstance.setZoom(mapInstance.getZoom() - 0.35, {
+                animate: false,
+              });
+            }
+          "
         >
           <LImageOverlay
             url="/assets/map.webp"
@@ -73,10 +81,10 @@ const cornerClasses = [
             <LIcon>
               <div class="relative size-full group font-sans">
                 <div
-                  class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3 bg-primary rounded-full transition-shadow duration-200 ring-inset ring-(--ui-bg-elevated) ring-3 group-hover:ring-2"
+                  class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3.5 bg-primary rounded-full transition-shadow duration-200 ring-inset ring-(--ui-bg-elevated) ring-4 group-hover:ring-2"
                 />
                 <span
-                  class="top-1/2 left-1/2 absolute inline-block sm:text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated transition-all duration-200 scale-75 group-hover:scale-100 opacity-0 pointer-events-none sm:opacity-100 sm:pointer-events-auto group-hover:opacity-100 group-hover:pointer-events-auto"
+                  class="top-1/2 left-1/2 absolute inline-block text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated border border-default transition-all duration-200 group-hover:scale-110 opacity-0 pointer-events-none sm:opacity-100 sm:pointer-events-auto group-hover:opacity-100 group-hover:pointer-events-auto shadow-sm"
                   :class="cornerClasses[village.corner]"
                 >
                   {{ village.name }}
@@ -88,7 +96,7 @@ const cornerClasses = [
       </Transition>
     </ClientOnly>
     <div
-      class="navlinks absolute right-0 bottom-0 z-1 m-2 bg-elevated font-sans text-xs flex print:hidden"
+      class="navlinks absolute right-0 bottom-0 z-1000 m-2 bg-elevated text-xs flex print:hidden"
     >
       <a
         href="https://docs.google.com/spreadsheets/d/1TWSpYp5W_XyjQi8bAPcLJgkfUwjRmS7s3fOGRdc5bD4"
