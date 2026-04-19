@@ -84,7 +84,7 @@ const cornerClasses = [
                   class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 size-3.5 bg-primary rounded-full transition-shadow ring-inset ring-(--ui-bg-elevated) ring-4 group-hover:ring-2"
                 />
                 <span
-                  class="top-1/2 left-1/2 absolute inline-block text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated border border-default transition-colors max-sm:hidden shadow-sm"
+                  class="top-1/2 left-1/2 absolute inline-block text-xs font-semibold leading-none rounded-full px-1.5 py-0.5 bg-elevated/75 group-hover:bg-elevated border border-default/75 group-hover:border-default transition-colors max-sm:hidden shadow-sm"
                   :class="cornerClasses[village.corner]"
                 >
                   {{ village.name }}
@@ -117,7 +117,7 @@ const cornerClasses = [
 }
 
 :deep(.map-backdrop-image) {
-  @apply invert-10 dark:invert-100 select-none;
+  @apply invert-35 dark:invert-70 select-none;
 }
 
 :deep(.leaflet-marker-icon) {
