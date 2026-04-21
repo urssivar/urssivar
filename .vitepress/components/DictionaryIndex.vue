@@ -40,9 +40,11 @@ const urls = computed(() => {
     <a
       v-for="l in letters"
       :href="urls[l]"
-      class="text-center py-2 flex flex-col no-underline! rounded-full hover:bg-accented/50"
+      class="text-center py-2 flex flex-col no-underline! group"
     >
-      <span class="text-lg font-semibold text-shadow-xs capitalize">
+      <span
+        class="text-lg font-semibold text-shadow-xs capitalize rounded-full group-hover:bg-accented/50 transition-colors"
+      >
         {{ l }}
       </span>
       <span class="text-xs text-toned">
