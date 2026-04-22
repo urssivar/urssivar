@@ -41,6 +41,8 @@ jobs:
         with:
           node-version: 24
           cache: npm # or pnpm / yarn
+      - name: Setup npm
+        run: npm install -g npm@11.6.2 # 11.6.3 regression: npm ci incorrectly reports missing lock file entries (https://github.com/npm/cli/issues/8767)
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
