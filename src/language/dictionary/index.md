@@ -22,7 +22,7 @@ Contact: +7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com)
 5,171 entries · database 25.03.2026 · document 25.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
-This dictionary documents Kaitag through direct fieldwork with native speakers, building the foundation for the language's digitization and standardization. Yet, what is captured here is but a fraction of what needs to be preserved across the Kaitag villages and regions, and the work continues.
+This dictionary documents Kaitag through direct work with native speakers, building the foundation for the language's digitization and standardization. Yet, what is captured here is but a fraction of what needs to be preserved across the Kaitag villages and regions, and the work continues. Securing the language's future will take both community effort and academic support.
 
 The dictionary is available in four formats:
 
