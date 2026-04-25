@@ -81,16 +81,16 @@ export const navTree = <NavPage>{
       text: { en: "Language", ru: "Язык", },
       path: "language",
       children: [
-        {
-          text: { en: "Grammar", ru: "Грамматика", },
-          path: "grammar",
-          children: [
-            {
-              text: { en: "Noun Classes", ru: "Классы существительных" },
-              path: "classes"
-            },
-          ]
-        },
+        // {
+        //   text: { en: "Grammar", ru: "Грамматика", },
+        //   path: "grammar",
+        //   children: [
+        //     {
+        //       text: { en: "Noun Classes", ru: "Классы существительных" },
+        //       path: "classes"
+        //     },
+        //   ]
+        // },
         {
           text: { en: "Dictionary", ru: "Словарь", },
           path: "dictionary",
