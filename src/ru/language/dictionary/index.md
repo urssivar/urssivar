@@ -16,8 +16,8 @@ defineProps<{
 # Кайтагский словарь
 
 ::: {.text-xs .italic}
-Составил Магомед Магомедов · С У. Гасановой, М. Гасановым  
-Контакт: +7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com)
+Составил Магомед Магомедов (+7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com))  
+Совместно с Узлипат Гасановой, Мурадом Гасановым
 
 5,171 статей · база данных 25.03.2026 · документ 25.04.2026 · лицензия [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.ru)
 :::

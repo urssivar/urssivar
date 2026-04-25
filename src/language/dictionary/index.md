@@ -16,8 +16,8 @@ defineProps<{
 # Kaitag Dictionary
 
 ::: {.text-xs .italic}
-Compiled by Magomed Magomedov · With U. Gasanova, M. Gasanov  
-Contact: +7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com)
+Compiled by Magomed Magomedov (+7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com))  
+In collaboration with Uzlipat Gasanova, Murad Gasanov
 
 5,171 entries · database 25.03.2026 · document 25.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
