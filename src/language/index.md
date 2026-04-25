@@ -14,18 +14,18 @@ import Intro from "./_intro.md";
 
 <AlphabetGrid />
 
-## [Grammar](./grammar/)
+## Grammar
 
-Codification of Kaitag grammar — a model for understanding how the language works.
+Systematic description of Kaitag grammar, from alphabet to syntax.
 
 ## [Dictionary](./dictionary/)
 
-Lexical database with 5,000+ entries — a reference for standardizing Kaitag vocabulary.
+Building the lexical foundation for Kaitag — 5,000+ entries with forms, examples, and notes.
 
 ## Phrasebook
 
-In the future, there will be a Kaitag phrasebook here.
+Practical phrases for understanding and speaking Kaitag.
 
 ## Texts
 
-In the future, there will be texts in Kaitag here.
+Oral and written texts in Kaitag with translations.
