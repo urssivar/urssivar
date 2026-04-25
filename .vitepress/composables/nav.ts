@@ -74,7 +74,7 @@ interface NavPage {
 };
 
 export const navTree = <NavPage>{
-  text: { en: "Urssivar", ru: "Urssivar", },
+  text: { en: "Mission", ru: "Миссия", },
   path: "",
   children: [
     {

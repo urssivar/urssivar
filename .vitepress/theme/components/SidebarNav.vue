@@ -39,7 +39,10 @@ const nav = useNav();
     </template>
 
     <template v-if="(nav.home.children?.length ?? 0) > 1">
-      <div :class="{ 'mt-8': nav.module }" />
+      <div v-if="nav.module" class="mt-8" />
+      <a v-else :href="nav.home.url" class="active">
+        {{ nav.home.text }}
+      </a>
       <template v-for="m in nav.home.children" :key="m.url">
         <template v-if="m != nav.module">
           <a :href="m.url">
@@ -57,6 +60,9 @@ const nav = useNav();
           </a>
         </template>
       </template>
+      <a v-if="nav.module" class="mt-8" :href="nav.home.url">
+        {{ nav.home.text }}
+      </a>
     </template>
   </nav>
 </template>
