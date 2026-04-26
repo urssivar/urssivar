@@ -16,8 +16,7 @@ defineProps<{
 # Kaitag Dictionary
 
 ::: {.text-xs .italic}
-Compiled by Magomed Magomedov (+7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com))  
-In collaboration with Uzlipat Gasanova, Murad Gasanov
+Compiled by Magomed Magomedov, in collaboration with Uzlipat Gasanova and Murad Gasanov (see [Version History](#version-history))
 
 5,171 entries · database 25.03.2026 · document 25.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
@@ -56,10 +55,11 @@ The modern Kaitag alphabet, based on the Cyrillic script, was developed in 2024 
 
 Useful resources:
 
-- Video presentation ["Evolving the Kaitag script"](https://youtu.be/Ad2o1hwYagA) on YouTube
+- Video presentation ["Evolving the Kaitag script"](https://youtu.be/Ad2o1hwYagA) on YouTube (in Russian)
 - Character set in the [Paratype language reference](https://paratype.github.io/cyrillic-languages/index.html?lang=Kaitag&group=cyrillic&ui=en&pg=2)
 - Mobile keyboards [Yandex Keyboard](https://redirect.appmetrica.yandex.com/serve/172416875559437678) and [Google Gboard](https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin)
 - Automatic text converter [Yaziv](https://yaziv.raxys.app/xdq?from=cyr_soviet&to=cyr&text=цакъкъа+къабагъ)
+- Technical specification on [GitHub](https://github.com/urssivar/script) — Unicode data, collation, and historical comparison
 
 ### Consonants
 
@@ -153,10 +153,12 @@ This extends to compound verbs as well. Though unexpected, it is supported by te
 - **чи бага́ра** "to see" → **чи ва́живде у? ва́живда** "did you see? I did"
 - **чер цабирьо́ра** "to return" → **чер ма́цирьотте** "don't return"
 
-The conventions described in this section prioritize consistency and transparency — predictable rules that can serve as a foundation for future standardization. A proper orthographic system for Kaitag remains an important work for the future.
+The conventions described in this section prioritize consistency, predictability, and transparency at this early stage. A proper orthographic system for Kaitag remains important work ahead.
 
 ## Version History
 
+Maintained by **Magomedov M. T.** from Turaga village. For questions, suggestions, or reports — +7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com).
+
 **v1.1 (2026, in progress):** In collaboration with **Gasanov M. R.** from Kirki village. Data organized as an open repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes. Additional references: **Temirbulatova S. M.** (2026).
 
-**[v1.0 (May 2025)](https://github.com/urssivar/dictionary/releases/tag/v1.0):** In collaboration with prof. **Gasanova U. U.**, based on her dissertation's Shilyagi village wordlist (2012). Includes accented headwords, grammatical forms, POS tags, and dialectal variants. Additional references: **Temirbulatova S. M.** (2004, 2008, 2021), **Gabibova K. M.** (2009). Spoken introduction: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA).
+**[v1.0 (May 2025)](https://github.com/urssivar/dictionary/releases/tag/v1.0):** In collaboration with prof. **Gasanova U. U.**, based on her dissertation's Shilyagi village wordlist (2012). Includes accented headwords, grammatical forms, POS tags, and dialectal variants. Additional references: **Temirbulatova S. M.** (2004, 2008, 2021), **Gabibova K. M.** (2009). Spoken introduction: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA) (in Russian).
