@@ -40,8 +40,16 @@ export function useDictData() {
     return Object.keys(dict) as Letter[];
   });
 
+  const total = computed(() => {
+    return Object.values(dict).reduce(
+      (t, es) => t + es.length,
+      0,
+    );
+  })
+
   return {
     letters,
     dict,
+    total,
   };
 }

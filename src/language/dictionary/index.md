@@ -7,6 +7,9 @@ description: "Bilingual Kaitag–English dictionary with forms, examples, and no
 <script setup lang="ts">
 import DictIndex from '@/components/DictionaryIndex.vue';
 import type { DictionaryIndexMode } from '@/components/DictionaryIndex.vue';
+import { useDictData } from '@/composables/dictionary';
+
+const { total } = useDictData();
 
 defineProps<{
   indexMode?: DictionaryIndexMode;
@@ -18,7 +21,7 @@ defineProps<{
 ::: {.text-xs .italic}
 Compiled by Magomed Magomedov, in collaboration with Uzlipat Gasanova and Murad Gasanov (see [Version History](#version-history))
 
-5,171 entries · database 25.03.2026 · document 25.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+{{ total }} entries · database 25.03.2026 · document 25.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
 This dictionary documents Kaitag through direct work with native speakers, building the foundation for the language's digitization and standardization. Yet, what is captured here is but a fraction of what needs to be preserved across the Kaitag villages and regions, and the work continues. Securing the language's future will take both community effort and academic support.
