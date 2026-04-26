@@ -62,7 +62,7 @@ defineProps<{
 - Символьный набор в [справочнике языков Paratype](https://paratype.github.io/cyrillic-languages/index.html?lang=Kaitag&group=cyrillic&ui=ru&pg=2)
 - Мобильные клавиатуры [Яндекс Клавиатура](https://redirect.appmetrica.yandex.com/serve/172416875559437678) и [Google Gboard](https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin)
 - Автоматический конвертер текста [Yaziv](https://yaziv.raxys.app/ru/xdq?from=cyr_soviet&to=cyr&text=цакъкъа+къабагъ)
-- Техническая спецификация на [GitHub](https://github.com/urssivar/script) — данные Unicode, порядок сортировки и историческое сравнение (на английском)
+- Техническая спецификация на [GitHub](https://github.com/urssivar/script) (на английском)
 
 ### Согласные {#consonants}
 

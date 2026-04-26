@@ -62,7 +62,7 @@ Useful resources:
 - Character set in the [Paratype language reference](https://paratype.github.io/cyrillic-languages/index.html?lang=Kaitag&group=cyrillic&ui=en&pg=2)
 - Mobile keyboards [Yandex Keyboard](https://redirect.appmetrica.yandex.com/serve/172416875559437678) and [Google Gboard](https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin)
 - Automatic text converter [Yaziv](https://yaziv.raxys.app/xdq?from=cyr_soviet&to=cyr&text=цакъкъа+къабагъ)
-- Technical specification on [GitHub](https://github.com/urssivar/script) — Unicode data, collation, and historical comparison
+- Technical specification on [GitHub](https://github.com/urssivar/script)
 
 ### Consonants
 
