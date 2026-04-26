@@ -21,9 +21,7 @@ onMounted(() =>
 <template>
   <main ref="rootEl">
     <Content />
-    <div
-      class="no-number break-before-page h-[calc(100vh-100px)] bg-red-100 relative"
-    >
+    <div class="no-number break-before-page h-[calc(100vh-106px)] relative">
       <div class="absolute w-full top-1/2 -translate-y-1/2">
         <a :href="baseUrl">
           <Stamp class="m-0!" />
