@@ -162,6 +162,6 @@ The conventions described in this section prioritize consistency, predictability
 
 Maintained by **Magomedov M. T.** from Turaga village. For questions, suggestions, or reports — +7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com).
 
-**v1.1 (2026, in progress):** In collaboration with **Gasanov M. R.** from Kirki village. Data organized as an open repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes. Additional references: **Temirbulatova S. M.** (2026).
+**v1.1 (2026, in progress):** In collaboration with **Gasanov M. R.** from Kirki village. Data organized as an open repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes.
 
 **[v1.0 (May 2025)](https://github.com/urssivar/dictionary/releases/tag/v1.0):** In collaboration with prof. **Gasanova U. U.**, based on her dissertation's Shilyagi village wordlist (2012). Includes accented headwords, grammatical forms, POS tags, and dialectal variants. Additional references: **Temirbulatova S. M.** (2004, 2008, 2021), **Gabibova K. M.** (2009). Spoken introduction: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA) (in Russian).
