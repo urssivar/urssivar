@@ -14,6 +14,10 @@
     @apply font-semibold;
   }
 
+  code {
+    font-family: "Noto Sans", sans-serif;
+  }
+
   mark {
     @apply bg-transparent underline underline-offset-[-0.15em] decoration-[0.5em] decoration-current/15 text-inherit;
     text-decoration-skip-ink: none;

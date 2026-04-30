@@ -68,33 +68,33 @@ Useful resources:
 
 :::
 
-|            |
-| :--------: | :-----: | :------: | :------: | :---: | :-----: | :-----: | :---: |
-|   /m/ м    |  /n/ н  |
-|   /b/ б    |  /d/ д  |          |          |       |  /g/ г  |
-|   /p/ п    |  /t/ т  |          |          |       |  /k/ к  |  /q/ ҡ  | /ʔ/ ъ |
-|  /pː/ пп   | /tː/ тт |          |          |       | /kː/ кк | /qː/ ҡҡ |
-|  /pʼ/ пӏ   | /tʼ/ тӏ |          |          |       | /kʼ/ кӏ | /qʼ/ ҡӏ |
-|            |         |  /ts/ ц  |  /tʃ/ ч  |
-|            |         | /tsː/ цц | /tʃː/ чч |
-|            |         | /tsʼ/ цӏ | /tʃʼ/ чӏ |
-| /β/, /ʷ/ в |         |  /z/ з   |  /ʒ/ ж   |       |         |  /ʁ/ ғ  |
-|            |         |  /s/ с   |  /ʃ/ ш   |       |  /x/ ҳ  |  /χ/ х  | /h/ ь |
-|            |         |  /ɾ/ р   |
-|            |  /l/ л  |          |          | /j/ й |
+|                |
+| :------------: | :-------: | :--------: | :--------: | :-----: | :-------: | :-------: | :-----: |
+|    `/m/` м     |  `/n/` н  |
+|    `/b/` б     |  `/d/` д  |            |            |         |  `/g/` г  |
+|    `/p/` п     |  `/t/` т  |            |            |         |  `/k/` к  |  `/q/` ҡ  | `/ʔ/` ъ |
+|   `/pː/` пп    | `/tː/` тт |            |            |         | `/kː/` кк | `/qː/` ҡҡ |
+|   `/pʼ/` пӏ    | `/tʼ/` тӏ |            |            |         | `/kʼ/` кӏ | `/qʼ/` ҡӏ |
+|                |           |  `/ts/` ц  |  `/tʃ/` ч  |
+|                |           | `/tsː/` цц | `/tʃː/` чч |
+|                |           | `/tsʼ/` цӏ | `/tʃʼ/` чӏ |
+| `/β/`, `/ʷ/` в |           |  `/z/` з   |  `/ʒ/` ж   |         |           |  `/ʁ/` ғ  |
+|                |           |  `/s/` с   |  `/ʃ/` ш   |         |  `/x/` ҳ  |  `/χ/` х  | `/h/` ь |
+|                |           |  `/ɾ/` р   |
+|                |  `/l/` л  |            |            | `/j/` й |
 
 :::
 
-> Plain stops and affricates are aspirated: /pʰ/ **п**, /tʰ/ **т**, /tsʰ/ **ц**, /tʃʰ/ **ч**, /kʰ/ **к**, /qʰ/ **ҡ**.
+> Plain stops and affricates are aspirated: `/pʰ/` **п**, `/tʰ/` **т**, `/tsʰ/` **ц**, `/tʃʰ/` **ч**, `/kʰ/` **к**, `/qʰ/` **ҡ**.
 
-The digraphs **пв** /ɸ/, **ву** /w/, and **гҳ** /ɣ/ appear in onomatopoeia only. The phonemes /ħ/ **хӏ**, /ʡ/ **гӏ**, and /uˤ/ **ю** appear in dialectal forms.
+The digraphs **пв** `/ɸ/`, **ву** `/w/`, and **гҳ** `/ɣ/` appear in onomatopoeia only. The phonemes `/ħ/` **хӏ**, `/ʡ/` **гӏ**, and `/uˤ/` **ю** appear in dialectal forms.
 
-Following a non-sonorant consonant, the letter **в** usually marks labialization rather than a separate sound: **чӏвел** /tʃʼʷel/ "two", **швел** /ʃʷel/ "five".
+Following a non-sonorant consonant, the letter **в** usually marks labialization rather than a separate sound: **чӏвел** `/tʃʼʷel/` "two", **швел** `/ʃʷel/` "five".
 
 Some varieties lose gemination syllable-finally, but it is restored before vowels and consistently preserved in spelling:
 
-- **миҡҡ [миҡ]** "wedding" → **ми́ҡҡи** "at wedding"
-- **лукка́на** "to give" → **лу́ккне [лукне]** "giving (masd.)"
+- **миҡҡ** [миҡ] "wedding" → **ми́ҡҡи** "at wedding"
+- **лукка́на** "to give" → **лу́ккне** [лукне] "giving (masd.)"
 
 Geminate fricatives vary considerably between villages and require further study. They are not listed in the alphabet as distinct letters, but shown mainly intervocalically (**ни́шша** "you (pl.)") and word-initially (**сса** "yesterday").
 
@@ -102,25 +102,25 @@ Geminate fricatives vary considerably between villages and require further study
 
 :::
 
-|              |
-| :----------: | :-------: | :-----------: |
-|  /i/ [ɪ] и   |           |     /u/ у     |
-|  /e/ [ɛ] е   | /a/ [ɐ] а | /ʷa/ [ɔ~ʷɐ] о |
-| /æ/ [æ~ɐˤ] я |           |
+|                |
+| :------------: | :---------: | :-------------: |
+|  `/i/ [ɪ]` и   |             |     `/u/` у     |
+|  `/e/ [ɛ]` е   | `/a/ [ɐ]` а | `/ʷa/ [ɔ~ʷɐ]` о |
+| `/æ/ [æ~ɐˤ]` я |             |
 
 :::
 
-The labialized segment **ва** /ʷa/ is spelled **о** for convenience:
+The labialized segment **ва** `/ʷa/` is spelled **о** for convenience:
 
-- **гон [гван]** "like"
-- **берко́на [берквана]** "to eat"
+- **гон** [гван] "like"
+- **берко́на** [берквана] "to eat"
 
-Unlike Russian, **е** /e/ and **я** /æ/ are always pure vowels and **й** /j/ is always written explicitly:
+Unlike Russian, **е** `/e/` and **я** `/æ/` are always pure vowels and **й** `/j/` is always written explicitly:
 
-- **йети́м** /jetim/ "orphan"
-- **йулға́н** /julˈʁan/ "quilt"
-- **е́тти** /etːi/ "to you"
-- **яххи́** /æχːi/ "good"
+- **йети́м** `/jetim/` "orphan"
+- **йулға́н** `/julˈʁan/` "quilt"
+- **е́тти** `/etːi/` "to you"
+- **яххи́** `/æχːi/` "good"
 
 Stress is contrastive and always marked on headwords: **ьана́** "currently" vs **ьа́на** "plate".
 
@@ -128,21 +128,21 @@ Stress is contrastive and always marked on headwords: **ьана́** "currently"
 
 Sonorant assimilation at morpheme boundaries is not reflected in spelling:
 
-- **чӏве́л** "two" → **чӏве́л-ра [чӏверра]** "both"
-- **ази́р** "thousand" → **ази́рна [азинна]** "a thousand times"
-- **у́ле** "eye", **уле́н-** (OBL) → **уле́нла [уленна] бара́ра** "to jinx"
+- **чӏве́л** "two" → **чӏве́л-ра** [чӏверра] "both"
+- **ази́р** "thousand" → **ази́рна** [азинна] "a thousand times"
+- **у́ле** "eye", **уле́н-** (OBL) → **уле́нла** [уленна] **бара́ра** "to jinx"
 
-Directional (**ка-**, **ьа-**, **ца-**) and negative (**а-**, **ма-**) prefixes shift to **я** /æ/ or **е** /e/ before roots with those vowels:
+Directional (**ка-**, **ьа-**, **ца-**) and negative (**а-**, **ма-**) prefixes shift to **я** `/æ/` or **е** `/e/` before roots with those vowels:
 
-- **бел** "still is" → **а́бел [ебел]** "no more"
-- **бертта́ра** "to rip" → **цабертта́ра [цеберттара]** "to tear"
-- **бяҡа́ра** "to wound" → **ьабяҡа́ра [ьябяҡара]** "to kick"
+- **бел** "still is" → **а́бел** [ебел] "no more"
+- **бертта́ра** "to rip" → **цабертта́ра** [цеберттара] "to tear"
+- **бяҡа́ра** "to wound" → **ьабяҡа́ра** [ьябяҡара] "to kick"
 
 The causative suffixes **-их**, **-ух**, **-ях** assimilate to the following vowel in most varieties:
 
-- **бара́ра** "to do" → **бариха́ра [барахара]** "to force to do"
-- **биьо́ра** "to be" → **биьуха́ра [биьахара]** "to let be, to make"
-- **бя́рғур** "dried" → **бя́рғяхур [бярғухур]** "made dry"
+- **бара́ра** "to do" → **бариха́ра** [барахара] "to force to do"
+- **биьо́ра** "to be" → **биьуха́ра** [биьахара] "to let be, to make"
+- **бя́рғур** "dried" → **бя́рғяхур** [бярғухур] "made dry"
 
 Morphologically separate words are written with spaces regardless of lexicalization degree:
 
