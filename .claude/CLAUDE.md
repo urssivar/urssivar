@@ -72,6 +72,13 @@ Documentation website for Kaitag language as part of Urssivar initiative (5-year
 **атта==ла==** "father's" (case ending highlighted)
 ```
 
+**Phonetic notation (Noto Sans via code ticks):**
+
+```markdown
+`/tʃʼʷel/` ← IPA (phonemic/phonetic)
+[миҡ] ← Kaitag-letter transcription (no ticks — Cyrillic renders fine in IBM Plex Sans)
+```
+
 **Sentences vs phrases:**
 
 - Sentences: capital first letter, period inside bold — `**Урши икӏул це.**`
