@@ -1,6 +1,6 @@
 ---
 title: "Kaitag Field Notes"
-description: "Findings, essays, and updates from documenting Kaitag language, history, and people."
+description: "Findings, essays, and updates from documenting the Kaitag language, culture, and history of Dagestan."
 ---
 
 <script setup lang="ts">
@@ -28,6 +28,6 @@ const notes = computed(() => {
 
 </template>
 
-Findings, essays, and updates from our work. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
+Findings, essays, and updates along the way. Also on [Telegram](https://t.me/urssivar), [YouTube](https://youtube.com/@urssivar), and [GitHub](https://github.com/urssivar).
 
 <NoteCard v-for="n in notes" :key="n.url" :page="n"/>

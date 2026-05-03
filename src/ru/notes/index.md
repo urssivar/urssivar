@@ -1,6 +1,6 @@
 ---
 title: "Кайтагские полевые заметки"
-description: "Находки, эссе и обновления о документировании кайтагского языка, истории и народа."
+description: "Находки, эссе и обновления о документации языка, культуры и истории кайтагов Дагестана."
 ---
 
 <script setup lang="ts">
@@ -28,6 +28,6 @@ const notes = computed(() => {
 
 </template>
 
-Находки, эссе и обновления о нашей работе. Также в [Telegram](https://t.me/urssivar), на [YouTube](https://youtube.com/@urssivar) и [GitHub](https://github.com/urssivar)
+Находки, эссе и обновления по ходу работы. Также в [Telegram](https://t.me/urssivar), на [YouTube](https://youtube.com/@urssivar) и [GitHub](https://github.com/urssivar).
 
 <NoteCard v-for="n in notes" :key="n.url" :page="n"/>
