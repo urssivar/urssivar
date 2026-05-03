@@ -1,6 +1,6 @@
 ---
 title: "Kaitag Language"
-description: "Grammar, dictionary, and documentation of the Kaitag language."
+description: "Grammar, dictionary, phrasebook, and texts — documenting the Kaitag language of Dagestan."
 ---
 
 <script setup lang="ts">
@@ -16,16 +16,16 @@ import Intro from "./_intro.md";
 
 ## Grammar
 
-Systematic description of Kaitag grammar, from alphabet to syntax.
+_God willing._ Systematic description of Kaitag grammar, from alphabet to syntax.
 
 ## [Dictionary](./dictionary/)
 
-Building the lexical foundation for Kaitag — 5,000+ entries with forms, examples, and notes.
+Lexical foundation for Kaitag — entries with forms, examples, and notes.
 
 ## Phrasebook
 
-Practical phrases for understanding and speaking Kaitag.
+_God willing._ Practical phrases for everyday Kaitag.
 
 ## Texts
 
-Oral and written texts in Kaitag with translations.
+_God willing._ Oral and written texts with translations.
