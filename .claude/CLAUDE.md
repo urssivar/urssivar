@@ -1,6 +1,6 @@
 # Urssivar Documentation Site - Project Guide
 
-**Last Updated:** 2026-04-07
+**Last Updated:** 2026-05-03
 **Project:** Kaitag language documentation site
 **Tech Stack:** VitePress + Nuxt UI
 **Current Phase:** Content creation
@@ -51,6 +51,64 @@ Documentation website for Kaitag language as part of Urssivar initiative (5-year
 **Three-column desktop:** Sidebar (navigation) | Content (65ch max-width) | ToC (outline)
 **Mobile:** Single column with slideout drawers
 **Print:** Linearized, clean, with proper page breaks
+
+---
+
+## Prose & Voice
+
+### Voice target
+
+**Conviction without sentimentality.** A minority-language documentation effort that knows what it's doing and why — not academic, not startup, not charity. Some defiance, some hope, both earned by the work rather than declared.
+
+- **Plain over poetic.** The facts (one generation left, language demoted in 1938, 56 villages) are heavy enough that adjectives compete with them. Cut "tragic", "vital", "rich heritage", "race against time", "reclaim the legacy".
+- **Defiance lives in rhythm, not vocabulary.** A short closing line after a paragraph of detail does more than the word _fight_. Earn the punch through what came before.
+- **Hope shown through doing, not declared.** Describing the work — recording speech, sequencing Y-DNA, mapping villages — is hopeful in itself. Skip filler closers like _There's much to be done_.
+- **No marketing scaffolding.** Avoid defaults of cause-driven landing pages: _reclaiming the legacy_, _journey_, _vibrant_, _race against time_.
+- **Plain register, not flat.** Each sentence does one thing. If it's doing two, split.
+- **Russian voice = English voice, not Russian-officialese.** Active verbs over nominalizations: _записываем_ not _осуществляется фиксация_.
+
+### Anchor "of Dagestan"
+
+Keep _of Dagestan_ (or RU _кайтагов Дагестана_) in framing lines: frontmatter descriptions, subheads, section openers. Kaitag are part of the Dagestani mosaic — the site focuses on them only because no one else will, not because they are separate from neighboring peoples. **Avoid Kaitag-vs-others framing.**
+
+### No "we" / "our" in site prose
+
+Site voice describes the work, not the agents.
+
+- **Avoid:** _our heritage_, _our ancestors_, _we document_, _we record_, _our work_.
+- **Why:** _our_ assumes a reader you don't have (a Tabasaran neighbor, a researcher in Minsk aren't part of "our"); _we_ adds nothing the work doesn't already imply.
+
+**Exception:** personal essays (e.g. `notes/lost-heritage.md`) where _I/we/my people_ is the author's lived voice, not institutional plural. Don't sanitize those.
+
+### Section pattern (proven on mission landing)
+
+````markdown
+## [Section Title](./link/)
+
+Single-sentence stake or framing.
+
+**Label A:** Bare-noun phrase or list. Second sentence with framing or stake.
+
+**Label B:** Bare-noun phrase or list. Second sentence with framing or stake.
+````
+
+Each bullet: bold label → noun fragment with no verb → second sentence adding the why/scale. The bare-noun form makes the list read like an inventory of the work itself, not a description of it. Visual scan stays clean because every bullet has the same shape.
+
+### Triad and titles
+
+- **Site-level triad:** _language, culture, and history of Dagestan_ (EN) / _языка, культуры и истории кайтагов Дагестана_ (RU). Mirror in frontmatter descriptions and subheads.
+- **Headline-style titles drop articles.** _Lost Heritage_ not _The Lost Heritage_; _Field Notes_ not _The Field Notes_. Headline impact + cross-language symmetry with article-less Russian.
+
+### Punctuation
+
+- **Quotes:** straight `"…"` for site prose in both EN and RU. Reserve `«…»` only for direct scholarly citations preserving an original Russian source's typography (e.g. blockquoted historical sources on the Flag page).
+- **Em-dashes:** for clarification, breath beats, or stake clauses. Avoid two em-dashes in adjacent sentences — restructure with possessives or articles.
+
+### Russian-specific
+
+- **Corrective negation: `не X, а Y` (not `но Y`).** _Не белый, а чёрный_; _не просто звук, а образ мышления людей_. _но_ also works grammatically but reads as a calque from English/French.
+- **Don't shadow EN syntax.** Russian needs its own cadence. Don't mirror sentence-by-sentence; let each language find its own form. Idioms often beat literal calques.
+- **Watch for root tautologies that EN's lexical variety masks.** EN has _genealogy / family tree / kinship / oral genealogies_ — distinct words. RU equivalents share roots: _генеалогия / родословные / родство_. Vary lexical fields actively (e.g. _семейная память_ in opener + _родословные_ as bullet label + _семейное древо_ in body).
 
 ---
 
