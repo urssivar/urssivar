@@ -1,6 +1,6 @@
 ---
 title: "Kaitag Language & Culture"
-description: "Preserving and studying the Kaitag language, culture, and history of Dagestan."
+description: "Documenting the Kaitag language, culture, and history of Dagestan."
 ---
 
 <script setup lang="ts">
@@ -13,29 +13,27 @@ import Notes from "./notes/index.md";
 
 _Наллара дел да. Ьам ра бел._
 
-Reclaiming the legacy of the Kaitag of Dagestan. The race against time to preserve what remains before it vanishes forever.
+Documenting the Kaitag language, culture, and history of Dagestan — while the last generation that carries them is still here.
 
 <VillageMap />
 
-This data becomes the foundation for understanding Kaitag. With sufficient volume, linguists can classify dialects and trace how the language developed, while geneticists can verify village origin legends and reconstruct the ancient history of the people.
-
-There's much to be done.
+As the record grows, the language's development can be traced, village legends tested, and the deeper history of Kaitag pieced back together.
 
 ## [Kaitag Language](./language/)
 
-To preserve the Kaitag language, we document it in its living form — through words and speech. What we don't capture now, while the last generation of speakers is alive, will be lost irretrievably.
+Kaitag in its authentic, living form. What isn't recorded now won't be recoverable later.
 
-**Dictionary:** Building the most complete lexical database across villages and dialects. Every word, variant, and form matters.
+**Dictionary:** Every word with its meanings and forms. The most complete lexical record across the villages.
 
-**Oral texts:** Recording natural speech — tales, memories, dialogues, prayers. Preserving not just sound, but mentality and culture.
+**Oral texts:** Natural speech — tales, songs, memories, prayers. Not just sound, but the way the people think.
 
 ## [Kaitag Genealogy](./genealogy/)
 
-To understand our origins and how Kaitag families connect, we trace lineages through legends and DNA analysis. Together, they reveal who our ancestors were and how villages are related.
+Where Kaitag families came from and how they connect, traced from both oral genealogies and DNA.
 
-**Family trees:** Recording names, lifespans, migrations, and kinship networks. Every family story adds to the larger picture.
+**Family trees:** Names, lifespans, migrations, kinship. Each family tree fills in part of the map.
 
-**DNA analysis:** Y-chromosomal and autosomal testing through FamilyTreeDNA. Verifying oral traditions, revealing ancestral connections, and reconstructing our past.
+**DNA analysis:** Y-chromosomal and autosomal testing. Used to find connections tradition didn't record, and date them.
 
 <Notes sub />
 
