@@ -11,16 +11,16 @@ const messages = {
       localeSwitch: 'Русский'
     },
     map: {
-      villageData: 'Villages sheet'
+      villageData: 'Village table'
     },
     nav: {
       menu: 'Menu',
       toc: 'Contents'
     },
     footer: {
-      license: 'License CC BY 4.0',
+      license: 'CC BY 4.0 License',
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
-      contact: 'Write to us',
+      contact: 'Contact',
       contactEmail: 'mailto:alkaitagi@outlook.com',
     },
     notes: {
@@ -47,7 +47,7 @@ const messages = {
     footer: {
       license: 'Лицензия CC BY 4.0',
       licenseUrl: 'https://creativecommons.org/licenses/by/4.0/deed.ru',
-      contact: 'Написать нам',
+      contact: 'Контакты',
       contactEmail: 'mailto:alkaitagi@outlook.com',
     },
     notes: {

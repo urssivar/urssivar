@@ -110,7 +110,7 @@ export const navTree = <NavPage>{
       path: "notes",
       children: [
         {
-          text: { en: "Lost Heritage", ru: "Потерянное насление", },
+          text: { en: "Lost Heritage", ru: "Потерянное наследие", },
           path: "lost-heritage",
         },
       ]

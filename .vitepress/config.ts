@@ -10,7 +10,7 @@ import { pagefindDev } from "./plugins/pagefind-dev";
 export default defineConfig({
   title: "Kaitag Language & Culture",
   titleTemplate: ':title — Urssivar',
-  description: "Preserving and studying Kaitag language, culture, history, and people.",
+  description: "Documenting the Kaitag language, culture, and history of Dagestan.",
   srcDir: "src",
   srcExclude: ["**/_*.md"],
   lang: "en",
