@@ -13,9 +13,9 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 # Kaitag Genealogy
 
-The Kaitags are an indigenous ethnic group of Dagestan whose [language](/language/) belongs to the Dargwic branch of the Northeast Caucasian family. Their homeland extends from the mountains of southern Dagestan along the Ulluchay River to the Caspian lowlands. In the early 20th century, Kaitags inhabited 56 villages across nine historical microregions.
+The Kaitag are an indigenous ethnic group of Dagestan whose [language](/language/) belongs to the Dargwic branch of the Northeast Caucasian family. Their homeland extends from the mountains of southern Dagestan along the Ulluchay River to the Caspian lowlands. In the early 20th century, the Kaitag inhabited 56 villages across nine historical microregions.
 
-Kaitags border closely related Kubachins and Dargins to the northwest, Lezgic peoples (Tabasarans and Aghuls) to the southwest, and Turkic peoples (Kumyks and Terekeme) to the east. There was also a significant Juhuri (Mountain Jewish) community.
+The Kaitag border closely related Kubachin and Dargin peoples to the northwest, Lezgic peoples of Tabasaran and Agul to the southwest, and Turkic peoples of Kumyk and Terekeme to the east. There was also a significant Juhuri (Mountain Jewish) community.
 
 The Kaitag principality appears in historical records from the 8th century, controlling strategic territories inland from Derbent. For over a millennium it resisted successive imperial powers — Persian, Arab, Mongol, Ottoman — until Russia gradually eroded its sovereignty during the Caucasian War.
 
