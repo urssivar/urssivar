@@ -24,14 +24,14 @@ Compiled by Magomed Magomedov, in collaboration with Uzlipat Gasanova and Murad 
 {{ total }} entries · database 25.03.2026 · document 25.04.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
-This dictionary documents Kaitag through direct work with native speakers, building the foundation for the language's digitization and standardization. Yet, what is captured here is but a fraction of what needs to be preserved across the Kaitag villages and regions, and the work continues. Securing the language's future will take both community effort and academic support.
+This dictionary documents Kaitag through direct work with native speakers, building the foundation for the language's digitization and standardization. Yet, what is captured here is only a fraction of what needs to be preserved across the Kaitag villages and regions, and the work continues. Securing the language's future will take both community effort and academic support.
 
 The dictionary is available in four formats:
 
-- The website [Urssivar.com](https://urssivar.com/language/dictionary) for easy access on any device
-- The [PDF document](/assets/pdfs/xdq-dictionary-en.pdf) for local storage and printing
-- The [Google Sheets](https://docs.google.com/spreadsheets/d/1TAvQAMAw0jDdStvq2Z1E-m1mz3UWkCMGQBgLCnPQgJs) table for data analysis and linguistic research
-- The [GitHub repository](https://github.com/urssivar/dictionary) for full source data and the JSON export for computational use
+- [Urssivar.com](https://urssivar.com/language/dictionary) — easy access on any device
+- [PDF document](/assets/pdfs/xdq-dictionary-en.pdf) — local storage and printing
+- [Google Sheets](https://docs.google.com/spreadsheets/d/1TAvQAMAw0jDdStvq2Z1E-m1mz3UWkCMGQBgLCnPQgJs) — data analysis and linguistic research
+- [GitHub repository](https://github.com/urssivar/dictionary) — source data and JSON export for computational work
 
 > **Note:** The dictionary is being updated toward v1.1. For a stable version, use the PDF or Google Sheets above.
 
@@ -44,7 +44,7 @@ Each entry includes a headword, grammatical tags, and definitions. Grammatical f
 The first tag always indicates _part of speech_, with forms listed accordingly:
 
 - Nouns (_n_): absolutive headword (**тӏу́пп** "finger"), oblique (**тӏуппу́-**), plural (**тӏиппе́** "fingers"). May be inherently plural (_pl_) or include an irregular locative (**ья́жни** "on Hajj").
-- Verbs (_v_): imperfective infinitive (**кабирга́ра** "to be sitting"), optionally perfective (**кабига́ра** "to sit") and preterite (**ка́бижив** "sat").
+- Verbs (_v_): imperfective infinitive (**кабирга́ра** "to be sitting"), with optional perfective (**кабига́ра** "to sit") and preterite (**ка́бижив** "sat").
 - Adjectives (_adj_): may include adverbial form with stress shift (**бухха́р** "cold" → **бу́ххал** "coldly").
 - Cardinal numerals (_num_): headword (**чӏвел** "two"), oblique (**чӏул-**), and stem (**чӏу-**).
 
@@ -87,7 +87,7 @@ Useful resources:
 
 > Plain stops and affricates are aspirated: `/pʰ/` **п**, `/tʰ/` **т**, `/tsʰ/` **ц**, `/tʃʰ/` **ч**, `/kʰ/` **к**, `/qʰ/` **ҡ**.
 
-The digraphs **пв** `/ɸ/`, **ву** `/w/`, and **гҳ** `/ɣ/` appear in onomatopoeia only. The phonemes `/ħ/` **хӏ**, `/ʡ/` **гӏ**, and `/uˤ/` **ю** appear in dialectal forms.
+The digraphs **пв** `/ɸ/`, **ву** `/w/`, and **гҳ** `/ɣ/` appear only in onomatopoeia. The phonemes `/ħ/` **хӏ**, `/ʡ/` **гӏ**, and `/uˤ/` **ю** appear in dialectal forms.
 
 Following a non-sonorant consonant, the letter **в** usually marks labialization rather than a separate sound: **чӏвел** `/tʃʼʷel/` "two", **швел** `/ʃʷel/` "five".
 
@@ -96,7 +96,7 @@ Some varieties lose gemination syllable-finally, but it is restored before vowel
 - **миҡҡ** [миҡ] "wedding" → **ми́ҡҡи** "at wedding"
 - **лукка́на** "to give" → **лу́ккне** [лукне] "giving (masd.)"
 
-Geminate fricatives vary considerably between villages and require further study. They are not listed in the alphabet as distinct letters, but shown mainly intervocalically (**ни́шша** "you (pl.)") and word-initially (**сса** "yesterday").
+Geminate fricatives vary considerably between villages and require further study. They are not listed in the alphabet as distinct letters, but appear mainly intervocalically (**ни́шша** "you (pl.)") and word-initially (**сса** "yesterday").
 
 ### Vowels
 
@@ -150,7 +150,7 @@ Morphologically separate words are written with spaces regardless of lexicalizat
 - **йяь акко́р** "unscrupulous"
 - **ча йел** "somebody"
 
-This extends to compound verbs as well. Though unexpected, it is supported by tests such as negation insertion, stress position, and short-answer behavior:
+This extends to compound verbs as well, though it may seem unexpected. Three tests support the spacing — negation insertion, stress position, and short-answer behavior:
 
 - **ул бета́ра** "to look" → **ул а́бетур** "didn't look"
 - **чи бага́ра** "to see" → **чи ва́живде у? ва́живда** "did you see? I did"
