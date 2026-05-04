@@ -1,6 +1,6 @@
 ---
 title: "Kaitag Genealogy"
-description: "Y-DNA haplogroup distribution and paternal lineages of the Kaitag of Dagestan."
+description: "Y-DNA, paternal lineages, and history of the Kaitag of Dagestan."
 ---
 
 <script setup lang="ts">
@@ -13,20 +13,20 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 # Kaitag Genealogy
 
-The Kaitags are an indigenous ethnic group of Dagestan whose language belongs to the Dargwic branch of the Northeast Caucasian family. The Kaitag ethnic zone extends from the Caspian lowlands to the mountains along the Ulluchay River in southern Dagestan. In the early 20th century, Kaitags inhabited 56 mountain villages forming nine historical microregions.
+The Kaitags are an indigenous ethnic group of Dagestan whose [language](/language/) belongs to the Dargwic branch of the Northeast Caucasian family. Their homeland extends from the mountains of southern Dagestan along the Ulluchay River to the Caspian lowlands. In the early 20th century, Kaitags inhabited 56 villages across nine historical microregions.
 
-Kaitags border closely related Kubachins and Dargins to the northwest, Lezgic peoples (Tabasarans and Aghuls) to the southwest, and Turkic populations (Kumyks and Terekeme) to the east. Historically, there was also a significant Juhuri (Mountain Jewish) population.
+Kaitags border closely related Kubachins and Dargins to the northwest, Lezgic peoples (Tabasarans and Aghuls) to the southwest, and Turkic peoples (Kumyks and Terekeme) to the east. There was also a significant Juhuri (Mountain Jewish) community.
 
-The Kaitag principality emerges in historical records from the 8th century AD, controlling strategic territories inland of Derbent. For over a millennium Kaitag resisted successive imperial powers — Persian, Arab, Mongol, Ottoman, Russian — until the latter gradually eroded its sovereignty during the Caucasian War.
+The Kaitag principality appears in historical records from the 8th century, controlling strategic territories inland from Derbent. For over a millennium it resisted successive imperial powers — Persian, Arab, Mongol, Ottoman — until Russia gradually eroded its sovereignty during the Caucasian War.
 
-The position at the crossroads of civilizations, access to Caspian trade routes, and the region's diverse ethnic composition shaped Kaitags into a distinctive part of the East Caucasian mosaic.
+And now the next chapter begins.
 
 ## Y-DNA Distribution
 
-We're collecting Y-DNA data through [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) and [YFull](https://www.yfull.com/groups/kaitag/).
+Y-DNA data comes through [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) and [YFull](https://www.yfull.com/groups/kaitag/).
 
 <DNAChart/>
 
-Current **{{ kits.length }}** samples from **{{ villages.size }}/56** villages, representing **{{ haplogroupMap.size }}** haplogroups:
+So far: **{{ kits.length }}** samples from **{{ villages.size }}/56** villages, across **{{ haplogroupMap.size }}** haplogroups.
 
 <DNATable />
