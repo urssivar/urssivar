@@ -94,10 +94,25 @@ Single-sentence stake or framing.
 
 Each bullet: bold label → noun fragment with no verb → second sentence adding the why/scale. The bare-noun form makes the list read like an inventory of the work itself, not a description of it. Visual scan stays clean because every bullet has the same shape.
 
+### Inventory bullets (no bold label)
+
+For bare lists of formats, files, or links — em-dash + bare-noun purpose, not "for [purpose]":
+
+```markdown
+- [Urssivar.com](...) — easy access on any device
+- [PDF document](...) — local storage and printing
+```
+
+Drop redundant labels outside the link (_The website [X]_ → _[X]_) and articles. Keeps the inventory legible as a scan. Different shape from the bold-label section pattern above; reach for this one when the bullets are a flat list of artifacts rather than scoped framing under a section.
+
 ### Triad and titles
 
 - **Site-level triad:** _language, culture, and history of Dagestan_ (EN) / _языка, культуры и истории кайтагов Дагестана_ (RU). Mirror in frontmatter descriptions and subheads.
 - **Headline-style titles drop articles.** _Lost Heritage_ not _The Lost Heritage_; _Field Notes_ not _The Field Notes_. Headline impact + cross-language symmetry with article-less Russian.
+
+### Ethnonyms — collective singular
+
+_The Kaitag, the Avar, the Tabasaran_ — not _-s_ plurals. Verb agreement stays plural: _the Kaitag are an indigenous group of Dagestan._ Apply consistently to neighbors named in the same context — _Kubachin and Dargin peoples_, _Lezgic peoples of Tabasaran and Agul_, _Turkic peoples of Kumyk and Terekeme_. Family labels (Lezgic, Turkic) take _peoples of X and Y_ rather than parens, since the bracketed gloss form reads as definition rather than naming.
 
 ### Punctuation
 
