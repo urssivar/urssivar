@@ -11,7 +11,7 @@ import Notes from "./notes/index.md";
 
 # Kaitag Studies
 
-_Наллара дел да. Ьам ра бел._
+_Наллара дел да. Һам ра бел._
 
 Documenting the Kaitag language, culture, and history of Dagestan — while the last generation that carries them is still here.
 
