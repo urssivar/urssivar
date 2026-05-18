@@ -130,7 +130,7 @@ Sonorant assimilation at morpheme boundaries is not reflected in spelling:
 
 - **чӏве́л** "two" → **чӏве́л-ра** [чӏверра] "both"
 - **ази́р** "thousand" → **ази́рна** [азинна] "a thousand times"
-- **у́ле** "eye", **уле́н-** (OBL) → **уле́нла** [уленна] **бара́ра** "to jinx"
+- **у́ле** "eye", **уле́н-** (OBL) → **уле́нла** [уленна] "of eye"
 
 Directional (**ка-**, **һа-**, **ца-**) and negative (**а-**, **ма-**) prefixes shift to **ӕ** `/æ/` or **е** `/e/` before roots with those vowels:
 
