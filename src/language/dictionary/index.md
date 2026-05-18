@@ -43,7 +43,7 @@ Each entry includes a headword, grammatical tags, and definitions. Grammatical f
 
 The first tag always indicates _part of speech_, with forms listed accordingly:
 
-- Nouns (_n_): absolutive headword (**тӏу́пп** "finger"), oblique (**тӏуппу́-**), plural (**тӏиппе́** "fingers"). May be inherently plural (_pl_) or include an irregular locative (**һӕ́жни** "on Hajj").
+- Nouns (_n_): absolutive headword (**тӏу́пп** "finger"), oblique (**тӏуппу́-**), plural (**тӏиппе́** "fingers"). May be inherently plural (_pl_) or include an irregular locative (**һә́жни** "on Hajj").
 - Verbs (_v_): imperfective infinitive (**кабирга́ра** "to be sitting"), with optional perfective (**кабига́ра** "to sit") and preterite (**ка́бижив** "sat").
 - Adjectives (_adj_): may include adverbial form with stress shift (**бухха́р** "cold" → **бу́ххал** "coldly").
 - Cardinal numerals (_num_): headword (**чӏвел** "two"), oblique (**чӏул-**), and stem (**чӏу-**).
@@ -54,7 +54,7 @@ Words may also carry a grammatical class (_cls_), labeled with the neuter **-б-
 
 ## Phonetics & Orthography
 
-The modern Kaitag Cyrillic alphabet was developed in 2024 and updated in 2026. It consists of 24 letters from the Russian alphabet (excluding Ёё, Фф, Щщ, Ъъ, Ыы, Ьь, Ээ, Юю, Яя), 6 extended Cyrillic letters (Ӕӕ, Ғғ, Ҡҡ, Ҳҳ, Һһ, Ӏӏ), and 12 digraphs (doubled geminates and ejectives with the palochka).
+The modern Kaitag Cyrillic alphabet was developed in 2024 and updated in 2026. It consists of 24 letters from the Russian alphabet (excluding Ёё, Фф, Щщ, Ъъ, Ыы, Ьь, Ээ, Юю, Яя), 6 extended Cyrillic letters (Әә, Ғғ, Ҡҡ, Ҳҳ, Һһ, Ӏӏ), and 12 digraphs (doubled geminates and ejectives with the palochka).
 
 Useful resources:
 
@@ -106,7 +106,7 @@ Geminate fricatives vary considerably between villages and require further study
 | :------------: | :---------: | :-------------: |
 |  `/i/ [ɪ]` и   |             |     `/u/` у     |
 |  `/e/ [ɛ]` е   | `/a/ [ɐ]` а | `/ʷa/ [ɔ~ʷɐ]` о |
-| `/æ/ [æ~ɐˤ]` ӕ |             |
+| `/æ/ [æ~ɐˤ]` ә |             |
 
 :::
 
@@ -132,22 +132,22 @@ Sonorant assimilation at morpheme boundaries is not reflected in spelling:
 - **ази́р** "thousand" → **ази́рна** [азинна] "a thousand times"
 - **у́ле** "eye", **уле́н-** (OBL) → **уле́нла** [уленна] "of eye"
 
-Directional (**ка-**, **һа-**, **ца-**) and negative (**а-**, **ма-**) prefixes shift to **ӕ** `/æ/` or **е** `/e/` before roots with those vowels:
+Directional (**ка-**, **һа-**, **ца-**) and negative (**а-**, **ма-**) prefixes shift to **ә** `/æ/` or **е** `/e/` before roots with those vowels:
 
 - **бел** "still is" → **а́бел** [ебел] "no more"
 - **бертта́ра** "to rip" → **цабертта́ра** [цеберттара] "to tear"
-- **бӕҡа́ра** "to wound" → **һабӕҡа́ра** [һӕбӕҡара] "to kick"
+- **бәҡа́ра** "to wound" → **һабәҡа́ра** [һәбәҡара] "to kick"
 
-The causative suffixes **-их**, **-ух**, **-ӕх** assimilate to the following vowel in most varieties:
+The causative suffixes **-их**, **-ух**, **-әх** assimilate to the following vowel in most varieties:
 
 - **бара́ра** "to do" → **бариха́ра** [барахара] "to force to do"
 - **биһо́ра** "to be" → **биһуха́ра** [биһахара] "to let be, to make"
-- **бӕ́рғур** "dried" → **бӕ́рғӕхур** [бӕрғухур] "made dry"
+- **бә́рғур** "dried" → **бә́рғәхур** [бәрғухур] "made dry"
 
 Morphologically separate words are written with spaces regardless of lexicalization degree:
 
-- **миг бӕрӏи́в** "ice-cold"
-- **йӕһ акко́р** "unscrupulous"
+- **миг бәрӏи́в** "ice-cold"
+- **йәһ акко́р** "unscrupulous"
 - **ча йел** "somebody"
 
 This extends to compound verbs as well, though it may seem unexpected. Three tests support the spacing — negation insertion, stress position, and short-answer behavior:
