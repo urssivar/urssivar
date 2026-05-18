@@ -54,7 +54,7 @@ Words may also carry a grammatical class (_cls_), labeled with the neuter **-б-
 
 ## Phonetics & Orthography
 
-The modern Kaitag Cyrillic alphabet was developed in 2024 and updated in 2026. It consists of 24 letters from the Russian alphabet (excluding Ёё, Фф, Щщ, Ъъ, Ыы, Ьь, Ээ, Юю, Яя), 6 extended Cyrillic letters (Әә, Ғғ, Ҡҡ, Ҳҳ, Һһ, Ӏӏ), and 12 digraphs (doubled geminates and ejectives with the palochka).
+The modern Kaitag Cyrillic alphabet was developed in 2024 and updated in 2026. It consists of 24 letters from the Russian alphabet (excluding **Ёё**, **Фф**, **Щщ**, **Ъъ**, **Ыы**, **Ьь**, **Ээ**, **Юю**, **Яя**), 6 extended Cyrillic letters (**Әә**, **Ғғ**, **Ҡҡ**, **Ҳҳ**, **Һһ**, **Ӏӏ**), and 12 digraphs (doubled geminates and ejectives with the palochka).
 
 Useful resources:
 
