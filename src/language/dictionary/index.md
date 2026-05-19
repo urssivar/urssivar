@@ -117,10 +117,10 @@ The labialized segment **ва** `/ʷa/` is spelled **о** for convenience:
 
 Unlike Russian, **е** `/e/` is always pure vowels and **й** `/j/` is always written explicitly:
 
+- **йулға́н** `/julʁan/` "quilt"
 - **йети́м** `/jetim/` "orphan"
-- **йулға́н** `/julˈʁan/` "quilt"
 - **е́тти** `/etːi/` "to you"
-- **еркӏ** `/æχːi/` "river"
+- **еркӏ** `/eɾkʼ/` "river"
 
 Stress is contrastive and always marked on headwords: **һана́** "currently" vs **һа́на** "plate".
 
