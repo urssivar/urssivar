@@ -14,9 +14,13 @@ import Intro from "./_intro.md";
 
 <AlphabetGrid />
 
+## Orthography
+
+_God willing._ Kaitag Cyrillic script — letters, sounds, and the spelling rules between them.
+
 ## Grammar
 
-_God willing._ Systematic description of Kaitag grammar, from alphabet to syntax.
+_God willing._ How Kaitag fits together — its core logic and simple rules.
 
 ## [Dictionary](./dictionary/)
 

@@ -246,7 +246,7 @@ Tables, components, etc. - extends to viewport edges
 
 **Key Data:** Dictionary JSON (2.2MB), DNA data, village coordinates
 
-**Alphabet (2024 revision):** Cyrillic-based, 27 Russian letters (minus Щ Ф Ы Э Ё Ю) + 4 additions (Ғ Ҡ Ҳ Ӏ). Ejectives use Ӏ (palochka). /ɸ/ sound = пв digraph.
+**Alphabet (2024–2026):** Cyrillic-based — 24 Russian letters (minus Ёё Фф Щщ Ъъ Ыы Ьь Ээ Юю Яя) + 6 extended Cyrillic (Әә Ғғ Ҡҡ Ҳҳ Һһ Ӏӏ) + 12 digraphs (doubled geminates and palochka ejectives). Ejectives use Ӏ (palochka), which also stands alone for /ʔ/. /ɸ/ sound = пв digraph. Authoritative inventory: dictionary intro's "Phonetics & Orthography" section.
 
 ### Print Pipeline
 
