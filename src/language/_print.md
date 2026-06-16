@@ -1,5 +1,8 @@
 ---
 layout: print
+
+### Browser settings for the PDF print:
+### scale 90%, background graphics on, 875px width
 ---
 
 <script setup>
@@ -37,10 +40,6 @@ const { dict, letters } = useDictData();
   <Intro />
 </PrintSection>
 
-<!-- <PrintSection>
-  <LangIntro />
-</PrintSection> -->
-
 <!-- <PrintSection path="grammar">
   <GrammarIntro />
 </PrintSection>
@@ -53,11 +52,11 @@ const { dict, letters } = useDictData();
   <DictIntro />
 </PrintSection>
 
-<!-- <div class="columns-2">
-  <template v-for="l in letters" :key="l">
+<div class="columns-2">
+  <template v-for="l in letters.slice(0, 1)" :key="l">
     <PrintSection :path="`dictionary/${l}`">
       <h2 class="mb-4">{{ capitalize(l) }}</h2>
       <DictionaryWord v-for="w in dict[l]" :key="w.id" :word="w" />
     </PrintSection>
   </template>
-</div> -->
+</div>
