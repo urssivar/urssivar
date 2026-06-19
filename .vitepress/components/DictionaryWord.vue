@@ -67,6 +67,15 @@ const notes = computed(() =>
       </span>
     </template>
 
+    <span
+      v-for="(html, i) in notes"
+      :key="i"
+      class="text-sm text-toned"
+    >
+      <span class="ws">{{ " " }}</span>
+      <span v-html="renderInline(html!)" />
+    </span>
+
     <span class="text-xs text-toned italic leading-normal">
       <span v-for="rel in relations" :key="rel.prefix">
         <span class="ws">{{ " " }}</span>
@@ -76,15 +85,6 @@ const notes = computed(() =>
           >{{ i < rel.words!.length - 1 ? ", " : "" }}
         </span>
       </span>
-    </span>
-    
-    <span
-      v-for="(html, i) in notes"
-      :key="i"
-      class="text-sm text-toned"
-    >
-      <span class="ws">{{ " " }}</span>
-      <span v-html="renderInline(html!)" />
     </span>
   </p>
 </template>
