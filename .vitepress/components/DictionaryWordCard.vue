@@ -3,10 +3,8 @@ import type { Word } from "@/composables/dictionary";
 import type { Lang } from "@/composables/i18n";
 import { useData } from "vitepress";
 import { computed } from "vue";
-import MarkdownIt from "markdown-it";
 import { cleanHeadword } from "@/utils";
-
-const md = new MarkdownIt();
+import { renderInline } from "@/markdown";
 
 const { word } = defineProps<{
   word: Word;
@@ -17,6 +15,17 @@ const data = useData();
 const lang = computed(() => {
   return data.lang.value as Lang;
 });
+
+const relations = computed(() =>
+  [
+    { prefix: "«", words: word.derived_from },
+    { prefix: "+", words: word.see_also },
+  ].filter((rel) => rel.words?.length),
+);
+
+const notes = computed(() =>
+  [word.note?.[lang.value], word.etymology?.[lang.value]].filter(Boolean),
+);
 </script>
 
 <template>
@@ -30,16 +39,12 @@ const lang = computed(() => {
       >
         {{ word.headword }}
       </h5>
-
       {{ " " }}
       <span v-if="word.tags?.length" class="text-xs text-toned italic pl-0.5">
         {{ word.tags.map((t) => t[lang]).join(" ") }}
       </span>
-
-      <span v-if="word.forms?.length" class="text-sm text-toned pl-2">
-        …&nbsp;<em>
-          {{ word.forms.join(", ") }}
-        </em>
+      <span v-if="word.forms?.length" class="text-sm text-toned pl-2 italic">
+        …&nbsp;{{ word.forms.join(", ") }}
       </span>
     </div>
 
@@ -49,24 +54,24 @@ const lang = computed(() => {
         'p-0': word.definitions.length == 1,
       }"
     >
-      <li v-for="d in word.definitions">
+      <li v-for="(d, i) in word.definitions" :key="i">
         <p>
-          {{ d.translation[lang]
-          }}<span v-if="d.aliases?.[lang]?.length" class="sr-only">
-            &nbsp;+&nbsp;{{ d.aliases[lang]!.join(", ") }} </span
-          ><template v-if="d.note?.[lang]"
+          <span>{{ d.translation[lang] }}</span>
+          <span v-if="d.aliases?.[lang]?.length" class="sr-only">
+            &nbsp;+&nbsp;{{ d.aliases[lang]!.join(", ") }}
+          </span>
+          <template v-if="d.note?.[lang]"
             >;
             <span
-              v-if="d.note?.[lang]"
               class="text-sm text-toned"
-              v-html="md.renderInline(d.note[lang]!)"
+              v-html="renderInline(d.note[lang]!)"
             />
           </template>
         </p>
-        <ul class="text-sm" v-if="d.examples?.length">
-          <li v-for="e in d.examples">
+        <ul v-if="d.examples?.length" class="text-sm">
+          <li v-for="(e, j) in d.examples" :key="j">
             <strong>{{ e.text }}</strong>
-            <span class="gloss" v-if="e.translation?.[lang]">
+            <span v-if="e.translation?.[lang]" class="gloss">
               —&nbsp;{{ e.translation[lang] }}
             </span>
           </li>
@@ -75,32 +80,20 @@ const lang = computed(() => {
     </ol>
 
     <p
-      v-if="word.note?.[lang]"
+      v-for="(html, i) in notes"
+      :key="i"
       class="text-sm text-toned my-2!"
-      v-html="md.renderInline(word.note[lang]!)"
-    />
-    <p
-      v-if="word.etymology?.[lang]"
-      class="text-sm text-toned my-2!"
-      v-html="md.renderInline(word.etymology[lang]!)"
+      v-html="renderInline(html!)"
     />
 
-    <p class="text-xs text-toned -indent-2 my-2!">
+    <p class="text-xs text-toned italic -indent-2 my-2!">
       <span v-if="word.variants?.length" class="ml-2">
-        =&nbsp;<em>
-          {{ word.variants.join(", ") }}
-        </em>
+        =&nbsp;{{ word.variants.join(", ") }}
       </span>
-      <span v-if="word.derived_from?.length" class="ml-2">
-        «&nbsp;<span v-for="(w, i) in word.derived_from" class="italic">
+      <span v-for="rel in relations" :key="rel.prefix" class="ml-2">
+        {{ rel.prefix }}&nbsp;<span v-for="(w, i) in rel.words" :key="w.link">
           <a :href="w.link"> {{ w.headword }} </a
-          >{{ i < word.derived_from.length - 1 ? ", " : "" }}
-        </span>
-      </span>
-      <span v-if="word.see_also?.length" class="ml-2">
-        +&nbsp;<span v-for="(w, i) in word.see_also" class="italic">
-          <a :href="w.link"> {{ w.headword }} </a
-          >{{ i < word.see_also.length - 1 ? ", " : "" }}
+          >{{ i < rel.words!.length - 1 ? ", " : "" }}
         </span>
       </span>
     </p>
