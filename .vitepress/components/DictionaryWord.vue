@@ -17,11 +17,18 @@ const lang = computed(() => {
 
 const relations = computed(() =>
   [
+    {
+      prefix: "…",
+      words: word.forms?.map((headword) => ({ headword, link: undefined })),
+    },
     { prefix: "«", words: word.derived_from },
+    {
+      prefix: "=",
+      words: word.variants?.map((headword) => ({ headword, link: undefined })),
+    },
     { prefix: "+", words: word.see_also },
   ].filter((rel) => rel.words?.length),
 );
-
 const notes = computed(() =>
   [word.note?.[lang.value], word.etymology?.[lang.value]].filter(Boolean),
 );
@@ -33,10 +40,6 @@ const notes = computed(() =>
     {{ " " }}
     <span v-if="word.tags?.length" class="text-xs text-toned italic">
       {{ word.tags.map((t) => t[lang]).join(" ") }}
-    </span>
-    <span v-if="word.forms?.length" class="text-sm text-toned italic">
-      <span class="ws">{{ " " }}</span>
-      …&nbsp;{{ word.forms.join(", ") }}
     </span>
 
     <template v-for="(d, i) in word.definitions" :key="i">
@@ -64,23 +67,24 @@ const notes = computed(() =>
       </span>
     </template>
 
-    <template v-for="(html, i) in notes" :key="i">
-      <span class="ws">{{ " " }}</span>
-      <span class="text-sm text-toned" v-html="renderInline(html!)" />
-    </template>
-
     <span class="text-xs text-toned italic leading-normal">
-      <span v-if="word.variants?.length">
-        <span class="ws">{{ " " }}</span>
-        =&nbsp;{{ word.variants.join(", ") }}
-      </span>
       <span v-for="rel in relations" :key="rel.prefix">
         <span class="ws">{{ " " }}</span>
-        {{ rel.prefix }}&nbsp;<span v-for="(w, i) in rel.words" :key="w.link">
-          <a :href="w.link">{{ w.headword }}</a
+        {{ rel.prefix }}&nbsp;<span v-for="(w, i) in rel.words" :key="w.headword">
+          <a v-if="w.link" :href="w.link">{{ w.headword }}</a
+          ><span v-else>{{ w.headword }}</span
           >{{ i < rel.words!.length - 1 ? ", " : "" }}
         </span>
       </span>
+    </span>
+    
+    <span
+      v-for="(html, i) in notes"
+      :key="i"
+      class="text-sm text-toned"
+    >
+      <span class="ws">{{ " " }}</span>
+      <span v-html="renderInline(html!)" />
     </span>
   </p>
 </template>
@@ -89,7 +93,7 @@ const notes = computed(() =>
 @reference "@/theme/styles/index.css";
 
 .ws {
-  @apply font-normal! ml-1;
+  @apply font-normal! ml-1.5;
 }
 
 a {

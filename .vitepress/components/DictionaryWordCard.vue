@@ -19,6 +19,10 @@ const lang = computed(() => {
 const relations = computed(() =>
   [
     { prefix: "«", words: word.derived_from },
+    {
+      prefix: "=",
+      words: word.variants?.map((headword) => ({ headword, link: undefined })),
+    },
     { prefix: "+", words: word.see_also },
   ].filter((rel) => rel.words?.length),
 );
@@ -87,12 +91,13 @@ const notes = computed(() =>
     />
 
     <p class="text-xs text-toned italic -indent-2 my-2!">
-      <span v-if="word.variants?.length" class="ml-2">
-        =&nbsp;{{ word.variants.join(", ") }}
-      </span>
       <span v-for="rel in relations" :key="rel.prefix" class="ml-2">
-        {{ rel.prefix }}&nbsp;<span v-for="(w, i) in rel.words" :key="w.link">
-          <a :href="w.link"> {{ w.headword }} </a
+        {{ rel.prefix }}&nbsp;<span
+          v-for="(w, i) in rel.words"
+          :key="w.headword"
+        >
+          <a v-if="w.link" :href="w.link">{{ w.headword }}</a
+          ><span v-else>{{ w.headword }}</span
           >{{ i < rel.words!.length - 1 ? ", " : "" }}
         </span>
       </span>

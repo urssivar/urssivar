@@ -39,7 +39,7 @@ The dictionary is available in four formats:
 
 ## Entry Structure
 
-Each entry includes a headword, grammatical tags, and definitions. Grammatical forms are included where relevant. Definitions may carry usage notes and examples. Some entries also include a note and etymology. Where applicable, dialect variants (=) and derived-from («) / see-also (+) links are shown.
+Each entry includes a headword, grammatical tags, and definitions. Grammatical forms are included where relevant. Definitions may carry usage notes and examples. Some entries also include a note and etymology. Where applicable, derived-from («), dialect variants (=), and see-also (+) are shown.
 
 The first tag always indicates _part of speech_, with forms listed accordingly:
 
