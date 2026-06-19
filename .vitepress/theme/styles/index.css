@@ -1,5 +1,7 @@
 @theme {
-  --font-sans: "IBM Plex Sans", "Noto Sans", "Noto Sans Math", sans-serif;
+  --font-sans:
+    "IBM Plex Sans", "Noto Sans", "Noto Sans Arabic", "Noto Sans Math",
+    sans-serif;
 }
 
 @import "tailwindcss";
