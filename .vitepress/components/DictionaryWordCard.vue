@@ -87,7 +87,7 @@ const lang = computed(() => {
 
     <p class="text-xs text-toned -indent-2 my-2!">
       <span v-if="word.variants?.length" class="ml-2">
-        ~&nbsp;<em>
+        =&nbsp;<em>
           {{ word.variants.join(", ") }}
         </em>
       </span>

@@ -53,7 +53,7 @@ const lang = computed(() => {
       </span>
       <span v-if="word.variants?.length">
         <span class="ws">{{ " " }}</span>
-        ~&nbsp;<em>{{ word.variants.join(", ") }}</em>
+        =&nbsp;<em>{{ word.variants.join(", ") }}</em>
       </span>
       <span v-if="word.derived_from?.length">
         <span class="ws">{{ " " }}</span>
