@@ -21,7 +21,7 @@ defineProps<{
 ::: {.text-xs .italic}
 Compiled by Magomed Magomedov, in collaboration with Uzlipat Gasanova and Murad Gasanov (see [Version History](#version-history))
 
-{{ total }} entries · database 21.06.2026 · document 19.06.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+{{ total }} entries · database 23.06.2026 · document 19.06.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
 This dictionary documents Kaitag through direct work with native speakers, building the foundation for the language's digitization and standardization. Yet, what is captured here is only a fraction of what needs to be preserved across the Kaitag villages and regions, and the work continues. Securing the language's future will take both community effort and academic support.
