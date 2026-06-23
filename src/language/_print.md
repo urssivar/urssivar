@@ -1,8 +1,7 @@
 ---
 layout: print
 
-### Browser settings for the PDF print:
-### scale 90%, background graphics on, 875px width
+### Print settings: width 875px, scale 90%, background graphics
 ---
 
 <script setup>
