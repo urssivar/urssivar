@@ -29,7 +29,7 @@ defineProps<{
 Словарь доступен в четырёх форматах:
 
 - [Urssivar.com](https://urssivar.com/ru/language/dictionary) — удобный доступ с любого устройства
-- [PDF документ](/assets/pdfs/xdq-dictionary-ru.pdf) — локальное хранение и печать
+- [PDF документ](/assets/pdfs/kaitag-dictionary-ru.pdf) — локальное хранение и печать
 - [Google Sheets](https://docs.google.com/spreadsheets/d/1TAvQAMAw0jDdStvq2Z1E-m1mz3UWkCMGQBgLCnPQgJs) — анализ данных и лингвистические исследования
 - [Репозиторий GitHub](https://github.com/urssivar/dictionary) — исходные данные и JSON-экспорт для вычислительных задач
 

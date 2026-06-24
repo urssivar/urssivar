@@ -29,7 +29,7 @@ This dictionary documents Kaitag through direct work with native speakers, build
 The dictionary is available in four formats:
 
 - [Urssivar.com](https://urssivar.com/language/dictionary) — easy access on any device
-- [PDF document](/assets/pdfs/xdq-dictionary-en.pdf) — local storage and printing
+- [PDF document](/assets/pdfs/kaitag-dictionary-en.pdf) — local storage and printing
 - [Google Sheets](https://docs.google.com/spreadsheets/d/1TAvQAMAw0jDdStvq2Z1E-m1mz3UWkCMGQBgLCnPQgJs) — data analysis and linguistic research
 - [GitHub repository](https://github.com/urssivar/dictionary) — source data and JSON export for computational work
 
