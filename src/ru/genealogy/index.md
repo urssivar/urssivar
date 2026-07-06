@@ -2,14 +2,14 @@
 title: "Кайтагская генеалогия"
 description: "Y-ДНК, отцовские родословные и история кайтагов Дагестана."
 ---
-
+<!-- 
 <script setup lang="ts">
 import DNATable from "@/components/DNATable.vue";
 import DNAChart from "@/components/DNAChart.vue";
 import { useDNAData } from "@/composables/dna";
 
 const { kits, villages, haplogroupMap } = useDNAData();
-</script>
+</script> -->
 
 # Кайтагская генеалогия
 
@@ -19,9 +19,9 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 Кайтагское княжество появляется в исторических источниках с VIII века, контролируя стратегические территории вглубь от Дербента. На протяжении более тысячелетия оно сопротивлялось сменявшим друг друга имперским силам — персидской, арабской, монгольской, османской — пока Россия постепенно не подорвала его суверенитет в ходе Кавказской войны.
 
-А теперь — следующая глава.
+Продолжение следует.
 
-## Y-ДНК распределение {#y-dna-distribution}
+<!-- ## Y-ДНК распределение {#y-dna-distribution}
 
 Данные Y-ДНК поступают через [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) и [YFull](https://www.yfull.com/groups/kaitag/).
 
@@ -29,4 +29,4 @@ const { kits, villages, haplogroupMap } = useDNAData();
 
 На сегодня: **{{ kits.length }}** образцов из **{{ villages.size }}/56** сёл, в **{{ haplogroupMap.size }}** гаплогруппах.
 
-<DNATable />
+<DNATable /> -->

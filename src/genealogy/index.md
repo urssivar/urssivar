@@ -3,13 +3,14 @@ title: "Kaitag Genealogy"
 description: "Y-DNA, paternal lineages, and history of the Kaitag of Dagestan."
 ---
 
+<!--
 <script setup lang="ts">
 import DNATable from "@/components/DNATable.vue";
 import DNAChart from "@/components/DNAChart.vue";
 import { useDNAData } from "@/composables/dna";
 
 const { kits, villages, haplogroupMap } = useDNAData();
-</script>
+</script> -->
 
 # Kaitag Genealogy
 
@@ -19,9 +20,9 @@ The Kaitag border closely related Kubachin and Dargin peoples to the northwest, 
 
 The Kaitag principality appears in historical records from the 8th century, controlling strategic territories inland from Derbent. For over a millennium it resisted successive imperial powers — Persian, Arab, Mongol, Ottoman — until Russia gradually eroded its sovereignty during the Caucasian War.
 
-And now the next chapter begins.
+To be continued.
 
-## Y-DNA Distribution
+<!-- ## Y-DNA Distribution
 
 Y-DNA data comes through [FamilyTreeDNA](https://www.familytreedna.com/groups/kaitag/about) and [YFull](https://www.yfull.com/groups/kaitag/).
 
@@ -29,4 +30,4 @@ Y-DNA data comes through [FamilyTreeDNA](https://www.familytreedna.com/groups/ka
 
 So far: **{{ kits.length }}** samples from **{{ villages.size }}/56** villages, across **{{ haplogroupMap.size }}** haplogroups.
 
-<DNATable />
+<DNATable /> -->
