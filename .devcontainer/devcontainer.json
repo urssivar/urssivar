@@ -4,7 +4,7 @@
     "service": "vitepress-app",
     "workspaceFolder": "/workspace",
     "forwardPorts": [
-        3000
+        5173
     ],
     "customizations": {
         "vscode": {

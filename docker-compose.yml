@@ -1,12 +1,12 @@
 services:
   vitepress-app:
     build: .
+    security_opt:
+      - label=disable
     volumes:
-      - .:/workspace:cached
+      - .:/workspace
       - node_modules:/workspace/node_modules
       - vitepress_cache:/workspace/.vitepress/cache
-    ports:
-      - "5173:5173"
     environment:
       - HOST=0.0.0.0
 
