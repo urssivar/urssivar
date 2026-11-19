@@ -21,7 +21,7 @@ defineProps<{
 ::: {.text-xs .italic}
 Compiled by Magomed Magomedov, in collaboration with Uzlipat Gasanova and Murad Gasanov (see [Version History](#version-history))
 
-{{ total }} entries · database 23.06.2026 · document 19.06.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+{{ total }} entries · database 19.11.2026 · document 19.11.2026 · license [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
 This dictionary documents Kaitag through direct work with native speakers, building the foundation for the language's digitization and standardization. Yet, what is captured here is only a fraction of what needs to be preserved across the Kaitag villages and regions, and the work continues. Securing the language's future will take both community effort and academic support.
@@ -162,6 +162,6 @@ The conventions described in this section prioritize consistency, predictability
 
 Maintained by **Magomedov M. T.** from Turaga village. For questions, suggestions, or reports — +7 999 533-93-50, [alkaitagi@outlook.com](mailto:alkaitagi@outlook.com).
 
-**v1.1 (2026, in progress):** In collaboration with **Gasanov M. R.** from Kirki village. Data organized as an open repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes. Migrated to [Kaitag script v1.2](https://github.com/urssivar/script).
+**v1.1 (Q4 2027, in progress):** In collaboration with **Gasanov M. R.** from Kirki village. Data organized as an open repository with editorial guidelines and tooling. Enriching entries with cross-references, usage examples, semantic tags, aliases, etymologies, and notes. Migrated to [Kaitag script v1.2](https://github.com/urssivar/script).
 
 **[v1.0 (May 2025)](https://github.com/urssivar/dictionary/releases/tag/v1.0):** In collaboration with prof. **Gasanova U. U.**, based on her dissertation's Shilyagi village wordlist (2012). Includes accented headwords, grammatical forms, POS tags, and dialectal variants. Additional references: **Temirbulatova S. M.** (2004, 2008, 2021), **Gabibova K. M.** (2009). Spoken introduction: ["Meet the Kaitag Dictionary"](https://youtu.be/zLPXSASLAFA) (in Russian).
