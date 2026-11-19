@@ -1,6 +1,6 @@
-FROM node:24-alpine
+FROM node:24-trixie-slim
 
-RUN apk add --no-cache bash git curl
+RUN apt-get update && apt-get install -y --no-install-recommends bash git curl ca-certificates && rm -rf /var/lib/apt/lists/*
 ENV SHELL=/bin/bash
 
 WORKDIR /workspace
